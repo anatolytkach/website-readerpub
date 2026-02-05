@@ -4,7 +4,7 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 
 <nav class="nav">
 	<div class="nav-brand">
-		<span class="logo-placeholder" aria-hidden="true"></span>
+		<img src="/images/logo.png" alt="ReaderPub" class="site-logo" />
 		<a class="nav-logo-link" href="/">{SITE_NAME}</a>
 	</div>
 	<button class="nav-toggle" type="button" aria-label="Open navigation menu">
@@ -47,6 +47,9 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 	const closeButton = document.querySelector(".nav-close");
 	const overlayLinks = document.querySelectorAll(".nav-overlay a");
 	const navLinks = document.querySelectorAll(".nav a");
+	const nav = document.querySelector(".nav");
+	const navBrand = document.querySelector(".nav-brand");
+	const navList = document.querySelector(".nav-links");
 
 	const openMenu = () => {
 		overlay?.classList.add("nav-overlay--open");
@@ -66,6 +69,15 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 	document.addEventListener("keydown", (event) => {
 		if (event.key === "Escape") closeMenu();
 	});
+
+	const updateNavLayout = () => {
+		if (!nav) return;
+		const needsCollapse = window.innerWidth < 1000;
+		nav.classList.toggle("nav--collapsed", needsCollapse);
+	};
+
+	updateNavLayout();
+	window.addEventListener("resize", updateNavLayout);
 
 	const normalizePath = (path) => path.replace(/\/+$/, "") || "/";
 	const currentPath = normalizePath(window.location.pathname);

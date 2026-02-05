@@ -12,8 +12,7 @@ const {
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/images/logo.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -29,7 +28,6 @@ const {
 	<body>
 		<div class="page">
 			<Nav />
-			<div class="nav-divider"></div>
 			<main class="content">
 				<slot />
 			</main>
@@ -46,5 +44,28 @@ const {
 				<p>© 2026, Julian Associates, Inc. Credits: Project Gutenberg</p>
 			</footer>
 		</div>
+		<script is:inline>
+			(() => {
+				const root = document.body;
+				root.classList.add("scroll-animate");
+				const targets = Array.from(document.querySelectorAll(".image-placeholder"));
+				if (!("IntersectionObserver" in window)) {
+					targets.forEach((el) => el.classList.add("is-visible"));
+					return;
+				}
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("is-visible");
+								observer.unobserve(entry.target);
+							}
+						});
+					},
+					{ rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
+				);
+				targets.forEach((el) => observer.observe(el));
+			})();
+		</script>
 	</body>
 </html>
