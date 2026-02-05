@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE_NAME } from "../consts";
+---
+
+<Base title={`${SITE_NAME} Contact`}>
+	<section class="hero">
+		<div>
+			<h1>Let’s build the next public reading platform together.</h1>
+			<p class="lede">Preview access, partnerships, and institutional pilots start here.</p>
+			<div class="cta-row">
+				<a class="button" href="mailto:hello@reader.pub">Email ReaderPub</a>
+				<a class="button secondary" href="/pricing">See pricing</a>
+			</div>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+
+	<section class="section">
+		<h2>We can help with</h2>
+		<ul class="bullets">
+			<li>Reader and author preview access.</li>
+			<li>Publisher distribution and catalog onboarding.</li>
+			<li>Institutional pilots for libraries and universities.</li>
+			<li>Government and nonprofit knowledge hubs.</li>
+		</ul>
+	</section>
+</Base>

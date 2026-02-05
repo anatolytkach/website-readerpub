@@ -1,0 +1,80 @@
+---
+import { BOOKS_URL, SITE_NAME } from "../consts";
+---
+
+<nav class="nav">
+	<div class="nav-brand">
+		<span class="logo-placeholder" aria-hidden="true"></span>
+		<a class="nav-logo-link" href="/">{SITE_NAME}</a>
+	</div>
+	<button class="nav-toggle" type="button" aria-label="Open navigation menu">
+		<span class="nav-toggle-bar"></span>
+		<span class="nav-toggle-bar"></span>
+		<span class="nav-toggle-bar"></span>
+	</button>
+	<ul class="nav-links">
+		<li><a href="/">Home</a></li>
+		<li><a href="/readers">Readers</a></li>
+		<li><a href="/authors">Authors</a></li>
+		<li><a href="/institutions">Institutions</a></li>
+		<li><a href="/technology">Technology</a></li>
+		<li><a href="/pricing">Pricing</a></li>
+		<li><a href={BOOKS_URL} target="_blank" rel="noreferrer">Books</a></li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
+</nav>
+
+<div class="nav-overlay" aria-hidden="true">
+	<div class="nav-overlay-header">
+		<span class="nav-logo">{SITE_NAME}</span>
+		<button class="nav-close" type="button" aria-label="Close navigation menu">✕</button>
+	</div>
+	<ul class="nav-overlay-links">
+		<li><a href="/">Home</a></li>
+		<li><a href="/readers">Readers</a></li>
+		<li><a href="/authors">Authors</a></li>
+		<li><a href="/institutions">Institutions</a></li>
+		<li><a href="/technology">Technology</a></li>
+		<li><a href="/pricing">Pricing</a></li>
+		<li><a href={BOOKS_URL} target="_blank" rel="noreferrer">Books</a></li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
+</div>
+
+<script is:inline>
+	const toggle = document.querySelector(".nav-toggle");
+	const overlay = document.querySelector(".nav-overlay");
+	const closeButton = document.querySelector(".nav-close");
+	const overlayLinks = document.querySelectorAll(".nav-overlay a");
+	const navLinks = document.querySelectorAll(".nav a");
+
+	const openMenu = () => {
+		overlay?.classList.add("nav-overlay--open");
+		overlay?.setAttribute("aria-hidden", "false");
+		document.body.classList.add("nav-open");
+	};
+
+	const closeMenu = () => {
+		overlay?.classList.remove("nav-overlay--open");
+		overlay?.setAttribute("aria-hidden", "true");
+		document.body.classList.remove("nav-open");
+	};
+
+	toggle?.addEventListener("click", openMenu);
+	closeButton?.addEventListener("click", closeMenu);
+	overlayLinks.forEach((link) => link.addEventListener("click", closeMenu));
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Escape") closeMenu();
+	});
+
+	const normalizePath = (path) => path.replace(/\/+$/, "") || "/";
+	const currentPath = normalizePath(window.location.pathname);
+	navLinks.forEach((link) => {
+		const href = link.getAttribute("href");
+		if (!href || href.startsWith("http")) return;
+		if (normalizePath(href) === currentPath) {
+			link.classList.add("is-active");
+			link.setAttribute("aria-current", "page");
+		}
+	});
+</script>

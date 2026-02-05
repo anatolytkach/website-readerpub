@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import { BOOKTREE_NAME, SITE_NAME } from "../consts";
+---
+
+<Base title={`${SITE_NAME} for Authors`}>
+	<section class="hero">
+		<div>
+			<h1>Move from research to published work faster.</h1>
+			<p class="lede">{BOOKTREE_NAME} is the productivity system for authors and researchers.</p>
+			<div class="cta-row">
+				<a class="button" href="/contact">Join as an author</a>
+				<a class="button secondary" href="/pricing">See pricing</a>
+			</div>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+
+	<section class="section">
+		<h2>Author benefits</h2>
+		<ul class="bullets">
+			<li>Organize sources, annotations, and drafts in one place.</li>
+			<li>Publish to a public audience or private collaborators.</li>
+			<li>Build authority with transparent references and updates.</li>
+			<li>Keep work structured across projects and editions.</li>
+		</ul>
+	</section>
+
+	<section class="section split">
+		<div>
+			<h2>Make your research legible</h2>
+			<p>Show your sources, evolve your ideas, and invite the right readers.</p>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+</Base>

@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import { SITE_NAME, SITE_DOMAIN } from "../consts";
+
+const {
+	title = `${SITE_NAME} — Public Reading and Publishing Platform`,
+	description = `${SITE_NAME} is a public reading and publishing platform for readers, authors, and institutions.`,
+} = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="application-name" content={SITE_NAME} />
+		<meta name="author" content={SITE_NAME} />
+		<meta name="hostname" content={SITE_DOMAIN} />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+		/>
+	</head>
+	<body>
+		<div class="page">
+			<Nav />
+			<div class="nav-divider"></div>
+			<main class="content">
+				<slot />
+			</main>
+			<footer class="site-footer">
+				<p>
+					<strong>WORK IN PROGRESS</strong>: ReaderPub is still in development as a publishing
+					platform.
+				</p>
+				<p>
+					Reading access to over <strong>80K books</strong> is already available to everyone.
+					<a href="/contact"><strong>Early publishing access</strong></a> is now available to
+					authors and institutions.
+				</p>
+				<p>© 2026, Julian Associates, Inc. Credits: Project Gutenberg</p>
+			</footer>
+		</div>
+	</body>
+</html>

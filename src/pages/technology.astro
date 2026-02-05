@@ -1,0 +1,55 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE_NAME } from "../consts";
+---
+
+<Base title={`${SITE_NAME} Technology`}>
+	<section class="hero">
+		<div>
+			<h1>Technology built for public reading and institutional publishing</h1>
+			<p class="lede">
+				ReaderPub combines modern web reading with institutional-grade publishing workflows.
+			</p>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+
+	<section class="section">
+		<h2>What powers ReaderPub</h2>
+		<ul class="bullets">
+			<li>Web-native reading — fast, accessible reading in the browser. No apps, no downloads.</li>
+			<li>Designed for real catalogs — works with large, structured collections.</li>
+			<li>Reader-first experience — clean typography and deep navigation for long-form reading.</li>
+			<li>Built for institutions — supports public access, controlled publishing, and pilots.</li>
+		</ul>
+	</section>
+
+	<section class="section">
+		<h2>Platform components</h2>
+		<div class="card-grid">
+			<div class="card">
+				<h3>WeRead</h3>
+				<p>Modern web reader for readers, students, and researchers.</p>
+			</div>
+			<div class="card">
+				<h3>BookTree</h3>
+				<p>Productivity system for authors and researchers to capture excerpts and organize sources.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<h2>Why this matters</h2>
+		<ul class="bullets">
+			<li>No proprietary apps required</li>
+			<li>No lock-in to a single deployment model</li>
+			<li>Suitable for libraries, universities, publishers, and public organizations</li>
+			<li>Scales from public catalogs to institutional pilots</li>
+		</ul>
+	</section>
+
+	<section class="footer-cta">
+		<p>Interested in how this fits your organization?</p>
+		<a class="button" href="/contact">Contact us</a>
+	</section>
+</Base>

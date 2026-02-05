@@ -1,17 +1,89 @@
 ---
-
+import Base from "../layouts/Base.astro";
+import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title={`${SITE_NAME} — Public Reading and Publishing Platform`}>
+	<section class="hero">
+		<div>
+			<h1>A public home for reading, publishing, and shared knowledge.</h1>
+			<p class="lede">
+				{SITE_NAME} connects readers, authors, and institutions through {WEREAD_NAME} and
+				{BOOKTREE_NAME}.
+			</p>
+			<div class="cta-row">
+				<a class="button" href="/contact">Join the preview</a>
+				<a class="button secondary" href={BOOKS_URL} target="_blank" rel="noreferrer">
+					Browse books
+				</a>
+			</div>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+
+	<section class="section">
+		<h2>The ReaderPub platform family</h2>
+		<p>One public platform with two focused experiences.</p>
+		<div class="card-grid">
+			<div class="card">
+				<h3>{SITE_NAME}</h3>
+				<p>Public reading and publishing with open discovery and collections.</p>
+			</div>
+			<div class="card">
+				<h3>{WEREAD_NAME}</h3>
+				<p>A modern web reader built for long-form reading and shared libraries.</p>
+			</div>
+			<div class="card">
+				<h3>{BOOKTREE_NAME}</h3>
+				<p>Capture, structure, and publish research with clarity and speed.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section split">
+		<div>
+			<h2>Who ReaderPub serves</h2>
+			<p>Three core audiences, one public platform.</p>
+			<ul class="bullets">
+				<li>Readers who want trusted discovery and lasting libraries.</li>
+				<li>Authors and researchers who publish with transparency.</li>
+				<li>
+					Institutions, including publishers, libraries, universities, government, and public
+					organizations.
+				</li>
+			</ul>
+			<div class="cta-row">
+				<a class="button secondary" href="/institutions">Explore institutions</a>
+			</div>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+
+	<section class="section">
+		<h2>Common use cases</h2>
+		<div class="card-grid">
+			<div class="card">
+				<h3>Public reading rooms</h3>
+				<p>Curated digital shelves for communities and partners.</p>
+			</div>
+			<div class="card">
+				<h3>Research publishing</h3>
+				<p>Release working papers, living books, and open archives.</p>
+			</div>
+			<div class="card">
+				<h3>Learning programs</h3>
+				<p>Support cohort-based learning and reading challenges.</p>
+			</div>
+			<div class="card">
+				<h3>Professional libraries</h3>
+				<p>Share expertise across teams, agencies, or nonprofit networks.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="footer-cta">
+		<h2>Be first to launch with ReaderPub</h2>
+		<p>Talk to us about preview access, partnerships, and institutional pilots.</p>
+		<a class="button" href="/contact">Contact ReaderPub</a>
+	</section>
+</Base>

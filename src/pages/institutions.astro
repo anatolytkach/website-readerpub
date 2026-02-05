@@ -1,0 +1,70 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE_NAME } from "../consts";
+---
+
+<Base title={`${SITE_NAME} for Institutions`}>
+	<section class="hero">
+		<div>
+			<h1>Institutions bring knowledge to the public. ReaderPub scales it.</h1>
+			<p class="lede">A single platform for institutions publishing and sharing trusted reading.</p>
+			<div class="cta-row">
+				<a class="button" href="/contact">Plan an institutional pilot</a>
+				<a class="button secondary" href="/pricing">See pricing</a>
+			</div>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+
+	<section class="section">
+		<h2>Institution audiences</h2>
+		<p>ReaderPub supports the full institutional spectrum with tailored experiences.</p>
+		<div class="card-grid">
+			<div class="card">
+				<h3>Publishers</h3>
+				<ul class="bullets">
+					<li>Launch catalogs with public reach.</li>
+					<li>Control access by channel or program.</li>
+					<li>Track engagement across titles.</li>
+				</ul>
+				<a class="button secondary" href="/institutions/publishers">Explore publishers</a>
+			</div>
+			<div class="card">
+				<h3>Libraries</h3>
+				<ul class="bullets">
+					<li>Extend collections with digital reading rooms.</li>
+					<li>Curate shelves for communities and partners.</li>
+					<li>Run reading programs with impact.</li>
+				</ul>
+				<a class="button secondary" href="/institutions/libraries">Explore libraries</a>
+			</div>
+			<div class="card">
+				<h3>Universities</h3>
+				<ul class="bullets">
+					<li>Support research publishing and archives.</li>
+					<li>Power coursework and cohort reading.</li>
+					<li>Unify campus libraries and labs.</li>
+				</ul>
+				<a class="button secondary" href="/institutions/universities">Explore universities</a>
+			</div>
+			<div class="card">
+				<h3>Government</h3>
+				<ul class="bullets">
+					<li>Publish public documents and policy libraries.</li>
+					<li>Improve transparency and access.</li>
+					<li>Serve staff and constituents together.</li>
+				</ul>
+				<a class="button secondary" href="/institutions/government">Explore government</a>
+			</div>
+			<div class="card">
+				<h3>Public organizations</h3>
+				<ul class="bullets">
+					<li>Share mission-driven knowledge at scale.</li>
+					<li>Curate resources for communities and partners.</li>
+					<li>Publish reports with lasting visibility.</li>
+				</ul>
+				<a class="button secondary" href="/institutions/public-organizations">Explore public orgs</a>
+			</div>
+		</div>
+	</section>
+</Base>

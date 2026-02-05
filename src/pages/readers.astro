@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE_NAME, WEREAD_NAME } from "../consts";
+---
+
+<Base title={`${SITE_NAME} for Readers`}>
+	<section class="hero reverse">
+		<div>
+			<h1>Readers deserve a public, powerful library.</h1>
+			<p class="lede">{WEREAD_NAME} is the web reader that makes discovery, depth, and sharing easy.</p>
+			<div class="cta-row">
+				<a class="button" href="/contact">Join as a reader</a>
+				<a class="button secondary" href="/pricing">See pricing</a>
+			</div>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+
+	<section class="section">
+		<h2>Reader benefits</h2>
+		<ul class="bullets">
+			<li>Curated shelves, reading plans, and discovery lists.</li>
+			<li>One library across personal, academic, and professional reading.</li>
+			<li>Follow authors, series, and institutions in one feed.</li>
+			<li>Private notes that stay with you across devices.</li>
+		</ul>
+	</section>
+
+	<section class="section split">
+		<div>
+			<h2>Built for serious reading</h2>
+			<p>Long-form, distraction-free, and made for deep attention.</p>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+</Base>
