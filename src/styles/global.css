@@ -255,6 +255,16 @@ h3 {
 	align-items: center;
 }
 
+.hero > .image-placeholder:first-child {
+	margin-left: -24px;
+	margin-right: auto;
+}
+
+.hero > .image-placeholder:last-child {
+	margin-left: auto;
+	margin-right: -24px;
+}
+
 .hero > * {
 	flex: 1 1 320px;
 	min-width: 280px;
@@ -394,6 +404,30 @@ h3 {
 	align-items: center;
 }
 
+.split > .image-placeholder:first-child {
+	justify-self: start;
+	margin-right: auto;
+	margin-left: -24px;
+}
+
+.split > .image-placeholder:last-child {
+	justify-self: end;
+	margin-left: auto;
+	margin-right: -24px;
+}
+
+.split.reverse > .image-placeholder:first-child {
+	justify-self: end;
+	margin-left: auto;
+	margin-right: -24px;
+}
+
+.split.reverse > .image-placeholder:last-child {
+	justify-self: start;
+	margin-right: auto;
+	margin-left: -24px;
+}
+
 .split > .section + .section {
 	margin-top: 0;
 }
@@ -404,10 +438,6 @@ h3 {
 
 .split.split-wide-lg {
 	gap: 48px;
-	align-items: start;
-}
-
-.split.split-align-top {
 	align-items: start;
 }
 
@@ -538,6 +568,18 @@ h3 {
 
 .image-placeholder.image-bleed-left img {
 	object-position: left center;
+}
+
+.image-placeholder.image-home-serve {
+	justify-content: flex-end;
+}
+
+.image-placeholder.image-home-serve img {
+	width: 90%;
+	height: auto;
+	max-width: none;
+	margin-left: auto;
+	object-position: right center;
 }
 
 .image-placeholder.image-xl {
