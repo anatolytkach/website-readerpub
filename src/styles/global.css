@@ -378,7 +378,8 @@ h3 {
 }
 
 .card h3 {
-	font-size: 18px;
+	font-size: 22px;
+	color: #028f80;
 }
 
 .card p {
@@ -391,6 +392,10 @@ h3 {
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 24px;
 	align-items: center;
+}
+
+.split.split-wide {
+	gap: 36px;
 }
 
 @media (min-width: 721px) {
@@ -481,6 +486,14 @@ h3 {
 	max-width: 552px;
 }
 
+.image-placeholder.image-large-sm {
+	max-width: 442px;
+}
+
+.image-placeholder.image-large-xs {
+	max-width: 400px;
+}
+
 .image-placeholder.image-bleed-right {
 	justify-self: end;
 	margin-left: auto;
@@ -492,6 +505,27 @@ h3 {
 
 .image-placeholder.image-bleed-right img {
 	object-position: right center;
+}
+
+.image-placeholder.image-bleed-left {
+	justify-self: start;
+	margin-right: auto;
+	width: calc(100% + 24px);
+	max-width: 552px;
+	margin-left: -24px;
+	justify-content: flex-start;
+}
+
+.image-placeholder.image-bleed-left img {
+	object-position: left center;
+}
+
+.image-placeholder.image-xl {
+	max-width: 600px;
+}
+
+.image-placeholder.image-xl-sm {
+	max-width: 480px;
 }
 
 .image-placeholder img {
