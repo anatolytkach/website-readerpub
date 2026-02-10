@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { SITE_NAME } from "../consts";
+import { BOOKS_URL, SITE_NAME } from "../consts";
 ---
 
 <Base title={`${SITE_NAME} Technology`}>
@@ -28,6 +28,7 @@ import { SITE_NAME } from "../consts";
 					Publishing layer for institutions and organizations.<br />
 					Publish, organize, and distribute reading collections through a consistent web experience.
 				</p>
+				<a class="button secondary" href="/wepub">Explore WePub</a>
 			</div>
 			<div class="card">
 				<h3>WeRead</h3>
@@ -35,6 +36,9 @@ import { SITE_NAME } from "../consts";
 					Modern web reader for readers, students, and researchers.<br />
 					Designed for long-form reading, discovery, and public access in the browser.
 				</p>
+				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
+					Read 80K books with WeRead
+				</a>
 			</div>
 			<div class="card">
 				<h3>BookTree</h3>
@@ -48,14 +52,17 @@ import { SITE_NAME } from "../consts";
 
 	<section class="section">
 		<div class="image-full">
-			<img src="/images/chain.png" alt="Connected reading and publishing chain" />
+			<picture>
+				<source srcset="/images/chain1.png" media="(orientation: portrait)" />
+				<img src="/images/chain.png" alt="Connected reading and publishing chain" />
+			</picture>
 		</div>
 	</section>
 
 	<section class="split split-wide-lg">
 		<div class="section">
 			<h2>What powers ReaderPub</h2>
-			<p>A modern foundation for public reading at scale.</p>
+			<p>A modern foundation for public and professional reading at scale.</p>
 			<ul class="bullets">
 				<li>Web-native reading — fast, accessible reading in the browser. No apps, no downloads.</li>
 				<li>Designed for real catalogs — works with large, structured collections.</li>
