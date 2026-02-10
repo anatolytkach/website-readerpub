@@ -407,6 +407,10 @@ h3 {
 	align-items: start;
 }
 
+.split.split-align-top {
+	align-items: start;
+}
+
 @media (min-width: 721px) {
 	.split.reverse > :first-child {
 		order: 2;
@@ -503,6 +507,13 @@ h3 {
 	max-width: 400px;
 }
 
+.image-placeholder.image-author-bleed {
+	justify-self: end;
+	margin-left: auto;
+	margin-right: -24px;
+	align-self: start;
+}
+
 .image-placeholder.image-bleed-right {
 	justify-self: end;
 	margin-left: auto;
@@ -535,6 +546,18 @@ h3 {
 
 .image-placeholder.image-xl-sm {
 	max-width: 480px;
+}
+
+.image-placeholder.image-15-sm {
+	max-width: 470px;
+	width: 85%;
+	justify-content: flex-end;
+}
+
+.image-placeholder.image-15-sm img {
+	width: 95%;
+	height: auto;
+	max-height: 100%;
 }
 
 .image-placeholder img {
