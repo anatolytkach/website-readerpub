@@ -52,17 +52,46 @@ import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
 			<div class="card">
 				<h3>WePub</h3>
 				<p>Public reading and publishing with open discovery and collections.</p>
+				<button class="button secondary" type="button" data-modal-open="#wepub-modal">
+					Explore WePub
+				</button>
 			</div>
 			<div class="card">
 				<h3>{WEREAD_NAME}</h3>
 				<p>A modern web reader built for long-form reading and shared libraries.</p>
+				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
+					Read 80K books with WeRead
+				</a>
 			</div>
 			<div class="card">
 				<h3>{BOOKTREE_NAME}</h3>
 				<p>Capture, structure, and publish research with clarity and speed.</p>
+				<button class="button secondary" type="button" data-modal-open="#booktree-modal">
+					Explore BookTree
+				</button>
 			</div>
 		</div>
 	</section>
+
+	<div class="modal" id="wepub-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-modal-close></div>
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub preview">
+			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
+				×
+			</button>
+			<img src="/images/wepub.png" alt="WePub preview" />
+		</div>
+	</div>
+
+	<div class="modal" id="booktree-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-modal-close></div>
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree preview">
+			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
+				×
+			</button>
+			<img src="/images/booktree.png" alt="BookTree preview" />
+		</div>
+	</div>
 
 	<section class="split">
 		<div class="section">
@@ -125,4 +154,41 @@ import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
 		<p>Talk to us about preview access, partnerships, and institutional pilots.</p>
 		<a class="button" href="/contact">Contact ReaderPub</a>
 	</section>
+
+	<script is:inline>
+		(() => {
+			const openButtons = Array.from(document.querySelectorAll("[data-modal-open]"));
+			const modals = Array.from(document.querySelectorAll(".modal"));
+
+			const closeModal = (modal) => {
+				if (!modal) return;
+				modal.classList.remove("is-open");
+				modal.setAttribute("aria-hidden", "true");
+			};
+
+			const openModal = (modal) => {
+				if (!modal) return;
+				modal.classList.add("is-open");
+				modal.setAttribute("aria-hidden", "false");
+			};
+
+			openButtons.forEach((btn) => {
+				btn.addEventListener("click", () => {
+					const target = btn.getAttribute("data-modal-open");
+					const modal = target ? document.querySelector(target) : null;
+					openModal(modal);
+				});
+			});
+
+			modals.forEach((modal) => {
+				const closeTargets = modal.querySelectorAll("[data-modal-close]");
+				closeTargets.forEach((el) => el.addEventListener("click", () => closeModal(modal)));
+			});
+
+			document.addEventListener("keydown", (event) => {
+				if (event.key !== "Escape") return;
+				modals.forEach((modal) => closeModal(modal));
+			});
+		})();
+	</script>
 </Base>
