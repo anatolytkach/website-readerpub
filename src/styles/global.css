@@ -602,6 +602,13 @@ h3 {
 	max-height: 100%;
 }
 
+.image-placeholder.image-publishers-xl img {
+	width: 107%;
+	height: auto;
+	max-width: none;
+	object-position: right center;
+}
+
 .image-placeholder img {
 	width: 100%;
 	height: 100%;
@@ -618,6 +625,63 @@ h3 {
 	height: auto;
 	display: block;
 	object-fit: contain;
+}
+
+.modal {
+	position: fixed;
+	inset: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	z-index: 1100;
+	padding: 24px;
+}
+
+.modal.is-open {
+	display: flex;
+}
+
+.modal-backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(20, 23, 31, 0.35);
+}
+
+.modal-content {
+	position: relative;
+	z-index: 1;
+	max-width: min(920px, 92vw);
+	max-height: 88vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-content img {
+	max-width: 100%;
+	max-height: 88vh;
+	height: auto;
+	display: block;
+	object-fit: contain;
+}
+
+.modal-close {
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	width: 36px;
+	height: 36px;
+	border-radius: 999px;
+	border: 1px solid var(--border);
+	background: #ffffff;
+	color: var(--text);
+	font-size: 20px;
+	line-height: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	box-shadow: 0 8px 20px rgba(20, 23, 31, 0.15);
 }
 
 @media (prefers-reduced-motion: reduce) {
