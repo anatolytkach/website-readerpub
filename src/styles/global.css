@@ -38,7 +38,7 @@ h3 {
 .page {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 32px 24px 120px;
+	padding: 32px 24px 0;
 }
 
 .content {
@@ -723,6 +723,7 @@ h3 {
 .site-footer {
 	margin-top: 64px;
 	padding-top: 24px;
+	padding-bottom: 24px;
 	text-align: center;
 	display: grid;
 	gap: 8px;
@@ -757,7 +758,7 @@ h3 {
 
 @media (max-width: 720px) {
 	.page {
-		padding: 24px 18px 80px;
+		padding: 24px 18px 0;
 	}
 
 	.image-placeholder.image-bleed-right {
