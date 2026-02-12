@@ -39,7 +39,9 @@ const {
 			(() => {
 				const root = document.body;
 				root.classList.add("scroll-animate");
-				const targets = Array.from(document.querySelectorAll(".image-placeholder"));
+				const targets = Array.from(
+					document.querySelectorAll(".image-placeholder, .image-block")
+				);
 				if (!("IntersectionObserver" in window)) {
 					targets.forEach((el) => el.classList.add("is-visible"));
 					return;

@@ -1,57 +1,95 @@
 ---
 import Base from "../layouts/Base.astro";
 import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
+
+const featuredBooks = [
+	{
+		title: "Book Title 1",
+		author: "Author Name 1",
+		readUrl: `${BOOKS_URL}#book-1`,
+		buyUrl: "/contact",
+	},
+	{
+		title: "Book Title 2",
+		author: "Author Name 2",
+		readUrl: `${BOOKS_URL}#book-2`,
+		buyUrl: "/contact",
+	},
+	{
+		title: "Book Title 3",
+		author: "Author Name 3",
+		readUrl: `${BOOKS_URL}#book-3`,
+		buyUrl: "/contact",
+	},
+	{
+		title: "Book Title 4",
+		author: "Author Name 4",
+		readUrl: `${BOOKS_URL}#book-4`,
+		buyUrl: "/contact",
+	},
+	{
+		title: "Book Title 5",
+		author: "Author Name 5",
+		readUrl: `${BOOKS_URL}#book-5`,
+		buyUrl: "/contact",
+	},
+	{
+		title: "Book Title 6",
+		author: "Author Name 6",
+		readUrl: `${BOOKS_URL}#book-6`,
+		buyUrl: "/contact",
+	},
+];
 ---
 
 <Base title={`${SITE_NAME} — Public Reading and Publishing Platform`}>
 	<section class="hero">
 		<div>
-			<h1>A public home for reading, publishing, and shared knowledge.</h1>
+			<h1>A live platform for reading and publishing on the public web.</h1>
 			<p class="lede">
-				{SITE_NAME} connects readers, authors, and institutions through {WEREAD_NAME} and
-				{BOOKTREE_NAME}.
+				{SITE_NAME} is live: read now with {WEREAD_NAME}, publish with WePub, and organize
+				sources with {BOOKTREE_NAME}.
 			</p>
 			<div class="cta-row">
-				<a class="button" href="/contact">Join the preview</a>
-				<a class="button secondary" href={BOOKS_URL} target="_blank" rel="noreferrer">
+				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
 					Browse books
 				</a>
+				<a class="button secondary" href="/publish">Publish your book</a>
+				<a class="button secondary" href="/contact">Institutional onboarding</a>
 			</div>
 		</div>
-		<div class="image-placeholder image-actual image-large">
-			<img
-				src="/images/home2.png"
-				alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
-			/>
-		</div>
+		<img
+			class="image-block image-large"
+			src="/images/home2.png"
+			alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
+		/>
 	</section>
 
 	<section class="split">
-		<div class="image-placeholder image-actual">
-			<img
-				src="/images/home3.png"
-				alt="Instant web reading experience without apps or downloads"
-			/>
-		</div>
+		<img
+			class="image-block"
+			src="/images/home3.png"
+			alt="Instant web reading experience without apps or downloads"
+		/>
 		<div class="section">
 			<h2>Read instantly on the web</h2>
-			<p>A full reader experience without installing a thing.</p>
+			<p>Open a book in one click. No apps, no setup, no friction.</p>
 			<ul class="bullets">
-				<li>No major library offers a true web reader with app-level UX.</li>
-				<li>Many readers prefer not to install more reading apps.</li>
-				<li>WeRead opens with a single click — no downloads, no setup.</li>
-				<li>The comfort of a dedicated reader, right in the browser.</li>
+				<li>Web-first reading with dedicated-reader comfort.</li>
+				<li>Works across devices — pick up where you left off.</li>
+				<li>Instant access from a link: no downloads, no installs.</li>
+				<li>Built for long sessions: clean UI, fast loading.</li>
 			</ul>
 		</div>
 	</section>
 
 	<section class="section">
 		<h2>The ReaderPub platform family</h2>
-		<p>One public platform with two focused experiences.</p>
+		<p>Three components, one public platform.</p>
 		<div class="card-grid">
 			<div class="card">
 				<h3>WePub</h3>
-				<p>Public reading and publishing with open discovery and collections.</p>
+				<p>Publish to the web, enable sales and rentals, and build fan clubs around titles.</p>
 				<button class="button secondary" type="button" data-modal-open="#wepub-modal">
 					Explore WePub
 				</button>
@@ -99,7 +137,7 @@ import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
 			<p>Three core audiences, one public platform.</p>
 			<ul class="bullets">
 				<li>Readers who want trusted discovery and lasting libraries.</li>
-				<li>Authors and researchers who publish with transparency.</li>
+				<li>Authors who publish, market, sell, and rent directly to readers.</li>
 				<li>
 					Institutions, including publishers, libraries, universities, government, and public
 					organizations.
@@ -111,11 +149,40 @@ import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
 				<a class="button secondary" href="/institutions">Explore Institutions</a>
 			</div>
 		</div>
-		<div class="image-placeholder image-actual image-bleed-right image-home-serve">
-			<img
-				src="/images/home1.png"
-				alt="ReaderPub serves readers, authors, and institutions on a shared platform"
-			/>
+		<img
+			class="image-block image-bleed-right image-home-serve"
+			src="/images/home1.png"
+			alt="ReaderPub serves readers, authors, and institutions on a shared platform"
+		/>
+	</section>
+
+	<section class="section">
+		<h2>ReaderPub is a live publishing marketplace.</h2>
+		<p>
+			80,000+ public-domain books are already available in the Catalog (with thanks to Project
+			Gutenberg). These featured titles are independent releases published by authors on
+			ReaderPub.
+		</p>
+		<p>Featured Independent Releases</p>
+		<div class="card-grid">
+			{featuredBooks.map((b) => (
+				<div class="card">
+					<h3>{b.title}</h3>
+					<p>{b.author}</p>
+					<div class="cta-row">
+						<a class="button secondary" href={b.readUrl} target="_blank" rel="noreferrer">
+							Read
+						</a>
+						<a class="button secondary" href={b.buyUrl}>Buy</a>
+					</div>
+				</div>
+			))}
+		</div>
+		<div class="cta-row">
+			<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
+				Browse 80,000+ books
+			</a>
+			<a class="button secondary" href="/publish">Start publishing</a>
 		</div>
 	</section>
 
@@ -150,9 +217,9 @@ import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
 	</section>
 
 	<section class="footer-cta">
-		<h2>Be first to launch with ReaderPub</h2>
-		<p>Talk to us about preview access, partnerships, and institutional pilots.</p>
-		<a class="button" href="/contact">Contact ReaderPub</a>
+		<h2>Onboard your organization on ReaderPub</h2>
+		<p>Libraries, publishers, and universities: tell us what you need. We’ll set up your onboarding.</p>
+		<a class="button" href="/contact">Institutional onboarding</a>
 	</section>
 
 	<script is:inline>

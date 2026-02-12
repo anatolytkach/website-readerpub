@@ -42,9 +42,20 @@ h3 {
 }
 
 .content {
-	display: flex;
-	flex-direction: column;
-	gap: 48px;
+	display: block;
+}
+
+section {
+	padding: 58px 0;
+	margin: 0;
+}
+
+section > :first-child {
+	margin-top: 0 !important;
+}
+
+section > :last-child {
+	margin-bottom: 0 !important;
 }
 
 .nav {
@@ -255,12 +266,14 @@ h3 {
 	align-items: center;
 }
 
-.hero > .image-placeholder:first-child {
+.hero > .image-placeholder:first-child,
+.hero > .image-block:first-child {
 	margin-left: -24px;
 	margin-right: auto;
 }
 
-.hero > .image-placeholder:last-child {
+.hero > .image-placeholder:last-child,
+.hero > .image-block:last-child {
 	margin-left: auto;
 	margin-right: -24px;
 }
@@ -330,10 +343,11 @@ h3 {
 .section {
 	display: grid;
 	gap: 16px;
+	margin: 0;
 }
 
 .section + .section {
-	margin-top: 24px;
+	margin-top: 0;
 }
 
 .section h2 {
@@ -404,25 +418,34 @@ h3 {
 	align-items: center;
 }
 
-.split > .image-placeholder:first-child {
+.split > .image-placeholder,
+.split > .image-block {
+	align-self: center;
+}
+
+.split > .image-placeholder:first-child,
+.split > .image-block:first-child {
 	justify-self: start;
 	margin-right: auto;
 	margin-left: -24px;
 }
 
-.split > .image-placeholder:last-child {
+.split > .image-placeholder:last-child,
+.split > .image-block:last-child {
 	justify-self: end;
 	margin-left: auto;
 	margin-right: -24px;
 }
 
-.split.reverse > .image-placeholder:first-child {
+.split.reverse > .image-placeholder:first-child,
+.split.reverse > .image-block:first-child {
 	justify-self: end;
 	margin-left: auto;
 	margin-right: -24px;
 }
 
-.split.reverse > .image-placeholder:last-child {
+.split.reverse > .image-placeholder:last-child,
+.split.reverse > .image-block:last-child {
 	justify-self: start;
 	margin-right: auto;
 	margin-left: -24px;
@@ -496,22 +519,34 @@ h3 {
 	letter-spacing: 1px;
 }
 
-.scroll-animate .image-placeholder {
+.image-block {
+	width: 100%;
+	max-width: 460px;
+	height: auto;
+	display: block;
+	object-fit: contain;
+}
+
+.scroll-animate .image-placeholder,
+.scroll-animate .image-block {
 	opacity: 0;
 	transform: translateY(24px);
 	transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.scroll-animate .image-placeholder.is-visible {
+.scroll-animate .image-placeholder.is-visible,
+.scroll-animate .image-block.is-visible {
 	opacity: 1;
 	transform: translateY(0);
 }
 
-.scroll-animate .image-placeholder.image-actual {
+.scroll-animate .image-placeholder.image-actual,
+.scroll-animate .image-block {
 	transform: translateY(24px);
 }
 
-.scroll-animate .image-placeholder.image-actual.is-visible {
+.scroll-animate .image-placeholder.image-actual.is-visible,
+.scroll-animate .image-block.is-visible {
 	transform: translateY(0);
 }
 
@@ -525,26 +560,35 @@ h3 {
 	padding: 0;
 }
 
-.image-placeholder.image-large {
+.split > .image-placeholder {
+	align-self: stretch;
+}
+
+.image-placeholder.image-large,
+.image-block.image-large {
 	max-width: 552px;
 }
 
-.image-placeholder.image-large-sm {
+.image-placeholder.image-large-sm,
+.image-block.image-large-sm {
 	max-width: 442px;
 }
 
-.image-placeholder.image-large-xs {
+.image-placeholder.image-large-xs,
+.image-block.image-large-xs {
 	max-width: 400px;
 }
 
-.image-placeholder.image-author-bleed {
+.image-placeholder.image-author-bleed,
+.image-block.image-author-bleed {
 	justify-self: end;
 	margin-left: auto;
 	margin-right: -24px;
 	align-self: start;
 }
 
-.image-placeholder.image-bleed-right {
+.image-placeholder.image-bleed-right,
+.image-block.image-bleed-right {
 	justify-self: end;
 	margin-left: auto;
 	width: calc(100% + 24px);
@@ -553,11 +597,13 @@ h3 {
 	justify-content: flex-end;
 }
 
-.image-placeholder.image-bleed-right img {
+.image-placeholder.image-bleed-right img,
+.image-block.image-bleed-right {
 	object-position: right center;
 }
 
-.image-placeholder.image-bleed-left {
+.image-placeholder.image-bleed-left,
+.image-block.image-bleed-left {
 	justify-self: start;
 	margin-right: auto;
 	width: calc(100% + 24px);
@@ -566,15 +612,18 @@ h3 {
 	justify-content: flex-start;
 }
 
-.image-placeholder.image-bleed-left img {
+.image-placeholder.image-bleed-left img,
+.image-block.image-bleed-left {
 	object-position: left center;
 }
 
-.image-placeholder.image-home-serve {
+.image-placeholder.image-home-serve,
+.image-block.image-home-serve {
 	justify-content: flex-end;
 }
 
-.image-placeholder.image-home-serve img {
+.image-placeholder.image-home-serve img,
+.image-block.image-home-serve {
 	width: 90%;
 	height: auto;
 	max-width: none;
@@ -582,27 +631,32 @@ h3 {
 	object-position: right center;
 }
 
-.image-placeholder.image-xl {
+.image-placeholder.image-xl,
+.image-block.image-xl {
 	max-width: 600px;
 }
 
-.image-placeholder.image-xl-sm {
+.image-placeholder.image-xl-sm,
+.image-block.image-xl-sm {
 	max-width: 480px;
 }
 
-.image-placeholder.image-15-sm {
+.image-placeholder.image-15-sm,
+.image-block.image-15-sm {
 	max-width: 470px;
 	width: 85%;
 	justify-content: flex-end;
 }
 
-.image-placeholder.image-15-sm img {
+.image-placeholder.image-15-sm img,
+.image-block.image-15-sm {
 	width: 95%;
 	height: auto;
 	max-height: 100%;
 }
 
-.image-placeholder.image-publishers-xl img {
+.image-placeholder.image-publishers-xl img,
+.image-block.image-publishers-xl {
 	width: 107%;
 	height: auto;
 	max-width: none;
@@ -707,7 +761,7 @@ h3 {
 }
 
 .footer-cta {
-	padding: 32px;
+	padding: 58px 32px;
 	border-radius: 18px;
 	background: linear-gradient(135deg, var(--card) 0%, var(--card) 15%, #ffffff 100%);
 	border: 1px solid var(--border);

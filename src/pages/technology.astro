@@ -13,12 +13,11 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 			<p>ReaderPub supports institutional-grade publishing plus commerce: sales (5%), rentals (5%), and analytics.</p>
 			<p>The same publishing pipeline can output both a public web edition and a production-ready EPUB.</p>
 		</div>
-		<div class="image-placeholder image-actual">
-			<img
-				src="/images/technology.png"
-				alt="Technology and publishing workflows for public and institutional reading"
-			/>
-		</div>
+		<img
+			class="image-block"
+			src="/images/technology.png"
+			alt="Technology and publishing workflows for public and institutional reading"
+		/>
 	</section>
 
 	<section class="section">
@@ -30,7 +29,9 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 					Publishing layer for institutions and organizations.<br />
 					Publish, organize, and distribute reading collections through a consistent web experience.
 				</p>
-				<a class="button secondary" href="/wepub">Explore WePub</a>
+				<button class="button secondary" type="button" data-modal-open="#wepub-modal">
+					Explore WePub
+				</button>
 			</div>
 			<div class="card">
 				<h3>WeRead</h3>
@@ -48,6 +49,9 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 					Productivity system for authors and researchers.<br />
 					Capture excerpts, organize sources, and work across multiple texts and projects.
 				</p>
+				<button class="button secondary" type="button" data-modal-open="#booktree-modal">
+					Explore BookTree
+				</button>
 			</div>
 		</div>
 	</section>
@@ -89,4 +93,61 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 		<p>Interested in how this fits your organization?</p>
 		<a class="button" href="/contact">Contact us</a>
 	</section>
+
+	<div class="modal" id="wepub-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-modal-close></div>
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub preview">
+			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
+				×
+			</button>
+			<img src="/images/wepub.png" alt="WePub preview" />
+		</div>
+	</div>
+
+	<div class="modal" id="booktree-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-modal-close></div>
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree preview">
+			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
+				×
+			</button>
+			<img src="/images/booktree.png" alt="BookTree preview" />
+		</div>
+	</div>
+
+	<script is:inline>
+		(() => {
+			const openButtons = Array.from(document.querySelectorAll("[data-modal-open]"));
+			const modals = Array.from(document.querySelectorAll(".modal"));
+
+			const closeModal = (modal) => {
+				if (!modal) return;
+				modal.classList.remove("is-open");
+				modal.setAttribute("aria-hidden", "true");
+			};
+
+			const openModal = (modal) => {
+				if (!modal) return;
+				modal.classList.add("is-open");
+				modal.setAttribute("aria-hidden", "false");
+			};
+
+			openButtons.forEach((btn) => {
+				btn.addEventListener("click", () => {
+					const target = btn.getAttribute("data-modal-open");
+					const modal = target ? document.querySelector(target) : null;
+					openModal(modal);
+				});
+			});
+
+			modals.forEach((modal) => {
+				const closeTargets = modal.querySelectorAll("[data-modal-close]");
+				closeTargets.forEach((el) => el.addEventListener("click", () => closeModal(modal)));
+			});
+
+			document.addEventListener("keydown", (event) => {
+				if (event.key !== "Escape") return;
+				modals.forEach((modal) => closeModal(modal));
+			});
+		})();
+	</script>
 </Base>
