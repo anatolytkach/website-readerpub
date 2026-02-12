@@ -45,17 +45,20 @@ const featuredBooks = [
 <Base title={`${SITE_NAME} — Public Reading and Publishing Platform`}>
 	<section class="hero">
 		<div>
-			<h1>A live platform for reading and publishing on the public web.</h1>
+			<h1>ReaderPub is the web-native publishing platform.</h1>
 			<p class="lede">
-				{SITE_NAME} is live: read now with {WEREAD_NAME}, publish with WePub, and organize
-				sources with {BOOKTREE_NAME}.
+				80,000+ books already live in the Catalog.
+				<br />
+				Independent authors sell and rent direct with 5% fees.
+				<br />
+				Institutions publish collections at web scale.
 			</p>
 			<div class="cta-row">
 				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
-					Browse books
+					Browse Catalog
 				</a>
-				<a class="button secondary" href="/publish">Publish your book</a>
-				<a class="button secondary" href="/contact">Institutional onboarding</a>
+				<a class="button secondary" href="/authors">For Authors</a>
+				<a class="button secondary" href="/institutions">For Institutions</a>
 			</div>
 		</div>
 		<img
@@ -113,21 +116,21 @@ const featuredBooks = [
 
 	<div class="modal" id="wepub-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
-		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub preview">
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub image">
 			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
 				×
 			</button>
-			<img src="/images/wepub.png" alt="WePub preview" />
+			<img src="/images/wepub.png" alt="WePub image" />
 		</div>
 	</div>
 
 	<div class="modal" id="booktree-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
-		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree preview">
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree image">
 			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
 				×
 			</button>
-			<img src="/images/booktree.png" alt="BookTree preview" />
+			<img src="/images/booktree.png" alt="BookTree image" />
 		</div>
 	</div>
 
@@ -157,10 +160,9 @@ const featuredBooks = [
 	</section>
 
 	<section class="section">
-		<h2>ReaderPub is a live publishing marketplace.</h2>
+		<h2>Independent publishing is live on ReaderPub.</h2>
 		<p>
-			80,000+ public-domain books are already available in the Catalog (with thanks to Project
-			Gutenberg).
+			WeRead Catalog includes 80,000+ public-domain books (with thanks to Project Gutenberg).
 			<br />
 			These featured titles are independent releases published by authors on ReaderPub:
 		</p>
@@ -182,6 +184,29 @@ const featuredBooks = [
 				Browse 80,000+ books
 			</a>
 			<a class="button secondary" href="/publish">Start publishing</a>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="card-grid">
+			<div class="card">
+				<h3>For Authors & Publishers</h3>
+				<ul class="bullets">
+					<li>An Amazon alternative for direct sales and rentals.</li>
+					<li>Own your reader relationships.</li>
+					<li>Get first-party analytics.</li>
+				</ul>
+				<a class="button secondary" href="/authors">Publish on ReaderPub</a>
+			</div>
+			<div class="card">
+				<h3>For Institutions</h3>
+				<ul class="bullets">
+					<li>Digital reading rooms and public libraries.</li>
+					<li>Publisher-scale catalogs and archives.</li>
+					<li>Web-native institutional publishing standard.</li>
+				</ul>
+				<a class="button secondary" href="/institutions">Institutional onboarding</a>
+			</div>
 		</div>
 	</section>
 
