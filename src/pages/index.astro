@@ -160,22 +160,21 @@ const featuredBooks = [
 		<h2>ReaderPub is a live publishing marketplace.</h2>
 		<p>
 			80,000+ public-domain books are already available in the Catalog (with thanks to Project
-			Gutenberg). These featured titles are independent releases published by authors on
-			ReaderPub.
+			Gutenberg).
+			<br />
+			These featured titles are independent releases published by authors on ReaderPub:
 		</p>
-		<p>Featured Independent Releases</p>
 		<div class="card-grid">
 			{featuredBooks.map((b) => (
-				<div class="card">
-					<h3>{b.title}</h3>
-					<p>{b.author}</p>
-					<div class="cta-row">
-						<a class="button secondary" href={b.readUrl} target="_blank" rel="noreferrer">
-							Read
-						</a>
-						<a class="button secondary" href={b.buyUrl}>Buy</a>
+				<a class="book-card-link" href={b.readUrl} target="_blank" rel="noreferrer">
+					<div class="card book-card">
+						<div class="book-cover-placeholder"></div>
+						<div class="book-card-text">
+							<h3>{b.title}</h3>
+							<p>{b.author}</p>
+						</div>
 					</div>
-				</div>
+				</a>
 			))}
 		</div>
 		<div class="cta-row">
@@ -185,6 +184,40 @@ const featuredBooks = [
 			<a class="button secondary" href="/publish">Start publishing</a>
 		</div>
 	</section>
+
+	<style>
+		.book-card-link {
+			display: block;
+			text-decoration: none;
+			color: inherit;
+			transition: transform 0.15s ease;
+		}
+
+		.book-card-link:hover,
+		.book-card-link:focus-visible {
+			transform: translateY(-2px);
+		}
+
+		.book-card {
+			display: flex;
+			flex-direction: row;
+			gap: 16px;
+			align-items: center;
+		}
+
+		.book-cover-placeholder {
+			width: 72px;
+			height: 96px;
+			border-radius: 6px;
+			background: linear-gradient(135deg, #e9eef3, #d8e1ea);
+			flex-shrink: 0;
+		}
+
+		.book-card-text {
+			display: grid;
+			gap: 6px;
+		}
+	</style>
 
 	<section class="section">
 		<h2>Common use cases</h2>
