@@ -3,7 +3,6 @@ import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
 import SectionIcon from "../components/SectionIcon.astro";
 import IconGridSection from "../components/sections/IconGridSection.astro";
-import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
 <Base title={`${SITE_NAME} for Institutions`}>
@@ -25,50 +24,58 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			</p>
 			<div class="cta-row">
 				<a class="button" href="/contact?topic=institution#request-onboarding">Start institutional onboarding</a>
-				<a class="button secondary" href="/pricing">Request pricing</a>
+				<a class="button secondary" href="/pricing">See pricing</a>
 			</div>
 		</div>
 	</section>
 
-	<IconGridSection>
-		<div class="card-grid icon-grid institutions-grid">
+	<section class="section institutions-publisher-intro institutions-tight-section">
+		<h2>Publishers grow reach without losing control.</h2>
+		<p>Launch catalogs, excerpts, and programs on a public platform built for discovery.</p>
+		<ul class="bullets">
+			<li>Control access by channel or program.</li>
+			<li>Track engagement across titles.</li>
+			<li>Showcase frontlist and backlist with confidence.</li>
+			<li>Offer public excerpts or private access by segment.</li>
+			<li>Measure engagement and demand by title.</li>
+			<li>Build direct relationships with readers and institutions.</li>
+		</ul>
+		<p class="institutions-publisher-note">
+			In addition to web publishing, ReaderPub can deliver a production-ready EPUB for
+			external distribution and archiving. Make trusted collections discoverable on the public
+			web.
+		</p>
+	</section>
+
+	<IconGridSection class="institutions-tight-section">
+		<div class="card-grid icon-grid institutions-pair-grid">
 			<div class="card icon-grid-card">
-				<SectionIcon type="publisher" title="Publishers" />
+				<SectionIcon type="sale" title="Sell and rent titles" />
 				<div class="icon-grid-card-copy">
-					<h2>Publishers grow reach without losing control.</h2>
-					<p>Launch catalogs, excerpts, and programs on a public platform built for discovery.</p>
-					<ul class="bullets">
-						<li>Control access by channel or program.</li>
-						<li>Track engagement across titles.</li>
-						<li>Showcase frontlist and backlist with confidence.</li>
-						<li>Offer public excerpts or private access by segment.</li>
-						<li>Measure engagement and demand by title.</li>
-						<li>Build direct relationships with readers and institutions.</li>
-					</ul>
-					<p>Sell and rent titles with lower fees — and keep your audience.</p>
+					<h2>Sell and rent titles with lower fees — and keep your audience.</h2>
 					<ul class="bullets">
 						<li>Commerce-ready distribution: sales + rentals.</li>
 						<li>Low 5% commission on sales and rentals.</li>
 						<li>First-party analytics: revenue, rentals, cohorts, engagement.</li>
 					</ul>
-					<p>Add fan clubs to drive repeat demand across authors and series.</p>
+				</div>
+			</div>
+			<div class="card icon-grid-card">
+				<SectionIcon type="public" title="Add fan clubs" />
+				<div class="icon-grid-card-copy">
+					<h2>Add fan clubs to drive repeat demand across authors and series.</h2>
 					<ul class="bullets">
 						<li>Book- and author-level memberships with direct reader access.</li>
 						<li>Campaign-ready drops: releases, excerpts, limited access, rentals.</li>
 						<li>Community analytics connected to sales and rentals.</li>
 					</ul>
-					<p>
-						In addition to web publishing, ReaderPub can deliver a production-ready EPUB for
-						external distribution and archiving.
-					</p>
-					<p>Make trusted collections discoverable on the public web.</p>
 				</div>
 			</div>
 		</div>
 	</IconGridSection>
 
-	<IconGridSection>
-		<div class="card-grid icon-grid institutions-grid">
+	<IconGridSection class="institutions-tight-section">
+		<div class="card-grid icon-grid institutions-pair-grid">
 			<div class="card icon-grid-card">
 				<SectionIcon type="library" title="Libraries" />
 				<div class="icon-grid-card-copy">
@@ -82,14 +89,9 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 						<li>Extend collections with modern web access.</li>
 						<li>Track engagement to guide programming.</li>
 					</ul>
-					<p>Turn community collections into a public reading library online.</p>
+					<p class="institutions-outcome-note">Turn community collections into a public reading library online.</p>
 				</div>
 			</div>
-		</div>
-	</IconGridSection>
-
-	<IconGridSection>
-		<div class="card-grid icon-grid institutions-grid">
 			<div class="card icon-grid-card">
 				<SectionIcon type="university" title="Universities" />
 				<div class="icon-grid-card-copy">
@@ -103,14 +105,14 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 						<li>Unify campus libraries and departmental collections.</li>
 						<li>Highlight institutional expertise to the public.</li>
 					</ul>
-					<p>Publish research libraries with clear public access and attribution.</p>
+					<p class="institutions-outcome-note">Publish research libraries with clear public access and attribution.</p>
 				</div>
 			</div>
 		</div>
 	</IconGridSection>
 
-	<IconGridSection>
-		<div class="card-grid icon-grid institutions-grid">
+	<IconGridSection class="institutions-tight-section">
+		<div class="card-grid icon-grid institutions-pair-grid">
 			<div class="card icon-grid-card">
 				<SectionIcon type="government" title="Government" />
 				<div class="icon-grid-card-copy">
@@ -124,16 +126,11 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 						<li>Improve transparency with accessible reading formats.</li>
 						<li>Track public engagement to inform policy work.</li>
 					</ul>
-					<p>Make policy libraries readable and searchable for the public.</p>
+					<p class="institutions-outcome-note">Make policy libraries readable and searchable for the public.</p>
 				</div>
 			</div>
-		</div>
-	</IconGridSection>
-
-	<IconGridSection>
-		<div class="card-grid icon-grid institutions-grid">
 			<div class="card icon-grid-card">
-				<SectionIcon type="public" title="Public organizations" />
+				<SectionIcon type="charity" title="Public organizations" />
 				<div class="icon-grid-card-copy">
 					<h2>Public organizations amplify mission-driven knowledge.</h2>
 					<p>Publish reports, guides, and resources that reach the right communities.</p>
@@ -145,15 +142,36 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 						<li>Launch public reading programs and campaigns.</li>
 						<li>Build trust with transparent, accessible publishing.</li>
 					</ul>
-					<p>Deliver mission resources through a trusted public reading library.</p>
+					<p class="institutions-outcome-note">Deliver mission resources through a trusted public reading library.</p>
 				</div>
 			</div>
 		</div>
 	</IconGridSection>
 
 	<style>
-		.institutions-grid {
-			grid-template-columns: 1fr;
+		:global(.institutions-tight-section) {
+			padding-top: 14px;
+			padding-bottom: 14px;
+		}
+
+		.institutions-pair-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			width: 100%;
+		}
+
+		.institutions-publisher-note {
+			color: var(--accent);
+		}
+
+		.institutions-outcome-note {
+			color: var(--accent) !important;
+			font-size: 18px !important;
+		}
+
+		@media (max-width: 980px) {
+			.institutions-pair-grid {
+				grid-template-columns: 1fr;
+			}
 		}
 	</style>
 </Base>
