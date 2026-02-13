@@ -23,3 +23,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# legacy source asset not used by the site
+public/images/chain1.psd
