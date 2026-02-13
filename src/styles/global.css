@@ -424,6 +424,10 @@ section > :last-child {
 	align-items: stretch;
 }
 
+.section > :not(.card-grid) + .card-grid {
+	margin-top: 24px;
+}
+
 .icon-grid {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	justify-content: stretch;
@@ -432,16 +436,36 @@ section > :last-child {
 	max-width: none;
 }
 
-.icon-grid-card {
-	display: flex;
-	gap: 14px;
+.card.icon-grid-card {
+	display: grid !important;
+	grid-template-columns: 56px minmax(0, 1fr) !important;
+	column-gap: 14px !important;
+	row-gap: 8px !important;
 	align-items: flex-start;
 	width: 100%;
 }
 
 .icon-grid-card-copy {
-	display: grid;
-	gap: 8px;
+	display: contents;
+}
+
+.icon-grid-card > .section-icon {
+	grid-column: 1;
+	grid-row: 1;
+	align-self: center;
+}
+
+.icon-grid-card .icon-grid-card-copy > h2,
+.icon-grid-card .icon-grid-card-copy > h3,
+.icon-grid-card .icon-grid-card-copy > h4 {
+	grid-column: 2;
+	grid-row: 1;
+	align-self: center;
+	margin: 0;
+}
+
+.icon-grid-card .icon-grid-card-copy > :not(h2):not(h3):not(h4) {
+	grid-column: 1 / -1;
 }
 
 .card {
@@ -464,9 +488,15 @@ section > :last-child {
 	align-self: flex-start;
 }
 
-.card h3 {
-	font-size: 22px;
-	color: #028f80;
+.card h2,
+.card h3,
+.card h4 {
+	font-family: "Playfair Display", serif;
+	font-size: clamp(19px, 1.62vw, 26px);
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+	font-weight: 700;
+	color: var(--text);
 }
 
 .card p {

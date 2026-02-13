@@ -41,7 +41,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 		</ul>
 	</TextFirstSection>
 
-	<SpecCardsSection>
+	<SpecCardsSection class="readers-benefits-section">
 		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
 			<div class="card">
 				<h2>WeRead: Reader benefits</h2>
@@ -52,6 +52,11 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 					<li>Follow authors, series, and institutions in one feed.</li>
 					<li>Private notes that stay with you across devices.</li>
 				</ul>
+				<div class="cta-row">
+					<a class="button secondary" href="https://reader.pub/books/reader/?id=67098" target="_blank" rel="noreferrer">
+						Read sample book with WeRead
+					</a>
+				</div>
 			</div>
 			<div class="card">
 				<h2>BookTree: Built for serious reading</h2>
@@ -62,7 +67,103 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 					<li>Build personal knowledge maps from what you read.</li>
 					<li>Designed for sustained attention, not endless scrolling.</li>
 				</ul>
+				<div class="cta-row">
+					<button class="button secondary" type="button" data-modal-open="#booktree-modal">
+						Explore BookTree
+					</button>
+				</div>
 			</div>
 		</div>
 	</SpecCardsSection>
+
+	<div class="modal" id="booktree-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-modal-close></div>
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree image">
+			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
+				×
+			</button>
+			<img src="/images/booktree.png" alt="BookTree image" loading="lazy" decoding="async" width="976" height="1219" />
+		</div>
+	</div>
+
+	<style>
+		:global(.readers-benefits-section) {
+			padding-top: 8px;
+			margin-top: -26px;
+		}
+
+		:global(.readers-benefits-section .card h2) {
+			color: var(--text);
+		}
+
+		:global(#booktree-modal .modal-content) {
+			display: inline-block;
+			width: auto;
+			max-width: none;
+			max-height: none;
+			line-height: 0;
+		}
+
+		:global(#booktree-modal .modal-content img) {
+			width: auto;
+			max-width: min(92vw, 976px);
+			max-height: 88vh;
+			height: auto;
+			display: block;
+		}
+
+		:global(#booktree-modal .modal-close) {
+			top: 0;
+			right: 0;
+			z-index: 2;
+			width: auto;
+			height: auto;
+			padding: 8px 10px;
+			border: 0;
+			border-radius: 0;
+			background: transparent;
+			box-shadow: none;
+			font-size: 32px;
+			font-weight: 300;
+			line-height: 1;
+			color: #111827;
+		}
+	</style>
+
+	<script is:inline>
+		(() => {
+			const openButtons = Array.from(document.querySelectorAll("[data-modal-open]"));
+			const modals = Array.from(document.querySelectorAll(".modal"));
+
+			const closeModal = (modal) => {
+				if (!modal) return;
+				modal.classList.remove("is-open");
+				modal.setAttribute("aria-hidden", "true");
+			};
+
+			const openModal = (modal) => {
+				if (!modal) return;
+				modal.classList.add("is-open");
+				modal.setAttribute("aria-hidden", "false");
+			};
+
+			openButtons.forEach((btn) => {
+				btn.addEventListener("click", () => {
+					const target = btn.getAttribute("data-modal-open");
+					const modal = target ? document.querySelector(target) : null;
+					openModal(modal);
+				});
+			});
+
+			modals.forEach((modal) => {
+				const closeTargets = modal.querySelectorAll("[data-modal-close]");
+				closeTargets.forEach((el) => el.addEventListener("click", () => closeModal(modal)));
+			});
+
+			document.addEventListener("keydown", (event) => {
+				if (event.key !== "Escape") return;
+				modals.forEach((modal) => closeModal(modal));
+			});
+		})();
+	</script>
 </Base>

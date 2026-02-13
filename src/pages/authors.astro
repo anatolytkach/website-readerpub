@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 import TextFirstSection from "../components/sections/TextFirstSection.astro";
+import SectionIcon from "../components/SectionIcon.astro";
 ---
 
 <Base title={`${SITE_NAME} for Authors`}>
@@ -29,20 +30,24 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 		/>
 	</section>
 
-	<TextFirstSection>
-		<div>
-			<div class="section" style="margin-bottom: 24px;">
-				<h2>ReaderPub vs Amazon (for authors and publishers)</h2>
-				<ul class="bullets">
-					<li>Fees: ReaderPub 5% sales / 5% rentals vs higher marketplace fees.</li>
-					<li>Reader access: direct relationship with registered readers vs platform-owned audience.</li>
-					<li>Analytics: first-party sales + rentals + engagement vs limited reporting.</li>
-					<li>Community: fan clubs for each book vs no direct fan club layer.</li>
-				</ul>
-			</div>
-
-			<div class="section">
+	<SpecCardsSection class="author-amazon-commerce-section">
+		<div class="section">
+			<h2>ReaderPub vs Amazon (for authors and publishers)</h2>
+			<ul class="bullets">
+				<li>Fees: ReaderPub 5% sales / 5% rentals vs higher marketplace fees.</li>
+				<li>Reader access: direct relationship with registered readers vs platform-owned audience.</li>
+				<li>Analytics: first-party sales + rentals + engagement vs limited reporting.</li>
+				<li>Community: fan clubs for each book vs no direct fan club layer.</li>
+			</ul>
+			<p class="author-contrast-note">
+				Unlike Amazon, you build a direct relationship with registered readers on ReaderPub.
+				Keep your audience and your data—ReaderPub is built for direct publishing.
+			</p>
+		</div>
+		<div class="card-grid author-commerce-grid">
+			<div class="card">
 				<h2>Monetize your catalog</h2>
+				<p class="author-epub-note">Publish on the web — with optional EPUB output when you need it.</p>
 				<ul class="bullets">
 					<li>Direct sales</li>
 					<li>Time-limited rentals</li>
@@ -50,48 +55,48 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 					<li>Fan clubs and memberships</li>
 					<li>Web edition plus optional production-ready EPUB delivery.</li>
 				</ul>
-				<p>Keep your audience and your data—ReaderPub is built for direct publishing.</p>
+			</div>
+			<div class="card">
+				<h2>Sell and rent directly to your readers.</h2>
+				<p>Keep your audience, keep your data, and keep more of each sale.</p>
+				<ul class="bullets">
+					<li>Sell web editions and ebooks directly on ReaderPub.</li>
+					<li>Offer rentals for courses, cohorts, and short-term access.</li>
+					<li>Low commission: 5% on sales, 5% on rentals, far below Amazon’s take.</li>
+					<li>See sales, rentals, and reader engagement analytics in one place.</li>
+				</ul>
 			</div>
 		</div>
-	</TextFirstSection>
+	</SpecCardsSection>
 
-	<TextFirstSection>
-		<div class="section">
-			<h2>Sell and rent directly to your readers.</h2>
-			<p>Keep your audience, keep your data, and keep more of each sale.</p>
-			<p>Publish on the web — with optional EPUB output when you need it.</p>
-			<ul class="bullets">
-				<li>Sell web editions and ebooks directly on ReaderPub.</li>
-				<li>Offer rentals for courses, cohorts, and short-term access.</li>
-				<li>Low commission: 5% on sales, 5% on rentals, far below Amazon’s take.</li>
-				<li>See sales, rentals, and reader engagement analytics in one place.</li>
-			</ul>
-			<p>Unlike Amazon, you build a direct relationship with registered readers on ReaderPub.</p>
-		</div>
-	</TextFirstSection>
-
-	<SpecCardsSection>
+	<SpecCardsSection class="author-sale-rent-section">
 		<h2>Sell ownership. Rent access.</h2>
 		<p class="lede">
 			ReaderPub lets you monetize the same book two ways — permanent purchase for long-term
 			readers, and time-limited rentals for courses, cohorts, and short-term use.
 		</p>
 		<div class="card-grid sale-rent-grid">
-			<div class="card">
-				<h3>Sale (Buy)</h3>
-				<ul class="bullets">
-					<li>Permanent access in the reader’s library.</li>
-					<li>Readers can return anytime — ideal for fiction and long-form nonfiction.</li>
-					<li>Optional downloadable EPUB if you enable it.</li>
-				</ul>
+			<div class="card icon-grid-card author-icon-card">
+				<SectionIcon type="sale" title="Sale (Buy)" />
+				<div class="icon-grid-card-copy">
+					<h3>Sale (Buy)</h3>
+					<ul class="bullets">
+						<li>Permanent access in the reader’s library.</li>
+						<li>Readers can return anytime — ideal for fiction and long-form nonfiction.</li>
+						<li>Optional downloadable EPUB if you enable it.</li>
+					</ul>
+				</div>
 			</div>
-			<div class="card">
-				<h3>Rental (Time-limited)</h3>
-				<ul class="bullets">
-					<li>Full access for a defined window (7/14/30/90 days — you choose).</li>
-					<li>Web-only reading — no file delivery.</li>
-					<li>Access expires when the rental window ends.</li>
-				</ul>
+			<div class="card icon-grid-card author-icon-card">
+				<SectionIcon type="rental" title="Rental (Time-limited)" />
+				<div class="icon-grid-card-copy">
+					<h3>Rental (Time-limited)</h3>
+					<ul class="bullets">
+						<li>Full access for a defined window (7/14/30/90 days — you choose).</li>
+						<li>Web-only reading — no file delivery.</li>
+						<li>Access expires when the rental window ends.</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<h3>How to price it</h3>
@@ -100,33 +105,36 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			<li>A common rental pattern: 20–40% of the sale price for short windows.</li>
 			<li>Example: Sale $9.99 → 30-day rental $2.99; 90-day rental $4.99.</li>
 		</ul>
-	</SpecCardsSection>
-
-	<TextFirstSection>
-		<div>
-			<div class="section">
-				<h2>Author benefits</h2>
-				<p>Everything you need to publish, manage, and grow your work.</p>
-				<ul class="bullets">
-					<li>Organize sources, annotations, and drafts in one place.</li>
-					<li>Publish to a public audience or private collaborators.</li>
-					<li>Build authority with transparent references and updates.</li>
-					<li>Keep work structured across projects and editions.</li>
-				</ul>
+		<div class="card-grid author-benefits-grid">
+			<div class="card icon-grid-card author-icon-card">
+				<SectionIcon type="author" title="Author benefits" />
+				<div class="icon-grid-card-copy">
+					<h2>Author benefits</h2>
+					<p>Everything you need to publish, manage, and grow your work.</p>
+					<ul class="bullets">
+						<li>Organize sources, annotations, and drafts in one place.</li>
+						<li>Publish to a public audience or private collaborators.</li>
+						<li>Build authority with transparent references and updates.</li>
+						<li>Keep work structured across projects and editions.</li>
+					</ul>
+				</div>
 			</div>
 
-			<div class="section" style="margin-top: 24px;">
-				<h2>Make your research legible</h2>
-				<p>Show readers where ideas come from and where they lead.</p>
-				<ul class="bullets">
-					<li>Show sources, references, and context alongside your texts.</li>
-					<li>Present evolving ideas transparently, not as static PDFs.</li>
-					<li>Invite readers, collaborators, and institutions into your work.</li>
-					<li>Turn research and writing into a readable public record.</li>
-				</ul>
+			<div class="card icon-grid-card author-icon-card">
+				<SectionIcon type="research" title="Make your research legible" />
+				<div class="icon-grid-card-copy">
+					<h2>Make your research legible</h2>
+					<p>Show readers where ideas come from and where they lead.</p>
+					<ul class="bullets">
+						<li>Show sources, references, and context alongside your texts.</li>
+						<li>Present evolving ideas transparently, not as static PDFs.</li>
+						<li>Invite readers, collaborators, and institutions into your work.</li>
+						<li>Turn research and writing into a readable public record.</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</TextFirstSection>
+	</SpecCardsSection>
 
 	<TextFirstSection>
 		<div class="section">
@@ -150,8 +158,59 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			justify-content: center;
 		}
 
+		:global(.author-benefits-grid) {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+			justify-content: stretch !important;
+			width: 100% !important;
+			max-width: none !important;
+		}
+
+		:global(.author-commerce-grid) {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+			justify-content: stretch !important;
+			width: 100% !important;
+			max-width: none !important;
+		}
+
+		:global(.author-commerce-grid .card h2) {
+			color: var(--text);
+		}
+
+		:global(.author-sale-rent-section .sale-rent-grid) {
+			margin-top: 0 !important;
+		}
+
+		:global(.author-amazon-commerce-section .section) {
+			gap: 14px;
+		}
+
+		.author-contrast-note {
+			color: var(--accent);
+		}
+
+		.author-epub-note {
+			color: var(--accent);
+		}
+
+		.author-icon-card {
+			align-items: flex-start;
+			width: 100%;
+		}
+
+		.author-icon-card .icon-grid-card-copy {
+			min-width: 0;
+		}
+
 		@media (max-width: 920px) {
 			.sale-rent-grid {
+				grid-template-columns: 1fr;
+			}
+
+			:global(.author-benefits-grid) {
+				grid-template-columns: 1fr;
+			}
+
+			:global(.author-commerce-grid) {
 				grid-template-columns: 1fr;
 			}
 		}

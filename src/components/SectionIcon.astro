@@ -1,6 +1,17 @@
 ---
 interface Props {
-	type: "publisher" | "library" | "university" | "government" | "public" | "reader" | "author" | "research" | "program";
+	type:
+		| "publisher"
+		| "library"
+		| "university"
+		| "government"
+		| "public"
+		| "reader"
+		| "author"
+		| "research"
+		| "program"
+		| "sale"
+		| "rental";
 	title: string;
 }
 
@@ -76,6 +87,21 @@ const { type, title } = Astro.props;
 			<line x1="8" y1="18" x2="40" y2="18"></line>
 			<circle cx="18" cy="27" r="3"></circle>
 			<line x1="25" y1="27" x2="34" y2="27"></line>
+		</>
+	)}
+	{type === "sale" && (
+		<>
+			<path d="M9 20l11-11h13v13L22 33z"></path>
+			<circle cx="28" cy="14" r="1.8"></circle>
+			<path d="M18 24h8"></path>
+			<path d="M22 20v8"></path>
+		</>
+	)}
+	{type === "rental" && (
+		<>
+			<circle cx="24" cy="24" r="14"></circle>
+			<path d="M24 16v9"></path>
+			<path d="M24 24l6 4"></path>
 		</>
 	)}
 </svg>
