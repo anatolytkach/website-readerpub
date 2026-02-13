@@ -88,7 +88,7 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 
 	<section class="footer-cta">
 		<p>Interested in how this fits your organization?</p>
-		<a class="button" href="/contact#request-onboarding">Contact us</a>
+		<a class="button footer-cta-button" href="/contact#request-onboarding">Request information</a>
 	</section>
 
 	<div class="modal" id="wepub-modal" aria-hidden="true">
@@ -149,6 +149,12 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 	</script>
 
 	<style>
+		.footer-cta-button {
+			width: max-content;
+			max-width: 100%;
+			place-self: center;
+		}
+
 		.powers-grid {
 			grid-template-columns: repeat(4, minmax(0, 1fr));
 			justify-content: stretch;

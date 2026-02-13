@@ -98,7 +98,7 @@ import { SITE_NAME } from "../consts";
 				For libraries, universities, government, and public organizations — publish trusted
 				collections to the web with a modern reader.
 			</p>
-			<p>
+			<p class="body-text">
 				This is not Amazon-style retail. Institutions publish collections, programs, archives,
 				and public libraries. ReaderPub is the missing web layer: fast onboarding, clean
 				discovery, and a real in-browser reading experience.
@@ -107,7 +107,7 @@ import { SITE_NAME } from "../consts";
 	</section>
 
 	<section class="section">
-		<h3>Institution plans (subscription + storage)</h3>
+		<h2>Institution plans (subscription + storage)</h2>
 		<p>
 			Institutions budget annually and publish collections over time, so pricing is
 			subscription-based with storage included — with predictable overage when needed.
@@ -195,23 +195,12 @@ import { SITE_NAME } from "../consts";
 		</div>
 	</section>
 
-	<section class="section">
-		<h2>FAQ</h2>
-		<h3>Do you take exclusivity?</h3>
-		<p>No. You can publish on ReaderPub and still distribute elsewhere.</p>
-		<h3>Do you provide EPUB output?</h3>
-		<p>Yes — optional production-ready EPUB delivery.</p>
-		<h3>How do rentals work?</h3>
-		<p>Short-term access windows; pricing set by the publisher.</p>
-		<h3>Do authors/publishers get reader data?</h3>
-		<p>Yes — first-party relationship with registered readers, plus analytics.</p>
-		<h3>Do institutions sell books here?</h3>
-		<p>They can, but most use ReaderPub for public publishing, programs, and collections.</p>
-		<h3>Subdomain vs custom domain?</h3>
-		<p>Use a reader.pub subdomain or your own subdomain mapped to ReaderPub hosting.</p>
-	</section>
-
 	<style>
+		.section > p.body-text {
+			color: var(--muted);
+			font-size: 16px;
+		}
+
 		.sale-rent-grid {
 			grid-template-columns: repeat(2, minmax(360px, 480px));
 			justify-content: center;
