@@ -1,16 +1,18 @@
 ---
 import Base from "../layouts/Base.astro";
-import { SITE_NAME, WEREAD_NAME } from "../consts";
+import { BOOKS_URL, SITE_NAME, WEREAD_NAME } from "../consts";
 ---
 
 <Base title={`${SITE_NAME} for Readers`}>
 	<section class="hero reverse">
 		<div>
-			<h1>Readers deserve a public, powerful library.</h1>
-			<p class="lede">{WEREAD_NAME} is the web reader that makes discovery, depth, and sharing easy.</p>
+			<h1>Read instantly on the web.</h1>
+			<p class="lede">Explore 80,000+ books in the browser—no apps, no downloads.</p>
 			<div class="cta-row">
-				<a class="button" href="/contact">Join as a reader</a>
-				<a class="button secondary" href="/pricing">See pricing</a>
+				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
+					Browse Catalog
+				</a>
+				<a class="button secondary" href="https://reader.pub/books/reader/?id=67098" target="_blank" rel="noreferrer">Read sample book on WeRead</a>
 			</div>
 		</div>
 		<img

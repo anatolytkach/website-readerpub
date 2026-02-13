@@ -62,7 +62,7 @@ section > :last-child {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 16px;
+	gap: 0;
 	padding: 12px 0 20px;
 	position: sticky;
 	top: 0;
@@ -154,6 +154,22 @@ section > :last-child {
 	flex-wrap: nowrap;
 	list-style: none;
 	white-space: nowrap;
+	margin-left: auto;
+}
+
+.nav-actions {
+	display: inline-flex;
+	align-items: center;
+	gap: 0;
+	margin-left: 24px;
+}
+
+.nav-cta {
+	font-size: 14px;
+	line-height: 1;
+	padding: 6px 12px;
+	height: auto;
+	font-weight: 400;
 }
 
 .nav-links a {
@@ -235,6 +251,17 @@ section > :last-child {
 	font-weight: 600;
 }
 
+.nav-overlay-links .nav-overlay-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 16px;
+	border-radius: 999px;
+	background: var(--accent);
+	color: #ffffff;
+	width: fit-content;
+}
+
 .nav-overlay-links a:hover {
 	color: var(--link-hover);
 }
@@ -256,6 +283,10 @@ section > :last-child {
 
 .nav--collapsed .nav-toggle {
 	display: inline-flex;
+}
+
+.nav--collapsed .nav-cta {
+	display: none;
 }
 
 
@@ -338,6 +369,12 @@ section > :last-child {
 .button:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 8px 20px rgba(0, 143, 128, 0.2);
+}
+
+.button.nav-cta {
+	font-weight: 400;
+	padding: 6px 12px;
+	line-height: 1;
 }
 
 .section {

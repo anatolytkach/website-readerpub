@@ -160,7 +160,7 @@ const featuredBooks = [
 	</section>
 
 	<section class="section">
-		<h2>Independent publishing is live on ReaderPub.</h2>
+		<h2 id="indie-releases">Independent publishing is live on ReaderPub.</h2>
 		<p>
 			WeRead Catalog includes 80,000+ public-domain books (with thanks to Project Gutenberg).
 			<br />
@@ -184,29 +184,6 @@ const featuredBooks = [
 				Browse 80,000+ books
 			</a>
 			<a class="button secondary" href="/publish">Start publishing</a>
-		</div>
-	</section>
-
-	<section class="section">
-		<div class="card-grid">
-			<div class="card">
-				<h3>For Authors & Publishers</h3>
-				<ul class="bullets">
-					<li>An Amazon alternative for direct sales and rentals.</li>
-					<li>Own your reader relationships.</li>
-					<li>Get first-party analytics.</li>
-				</ul>
-				<a class="button secondary" href="/authors">Publish on ReaderPub</a>
-			</div>
-			<div class="card">
-				<h3>For Institutions</h3>
-				<ul class="bullets">
-					<li>Digital reading rooms and public libraries.</li>
-					<li>Publisher-scale catalogs and archives.</li>
-					<li>Web-native institutional publishing standard.</li>
-				</ul>
-				<a class="button secondary" href="/institutions">Institutional onboarding</a>
-			</div>
 		</div>
 	</section>
 
@@ -242,43 +219,141 @@ const featuredBooks = [
 			display: grid;
 			gap: 6px;
 		}
+
+		.use-case-card {
+			display: flex;
+			flex-direction: row;
+			gap: 16px;
+			align-items: flex-start;
+			width: 100%;
+		}
+
+		.use-case-card .use-case-icon {
+			width: 88px;
+			height: 88px;
+			flex-shrink: 0;
+			object-fit: contain;
+		}
+
+		.use-case-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			justify-content: stretch;
+			justify-items: stretch;
+			width: 100%;
+			max-width: none;
+		}
+
+		@media (max-width: 900px) {
+			.use-case-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		@media (max-width: 640px) {
+			.use-case-grid {
+				grid-template-columns: 1fr;
+			}
+		}
 	</style>
 
 	<section class="section">
 		<h2>Common use cases</h2>
-		<div class="card-grid">
-			<div class="card">
-				<h3>Readers</h3>
-				<p>Discover books, read comfortably, and build personal reading habits.</p>
+		<div class="card-grid use-case-grid">
+			<div class="card use-case-card">
+				<img class="use-case-icon" src="/images/use_case1.png" alt="Readers" />
+				<div>
+					<h3>Readers</h3>
+					<p>Discover books, read comfortably, and build personal reading habits.</p>
+				</div>
 			</div>
-			<div class="card">
-				<h3>Authors</h3>
-				<p>Publish, promote, and sell books directly to real readers.</p>
+			<div class="card use-case-card">
+				<img class="use-case-icon" src="/images/use_case2.png" alt="Authors" />
+				<div>
+					<h3>Authors</h3>
+					<p>Publish, promote, and sell books directly to real readers.</p>
+				</div>
 			</div>
-			<div class="card">
-				<h3>Public reading rooms</h3>
-				<p>Curated digital shelves for communities and partners.</p>
+			<div class="card use-case-card">
+				<img class="use-case-icon" src="/images/use_case3.png" alt="Public reading rooms" />
+				<div>
+					<h3>Public reading rooms</h3>
+					<p>Curated digital shelves for communities and partners.</p>
+				</div>
 			</div>
-			<div class="card">
-				<h3>Researchers</h3>
-				<p>Release working papers, living books, and open archives.</p>
+			<div class="card use-case-card">
+				<img class="use-case-icon" src="/images/use_case4.png" alt="Researchers" />
+				<div>
+					<h3>Researchers</h3>
+					<p>Release working papers, living books, and open archives.</p>
+				</div>
 			</div>
-			<div class="card">
-				<h3>Learning programs</h3>
-				<p>Support cohort-based learning and reading challenges.</p>
+			<div class="card use-case-card">
+				<img class="use-case-icon" src="/images/use_case5.png" alt="Learning programs" />
+				<div>
+					<h3>Learning programs</h3>
+					<p>Support cohort-based learning and reading challenges.</p>
+				</div>
 			</div>
-			<div class="card">
-				<h3>Libraries</h3>
-				<p>Curate collections, serve communities, and expand digital access.</p>
+			<div class="card use-case-card">
+				<img class="use-case-icon" src="/images/use_case6.png" alt="Libraries" />
+				<div>
+					<h3>Libraries</h3>
+					<p>Curate collections, serve communities, and expand digital access.</p>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="footer-cta">
-		<h2>Onboard your organization on ReaderPub</h2>
-		<p>Libraries, publishers, and universities: tell us what you need. We’ll set up your onboarding.</p>
-		<a class="button" href="/contact">Institutional onboarding</a>
+	<section class="footer-cta" style="background: transparent; border: 0; padding: 0; border-radius: 0;">
+		<div class="card-grid onboarding-grid">
+			<div class="card">
+				<h2>Publish your book on ReaderPub</h2>
+				<p class="lede">Sell and rent directly to readers — keep your audience.</p>
+				<ul class="bullets">
+					<li>Upload Word, PDF, or EPUB — single titles or batches.</li>
+					<li>Set prices for sales and rentals (courses, cohorts, limited drops).</li>
+					<li>Low commission: 5% on sales, 5% on rentals.</li>
+					<li>Fan clubs, direct messaging, and first-party analytics.</li>
+				</ul>
+				<div class="cta-row" style="margin-top: 16px;">
+					<a class="button" href="/publish">Publish a book</a>
+					<a class="button secondary" href="/pricing">See pricing</a>
+				</div>
+			</div>
+			<div class="card">
+				<h2>Onboard your organization on ReaderPub</h2>
+				<p class="lede">Tell us what you need: We’ll set up your onboarding.</p>
+				<ul class="bullets">
+					<li>Import from OPDS feeds, MARC/ONIX/KBART, S3, or CSV exports.</li>
+					<li>Preserve catalog metadata across large collections.</li>
+					<li>Deploy on reader.pub subdomain or your own subdomain.</li>
+					<li>Launch fan clubs and controlled-access programs.</li>
+				</ul>
+				<div class="cta-row" style="margin-top: 16px;">
+					<a class="button" href="/contact#request-onboarding">Institutional onboarding</a>
+					<a class="button secondary" href="/pricing">See pricing</a>
+				</div>
+			</div>
+		</div>
 	</section>
+
+	<style>
+		.onboarding-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			width: 100%;
+			text-align: left;
+		}
+
+		.footer-cta .card {
+			text-align: left;
+		}
+
+		@media (max-width: 800px) {
+			.onboarding-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
 
 	<script is:inline>
 		(() => {

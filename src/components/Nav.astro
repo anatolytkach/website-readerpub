@@ -7,11 +7,6 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 		<img src="/images/logo.png" alt="ReaderPub" class="site-logo" />
 		<a class="nav-logo-link" href="/">{SITE_NAME}</a>
 	</div>
-	<button class="nav-toggle" type="button" aria-label="Open navigation menu">
-		<span class="nav-toggle-bar"></span>
-		<span class="nav-toggle-bar"></span>
-		<span class="nav-toggle-bar"></span>
-	</button>
 	<ul class="nav-links">
 		<li><a href="/">Home</a></li>
 		<li><a href="/readers">Readers</a></li>
@@ -19,9 +14,16 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 		<li><a href="/institutions">Institutions</a></li>
 		<li><a href="/technology">Technology</a></li>
 		<li><a href="/pricing">Pricing</a></li>
-		<li><a href={BOOKS_URL} target="_blank" rel="noreferrer">Books</a></li>
-		<li><a href="/contact">Contact</a></li>
+		<li><a href={BOOKS_URL} target="_blank" rel="noreferrer">Catalog</a></li>
 	</ul>
+	<div class="nav-actions">
+		<button class="nav-toggle" type="button" aria-label="Open navigation menu">
+			<span class="nav-toggle-bar"></span>
+			<span class="nav-toggle-bar"></span>
+			<span class="nav-toggle-bar"></span>
+		</button>
+		<a class="button nav-cta" href="/contact">Get Started</a>
+	</div>
 </nav>
 
 <div class="nav-overlay" aria-hidden="true">
@@ -30,14 +32,14 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 		<button class="nav-close" type="button" aria-label="Close navigation menu">✕</button>
 	</div>
 	<ul class="nav-overlay-links">
+		<li><a href="/contact" class="nav-overlay-cta">Get Started</a></li>
 		<li><a href="/">Home</a></li>
 		<li><a href="/readers">Readers</a></li>
 		<li><a href="/authors">Authors</a></li>
 		<li><a href="/institutions">Institutions</a></li>
 		<li><a href="/technology">Technology</a></li>
 		<li><a href="/pricing">Pricing</a></li>
-		<li><a href={BOOKS_URL} target="_blank" rel="noreferrer">Books</a></li>
-		<li><a href="/contact">Contact</a></li>
+		<li><a href={BOOKS_URL} target="_blank" rel="noreferrer">Catalog</a></li>
 	</ul>
 </div>
 

@@ -6,43 +6,221 @@ import { SITE_NAME } from "../consts";
 <Base title={`${SITE_NAME} Pricing`}>
 	<section class="hero">
 		<div>
-			<h1>Simple pricing that matches your model.</h1>
-			<p class="lede">Choose revenue share for sales or subscription when access is free.</p>
-			<div class="cta-row">
-				<a class="button" href="/contact">Request pricing</a>
-				<a class="button secondary" href="/publishers">Publisher plans</a>
+			<h1>Pricing</h1>
+			<p class="lede">Aggressive creator economics. Serious institutional publishing.</p>
+			<p>ReaderPub supports two paths:</p>
+			<ul class="bullets">
+				<li>authors/publishers selling & renting directly to readers</li>
+				<li>institutions publishing trusted collections for the public.</li>
+			</ul>
+			<div class="cta-row" style="margin-top: 16px;">
+				<a class="button" href="/contact#request-onboarding">Start onboarding</a>
+				<a class="button secondary" href="/catalog">See the catalog</a>
 			</div>
 		</div>
-		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+		<img
+			class="image-block"
+			src="/images/pricing.png"
+			alt="ReaderPub pricing for creators and institutions"
+		/>
 	</section>
 
 	<section class="section">
-		<h2>Pricing rule</h2>
-		<p>Straightforward rules based on how you sell access.</p>
+		<h2>Sell and rent directly to your readers.</h2>
+		<p class="lede">Keep your audience, keep your data, and keep more of each sale.</p>
+		<div class="card-grid">
+			<div class="card">
+				<h3>5% fee on sales</h3>
+				<p>Low marketplace fee for direct sales.</p>
+			</div>
+			<div class="card">
+				<h3>5% fee on rentals</h3>
+				<p>Time-limited access with the same low fee.</p>
+			</div>
+			<div class="card">
+				<h3>Direct reader access</h3>
+				<p>No platform lock-in. Own your reader relationship.</p>
+			</div>
+		</div>
 		<ul class="bullets">
-			<li>5% revenue share when you sell access.</li>
-			<li>Subscription when you do not sell access.</li>
-			<li>Hybrid options are available for mixed models.</li>
+			<li>Sell web editions and EPUBs directly on ReaderPub.</li>
+			<li>Offer rentals for courses, cohorts, and short-term access.</li>
+			<li>First-party analytics: sales, rentals, cohorts, engagement.</li>
+			<li>Fan clubs: memberships, drops, early access, and campaigns.</li>
+			<li>Optional EPUB delivery for external distribution and archiving.</li>
 		</ul>
-	</section>
-
-	<section class="section">
-		<h2>Example tiers</h2>
-		<div class="pricing-block">
-			<p>$99/mo for solo creators and small teams.</p>
-			<p>$249/mo for growing publishers and institutions.</p>
-			<p>$49/mo + 5% revenue share for hybrid programs.</p>
+		<div class="cta-row" style="margin-top: 16px;">
+			<a class="button" href="/publish">Publish a book</a>
+			<a class="button secondary" href="/catalog">Browse independent releases</a>
 		</div>
 	</section>
 
 	<section class="section">
-		<h2>Commerce (Sales + Rentals)</h2>
-		<p>Sell and rent books on ReaderPub with low commissions.</p>
+		<h2>Sale vs Rental</h2>
+		<p class="lede">
+			Amazon-style retail is purchase-only. ReaderPub supports both purchase and
+			time-limited access — you choose what fits each audience.
+		</p>
+		<div class="card-grid sale-rent-grid">
+			<div class="card">
+				<h3>Sale (Buy)</h3>
+				<ul class="bullets">
+					<li>Permanent access in the reader’s library.</li>
+					<li>Optional downloadable EPUB (when enabled).</li>
+					<li>Best for long-term readers and collectors.</li>
+				</ul>
+			</div>
+			<div class="card">
+				<h3>Rental (Time-limited)</h3>
+				<ul class="bullets">
+					<li>Web-only access for a defined window (7/14/30/90 days).</li>
+					<li>Access expires at the end of the rental period.</li>
+					<li>Best for courses, cohorts, training, and short-term reading.</li>
+				</ul>
+			</div>
+		</div>
+		<p>
+			You set both prices. Rentals are typically priced lower than purchase to support
+			short-term use (often 20–40% of the sale price for shorter windows). Example: Sale
+			$9.99 → 30-day rental $2.99; 90-day rental $4.99.
+		</p>
+	</section>
+
+	<section class="split">
+		<img
+			class="image-block"
+			src="/images/pricing1.png"
+			alt="Institutional publishing collections on ReaderPub"
+		/>
+		<div class="section">
+			<h2>Institutional publishing at public scale.</h2>
+			<p class="lede">
+				For libraries, universities, government, and public organizations — publish trusted
+				collections to the web with a modern reader.
+			</p>
+			<p>
+				This is not Amazon-style retail. Institutions publish collections, programs, archives,
+				and public libraries. ReaderPub is the missing web layer: fast onboarding, clean
+				discovery, and a real in-browser reading experience.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<h3>Institution plans (subscription + storage)</h3>
+		<p>
+			Institutions budget annually and publish collections over time, so pricing is
+			subscription-based with storage included — with predictable overage when needed.
+		</p>
+		<div class="card-grid">
+			<div class="card">
+				<h3>Starter</h3>
+				<p>for pilots and small collections</p>
+				<ul class="bullets">
+					<li>$499 / month</li>
+					<li>Up to 5,000 titles</li>
+					<li>Up to 200 GB storage</li>
+					<li>reader.pub subdomain</li>
+					<li>Basic analytics</li>
+				</ul>
+			</div>
+			<div class="card">
+				<h3>Standard</h3>
+				<p>for libraries and departments</p>
+				<ul class="bullets">
+					<li>$1,499 / month</li>
+					<li>Up to 50,000 titles</li>
+					<li>Up to 1 TB storage</li>
+					<li>Custom subdomain option</li>
+					<li>Program pages + cohorts</li>
+					<li>Advanced analytics</li>
+				</ul>
+			</div>
+			<div class="card">
+				<h3>Enterprise</h3>
+				<p>for university systems and public agencies</p>
+				<ul class="bullets">
+					<li>Talk to us</li>
+					<li>100,000+ titles</li>
+					<li>SSO/SAML</li>
+					<li>Dedicated onboarding</li>
+					<li>Custom integrations</li>
+					<li>SLA</li>
+				</ul>
+			</div>
+		</div>
+		<h3>What’s included</h3>
 		<ul class="bullets">
-			<li>Sales: 5%</li>
-			<li>Rentals: 5%</li>
-			<li>Built-in analytics included</li>
-			<li>Fan clubs and memberships (early access)</li>
+			<li>Two deployment options: a reader.pub subdomain OR your own subdomain mapped to ReaderPub hosting.</li>
+			<li>Bulk ingest and catalog import (metadata + covers).</li>
+			<li>Collections, shelves, and public reading rooms.</li>
+			<li>Institution-wide analytics and engagement reporting.</li>
+			<li>Optional EPUB delivery package for archiving or external distribution.</li>
+		</ul>
+		<h3>Add-ons</h3>
+		<ul class="bullets">
+			<li>Additional storage and bandwidth (metered over included limits).</li>
+			<li>Custom integrations (catalog, authentication, reporting).</li>
+			<li>Migration support for legacy collections.</li>
 		</ul>
 	</section>
+
+	<section class="section">
+		<h2>Onboarding</h2>
+		<p class="lede">From files or catalogs to a public web library — fast.</p>
+		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+			<div class="card">
+				<h3>For independent authors/publishers</h3>
+				<ul class="bullets">
+					<li>Upload one or multiple files (Word/PDF/EPUB).</li>
+					<li>WePub engine produces web publishing + optional EPUB output.</li>
+					<li>Enable Buy/Rent, analytics, and fan clubs.</li>
+				</ul>
+			</div>
+			<div class="card">
+				<h3>For institutions</h3>
+				<ul class="bullets">
+					<li>We import from the way collections are commonly stored today:</li>
+					<li>Bulk file drop (ZIP of EPUB/PDF) + metadata spreadsheet</li>
+					<li>OPDS/OPDS2 feeds (where available)</li>
+					<li>MARC/ONIX/CSV metadata exports + cover assets</li>
+					<li>S3-compatible bucket export or rsync/FTP transfer</li>
+					<li>Repository exports (institutional repositories / digital collections)</li>
+					<li>We map identifiers, preserve catalog structure, and publish as a web library.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="cta-row" style="justify-content: center;">
+			<a class="button" href="/contact#request-onboarding">Request onboarding</a>
+		</div>
+	</section>
+
+	<section class="section">
+		<h2>FAQ</h2>
+		<h3>Do you take exclusivity?</h3>
+		<p>No. You can publish on ReaderPub and still distribute elsewhere.</p>
+		<h3>Do you provide EPUB output?</h3>
+		<p>Yes — optional production-ready EPUB delivery.</p>
+		<h3>How do rentals work?</h3>
+		<p>Short-term access windows; pricing set by the publisher.</p>
+		<h3>Do authors/publishers get reader data?</h3>
+		<p>Yes — first-party relationship with registered readers, plus analytics.</p>
+		<h3>Do institutions sell books here?</h3>
+		<p>They can, but most use ReaderPub for public publishing, programs, and collections.</p>
+		<h3>Subdomain vs custom domain?</h3>
+		<p>Use a reader.pub subdomain or your own subdomain mapped to ReaderPub hosting.</p>
+	</section>
+
+	<style>
+		.sale-rent-grid {
+			grid-template-columns: repeat(2, minmax(360px, 480px));
+			justify-content: center;
+		}
+
+		@media (max-width: 1024px) {
+			.sale-rent-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
 </Base>

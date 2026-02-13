@@ -1,15 +1,24 @@
 ---
 import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
+
+const topic = Astro.url.searchParams.get("topic") ?? "";
 ---
 
 <Base title={`${SITE_NAME} Contact`}>
 	<section class="hero">
 		<div>
-			<h1>Let’s build the next public reading platform together.</h1>
-			<p class="lede">Preview access, partnerships, and institutional pilots start here.</p>
+			<h1>Onboarding</h1>
+			<p class="lede">
+				Independent authors and publishers can upload Word, PDF, or EPUB files (single or
+				batch). Institutions can ingest collections in their current catalog formats.
+			</p>
+			<p style="margin-bottom: 16px;">
+				Publish on a reader.pub subdomain or your own subdomain connected to ReaderPub storage
+				and the web reader.
+			</p>
 			<div class="cta-row">
-				<a class="button" href="mailto:hello@reader.pub">Email ReaderPub</a>
+				<a class="button" href="#request-onboarding">Start onboarding</a>
 				<a class="button secondary" href="/pricing">See pricing</a>
 			</div>
 		</div>
@@ -17,13 +26,109 @@ import { SITE_NAME } from "../consts";
 	</section>
 
 	<section class="section">
-		<h2>We can help with</h2>
-		<p>Tell us your goals and we will map a plan.</p>
-		<ul class="bullets">
-			<li>Reader and author preview access.</li>
-			<li>Publisher distribution and catalog onboarding.</li>
-			<li>Institutional pilots for libraries and universities.</li>
-			<li>Government and nonprofit knowledge hubs.</li>
-		</ul>
+		<h2>How onboarding works</h2>
+		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+			<div class="card">
+				<h3>Independent authors & small publishers</h3>
+				<ul class="bullets">
+					<li>Upload Word, PDF, or EPUB — one file or a batch.</li>
+					<li>We publish a web edition optimized for discovery and reading.</li>
+					<li>Optional commerce: sales, rentals, fan clubs, analytics.</li>
+					<li>Optional EPUB delivery for external distribution and archiving.</li>
+				</ul>
+			</div>
+			<div class="card">
+				<h3>Institutions & catalogs</h3>
+				<ul class="bullets">
+					<li>Import from OPDS feeds, MARC/ONIX/KBART, or CSV exports.</li>
+					<li>Bulk file delivery via secure transfer or cloud storage (S3-compatible).</li>
+					<li>Preserve identifiers and catalog metadata across large collections.</li>
+					<li>Deploy on reader.pub subdomain or your own subdomain.</li>
+					<li>Launch public reading rooms, archives, or controlled-access programs.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<h2 id="request-onboarding" style="text-align: center; scroll-margin-top: 120px;">Request onboarding</h2>
+		{topic && <p>Topic: {topic}</p>}
+		<form method="POST" action="https://formspree.io/f/REPLACE_ME">
+			<div class="card-grid">
+				<div class="card">
+					<label for="role">I am</label>
+					<select id="role" name="role" required>
+						<option value="">Select one</option>
+						<option value="Institution">Institution (Library / University / Government / Public organization)</option>
+						<option value="Publisher">Publisher</option>
+						<option value="Author">Author</option>
+					</select>
+
+					<label for="name">Organization / Author name</label>
+					<input id="name" name="name" type="text" required />
+
+					<label for="website">Website</label>
+					<input id="website" name="website" type="url" />
+
+					<label for="email">Email</label>
+					<input id="email" name="email" type="email" required />
+
+					<label for="phone">Phone</label>
+					<input id="phone" name="phone" type="tel" />
+				</div>
+
+				<div class="card">
+					<label for="project">What are you trying to publish or launch?</label>
+					<textarea
+						id="project"
+						name="project"
+						required
+						placeholder="Example: a digital reading room, a publisher catalog, a policy library, or a new book release."
+						rows="5"
+					></textarea>
+
+					<label for="titles">How many titles (estimate)</label>
+					<input id="titles" name="titles" type="number" min="0" />
+
+					<label for="timeline">Timeline</label>
+					<select id="timeline" name="timeline">
+						<option value="">Select one</option>
+						<option value="Now">Now</option>
+						<option value="This month">This month</option>
+						<option value="This quarter">This quarter</option>
+						<option value="Not sure yet">Not sure yet</option>
+					</select>
+
+					<fieldset>
+						<legend>What do you need?</legend>
+						<label><input type="checkbox" name="needs" value="Web publishing" /> Web publishing</label>
+						<label><input type="checkbox" name="needs" value="Sales" /> Sales</label>
+						<label><input type="checkbox" name="needs" value="Rentals" /> Rentals</label>
+						<label><input type="checkbox" name="needs" value="Fan clubs" /> Fan clubs</label>
+						<label><input type="checkbox" name="needs" value="EPUB output" /> EPUB output</label>
+						<label><input type="checkbox" name="needs" value="Migration / catalog import" /> Migration / catalog import</label>
+					</fieldset>
+
+					<label for="notes">Anything else?</label>
+					<textarea id="notes" name="notes" rows="4"></textarea>
+				</div>
+			</div>
+
+			<input type="hidden" name="_subject" value="ReaderPub Onboarding Request" />
+			<input type="hidden" name="topic" value={topic} />
+			<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+			<div style="margin-top: 16px; text-align: center;">
+				<div class="cta-row" style="justify-content: center;">
+					<button class="button" type="submit">Send onboarding request</button>
+				</div>
+				<p style="margin: 12px auto 0; max-width: 680px;">
+					We onboard independent authors, publishers, and institutions.<br />
+					If you already have files (Word/PDF/EPUB) or maintain in-house catalogs, please
+					mention this in your message.
+					You’ll hear back by email with next steps and a proposed onboarding plan.
+				</p>
+			</div>
+		</form>
 	</section>
 </Base>

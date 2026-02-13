@@ -1,0 +1,81 @@
+---
+import Base from "../layouts/Base.astro";
+import { BOOKS_URL, SITE_NAME, WEREAD_NAME, BOOKTREE_NAME } from "../consts";
+---
+
+<Base title="Publish your book">
+	<section class="hero">
+		<div>
+			<h1>Publish your book on {SITE_NAME}</h1>
+			<p class="lede">
+				Launch a web edition, sell directly to readers, offer rentals, and build a fan
+				community.
+			</p>
+			<div class="cta-row">
+				<a class="button" href="/contact?topic=publish#request-onboarding">Submit your book</a>
+				<a class="button secondary" href={BOOKS_URL} target="_blank" rel="noreferrer">
+					Browse live books
+				</a>
+			</div>
+		</div>
+		<div class="image-placeholder">IMAGE PLACEHOLDER</div>
+	</section>
+
+	<section class="section">
+		<h2>What you get</h2>
+		<p>Everything you need to publish, monetize, and grow a direct audience.</p>
+		<ul class="bullets">
+			<li>A fast web edition readers can open instantly.</li>
+			<li>Direct sales and time-limited rentals.</li>
+			<li>5% commission on sales.</li>
+			<li>5% commission on rentals.</li>
+			<li>Fan clubs for every book and author.</li>
+			<li>Analytics for sales, rentals, and engagement.</li>
+			<li>Optional production-ready EPUB output.</li>
+		</ul>
+		<p>
+			Compatible with {WEREAD_NAME} for web reading and {BOOKTREE_NAME} for organizing
+			sources.
+		</p>
+	</section>
+
+	<section class="section">
+		<h2>How publishing works</h2>
+		<p>A simple workflow from manuscript to live web edition.</p>
+		<ol class="bullets">
+			<li>Share your manuscript (Word, PDF, or EPUB).</li>
+			<li>We prepare your web edition and metadata.</li>
+			<li>You choose sales, rentals, and fan-club options.</li>
+			<li>Your book goes live — with analytics from day one.</li>
+		</ol>
+	</section>
+
+	<section class="section">
+		<h2>Who this is for</h2>
+		<div class="card-grid">
+			<div class="card">
+				<h3>Independent authors</h3>
+				<ul class="bullets">
+					<li>Publish and sell without marketplace lock-in.</li>
+					<li>Reach readers directly and grow a fan base.</li>
+					<li>Keep more revenue with a 5% commission.</li>
+				</ul>
+			</div>
+			<div class="card">
+				<h3>Small publishers</h3>
+				<ul class="bullets">
+					<li>Launch catalogs on the public web.</li>
+					<li>Enable sales, rentals, and audience ownership.</li>
+					<li>5% commission + transparent analytics across titles.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="footer-cta">
+		<h2>Ready to publish?</h2>
+		<p>Send your book details and we’ll get you live on {SITE_NAME}.</p>
+		<a class="button" href="/contact?topic=publish#request-onboarding">Submit your book</a>
+		<p>Prefer email? Use the contact form and select “Publishing”.</p>
+	</section>
+</Base>

@@ -6,11 +6,12 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 <Base title={`${SITE_NAME} Technology`}>
 	<section class="hero">
 		<div>
-			<h1>Technology built for public reading and institutional publishing</h1>
+			<h1>Built for web-native publishing at scale.</h1>
 			<p class="lede">
-				ReaderPub combines modern web reading with institutional-grade publishing workflows.
+				ReaderPub powers instant reading, structured publishing, and analytics for authors and
+				institutions.
 			</p>
-			<p>ReaderPub supports institutional-grade publishing plus commerce: sales (5%), rentals (5%), and analytics.</p>
+			<p>ReaderPub supports web publishing plus commerce: sales (5%), rentals (5%), and analytics.</p>
 			<p>The same publishing pipeline can output both a public web edition and a production-ready EPUB.</p>
 		</div>
 		<img
@@ -21,37 +22,33 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 	</section>
 
 	<section class="section">
-		<h2>Platform components</h2>
-		<div class="card-grid">
+		<h2>What powers ReaderPub</h2>
+		<div class="card-grid powers-grid">
+			<div class="card">
+				<h3>WeRead</h3>
+				<p>Instant web reading for readers and shared libraries.</p>
+				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
+					Browse Catalog
+				</a>
+			</div>
 			<div class="card">
 				<h3>WePub</h3>
-				<p>
-					Publishing layer for institutions and organizations.<br />
-					Publish, organize, and distribute reading collections through a consistent web experience.
-				</p>
+				<p>Web publishing and distribution for authors and institutions.</p>
 				<button class="button secondary" type="button" data-modal-open="#wepub-modal">
 					Explore WePub
 				</button>
 			</div>
 			<div class="card">
-				<h3>WeRead</h3>
-				<p>
-					Modern web reader for readers, students, and researchers.<br />
-					Designed for long-form reading, discovery, and public access in the browser.
-				</p>
-				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
-					Read 80K books with WeRead
-				</a>
-			</div>
-			<div class="card">
 				<h3>BookTree</h3>
-				<p>
-					Productivity system for authors and researchers.<br />
-					Capture excerpts, organize sources, and work across multiple texts and projects.
-				</p>
+				<p>Sources, excerpts, and structured work across texts.</p>
 				<button class="button secondary" type="button" data-modal-open="#booktree-modal">
 					Explore BookTree
 				</button>
+			</div>
+			<div class="card">
+				<h3>Analytics</h3>
+				<p>Sales, rentals, and engagement across catalogs and audiences.</p>
+				<a class="button secondary" href="/contact#request-onboarding">Request pricing</a>
 			</div>
 		</div>
 	</section>
@@ -67,13 +64,13 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 
 	<section class="split split-wide-lg">
 		<div class="section">
-			<h2>What powers ReaderPub</h2>
+			<h2>Built for scale</h2>
 			<p>A modern foundation for public and professional reading at scale.</p>
 			<ul class="bullets">
 				<li>Web-native reading — fast, accessible reading in the browser. No apps, no downloads.</li>
 				<li>Designed for real catalogs — works with large, structured collections.</li>
 				<li>Reader-first experience — clean typography and deep navigation for long-form reading.</li>
-				<li>Built for institutions — supports public access, controlled publishing, and pilots.</li>
+				<li>Built for institutions — supports public access and controlled publishing programs.</li>
 			</ul>
 		</div>
 
@@ -84,33 +81,33 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 				<li>No proprietary apps required</li>
 				<li>No lock-in to a single deployment model</li>
 				<li>Suitable for libraries, universities, publishers, and public organizations</li>
-				<li>Scales from public catalogs to institutional pilots</li>
+				<li>Scales from public catalogs to institutional programs</li>
 			</ul>
 		</div>
 	</section>
 
 	<section class="footer-cta">
 		<p>Interested in how this fits your organization?</p>
-		<a class="button" href="/contact">Contact us</a>
+		<a class="button" href="/contact#request-onboarding">Contact us</a>
 	</section>
 
 	<div class="modal" id="wepub-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
-		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub preview">
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub image">
 			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
 				×
 			</button>
-			<img src="/images/wepub.png" alt="WePub preview" />
+			<img src="/images/wepub.png" alt="WePub image" />
 		</div>
 	</div>
 
 	<div class="modal" id="booktree-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
-		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree preview">
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree image">
 			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
 				×
 			</button>
-			<img src="/images/booktree.png" alt="BookTree preview" />
+			<img src="/images/booktree.png" alt="BookTree image" />
 		</div>
 	</div>
 
@@ -150,4 +147,23 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 			});
 		})();
 	</script>
+
+	<style>
+		.powers-grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			justify-content: stretch;
+		}
+
+		@media (max-width: 1100px) {
+			.powers-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		@media (max-width: 720px) {
+			.powers-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
 </Base>
