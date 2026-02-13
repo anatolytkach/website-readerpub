@@ -75,7 +75,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 	</ProofSection>
 
 	<SpecCardsSection>
-		<div class="card-grid powers-grid">
+		<div class="card-grid powers-grid powers-grid-two">
 			<div class="card">
 				<h2>Built for scale</h2>
 				<p>A modern foundation for public and professional reading at scale.</p>
@@ -83,7 +83,6 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					<li>Web-native reading — fast, accessible reading in the browser. No apps, no downloads.</li>
 					<li>Designed for real catalogs — works with large, structured collections.</li>
 					<li>Reader-first experience — clean typography and deep navigation for long-form reading.</li>
-					<li>Built for institutions — supports public access and controlled publishing programs.</li>
 				</ul>
 			</div>
 			<div class="card">
@@ -94,6 +93,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					<li>No lock-in to a single deployment model</li>
 					<li>Suitable for libraries, universities, publishers, and public organizations</li>
 					<li>Scales from public catalogs to institutional programs</li>
+					<li>Built for institutions — supports public access and controlled publishing programs.</li>
 				</ul>
 			</div>
 		</div>
@@ -173,6 +173,10 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			justify-content: stretch;
 		}
 
+		.powers-grid-two {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
 		.proof-section-full {
 			grid-template-columns: 1fr;
 		}
@@ -187,6 +191,11 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			.powers-grid {
 				grid-template-columns: 1fr;
 			}
+
+			.powers-grid-two {
+				grid-template-columns: 1fr;
+			}
+
 		}
 	</style>
 </Base>

@@ -804,15 +804,16 @@ section > :last-child {
 .modal-content {
 	position: relative;
 	z-index: 1;
-	max-width: min(920px, 92vw);
+	width: fit-content;
+	max-width: 92vw;
 	max-height: 88vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: inline-block;
+	line-height: 0;
 }
 
 .modal-content img {
-	max-width: 100%;
+	width: auto;
+	max-width: 92vw;
 	max-height: 88vh;
 	height: auto;
 	display: block;
