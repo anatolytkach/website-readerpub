@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
-import { BOOKTREE_NAME, SITE_NAME } from "../consts";
+import { SITE_NAME } from "../consts";
+import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
 <Base title={`${SITE_NAME} for Authors`}>
@@ -20,15 +22,14 @@ import { BOOKTREE_NAME, SITE_NAME } from "../consts";
 			class="image-block"
 			src="/images/author1.png"
 			alt="Author workflow from manuscript to published web content"
+			loading="lazy"
+			decoding="async"
+			width="1024"
+			height="953"
 		/>
 	</section>
 
-	<section class="split">
-		<img
-			class="image-block image-large"
-			src="/images/author5.png"
-			alt="ReaderPub vs Amazon and direct monetization for authors"
-		/>
+	<TextFirstSection>
 		<div>
 			<div class="section" style="margin-bottom: 24px;">
 				<h2>ReaderPub vs Amazon (for authors and publishers)</h2>
@@ -52,9 +53,9 @@ import { BOOKTREE_NAME, SITE_NAME } from "../consts";
 				<p>Keep your audience and your data—ReaderPub is built for direct publishing.</p>
 			</div>
 		</div>
-	</section>
+	</TextFirstSection>
 
-	<section class="split">
+	<TextFirstSection>
 		<div class="section">
 			<h2>Sell and rent directly to your readers.</h2>
 			<p>Keep your audience, keep your data, and keep more of each sale.</p>
@@ -67,14 +68,9 @@ import { BOOKTREE_NAME, SITE_NAME } from "../consts";
 			</ul>
 			<p>Unlike Amazon, you build a direct relationship with registered readers on ReaderPub.</p>
 		</div>
-		<img
-			class="image-block image-author-bleed image-15-sm"
-			src="/images/author3.png"
-			alt="Authors selling and renting directly to readers"
-		/>
-	</section>
+	</TextFirstSection>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2>Sell ownership. Rent access.</h2>
 		<p class="lede">
 			ReaderPub lets you monetize the same book two ways — permanent purchase for long-term
@@ -104,14 +100,9 @@ import { BOOKTREE_NAME, SITE_NAME } from "../consts";
 			<li>A common rental pattern: 20–40% of the sale price for short windows.</li>
 			<li>Example: Sale $9.99 → 30-day rental $2.99; 90-day rental $4.99.</li>
 		</ul>
-	</section>
+	</SpecCardsSection>
 
-	<section class="split">
-		<img
-			class="image-block image-large"
-			src="/images/author2.png"
-			alt="Author workflow from manuscript to published web content"
-		/>
+	<TextFirstSection>
 		<div>
 			<div class="section">
 				<h2>Author benefits</h2>
@@ -135,9 +126,9 @@ import { BOOKTREE_NAME, SITE_NAME } from "../consts";
 				</ul>
 			</div>
 		</div>
-	</section>
+	</TextFirstSection>
 
-	<section class="split">
+	<TextFirstSection>
 		<div class="section">
 			<h2>Fan clubs for every book and author.</h2>
 			<p>
@@ -151,12 +142,7 @@ import { BOOKTREE_NAME, SITE_NAME } from "../consts";
 				<li>Fan insights tied to sales and rentals — what converts and retains.</li>
 			</ul>
 		</div>
-		<img
-			class="image-block"
-			src="/images/author4.png"
-			alt="Author fan clubs and member community"
-		/>
-	</section>
+	</TextFirstSection>
 
 	<style>
 		.sale-rent-grid {

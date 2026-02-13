@@ -1,0 +1,94 @@
+---
+interface Props {
+	type: "publisher" | "library" | "university" | "government" | "public" | "reader" | "author" | "research" | "program";
+	title: string;
+}
+
+const { type, title } = Astro.props;
+---
+
+<svg class="section-icon" viewBox="0 0 48 48" role="img" aria-label={title}>
+	{type === "publisher" && (
+		<>
+			<rect x="7" y="8" width="34" height="32" rx="4"></rect>
+			<line x1="15" y1="16" x2="33" y2="16"></line>
+			<line x1="15" y1="22" x2="33" y2="22"></line>
+			<line x1="15" y1="28" x2="28" y2="28"></line>
+		</>
+	)}
+	{type === "library" && (
+		<>
+			<path d="M10 20h28v20H10z"></path>
+			<path d="M6 20l18-12 18 12"></path>
+			<line x1="18" y1="26" x2="18" y2="40"></line>
+			<line x1="24" y1="26" x2="24" y2="40"></line>
+			<line x1="30" y1="26" x2="30" y2="40"></line>
+		</>
+	)}
+	{type === "university" && (
+		<>
+			<path d="M6 18l18-9 18 9-18 9-18-9z"></path>
+			<path d="M14 23v8c0 4 4 7 10 7s10-3 10-7v-8"></path>
+			<line x1="40" y1="20" x2="40" y2="31"></line>
+		</>
+	)}
+	{type === "government" && (
+		<>
+			<rect x="8" y="12" width="32" height="28" rx="4"></rect>
+			<line x1="8" y1="20" x2="40" y2="20"></line>
+			<line x1="16" y1="12" x2="16" y2="40"></line>
+			<line x1="26" y1="28" x2="34" y2="28"></line>
+			<line x1="26" y1="33" x2="34" y2="33"></line>
+		</>
+	)}
+	{type === "public" && (
+		<>
+			<circle cx="24" cy="17" r="8"></circle>
+			<path d="M11 38c2-6 7-10 13-10s11 4 13 10"></path>
+		</>
+	)}
+	{type === "reader" && (
+		<>
+			<rect x="8" y="6" width="32" height="36" rx="4"></rect>
+			<line x1="16" y1="14" x2="32" y2="14"></line>
+			<line x1="16" y1="20" x2="32" y2="20"></line>
+			<line x1="16" y1="26" x2="28" y2="26"></line>
+		</>
+	)}
+	{type === "author" && (
+		<>
+			<rect x="10" y="10" width="28" height="28" rx="4"></rect>
+			<path d="M18 30l12-12"></path>
+			<path d="M28 16l4 4"></path>
+		</>
+	)}
+	{type === "research" && (
+		<>
+			<circle cx="20" cy="20" r="8"></circle>
+			<line x1="26" y1="26" x2="36" y2="36"></line>
+			<line x1="20" y1="16" x2="20" y2="24"></line>
+			<line x1="16" y1="20" x2="24" y2="20"></line>
+		</>
+	)}
+	{type === "program" && (
+		<>
+			<rect x="8" y="10" width="32" height="28" rx="4"></rect>
+			<line x1="8" y1="18" x2="40" y2="18"></line>
+			<circle cx="18" cy="27" r="3"></circle>
+			<line x1="25" y1="27" x2="34" y2="27"></line>
+		</>
+	)}
+</svg>
+
+<style>
+	.section-icon {
+		width: 56px;
+		height: 56px;
+		stroke: var(--accent);
+		stroke-width: 2;
+		fill: none;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		flex-shrink: 0;
+	}
+</style>

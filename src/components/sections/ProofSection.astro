@@ -1,0 +1,21 @@
+---
+interface Props {
+	class?: string;
+	variant?: "hero" | "split";
+	mediaFirst?: boolean;
+}
+
+const {
+	class: className = "",
+	variant = "split",
+	mediaFirst = false,
+} = Astro.props;
+
+const layoutClass = variant === "hero" ? "hero" : "split";
+---
+
+<section class:list={[layoutClass, "proof-section", className]}>
+	{mediaFirst && <slot name="media" />}
+	<slot />
+	{!mediaFirst && <slot name="media" />}
+</section>

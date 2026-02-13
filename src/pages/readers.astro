@@ -1,10 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
-import { BOOKS_URL, SITE_NAME, WEREAD_NAME } from "../consts";
+import { BOOKS_URL, SITE_NAME } from "../consts";
+import ProofSection from "../components/sections/ProofSection.astro";
+import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
 <Base title={`${SITE_NAME} for Readers`}>
-	<section class="hero reverse">
+	<ProofSection variant="hero" class="reverse">
 		<div>
 			<h1>Read instantly on the web.</h1>
 			<p class="lede">Explore 80,000+ books in the browser—no apps, no downloads.</p>
@@ -16,33 +19,31 @@ import { BOOKS_URL, SITE_NAME, WEREAD_NAME } from "../consts";
 			</div>
 		</div>
 		<img
-			class="image-block"
+			slot="media"
+			class="image-block proof-media"
 			src="/images/readers1.png"
 			alt="Reader using multiple devices with access to a large digital library"
+			loading="lazy"
+			decoding="async"
+			width="950"
+			height="846"
 		/>
-	</section>
+	</ProofSection>
 
-	<section class="split">
-		<div class="section">
-			<h2>Why web reading wins</h2>
-			<p>The fastest way to start reading, with a full reader experience — no downloads required.</p>
-			<ul class="bullets">
-				<li>Most major book libraries still don’t offer a true web reader that matches the quality of native apps.</li>
-				<li>Many readers don’t want to install another app or struggle with device-specific readers.</li>
-				<li>With WeRead, a simple link is enough — click and start reading instantly.</li>
-				<li>You get the same long-form reading comfort without setup or friction.</li>
-			</ul>
-		</div>
-		<img
-			class="image-block image-bleed-right image-xl-sm"
-			src="/images/readers3.png"
-			alt="Instant web reading without downloads or setup"
-		/>
-	</section>
+	<TextFirstSection>
+		<h2>Why web reading wins</h2>
+		<p>The fastest way to start reading, with a full reader experience — no downloads required.</p>
+		<ul class="bullets">
+			<li>Most major book libraries still don’t offer a true web reader that matches the quality of native apps.</li>
+			<li>Many readers don’t want to install another app or struggle with device-specific readers.</li>
+			<li>With WeRead, a simple link is enough — click and start reading instantly.</li>
+			<li>You get the same long-form reading comfort without setup or friction.</li>
+		</ul>
+	</TextFirstSection>
 
-	<section class="split reverse split-wide">
-		<div>
-			<div class="section">
+	<SpecCardsSection>
+		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+			<div class="card">
 				<h2>WeRead: Reader benefits</h2>
 				<p>A personal reading space built for discovery and continuity.</p>
 				<ul class="bullets">
@@ -52,7 +53,7 @@ import { BOOKS_URL, SITE_NAME, WEREAD_NAME } from "../consts";
 					<li>Private notes that stay with you across devices.</li>
 				</ul>
 			</div>
-			<div class="section">
+			<div class="card">
 				<h2>BookTree: Built for serious reading</h2>
 				<p>Structure, focus, and long-term work with texts.</p>
 				<ul class="bullets">
@@ -63,10 +64,5 @@ import { BOOKS_URL, SITE_NAME, WEREAD_NAME } from "../consts";
 				</ul>
 			</div>
 		</div>
-		<img
-			class="image-block image-large-xs image-bleed-left"
-			src="/images/readers2.png"
-			alt="Reader benefits and structured reading illustration"
-		/>
-	</section>
+	</SpecCardsSection>
 </Base>

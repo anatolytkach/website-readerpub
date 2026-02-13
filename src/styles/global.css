@@ -383,6 +383,12 @@ section > :last-child {
 	margin: 0;
 }
 
+.text-first-section,
+.spec-cards-section {
+	display: grid;
+	gap: 16px;
+}
+
 .section + .section {
 	margin-top: 0;
 }
@@ -416,6 +422,26 @@ section > :last-child {
 	gap: 16px;
 	justify-content: center;
 	align-items: stretch;
+}
+
+.icon-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	justify-content: stretch;
+	justify-items: stretch;
+	width: 100%;
+	max-width: none;
+}
+
+.icon-grid-card {
+	display: flex;
+	gap: 14px;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.icon-grid-card-copy {
+	display: grid;
+	gap: 8px;
 }
 
 .card {
@@ -559,6 +585,13 @@ section > :last-child {
 .image-block {
 	width: 100%;
 	max-width: 460px;
+	height: auto;
+	display: block;
+	object-fit: contain;
+}
+
+.proof-media {
+	width: 100%;
 	height: auto;
 	display: block;
 	object-fit: contain;
@@ -874,5 +907,9 @@ section > :last-child {
 
 	.nav-overlay {
 		display: grid;
+	}
+
+	.icon-grid {
+		grid-template-columns: 1fr;
 	}
 }

@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
+import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+import TextFirstSection from "../components/sections/TextFirstSection.astro";
 
 const topic = Astro.url.searchParams.get("topic") ?? "";
 ---
@@ -22,10 +24,18 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 				<a class="button secondary" href="/pricing">See pricing</a>
 			</div>
 		</div>
-		<img class="image-block" src="/images/onboarding.png" alt="ReaderPub onboarding" />
+		<img
+			class="image-block"
+			src="/images/onboarding.png"
+			alt="ReaderPub onboarding"
+			loading="lazy"
+			decoding="async"
+			width="980"
+			height="890"
+		/>
 	</section>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2>How onboarding works</h2>
 		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
 			<div class="card">
@@ -48,9 +58,9 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 				</ul>
 			</div>
 		</div>
-	</section>
+	</SpecCardsSection>
 
-	<section class="section">
+	<TextFirstSection>
 		<h2 id="request-onboarding" style="text-align: center; scroll-margin-top: 120px;">Request onboarding</h2>
 		{topic && <p>Topic: {topic}</p>}
 		<form method="POST" action="https://formspree.io/f/REPLACE_ME">
@@ -130,9 +140,9 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 				</p>
 			</div>
 		</form>
-	</section>
+	</TextFirstSection>
 
-	<section class="section">
+	<TextFirstSection>
 		<h2>FAQ</h2>
 		<h3>Do you take exclusivity?</h3>
 		<p>No. You can publish on ReaderPub and still distribute elsewhere.</p>
@@ -146,5 +156,5 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 		<p>They can, but most use ReaderPub for public publishing, programs, and collections.</p>
 		<h3>Subdomain vs custom domain?</h3>
 		<p>Use a reader.pub subdomain or your own subdomain mapped to ReaderPub hosting.</p>
-	</section>
+	</TextFirstSection>
 </Base>

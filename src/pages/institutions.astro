@@ -1,6 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
+import SectionIcon from "../components/SectionIcon.astro";
+import IconGridSection from "../components/sections/IconGridSection.astro";
+import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
 <Base title={`${SITE_NAME} for Institutions`}>
@@ -9,6 +12,10 @@ import { SITE_NAME } from "../consts";
 			class="image-block"
 			src="/images/institutions.png"
 			alt="Institutions sharing knowledge with the public"
+			loading="lazy"
+			decoding="async"
+			width="1155"
+			height="895"
 		/>
 		<div>
 			<h1>Institutional publishing, built for the web.</h1>
@@ -23,124 +30,130 @@ import { SITE_NAME } from "../consts";
 		</div>
 	</section>
 
-	<section class="split">
-		<div class="section">
-			<h2>Publishers grow reach without losing control.</h2>
-			<p>Launch catalogs, excerpts, and programs on a public platform built for discovery.</p>
-			<ul class="bullets">
-				<li>Control access by channel or program.</li>
-				<li>Track engagement across titles.</li>
-				<li>Showcase frontlist and backlist with confidence.</li>
-				<li>Offer public excerpts or private access by segment.</li>
-				<li>Measure engagement and demand by title.</li>
-				<li>Build direct relationships with readers and institutions.</li>
-			</ul>
-			<p>Sell and rent titles with lower fees — and keep your audience.</p>
-			<ul class="bullets">
-				<li>Commerce-ready distribution: sales + rentals.</li>
-				<li>Low 5% commission on sales and rentals.</li>
-				<li>First-party analytics: revenue, rentals, cohorts, engagement.</li>
-			</ul>
-			<p>Add fan clubs to drive repeat demand across authors and series.</p>
-			<ul class="bullets">
-				<li>Book- and author-level memberships with direct reader access.</li>
-				<li>Campaign-ready drops: releases, excerpts, limited access, rentals.</li>
-				<li>Community analytics connected to sales and rentals.</li>
-			</ul>
-			<p>
-				In addition to web publishing, ReaderPub can deliver a production-ready EPUB for
-				external distribution and archiving.
-			</p>
-			<p>Make trusted collections discoverable on the public web.</p>
+	<IconGridSection>
+		<div class="card-grid icon-grid institutions-grid">
+			<div class="card icon-grid-card">
+				<SectionIcon type="publisher" title="Publishers" />
+				<div class="icon-grid-card-copy">
+					<h2>Publishers grow reach without losing control.</h2>
+					<p>Launch catalogs, excerpts, and programs on a public platform built for discovery.</p>
+					<ul class="bullets">
+						<li>Control access by channel or program.</li>
+						<li>Track engagement across titles.</li>
+						<li>Showcase frontlist and backlist with confidence.</li>
+						<li>Offer public excerpts or private access by segment.</li>
+						<li>Measure engagement and demand by title.</li>
+						<li>Build direct relationships with readers and institutions.</li>
+					</ul>
+					<p>Sell and rent titles with lower fees — and keep your audience.</p>
+					<ul class="bullets">
+						<li>Commerce-ready distribution: sales + rentals.</li>
+						<li>Low 5% commission on sales and rentals.</li>
+						<li>First-party analytics: revenue, rentals, cohorts, engagement.</li>
+					</ul>
+					<p>Add fan clubs to drive repeat demand across authors and series.</p>
+					<ul class="bullets">
+						<li>Book- and author-level memberships with direct reader access.</li>
+						<li>Campaign-ready drops: releases, excerpts, limited access, rentals.</li>
+						<li>Community analytics connected to sales and rentals.</li>
+					</ul>
+					<p>
+						In addition to web publishing, ReaderPub can deliver a production-ready EPUB for
+						external distribution and archiving.
+					</p>
+					<p>Make trusted collections discoverable on the public web.</p>
+				</div>
+			</div>
 		</div>
-		<img
-			class="image-block image-publishers-xl"
-			src="/images/publishers.png"
-			alt="Publishers publishing and distributing content on ReaderPub"
-		/>
-	</section>
+	</IconGridSection>
 
-	<section class="split">
-		<img
-			class="image-block"
-			src="/images/libraries.png"
-			alt="Libraries extending public access through digital reading rooms"
-		/>
-		<div class="section">
-			<h2>Libraries extend their mission into the public web.</h2>
-			<p>Create digital reading rooms that serve patrons, partners, and communities.</p>
-			<ul class="bullets">
-				<li>Extend collections with digital programs and access..</li>
-				<li>Run reading programs with impact.</li>
-				<li>Curate shelves and programs with public visibility.</li>
-				<li>Support community reading initiatives and cohorts.</li>
-				<li>Extend collections with modern web access.</li>
-				<li>Track engagement to guide programming.</li>
-			</ul>
-			<p>Turn community collections into a public reading library online.</p>
+	<IconGridSection>
+		<div class="card-grid icon-grid institutions-grid">
+			<div class="card icon-grid-card">
+				<SectionIcon type="library" title="Libraries" />
+				<div class="icon-grid-card-copy">
+					<h2>Libraries extend their mission into the public web.</h2>
+					<p>Create digital reading rooms that serve patrons, partners, and communities.</p>
+					<ul class="bullets">
+						<li>Extend collections with digital programs and access..</li>
+						<li>Run reading programs with impact.</li>
+						<li>Curate shelves and programs with public visibility.</li>
+						<li>Support community reading initiatives and cohorts.</li>
+						<li>Extend collections with modern web access.</li>
+						<li>Track engagement to guide programming.</li>
+					</ul>
+					<p>Turn community collections into a public reading library online.</p>
+				</div>
+			</div>
 		</div>
-	</section>
+	</IconGridSection>
 
-	<section class="split">
-		<div class="section">
-			<h2>Universities publish research with visibility and trust.</h2>
-			<p>Support faculty, labs, and students with a public research library.</p>
-			<ul class="bullets">
-				<li>Power coursework and cohort reading.</li>
-				<li>Unify campus libraries and labs.</li>
-				<li>Release working papers, reports, and open archives.</li>
-				<li>Power coursework reading and cohort programs.</li>
-				<li>Unify campus libraries and departmental collections.</li>
-				<li>Highlight institutional expertise to the public.</li>
-			</ul>
-			<p>Publish research libraries with clear public access and attribution.</p>
+	<IconGridSection>
+		<div class="card-grid icon-grid institutions-grid">
+			<div class="card icon-grid-card">
+				<SectionIcon type="university" title="Universities" />
+				<div class="icon-grid-card-copy">
+					<h2>Universities publish research with visibility and trust.</h2>
+					<p>Support faculty, labs, and students with a public research library.</p>
+					<ul class="bullets">
+						<li>Power coursework and cohort reading.</li>
+						<li>Unify campus libraries and labs.</li>
+						<li>Release working papers, reports, and open archives.</li>
+						<li>Power coursework reading and cohort programs.</li>
+						<li>Unify campus libraries and departmental collections.</li>
+						<li>Highlight institutional expertise to the public.</li>
+					</ul>
+					<p>Publish research libraries with clear public access and attribution.</p>
+				</div>
+			</div>
 		</div>
-		<img
-			class="image-block"
-			src="/images/universities.png"
-			alt="Universities publishing research and academic work through a public platform"
-		/>
-	</section>
+	</IconGridSection>
 
-	<section class="split">
-		<img
-			class="image-block"
-			src="/images/government.png"
-			alt="Government publishing and public access"
-		/>
-		<div class="section">
-			<h2>Government publishes with transparency and reach.</h2>
-			<p>Make public documents, research, and policy libraries easy to find and read.</p>
-			<ul class="bullets">
-				<li>Improve transparency and access.</li>
-				<li>Serve staff and constituents together.</li>
-				<li>Centralize reports, regulations, and public resources.</li>
-				<li>Serve staff and constituents with the same library.</li>
-				<li>Improve transparency with accessible reading formats.</li>
-				<li>Track public engagement to inform policy work.</li>
-			</ul>
-			<p>Make policy libraries readable and searchable for the public.</p>
+	<IconGridSection>
+		<div class="card-grid icon-grid institutions-grid">
+			<div class="card icon-grid-card">
+				<SectionIcon type="government" title="Government" />
+				<div class="icon-grid-card-copy">
+					<h2>Government publishes with transparency and reach.</h2>
+					<p>Make public documents, research, and policy libraries easy to find and read.</p>
+					<ul class="bullets">
+						<li>Improve transparency and access.</li>
+						<li>Serve staff and constituents together.</li>
+						<li>Centralize reports, regulations, and public resources.</li>
+						<li>Serve staff and constituents with the same library.</li>
+						<li>Improve transparency with accessible reading formats.</li>
+						<li>Track public engagement to inform policy work.</li>
+					</ul>
+					<p>Make policy libraries readable and searchable for the public.</p>
+				</div>
+			</div>
 		</div>
-	</section>
+	</IconGridSection>
 
-	<section class="split">
-		<div class="section">
-			<h2>Public organizations amplify mission-driven knowledge.</h2>
-			<p>Publish reports, guides, and resources that reach the right communities.</p>
-			<ul class="bullets">
-				<li>Share mission resources with clarity and permanence.</li>
-				<li>Curate resources for communities and partners.</li>
-				<li>Publish reports with lasting visibility.</li>
-				<li>Curate collections for partners and constituents.</li>
-				<li>Launch public reading programs and campaigns.</li>
-				<li>Build trust with transparent, accessible publishing.</li>
-			</ul>
-			<p>Deliver mission resources through a trusted public reading library.</p>
+	<IconGridSection>
+		<div class="card-grid icon-grid institutions-grid">
+			<div class="card icon-grid-card">
+				<SectionIcon type="public" title="Public organizations" />
+				<div class="icon-grid-card-copy">
+					<h2>Public organizations amplify mission-driven knowledge.</h2>
+					<p>Publish reports, guides, and resources that reach the right communities.</p>
+					<ul class="bullets">
+						<li>Share mission resources with clarity and permanence.</li>
+						<li>Curate resources for communities and partners.</li>
+						<li>Publish reports with lasting visibility.</li>
+						<li>Curate collections for partners and constituents.</li>
+						<li>Launch public reading programs and campaigns.</li>
+						<li>Build trust with transparent, accessible publishing.</li>
+					</ul>
+					<p>Deliver mission resources through a trusted public reading library.</p>
+				</div>
+			</div>
 		</div>
-		<img
-			class="image-block"
-			src="/images/public.png"
-			alt="Public organizations amplifying mission-driven knowledge"
-		/>
-	</section>
+	</IconGridSection>
+
+	<style>
+		.institutions-grid {
+			grid-template-columns: 1fr;
+		}
+	</style>
 </Base>

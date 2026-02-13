@@ -1,10 +1,12 @@
 ---
 import Base from "../layouts/Base.astro";
 import { BOOKS_URL, SITE_NAME, WEREAD_NAME, BOOKTREE_NAME } from "../consts";
+import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
 <Base title="Publish your book">
-	<section class="hero">
+	<TextFirstSection class="hero">
 		<div>
 			<h1>Publish your book on {SITE_NAME}</h1>
 			<p class="lede">
@@ -18,10 +20,9 @@ import { BOOKS_URL, SITE_NAME, WEREAD_NAME, BOOKTREE_NAME } from "../consts";
 				</a>
 			</div>
 		</div>
-		<img class="image-block" src="/images/publish.png" alt="Publish your book on ReaderPub" />
-	</section>
+	</TextFirstSection>
 
-	<section class="section">
+	<TextFirstSection>
 		<h2>What you get</h2>
 		<p>Everything you need to publish, monetize, and grow a direct audience.</p>
 		<ul class="bullets">
@@ -37,9 +38,9 @@ import { BOOKS_URL, SITE_NAME, WEREAD_NAME, BOOKTREE_NAME } from "../consts";
 			Compatible with {WEREAD_NAME} for web reading and {BOOKTREE_NAME} for organizing
 			sources.
 		</p>
-	</section>
+	</TextFirstSection>
 
-	<section class="section">
+	<TextFirstSection>
 		<h2>How publishing works</h2>
 		<p>A simple workflow from manuscript to live web edition.</p>
 		<ol class="bullets">
@@ -48,9 +49,9 @@ import { BOOKS_URL, SITE_NAME, WEREAD_NAME, BOOKTREE_NAME } from "../consts";
 			<li>You choose sales, rentals, and fan-club options.</li>
 			<li>Your book goes live — with analytics from day one.</li>
 		</ol>
-	</section>
+	</TextFirstSection>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2>Who this is for</h2>
 		<div class="card-grid">
 			<div class="card">
@@ -70,7 +71,7 @@ import { BOOKS_URL, SITE_NAME, WEREAD_NAME, BOOKTREE_NAME } from "../consts";
 				</ul>
 			</div>
 		</div>
-	</section>
+	</SpecCardsSection>
 
 	<section class="footer-cta">
 		<h2>Ready to publish?</h2>

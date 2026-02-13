@@ -1,6 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
+import SectionIcon from "../components/SectionIcon.astro";
+import IconGridSection from "../components/sections/IconGridSection.astro";
+import ProofSection from "../components/sections/ProofSection.astro";
+import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+import TextFirstSection from "../components/sections/TextFirstSection.astro";
 
 const featuredBooks = [
 	{
@@ -43,7 +48,7 @@ const featuredBooks = [
 ---
 
 <Base title={`${SITE_NAME} — Public Reading and Publishing Platform`}>
-	<section class="hero">
+	<ProofSection variant="hero">
 		<div>
 			<h1>ReaderPub is the web-native publishing platform.</h1>
 			<p class="lede">
@@ -62,31 +67,29 @@ const featuredBooks = [
 			</div>
 		</div>
 		<img
-			class="image-block image-large"
+			slot="media"
+			class="image-block image-large proof-media"
 			src="/images/home2.png"
 			alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
+			loading="eager"
+			decoding="async"
+			width="1536"
+			height="1319"
 		/>
-	</section>
+	</ProofSection>
 
-	<section class="split">
-		<img
-			class="image-block"
-			src="/images/home3.png"
-			alt="Instant web reading experience without apps or downloads"
-		/>
-		<div class="section">
-			<h2>Read instantly on the web</h2>
-			<p>Open a book in one click. No apps, no setup, no friction.</p>
-			<ul class="bullets">
-				<li>Web-first reading with dedicated-reader comfort.</li>
-				<li>Works across devices — pick up where you left off.</li>
-				<li>Instant access from a link: no downloads, no installs.</li>
-				<li>Built for long sessions: clean UI, fast loading.</li>
-			</ul>
-		</div>
-	</section>
+	<TextFirstSection>
+		<h2>Read instantly on the web</h2>
+		<p>Open a book in one click. No apps, no setup, no friction.</p>
+		<ul class="bullets">
+			<li>Web-first reading with dedicated-reader comfort.</li>
+			<li>Works across devices — pick up where you left off.</li>
+			<li>Instant access from a link: no downloads, no installs.</li>
+			<li>Built for long sessions: clean UI, fast loading.</li>
+		</ul>
+	</TextFirstSection>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2>The ReaderPub platform family</h2>
 		<p>Three components, one public platform.</p>
 		<div class="card-grid">
@@ -112,7 +115,7 @@ const featuredBooks = [
 				</button>
 			</div>
 		</div>
-	</section>
+	</SpecCardsSection>
 
 	<div class="modal" id="wepub-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
@@ -120,7 +123,7 @@ const featuredBooks = [
 			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
 				×
 			</button>
-			<img src="/images/wepub.png" alt="WePub image" />
+			<img src="/images/wepub.png" alt="WePub image" loading="lazy" decoding="async" width="1024" height="592" />
 		</div>
 	</div>
 
@@ -130,36 +133,29 @@ const featuredBooks = [
 			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
 				×
 			</button>
-			<img src="/images/booktree.png" alt="BookTree image" />
+			<img src="/images/booktree.png" alt="BookTree image" loading="lazy" decoding="async" width="976" height="1219" />
 		</div>
 	</div>
 
-	<section class="split">
-		<div class="section">
-			<h2>Who ReaderPub serves</h2>
-			<p>Three core audiences, one public platform.</p>
-			<ul class="bullets">
-				<li>Readers who want trusted discovery and lasting libraries.</li>
-				<li>Authors who publish, market, sell, and rent directly to readers.</li>
-				<li>
-					Institutions, including publishers, libraries, universities, government, and public
-					organizations.
-				</li>
-			</ul>
-			<div class="cta-row">
-				<a class="button secondary" href="/readers">Explore Readers</a>
-				<a class="button secondary" href="/authors">Explore Authors</a>
-				<a class="button secondary" href="/institutions">Explore Institutions</a>
-			</div>
+	<TextFirstSection>
+		<h2>Who ReaderPub serves</h2>
+		<p>Three core audiences, one public platform.</p>
+		<ul class="bullets">
+			<li>Readers who want trusted discovery and lasting libraries.</li>
+			<li>Authors who publish, market, sell, and rent directly to readers.</li>
+			<li>
+				Institutions, including publishers, libraries, universities, government, and public
+				organizations.
+			</li>
+		</ul>
+		<div class="cta-row">
+			<a class="button secondary" href="/readers">Explore Readers</a>
+			<a class="button secondary" href="/authors">Explore Authors</a>
+			<a class="button secondary" href="/institutions">Explore Institutions</a>
 		</div>
-		<img
-			class="image-block image-bleed-right image-home-serve"
-			src="/images/home1.png"
-			alt="ReaderPub serves readers, authors, and institutions on a shared platform"
-		/>
-	</section>
+	</TextFirstSection>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2 id="indie-releases">Independent publishing is live on ReaderPub.</h2>
 		<p>
 			WeRead Catalog includes 80,000+ public-domain books (with thanks to Project Gutenberg).
@@ -185,7 +181,7 @@ const featuredBooks = [
 			</a>
 			<a class="button secondary" href="/publish">Start publishing</a>
 		</div>
-	</section>
+	</SpecCardsSection>
 
 	<style>
 		.book-card-link {
@@ -228,13 +224,6 @@ const featuredBooks = [
 			width: 100%;
 		}
 
-		.use-case-card .use-case-icon {
-			width: 88px;
-			height: 88px;
-			flex-shrink: 0;
-			object-fit: contain;
-		}
-
 		.use-case-grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			justify-content: stretch;
@@ -256,53 +245,53 @@ const featuredBooks = [
 		}
 	</style>
 
-	<section class="section">
+	<IconGridSection>
 		<h2>Common use cases</h2>
-		<div class="card-grid use-case-grid">
-			<div class="card use-case-card">
-				<img class="use-case-icon" src="/images/use_case1.png" alt="Readers" />
-				<div>
+		<div class="card-grid use-case-grid icon-grid">
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="reader" title="Readers" />
+				<div class="icon-grid-card-copy">
 					<h3>Readers</h3>
 					<p>Discover books, read comfortably, and build personal reading habits.</p>
 				</div>
 			</div>
-			<div class="card use-case-card">
-				<img class="use-case-icon" src="/images/use_case2.png" alt="Authors" />
-				<div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="author" title="Authors" />
+				<div class="icon-grid-card-copy">
 					<h3>Authors</h3>
 					<p>Publish, promote, and sell books directly to real readers.</p>
 				</div>
 			</div>
-			<div class="card use-case-card">
-				<img class="use-case-icon" src="/images/use_case3.png" alt="Public reading rooms" />
-				<div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="public" title="Public reading rooms" />
+				<div class="icon-grid-card-copy">
 					<h3>Public reading rooms</h3>
 					<p>Curated digital shelves for communities and partners.</p>
 				</div>
 			</div>
-			<div class="card use-case-card">
-				<img class="use-case-icon" src="/images/use_case4.png" alt="Researchers" />
-				<div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="research" title="Researchers" />
+				<div class="icon-grid-card-copy">
 					<h3>Researchers</h3>
 					<p>Release working papers, living books, and open archives.</p>
 				</div>
 			</div>
-			<div class="card use-case-card">
-				<img class="use-case-icon" src="/images/use_case5.png" alt="Learning programs" />
-				<div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="program" title="Learning programs" />
+				<div class="icon-grid-card-copy">
 					<h3>Learning programs</h3>
 					<p>Support cohort-based learning and reading challenges.</p>
 				</div>
 			</div>
-			<div class="card use-case-card">
-				<img class="use-case-icon" src="/images/use_case6.png" alt="Libraries" />
-				<div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="library" title="Libraries" />
+				<div class="icon-grid-card-copy">
 					<h3>Libraries</h3>
 					<p>Curate collections, serve communities, and expand digital access.</p>
 				</div>
 			</div>
 		</div>
-	</section>
+	</IconGridSection>
 
 	<section class="footer-cta" style="background: transparent; border: 0; padding: 0; border-radius: 0;">
 		<div class="card-grid onboarding-grid">

@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
+import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
 <Base title={`${SITE_NAME} Pricing`}>
@@ -19,13 +21,17 @@ import { SITE_NAME } from "../consts";
 			</div>
 		</div>
 		<img
-			class="image-block"
+			class="image-block proof-media"
 			src="/images/pricing.png"
 			alt="ReaderPub pricing for creators and institutions"
+			loading="lazy"
+			decoding="async"
+			width="667"
+			height="600"
 		/>
 	</section>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2>Sell and rent directly to your readers.</h2>
 		<p class="lede">Keep your audience, keep your data, and keep more of each sale.</p>
 		<div class="card-grid">
@@ -53,9 +59,9 @@ import { SITE_NAME } from "../consts";
 			<a class="button" href="/publish">Publish a book</a>
 			<a class="button secondary" href="/catalog">Browse independent releases</a>
 		</div>
-	</section>
+	</SpecCardsSection>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2>Sale vs Rental</h2>
 		<p class="lede">
 			Amazon-style retail is purchase-only. ReaderPub supports both purchase and
@@ -84,29 +90,22 @@ import { SITE_NAME } from "../consts";
 			short-term use (often 20–40% of the sale price for shorter windows). Example: Sale
 			$9.99 → 30-day rental $2.99; 90-day rental $4.99.
 		</p>
-	</section>
+	</SpecCardsSection>
 
-	<section class="split">
-		<img
-			class="image-block"
-			src="/images/pricing1.png"
-			alt="Institutional publishing collections on ReaderPub"
-		/>
-		<div class="section">
-			<h2>Institutional publishing at public scale.</h2>
-			<p class="lede">
-				For libraries, universities, government, and public organizations — publish trusted
-				collections to the web with a modern reader.
-			</p>
-			<p class="body-text">
-				This is not Amazon-style retail. Institutions publish collections, programs, archives,
-				and public libraries. ReaderPub is the missing web layer: fast onboarding, clean
-				discovery, and a real in-browser reading experience.
-			</p>
-		</div>
-	</section>
+	<TextFirstSection>
+		<h2>Institutional publishing at public scale.</h2>
+		<p class="lede">
+			For libraries, universities, government, and public organizations — publish trusted
+			collections to the web with a modern reader.
+		</p>
+		<p class="body-text">
+			This is not Amazon-style retail. Institutions publish collections, programs, archives,
+			and public libraries. ReaderPub is the missing web layer: fast onboarding, clean
+			discovery, and a real in-browser reading experience.
+		</p>
+	</TextFirstSection>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2>Institution plans (subscription + storage)</h2>
 		<p>
 			Institutions budget annually and publish collections over time, so pricing is
@@ -163,9 +162,9 @@ import { SITE_NAME } from "../consts";
 			<li>Custom integrations (catalog, authentication, reporting).</li>
 			<li>Migration support for legacy collections.</li>
 		</ul>
-	</section>
+	</SpecCardsSection>
 
-	<section class="section">
+	<SpecCardsSection>
 		<h2>Onboarding</h2>
 		<p class="lede">From files or catalogs to a public web library — fast.</p>
 		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
@@ -193,7 +192,7 @@ import { SITE_NAME } from "../consts";
 		<div class="cta-row" style="justify-content: center;">
 			<a class="button" href="/contact#request-onboarding">Request onboarding</a>
 		</div>
-	</section>
+	</SpecCardsSection>
 
 	<style>
 		.section > p.body-text {
