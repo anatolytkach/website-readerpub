@@ -67,6 +67,15 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			Amazon-style retail is purchase-only. ReaderPub supports both purchase and
 			time-limited access — you choose what fits each audience.
 		</p>
+		<p class="sale-rental-note">
+			Sales are permanent access: the reader buys the title and keeps it in their library. They
+			can open it anytime, on any device, and access the full WeRead experience.
+		</p>
+		<p class="sale-rental-note">
+			Rentals are time-limited access: you set a duration and a price, and readers get instant
+			access for a course, cohort, or limited window. Rentals convert hesitant readers and unlock
+			institutional-style programs—without discounting the sale.
+		</p>
 		<div class="card-grid sale-rent-grid">
 			<div class="card">
 				<h3>Sale (Buy)</h3>
@@ -85,10 +94,12 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				</ul>
 			</div>
 		</div>
-		<p>
+		<p class="lede">
 			You set both prices. Rentals are typically priced lower than purchase to support
-			short-term use (often 20–40% of the sale price for shorter windows). Example: Sale
-			$9.99 → 30-day rental $2.99; 90-day rental $4.99.
+			short-term use (often 20–40% of the sale price for shorter windows).
+		</p>
+		<p class="sale-rental-note">
+			Example: Sale $9.99 → 30-day rental $2.99; 90-day rental $4.99.
 		</p>
 	</SpecCardsSection>
 
@@ -185,6 +196,11 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			grid-template-columns: repeat(2, minmax(360px, 480px));
 			justify-content: center;
 		}
+
+		.sale-rental-note {
+			color: var(--text) !important;
+		}
+
 
 		@media (max-width: 1024px) {
 			.sale-rent-grid {
