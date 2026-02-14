@@ -29,7 +29,7 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		</div>
 	</section>
 
-	<section class="section institutions-publisher-intro institutions-tight-section">
+	<section class="section institutions-publisher-intro institutions-tight-section section-continue-next">
 		<h2>Publishers grow reach without losing control.</h2>
 		<p>Launch catalogs, excerpts, and programs on a public platform built for discovery.</p>
 		<ul class="bullets">
@@ -47,7 +47,7 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		</p>
 	</section>
 
-	<IconGridSection class="institutions-tight-section">
+	<IconGridSection class="institutions-tight-section section-continuation section-continue-next">
 		<div class="card-grid icon-grid institutions-pair-grid">
 			<div class="card icon-grid-card">
 				<SectionIcon type="sale" title="Sell and rent titles" />
@@ -74,7 +74,7 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		</div>
 	</IconGridSection>
 
-	<IconGridSection class="institutions-tight-section">
+	<IconGridSection class="institutions-tight-section section-continuation section-continue-next">
 		<div class="card-grid icon-grid institutions-pair-grid">
 			<div class="card icon-grid-card">
 				<SectionIcon type="library" title="Libraries" />
@@ -111,7 +111,7 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		</div>
 	</IconGridSection>
 
-	<IconGridSection class="institutions-tight-section">
+	<IconGridSection class="institutions-tight-section section-continuation">
 		<div class="card-grid icon-grid institutions-pair-grid">
 			<div class="card icon-grid-card">
 				<SectionIcon type="government" title="Government" />
@@ -148,10 +148,26 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		</div>
 	</IconGridSection>
 
+	<section class="footer-cta institutions-onboarding-cta section-continuation">
+		<h2>Onboard your organization on ReaderPub</h2>
+		<p class="lede">Tell us what you need: We’ll set up your onboarding.</p>
+		<div class="cta-row institutions-onboarding-cta-row">
+			<a class="button" href="/contact#request-onboarding">Institutional onboarding</a>
+			<a class="button secondary" href="/pricing">See pricing</a>
+		</div>
+	</section>
+
 	<style>
-		:global(.institutions-tight-section) {
-			padding-top: 14px;
-			padding-bottom: 14px;
+		:global(.institutions-tight-section.section-continuation) {
+			padding-top: 0 !important;
+		}
+
+		:global(.institutions-tight-section.section-continuation > .card-grid) {
+			margin-top: 0 !important;
+		}
+
+		:global(.institutions-tight-section.section-continuation.section-continue-next) {
+			padding-bottom: var(--section-flow-gap) !important;
 		}
 
 		.institutions-pair-grid {
@@ -166,6 +182,18 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		.institutions-outcome-note {
 			color: var(--accent) !important;
 			font-size: 18px !important;
+		}
+
+		.institutions-onboarding-cta {
+			width: 100%;
+			max-width: none;
+			text-align: center;
+			padding: 29px 32px !important;
+		}
+
+		.institutions-onboarding-cta-row {
+			justify-content: center !important;
+			width: 100%;
 		}
 
 		@media (max-width: 980px) {

@@ -2,11 +2,10 @@
 import Base from "../layouts/Base.astro";
 import { BOOKS_URL, SITE_NAME, WEREAD_NAME, BOOKTREE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
-import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
 <Base title="Publish your book">
-	<TextFirstSection class="hero">
+	<section class="hero">
 		<div>
 			<h1>Publish your book on {SITE_NAME}</h1>
 			<p class="lede">
@@ -20,40 +19,51 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				</a>
 			</div>
 		</div>
-	</TextFirstSection>
+		<img
+			class="image-block image-large proof-media"
+			src="/images/home2.png"
+			alt="ReaderPub publishing workflow across readers and institutions"
+			loading="eager"
+			decoding="async"
+			width="1536"
+			height="1319"
+		/>
+	</section>
 
-	<TextFirstSection>
-		<h2>What you get</h2>
-		<p>Everything you need to publish, monetize, and grow a direct audience.</p>
-		<ul class="bullets">
-			<li>A fast web edition readers can open instantly.</li>
-			<li>Direct sales and time-limited rentals.</li>
-			<li>5% commission on sales.</li>
-			<li>5% commission on rentals.</li>
-			<li>Fan clubs for every book and author.</li>
-			<li>Analytics for sales, rentals, and engagement.</li>
-			<li>Optional production-ready EPUB output.</li>
-		</ul>
-		<p>
-			Compatible with {WEREAD_NAME} for web reading and {BOOKTREE_NAME} for organizing
-			sources.
-		</p>
-	</TextFirstSection>
-
-	<TextFirstSection>
-		<h2>How publishing works</h2>
-		<p>A simple workflow from manuscript to live web edition.</p>
-		<ol class="bullets">
-			<li>Share your manuscript (Word, PDF, or EPUB).</li>
-			<li>We prepare your web edition and metadata.</li>
-			<li>You choose sales, rentals, and fan-club options.</li>
-			<li>Your book goes live — with analytics from day one.</li>
-		</ol>
-	</TextFirstSection>
+		<SpecCardsSection>
+			<div class="card-grid publish-two-up">
+				<div class="card">
+					<h2>What you get</h2>
+					<p class="lede">Everything you need to publish, monetize, and grow a direct audience.</p>
+					<ul class="bullets">
+						<li>A fast web edition readers can open instantly.</li>
+						<li>Direct sales and time-limited rentals.</li>
+						<li>5% commission on sales and rentals.</li>
+						<li>Fan clubs for every book and author.</li>
+						<li>Analytics for sales, rentals, and engagement.</li>
+						<li>Optional production-ready EPUB output.</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h2>How publishing works</h2>
+					<p class="lede">A simple workflow from manuscript to live web edition.</p>
+					<ol class="bullets">
+						<li>Share your manuscript (Word, PDF, or EPUB).</li>
+						<li>We prepare your web edition and metadata.</li>
+						<li>You choose sales, rentals, and fan-club options.</li>
+						<li>Your book goes live — with analytics from day one.</li>
+					</ol>
+					<p class="lede publish-compat-lede">
+						Compatible with {WEREAD_NAME} for web reading and {BOOKTREE_NAME} for organizing
+						sources.
+					</p>
+				</div>
+			</div>
+		</SpecCardsSection>
 
 	<SpecCardsSection>
 		<h2>Who this is for</h2>
-		<div class="card-grid">
+		<div class="card-grid publish-audience-grid">
 			<div class="card">
 				<h3>Independent authors</h3>
 				<ul class="bullets">
@@ -73,10 +83,63 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 		</div>
 	</SpecCardsSection>
 
-	<section class="footer-cta">
-		<h2>Ready to publish?</h2>
-		<p>Send your book details and we’ll get you live on {SITE_NAME}.</p>
-		<a class="button" href="/contact?topic=publish#request-onboarding">Submit your book</a>
-		<p>Prefer email? Use the contact form and select “Publishing”.</p>
-	</section>
-</Base>
+		<section class="footer-cta publish-footer-cta">
+			<h2>Ready to publish?</h2>
+			<p>Send your book details and we’ll get you live on {SITE_NAME}.</p>
+			<div class="cta-row publish-footer-cta-row">
+				<a class="button publish-footer-cta-button" href="/contact?topic=publish#request-onboarding">
+					Submit your book
+				</a>
+			</div>
+		</section>
+
+		<style>
+			.publish-two-up {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				width: 100%;
+				max-width: none;
+				justify-content: stretch;
+			}
+
+			.card p.publish-compat-lede {
+				color: var(--link) !important;
+				font-size: 18px !important;
+				line-height: 1.25 !important;
+			}
+
+			.publish-audience-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				width: 100%;
+				max-width: none;
+				justify-content: stretch;
+			}
+
+			.publish-footer-cta-row {
+				justify-content: center;
+				width: 100%;
+			}
+
+			.publish-footer-cta-button {
+				place-self: center;
+				width: max-content;
+				max-width: 100%;
+			}
+
+			.publish-footer-cta {
+				padding-top: 29px !important;
+				padding-bottom: 29px !important;
+				padding-left: 32px;
+				padding-right: 32px;
+			}
+
+			@media (max-width: 920px) {
+				.publish-two-up {
+					grid-template-columns: 1fr;
+				}
+
+				.publish-audience-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</Base>

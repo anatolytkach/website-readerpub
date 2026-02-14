@@ -15,13 +15,13 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				<li>authors/publishers selling & renting directly to readers</li>
 				<li>institutions publishing trusted collections for the public.</li>
 			</ul>
-			<div class="cta-row" style="margin-top: 16px;">
+			<div class="cta-row">
 				<a class="button" href="/contact#request-onboarding">Start onboarding</a>
 				<a class="button secondary" href="/catalog">See the catalog</a>
 			</div>
 		</div>
 		<img
-			class="image-block proof-media"
+			class="image-block proof-media pricing-hero-image"
 			src="/images/pricing.png"
 			alt="ReaderPub pricing for creators and institutions"
 			loading="lazy"
@@ -55,9 +55,9 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			<li>Fan clubs: memberships, drops, early access, and campaigns.</li>
 			<li>Optional EPUB delivery for external distribution and archiving.</li>
 		</ul>
-		<div class="cta-row" style="margin-top: 16px;">
+		<div class="cta-row">
 			<a class="button" href="/publish">Publish a book</a>
-			<a class="button secondary" href="/catalog">Browse independent releases</a>
+			<a class="button secondary" href="/#indie-releases">See recent releases</a>
 		</div>
 	</SpecCardsSection>
 
@@ -92,26 +92,20 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 		</p>
 	</SpecCardsSection>
 
-	<TextFirstSection>
-		<h2>Institutional publishing at public scale.</h2>
+	<TextFirstSection class="institution-plans-block">
+		<h2>Institution plans (subscription + storage)</h2>
 		<p class="lede">
 			For libraries, universities, government, and public organizations — publish trusted
 			collections to the web with a modern reader.
 		</p>
-		<p class="body-text">
-			This is not Amazon-style retail. Institutions publish collections, programs, archives,
-			and public libraries. ReaderPub is the missing web layer: fast onboarding, clean
-			discovery, and a real in-browser reading experience.
+		<p class="institution-plans-summary" style="color: var(--text); font-size: 16px; font-weight: 400;">
+			Institutions publish collections, programs, archives, and public libraries. ReaderPub is
+			the missing web layer: fast onboarding, clean
+			discovery, and a real in-browser reading experience. Institutions budget annually and
+			publish collections over time, so pricing is subscription-based with storage included —
+			with predictable overage when needed.
 		</p>
-	</TextFirstSection>
-
-	<SpecCardsSection>
-		<h2>Institution plans (subscription + storage)</h2>
-		<p>
-			Institutions budget annually and publish collections over time, so pricing is
-			subscription-based with storage included — with predictable overage when needed.
-		</p>
-		<div class="card-grid">
+			<div class="card-grid">
 			<div class="card">
 				<h3>Starter</h3>
 				<p>for pilots and small collections</p>
@@ -162,42 +156,29 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			<li>Custom integrations (catalog, authentication, reporting).</li>
 			<li>Migration support for legacy collections.</li>
 		</ul>
-	</SpecCardsSection>
+	</TextFirstSection>
 
 	<SpecCardsSection>
-		<h2>Onboarding</h2>
+		<h2>Onboarding process</h2>
 		<p class="lede">From files or catalogs to a public web library — fast.</p>
-		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-			<div class="card">
-				<h3>For independent authors/publishers</h3>
-				<ul class="bullets">
-					<li>Upload one or multiple files (Word/PDF/EPUB).</li>
-					<li>WePub engine produces web publishing + optional EPUB output.</li>
-					<li>Enable Buy/Rent, analytics, and fan clubs.</li>
-				</ul>
-			</div>
-			<div class="card">
-				<h3>For institutions</h3>
-				<ul class="bullets">
-					<li>We import from the way collections are commonly stored today:</li>
-					<li>Bulk file drop (ZIP of EPUB/PDF) + metadata spreadsheet</li>
-					<li>OPDS/OPDS2 feeds (where available)</li>
-					<li>MARC/ONIX/CSV metadata exports + cover assets</li>
-					<li>S3-compatible bucket export or rsync/FTP transfer</li>
-					<li>Repository exports (institutional repositories / digital collections)</li>
-					<li>We map identifiers, preserve catalog structure, and publish as a web library.</li>
-				</ul>
-			</div>
-		</div>
-		<div class="cta-row" style="justify-content: center;">
+		<p class="onboarding-note" style="color: var(--text); font-size: 16px; font-weight: 400;">
+			During the onboarding process, you specify your needs and requirements, and your pricing model will adjust accordingly.
+		</p>
+		<div class="cta-row">
 			<a class="button" href="/contact#request-onboarding">Request onboarding</a>
 		</div>
 	</SpecCardsSection>
 
 	<style>
-		.section > p.body-text {
-			color: var(--muted);
-			font-size: 16px;
+		.pricing-hero-image {
+			flex: 0 1 368px !important;
+			max-width: 368px !important;
+		}
+
+		.institution-plans-block {
+			width: min(100%, 1100px);
+			margin-inline: auto;
+			text-align: left;
 		}
 
 		.sale-rent-grid {

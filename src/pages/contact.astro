@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 import TextFirstSection from "../components/sections/TextFirstSection.astro";
+import SectionIcon from "../components/SectionIcon.astro";
 
 const topic = Astro.url.searchParams.get("topic") ?? "";
 ---
@@ -38,27 +39,38 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 	<SpecCardsSection>
 		<h2>How onboarding works</h2>
 		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-			<div class="card">
-				<h3>Independent authors & small publishers</h3>
-				<ul class="bullets">
-					<li>Upload Word, PDF, or EPUB — one file or a batch.</li>
-					<li>We publish a web edition optimized for discovery and reading.</li>
-					<li>Optional commerce: sales, rentals, fan clubs, analytics.</li>
-					<li>Optional EPUB delivery for external distribution and archiving.</li>
-				</ul>
+			<div class="card icon-grid-card">
+				<SectionIcon type="public" title="Independent authors & small publishers" />
+				<div class="icon-grid-card-copy">
+					<h3>Independent authors & small publishers</h3>
+					<ul class="bullets">
+						<li>Upload one or multiple files (Word/PDF/EPUB).</li>
+						<li>WePub engine produces web publishing + optional EPUB output.</li>
+						<li>Enable Buy/Rent, analytics, and fan clubs.</li>
+						<li>See sales and billing reports.</li>
+						<li>Monitor social activity related to your listings.</li>
+						<li>Communicate with your fans and followers.</li>
+						<li>Plan events and presentations.</li>
+					</ul>
+				</div>
 			</div>
-			<div class="card">
-				<h3>Institutions & catalogs</h3>
-				<ul class="bullets">
-					<li>Import from OPDS feeds, MARC/ONIX/KBART, or CSV exports.</li>
-					<li>Bulk file delivery via secure transfer or cloud storage (S3-compatible).</li>
-					<li>Preserve identifiers and catalog metadata across large collections.</li>
-					<li>Deploy on reader.pub subdomain or your own subdomain.</li>
-					<li>Launch public reading rooms, archives, or controlled-access programs.</li>
-				</ul>
+				<div class="card icon-grid-card">
+					<SectionIcon type="library" title="Institutions & catalogs" />
+					<div class="icon-grid-card-copy">
+						<h3>Institutions & catalogs</h3>
+						<p class="onboarding-import-lede">We import from the way collections are commonly stored today:</p>
+						<ul class="bullets">
+							<li>Bulk file drop (ZIP of EPUB/PDF) + metadata spreadsheet</li>
+							<li>OPDS/OPDS2 feeds (where available)</li>
+							<li>MARC/ONIX/CSV metadata exports + cover assets</li>
+							<li>S3-compatible bucket export or rsync/FTP transfer</li>
+							<li>Repository exports (institutional repositories / digital collections)</li>
+							<li>We map identifiers, preserve catalog structure, and publish as a web library.</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-		</div>
-	</SpecCardsSection>
+		</SpecCardsSection>
 
 	<TextFirstSection>
 		<h2 id="request-onboarding" style="text-align: center; scroll-margin-top: 120px;">Request onboarding</h2>
@@ -128,16 +140,16 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 			<input type="hidden" name="topic" value={topic} />
 			<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-			<div style="margin-top: 16px; text-align: center;">
-				<div class="cta-row" style="justify-content: center;">
-					<button class="button" type="submit">Send onboarding request</button>
-				</div>
-				<p style="margin: 12px auto 0; max-width: 680px;">
-					We onboard independent authors, publishers, and institutions.<br />
-					If you already have files (Word/PDF/EPUB) or maintain in-house catalogs, please
-					mention this in your message.
-					You’ll hear back by email with next steps and a proposed onboarding plan.
-				</p>
+				<div class="contact-submit-block">
+					<div class="cta-row" style="justify-content: center;">
+						<button class="button" type="submit">Send onboarding request</button>
+					</div>
+					<p class="contact-submit-note">
+						We onboard independent authors, publishers, and institutions.<br />
+						If you already have files (Word/PDF/EPUB) or maintain in-house catalogs, please
+						mention this in your message.
+						You’ll hear back by email with next steps and a proposed onboarding plan.
+					</p>
 			</div>
 		</form>
 	</TextFirstSection>
@@ -157,4 +169,25 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 		<h3>Subdomain vs custom domain?</h3>
 		<p>Use a reader.pub subdomain or your own subdomain mapped to ReaderPub hosting.</p>
 	</TextFirstSection>
+
+			<style>
+				:global(.section > form) {
+					margin-top: var(--section-block-gap-adjust) !important;
+				}
+
+				.card .onboarding-import-lede {
+					color: var(--link);
+					font-size: 18px;
+				}
+
+				.contact-submit-block {
+					margin-top: calc(var(--section-flow-gap) + var(--section-block-gap-adjust));
+					text-align: center;
+				}
+
+				.contact-submit-note {
+					margin: calc(var(--section-flow-gap) + var(--section-block-gap-adjust)) auto 0;
+					max-width: 680px;
+				}
+			</style>
 </Base>

@@ -28,7 +28,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		/>
 	</ProofSection>
 
-	<SpecCardsSection>
+	<SpecCardsSection class="section-continue-next">
 		<h2>What powers ReaderPub</h2>
 		<div class="card-grid powers-grid">
 			<div class="card">
@@ -60,7 +60,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		</div>
 	</SpecCardsSection>
 
-	<ProofSection class="proof-section-full">
+	<ProofSection class="proof-section-full section-continuation section-continue-next">
 		<picture slot="media" class="image-full">
 			<source srcset="/images/chain1.png" media="(orientation: portrait)" />
 			<img
@@ -74,7 +74,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		</picture>
 	</ProofSection>
 
-	<SpecCardsSection>
+	<SpecCardsSection class="section-continuation section-continue-next">
 		<div class="card-grid powers-grid powers-grid-two">
 			<div class="card">
 				<h2>Built for scale</h2>
@@ -99,7 +99,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		</div>
 	</SpecCardsSection>
 
-	<section class="footer-cta">
+	<section class="footer-cta section-continuation tech-footer-cta">
 		<p>Interested in how this fits your organization?</p>
 		<a class="button footer-cta-button" href="/contact#request-onboarding">Request information</a>
 	</section>
@@ -166,6 +166,11 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			width: max-content;
 			max-width: 100%;
 			place-self: center;
+		}
+
+		.tech-footer-cta {
+			padding-top: 29px !important;
+			padding-bottom: 29px !important;
 		}
 
 		.powers-grid {

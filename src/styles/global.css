@@ -9,6 +9,8 @@
 	--border: #d8dee8;
 	--link: #008f80;
 	--link-hover: #007066;
+	--section-flow-gap: 16px;
+	--section-block-gap-adjust: 12px;
 }
 
 * {
@@ -48,6 +50,20 @@ h3 {
 section {
 	padding: 58px 0;
 	margin: 0;
+}
+
+.section-continue-next {
+	padding-bottom: 58px !important;
+}
+
+.section-continuation {
+	padding-top: 58px !important;
+	padding-bottom: 58px !important;
+	margin-top: 0 !important;
+}
+
+.section.section-continuation + .footer-cta.section-continuation {
+	margin-top: 0 !important;
 }
 
 section > :first-child {
@@ -314,6 +330,20 @@ section > :last-child {
 	min-width: 280px;
 }
 
+.hero > div {
+	display: flex;
+	flex-direction: column;
+	gap: var(--section-flow-gap);
+}
+
+.hero > div > * {
+	margin: 0;
+}
+
+.hero > div > .cta-row {
+	margin-top: var(--section-block-gap-adjust);
+}
+
 .hero.reverse {
 	flex-direction: row-reverse;
 }
@@ -321,7 +351,7 @@ section > :last-child {
 .hero h1 {
 	font-size: clamp(36px, 5vw, 56px);
 	line-height: 1.1;
-	margin-bottom: 12px;
+	margin-bottom: 0;
 }
 
 .lede {
@@ -335,10 +365,6 @@ section > :last-child {
 	gap: 12px;
 	flex-wrap: wrap;
 	align-items: center;
-}
-
-.section .cta-row {
-	margin-top: 12px;
 }
 
 .button {
@@ -378,15 +404,29 @@ section > :last-child {
 }
 
 .section {
-	display: grid;
-	gap: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: var(--section-flow-gap);
 	margin: 0;
+	align-items: stretch;
 }
 
-.text-first-section,
-.spec-cards-section {
-	display: grid;
-	gap: 16px;
+.section > * {
+	margin: 0 !important;
+}
+
+.section > .card-grid,
+.section > .cta-row,
+.section > .footer-cta {
+	margin-top: var(--section-block-gap-adjust) !important;
+}
+
+.section > :is(.card-grid, .cta-row, .footer-cta) + :is(p, ul, ol, .bullets, h3, h4) {
+	margin-top: var(--section-block-gap-adjust) !important;
+}
+
+.section > :is(ul, ol, .bullets) + :is(h3, h4) {
+	margin-top: var(--section-block-gap-adjust) !important;
 }
 
 .section + .section {
@@ -395,20 +435,29 @@ section > :last-child {
 
 .section h2 {
 	font-size: clamp(24px, 3vw, 34px);
+	line-height: 1.12;
+}
+
+.section h3,
+.section h4 {
+	line-height: 1.12;
 }
 
 .section p {
 	color: var(--muted);
 	max-width: 680px;
 	font-size: 16px;
+	line-height: 1.28;
 }
 
 .section > p {
 	font-size: 18px;
+	line-height: 1.25;
 }
 
 .section h2 + p {
 	font-size: 18px;
+	line-height: 1.25;
 }
 
 .section > p,
@@ -416,16 +465,16 @@ section > :last-child {
 	color: var(--link);
 }
 
+.section .lede {
+	margin-bottom: 0;
+}
+
 .card-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
-	gap: 16px;
+	gap: var(--section-flow-gap);
 	justify-content: center;
 	align-items: stretch;
-}
-
-.section > :not(.card-grid) + .card-grid {
-	margin-top: 24px;
 }
 
 .icon-grid {
@@ -440,7 +489,7 @@ section > :last-child {
 	display: grid !important;
 	grid-template-columns: 56px minmax(0, 1fr) !important;
 	column-gap: 14px !important;
-	row-gap: 8px !important;
+	row-gap: var(--section-flow-gap) !important;
 	align-items: flex-start;
 	width: 100%;
 }
@@ -476,7 +525,7 @@ section > :last-child {
 	min-height: 130px;
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: var(--section-flow-gap);
 	height: 100%;
 }
 
@@ -484,7 +533,7 @@ section > :last-child {
 	justify-self: start;
 	width: fit-content;
 	max-width: 100%;
-	margin-top: auto;
+	margin-top: 0;
 	align-self: flex-start;
 }
 
@@ -578,6 +627,7 @@ section > :last-child {
 .bullets li {
 	color: var(--muted);
 	font-size: 16px;
+	line-height: 1.25;
 	list-style: disc;
 	padding: 0;
 	border: 0;
@@ -868,7 +918,12 @@ section > :last-child {
 	border: 1px solid var(--border);
 	text-align: center;
 	display: grid;
-	gap: 12px;
+	gap: var(--section-flow-gap);
+}
+
+.footer-cta.publish-footer-cta {
+	padding-top: 29px;
+	padding-bottom: 29px;
 }
 
 .footer-cta p {

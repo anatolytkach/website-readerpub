@@ -5,7 +5,6 @@ import SectionIcon from "../components/SectionIcon.astro";
 import IconGridSection from "../components/sections/IconGridSection.astro";
 import ProofSection from "../components/sections/ProofSection.astro";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
-import TextFirstSection from "../components/sections/TextFirstSection.astro";
 
 const featuredBooks = [
 	{
@@ -59,9 +58,7 @@ const featuredBooks = [
 				Institutions publish collections at web scale.
 			</p>
 			<div class="cta-row">
-				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
-					Browse Catalog
-				</a>
+				<a class="button secondary" href="/readers">For Readers</a>
 				<a class="button secondary" href="/authors">For Authors</a>
 				<a class="button secondary" href="/institutions">For Institutions</a>
 			</div>
@@ -78,18 +75,7 @@ const featuredBooks = [
 		/>
 	</ProofSection>
 
-	<TextFirstSection>
-		<h2>Read instantly on the web</h2>
-		<p>Open a book in one click. No apps, no setup, no friction.</p>
-		<ul class="bullets">
-			<li>Web-first reading with dedicated-reader comfort.</li>
-			<li>Works across devices — pick up where you left off.</li>
-			<li>Instant access from a link: no downloads, no installs.</li>
-			<li>Built for long sessions: clean UI, fast loading.</li>
-		</ul>
-	</TextFirstSection>
-
-	<SpecCardsSection>
+	<SpecCardsSection class="section-continue-next">
 		<h2>The ReaderPub platform family</h2>
 		<p>Three components, one public platform.</p>
 		<div class="card-grid">
@@ -117,6 +103,31 @@ const featuredBooks = [
 		</div>
 	</SpecCardsSection>
 
+	<section class="home-two-up">
+		<div class="section home-two-up-block">
+			<h2>Read instantly on the web</h2>
+			<p>Open a book in one click. No apps, no setup, no friction.</p>
+			<ul class="bullets">
+				<li>Web-first reading with dedicated-reader comfort.</li>
+				<li>Works across devices — pick up where you left off.</li>
+				<li>Instant access from a link: no downloads, no installs.</li>
+				<li>Built for long sessions: clean UI, fast loading.</li>
+			</ul>
+		</div>
+		<div class="section home-two-up-block">
+			<h2>Who ReaderPub serves</h2>
+			<p>Three core audiences, one public platform.</p>
+			<ul class="bullets">
+				<li>Readers who want trusted discovery and lasting libraries.</li>
+				<li>Authors who publish, market, sell, and rent directly to readers.</li>
+				<li>
+					Institutions, including publishers, libraries, universities, government, and public
+					organizations.
+				</li>
+			</ul>
+		</div>
+	</section>
+
 	<div class="modal" id="wepub-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
 		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub image">
@@ -136,24 +147,6 @@ const featuredBooks = [
 			<img src="/images/booktree.png" alt="BookTree image" loading="lazy" decoding="async" width="976" height="1219" />
 		</div>
 	</div>
-
-	<TextFirstSection>
-		<h2>Who ReaderPub serves</h2>
-		<p>Three core audiences, one public platform.</p>
-		<ul class="bullets">
-			<li>Readers who want trusted discovery and lasting libraries.</li>
-			<li>Authors who publish, market, sell, and rent directly to readers.</li>
-			<li>
-				Institutions, including publishers, libraries, universities, government, and public
-				organizations.
-			</li>
-		</ul>
-		<div class="cta-row">
-			<a class="button secondary" href="/readers">Explore Readers</a>
-			<a class="button secondary" href="/authors">Explore Authors</a>
-			<a class="button secondary" href="/institutions">Explore Institutions</a>
-		</div>
-	</TextFirstSection>
 
 	<SpecCardsSection>
 		<h2 id="indie-releases">Independent publishing is live on ReaderPub.</h2>
@@ -216,6 +209,11 @@ const featuredBooks = [
 			gap: 6px;
 		}
 
+		.book-card h3 {
+			color: var(--link);
+			font-size: clamp(15px, 1.3vw, 21px);
+		}
+
 		.use-case-grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			justify-content: stretch;
@@ -224,9 +222,29 @@ const featuredBooks = [
 			max-width: none;
 		}
 
+		.home-two-up {
+			display: grid !important;
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+			gap: 58px;
+			width: 100%;
+			max-width: none;
+			align-items: start;
+		}
+
+		.home-two-up-block {
+			min-width: 0;
+		}
+
 		@media (max-width: 900px) {
 			.use-case-grid {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		@media (max-width: 560px) {
+			.home-two-up {
+				grid-template-columns: 1fr;
+				gap: 36px;
 			}
 		}
 
@@ -237,7 +255,7 @@ const featuredBooks = [
 		}
 	</style>
 
-	<IconGridSection>
+	<IconGridSection class="section-continuation">
 		<h2>Common use cases</h2>
 		<div class="card-grid use-case-grid icon-grid">
 			<div class="card use-case-card icon-grid-card">
@@ -283,40 +301,39 @@ const featuredBooks = [
 				</div>
 			</div>
 		</div>
-	</IconGridSection>
-
-	<section class="footer-cta" style="background: transparent; border: 0; padding: 0; border-radius: 0;">
-		<div class="card-grid onboarding-grid">
-			<div class="card">
-				<h2>Publish your book on ReaderPub</h2>
-				<p class="lede">Sell and rent directly to readers — keep your audience.</p>
-				<ul class="bullets">
-					<li>Upload Word, PDF, or EPUB — single titles or batches.</li>
-					<li>Set prices for sales and rentals (courses, cohorts, limited drops).</li>
-					<li>Low commission: 5% on sales, 5% on rentals.</li>
-					<li>Fan clubs, direct messaging, and first-party analytics.</li>
-				</ul>
-				<div class="cta-row" style="margin-top: 16px;">
-					<a class="button" href="/publish">Publish a book</a>
-					<a class="button secondary" href="/pricing">See pricing</a>
+		<div class="footer-cta" style="background: transparent; border: 0; padding: 0; border-radius: 0;">
+			<div class="card-grid onboarding-grid">
+				<div class="card">
+					<h2>Publish your book on ReaderPub</h2>
+					<p class="lede">Sell and rent directly to readers — keep your audience.</p>
+					<ul class="bullets">
+						<li>Upload Word, PDF, or EPUB — single titles or batches.</li>
+						<li>Set prices for sales and rentals (courses, cohorts, limited drops).</li>
+						<li>Low commission: 5% on sales, 5% on rentals.</li>
+						<li>Fan clubs, direct messaging, and first-party analytics.</li>
+					</ul>
+					<div class="cta-row">
+						<a class="button" href="/publish">Publish a book</a>
+						<a class="button secondary" href="/pricing">See pricing</a>
+					</div>
 				</div>
-			</div>
-			<div class="card">
-				<h2>Onboard your organization on ReaderPub</h2>
-				<p class="lede">Tell us what you need: We’ll set up your onboarding.</p>
-				<ul class="bullets">
-					<li>Import from OPDS feeds, MARC/ONIX/KBART, S3, or CSV exports.</li>
-					<li>Preserve catalog metadata across large collections.</li>
-					<li>Deploy on reader.pub subdomain or your own subdomain.</li>
-					<li>Launch fan clubs and controlled-access programs.</li>
-				</ul>
-				<div class="cta-row" style="margin-top: 16px;">
-					<a class="button" href="/contact#request-onboarding">Institutional onboarding</a>
-					<a class="button secondary" href="/pricing">See pricing</a>
+				<div class="card">
+					<h2>Onboard your organization on ReaderPub</h2>
+					<p class="lede">Tell us what you need: We’ll set up your onboarding.</p>
+					<ul class="bullets">
+						<li>Import from OPDS feeds, MARC/ONIX/KBART, S3, or CSV exports.</li>
+						<li>Preserve catalog metadata across large collections.</li>
+						<li>Deploy on reader.pub subdomain or your own subdomain.</li>
+						<li>Launch fan clubs and controlled-access programs.</li>
+					</ul>
+					<div class="cta-row">
+						<a class="button" href="/contact#request-onboarding">Institutional onboarding</a>
+						<a class="button secondary" href="/pricing">See pricing</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</IconGridSection>
 
 	<style>
 		.onboarding-grid {

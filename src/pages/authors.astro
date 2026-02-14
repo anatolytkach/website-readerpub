@@ -2,7 +2,6 @@
 import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
-import TextFirstSection from "../components/sections/TextFirstSection.astro";
 import SectionIcon from "../components/SectionIcon.astro";
 ---
 
@@ -45,26 +44,52 @@ import SectionIcon from "../components/SectionIcon.astro";
 			</p>
 		</div>
 		<div class="card-grid author-commerce-grid">
-			<div class="card">
-				<h2>Monetize your catalog</h2>
-				<p class="author-epub-note">Publish on the web — with optional EPUB output when you need it.</p>
-				<ul class="bullets">
-					<li>Direct sales</li>
-					<li>Time-limited rentals</li>
-					<li>Bundles and promotions (optional)</li>
-					<li>Fan clubs and memberships</li>
-					<li>Web edition plus optional production-ready EPUB delivery.</li>
-				</ul>
+			<div class="card icon-grid-card author-icon-card">
+				<SectionIcon type="dollars" title="Monetize your catalog" />
+				<div class="icon-grid-card-copy">
+					<h2>Monetize your catalog</h2>
+					<p class="author-epub-note">Publish on the web — with optional EPUB output when you need it.</p>
+					<ul class="bullets">
+						<li>Direct sales</li>
+						<li>Time-limited rentals</li>
+						<li>Bundles and promotions (optional)</li>
+						<li>Fan clubs and memberships</li>
+						<li>Web edition plus optional production-ready EPUB delivery.</li>
+					</ul>
+					<p class="lede author-epub-note">
+						Save one 5% commission versus Amazon's 35%. Use your freed-up resources to promote your
+						books on ReaderPub.
+					</p>
+				</div>
 			</div>
-			<div class="card">
-				<h2>Sell and rent directly to your readers.</h2>
-				<p>Keep your audience, keep your data, and keep more of each sale.</p>
-				<ul class="bullets">
-					<li>Sell web editions and ebooks directly on ReaderPub.</li>
-					<li>Offer rentals for courses, cohorts, and short-term access.</li>
-					<li>Low commission: 5% on sales, 5% on rentals, far below Amazon’s take.</li>
-					<li>See sales, rentals, and reader engagement analytics in one place.</li>
-				</ul>
+			<div class="card icon-grid-card author-icon-card">
+				<SectionIcon type="readerBook" title="Sell and rent directly to your readers" />
+				<div class="icon-grid-card-copy">
+					<h2>Sell and rent directly to your readers.</h2>
+					<p>Keep your audience, keep your data, and keep more of each sale.</p>
+					<ul class="bullets">
+						<li>Sell web editions and ebooks directly on ReaderPub.</li>
+						<li>Offer rentals for courses, cohorts, and short-term access.</li>
+						<li>Low commission: 5% on sales, 5% on rentals, far below Amazon’s take.</li>
+						<li>See sales, rentals, and reader engagement analytics in one place.</li>
+					</ul>
+				</div>
+			</div>
+			<div class="card icon-grid-card author-icon-card">
+				<SectionIcon type="fan" title="Fan clubs for every book and author" />
+				<div class="icon-grid-card-copy">
+					<h2>Fan clubs for every book and author.</h2>
+					<p>
+						Build a member community around your work. Reward readers, announce releases, and
+						turn buyers into loyal fans.
+					</p>
+					<ul class="bullets">
+						<li>Members-only posts, updates, and behind-the-scenes notes.</li>
+						<li>Early access, bonus chapters, limited drops, and rentals.</li>
+						<li>Direct announcements to your registered audience.</li>
+						<li>Fan insights tied to sales and rentals — what converts and retains.</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</SpecCardsSection>
@@ -136,21 +161,14 @@ import SectionIcon from "../components/SectionIcon.astro";
 		</div>
 	</SpecCardsSection>
 
-	<TextFirstSection>
-		<div class="section">
-			<h2>Fan clubs for every book and author.</h2>
-			<p>
-				Build a member community around your work. Reward readers, announce releases, and
-				turn buyers into loyal fans.
-			</p>
-			<ul class="bullets">
-				<li>Members-only posts, updates, and behind-the-scenes notes.</li>
-				<li>Early access, bonus chapters, limited drops, and rentals.</li>
-				<li>Direct announcements to your registered audience.</li>
-				<li>Fan insights tied to sales and rentals — what converts and retains.</li>
-			</ul>
+	<section class="footer-cta author-publish-cta">
+		<h2>Publish your book on ReaderPub</h2>
+		<p class="lede">Sell and rent directly to readers — keep your audience.</p>
+		<div class="cta-row author-publish-cta-row">
+			<a class="button" href="/publish">Publish a book</a>
+			<a class="button secondary" href="/pricing">See pricing</a>
 		</div>
-	</TextFirstSection>
+	</section>
 
 	<style>
 		.sale-rent-grid {
@@ -166,7 +184,7 @@ import SectionIcon from "../components/SectionIcon.astro";
 		}
 
 		:global(.author-commerce-grid) {
-			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+			grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 			justify-content: stretch !important;
 			width: 100% !important;
 			max-width: none !important;
@@ -174,14 +192,6 @@ import SectionIcon from "../components/SectionIcon.astro";
 
 		:global(.author-commerce-grid .card h2) {
 			color: var(--text);
-		}
-
-		:global(.author-sale-rent-section .sale-rent-grid) {
-			margin-top: 0 !important;
-		}
-
-		:global(.author-amazon-commerce-section .section) {
-			gap: 14px;
 		}
 
 		.author-contrast-note {
@@ -201,6 +211,23 @@ import SectionIcon from "../components/SectionIcon.astro";
 			min-width: 0;
 		}
 
+		.author-publish-cta {
+			width: 100%;
+			max-width: none;
+			padding: 29px 32px !important;
+		}
+
+		.author-publish-cta-row {
+			justify-content: center !important;
+			width: 100%;
+		}
+
+		@media (max-width: 1200px) {
+			:global(.author-commerce-grid) {
+				grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+			}
+		}
+
 		@media (max-width: 920px) {
 			.sale-rent-grid {
 				grid-template-columns: 1fr;
@@ -211,7 +238,7 @@ import SectionIcon from "../components/SectionIcon.astro";
 			}
 
 			:global(.author-commerce-grid) {
-				grid-template-columns: 1fr;
+				grid-template-columns: 1fr !important;
 			}
 		}
 	</style>
