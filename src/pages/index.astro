@@ -8,39 +8,45 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 
 const featuredBooks = [
 	{
-		title: "Book Title 1",
-		author: "Author Name 1",
-		readUrl: `${BOOKS_URL}#book-1`,
+		title: "Abducted to Oz",
+		author: "Evans, Robert J.",
+		readUrl: "https://reader.pub/books/reader/?id=10127",
+		coverUrl: "https://reader.pub/books/content/10127/OEBPS/5520401511868121211_10127-cover.png",
 		buyUrl: "/contact",
 	},
 	{
-		title: "Book Title 2",
-		author: "Author Name 2",
-		readUrl: `${BOOKS_URL}#book-2`,
+		title: "Absurd Ditties",
+		author: "Farrow, G. E.",
+		readUrl: "https://reader.pub/books/reader/?id=53190",
+		coverUrl: "https://reader.pub/books/content/53190/OEBPS/2634218585178233573_cover.jpg",
 		buyUrl: "/contact",
 	},
 	{
-		title: "Book Title 3",
-		author: "Author Name 3",
-		readUrl: `${BOOKS_URL}#book-3`,
+		title: "A Black Adonis",
+		author: "Porter, Linn Boyd",
+		readUrl: "https://reader.pub/books/reader/?id=26599",
+		coverUrl: "https://reader.pub/books/content/26599/OEBPS/4328419331932462176_fcover.jpg",
 		buyUrl: "/contact",
 	},
 	{
-		title: "Book Title 4",
-		author: "Author Name 4",
-		readUrl: `${BOOKS_URL}#book-4`,
+		title: "ABC's of Science",
+		author: "Oliver, Charles A.",
+		readUrl: "https://reader.pub/books/reader/?id=1331",
+		coverUrl: "https://reader.pub/books/content/1331/OEBPS/5971494174478934257_1331-cover.png",
 		buyUrl: "/contact",
 	},
 	{
-		title: "Book Title 5",
-		author: "Author Name 5",
-		readUrl: `${BOOKS_URL}#book-5`,
+		title: "Abijah's Bubble",
+		author: "Smith, Francis Hopkinson",
+		readUrl: "https://reader.pub/books/reader/?id=23699",
+		coverUrl: "https://reader.pub/books/content/23699/OEBPS/5956686520237392739_23699-cover.png",
 		buyUrl: "/contact",
 	},
 	{
-		title: "Book Title 6",
-		author: "Author Name 6",
-		readUrl: `${BOOKS_URL}#book-6`,
+		title: "A Boy Knight",
+		author: "Scott, Martin J.",
+		readUrl: "https://reader.pub/books/reader/?id=32365",
+		coverUrl: "https://reader.pub/books/content/32365/OEBPS/6260335208709197217_32365-cover.png",
 		buyUrl: "/contact",
 	},
 ];
@@ -159,7 +165,7 @@ const featuredBooks = [
 			{featuredBooks.map((b) => (
 				<a class="book-card-link" href={b.readUrl} target="_blank" rel="noreferrer">
 					<div class="card book-card">
-						<div class="book-cover-placeholder"></div>
+						<div class="book-cover-placeholder" style={`background-image: url('${b.coverUrl}');`}></div>
 						<div class="book-card-text">
 							<h3>{b.title}</h3>
 							<p>{b.author}</p>
@@ -202,6 +208,9 @@ const featuredBooks = [
 			height: 96px;
 			border-radius: 6px;
 			background: linear-gradient(135deg, #e9eef3, #d8e1ea);
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
 			flex-shrink: 0;
 		}
 
