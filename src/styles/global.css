@@ -537,6 +537,10 @@ section > :last-child {
 	align-self: flex-start;
 }
 
+.card > :is(a.button, button.button, .cta-row) {
+	margin-top: auto;
+}
+
 .card h2,
 .card h3,
 .card h4 {
