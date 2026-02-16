@@ -229,18 +229,18 @@ import SectionIcon from "../components/SectionIcon.astro";
 			}
 		}
 
-		@media (max-width: 920px) {
-			.sale-rent-grid {
-				grid-template-columns: 1fr;
-			}
+			@media (max-width: 920px) {
+				.sale-rent-grid {
+					grid-template-columns: 1fr;
+				}
 
-			:global(.author-benefits-grid) {
-				grid-template-columns: 1fr;
-			}
+				:global(.author-benefits-grid) {
+					grid-template-columns: 1fr !important;
+				}
 
-			:global(.author-commerce-grid) {
-				grid-template-columns: 1fr !important;
-			}
+				:global(.author-commerce-grid) {
+					grid-template-columns: 1fr !important;
+				}
 		}
 	</style>
 </Base>

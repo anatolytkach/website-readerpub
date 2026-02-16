@@ -92,8 +92,8 @@ section > :last-child {
 	content: "";
 	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100%;
+	left: calc(50% - 50vw);
+	width: 100vw;
 	height: 100%;
 	background: var(--bg);
 	z-index: -1;
@@ -209,7 +209,7 @@ section > :last-child {
 }
 
 .nav-overlay {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -225,6 +225,8 @@ section > :last-child {
 	z-index: 1000;
 	pointer-events: none;
 	box-shadow: 0 16px 32px rgba(20, 23, 31, 0.08);
+	max-height: 100dvh;
+	overflow-y: auto;
 }
 
 .nav-overlay--open {
@@ -320,7 +322,7 @@ section > :last-child {
 .hero > .image-placeholder:last-child,
 .hero > .image-block:last-child {
 	margin-left: auto;
-	margin-right: -24px;
+	margin-right: 0;
 }
 
 .hero > * {
@@ -578,14 +580,14 @@ section > :last-child {
 .split > .image-block:last-child {
 	justify-self: end;
 	margin-left: auto;
-	margin-right: -24px;
+	margin-right: 0;
 }
 
 .split.reverse > .image-placeholder:first-child,
 .split.reverse > .image-block:first-child {
 	justify-self: end;
 	margin-left: auto;
-	margin-right: -24px;
+	margin-right: 0;
 }
 
 .split.reverse > .image-placeholder:last-child,
@@ -735,7 +737,7 @@ section > :last-child {
 .image-block.image-author-bleed {
 	justify-self: end;
 	margin-left: auto;
-	margin-right: -24px;
+	margin-right: 0;
 	align-self: start;
 }
 
@@ -743,9 +745,9 @@ section > :last-child {
 .image-block.image-bleed-right {
 	justify-self: end;
 	margin-left: auto;
-	width: calc(100% + 24px);
+	width: 100%;
 	max-width: 552px;
-	margin-right: -24px;
+	margin-right: 0;
 	justify-content: flex-end;
 }
 
@@ -809,9 +811,9 @@ section > :last-child {
 
 .image-placeholder.image-publishers-xl img,
 .image-block.image-publishers-xl {
-	width: 107%;
+	width: 100%;
 	height: auto;
-	max-width: none;
+	max-width: 100%;
 	object-position: right center;
 }
 
@@ -874,8 +876,9 @@ section > :last-child {
 
 .modal-close {
 	position: absolute;
-	top: -12px;
-	right: -12px;
+	top: 10px;
+	right: 10px;
+	z-index: 4;
 	width: 36px;
 	height: 36px;
 	border-radius: 999px;
@@ -972,6 +975,33 @@ section > :last-child {
 		padding: 24px 18px 0;
 	}
 
+	.modal {
+		padding: 16px;
+	}
+
+	.modal-content {
+		width: min(480px, calc(100vw - 32px));
+		max-width: min(480px, calc(100vw - 32px));
+		max-height: calc(100dvh - 32px);
+		display: block;
+	}
+
+	.modal-content img {
+		width: 100%;
+		max-width: 100%;
+		max-height: calc(100dvh - 64px);
+		height: auto;
+	}
+
+	.modal-close {
+		top: 10px;
+		right: 10px;
+	}
+
+	.card-grid {
+		grid-template-columns: 1fr !important;
+	}
+
 	.image-placeholder.image-bleed-right {
 		width: 100%;
 		margin-right: 0;
@@ -997,6 +1027,6 @@ section > :last-child {
 	}
 
 	.icon-grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr !important;
 	}
 }

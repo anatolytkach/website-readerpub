@@ -137,9 +137,9 @@ const featuredBooks = [
 	<div class="modal" id="wepub-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
 		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub image">
-			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
-				×
-			</button>
+				<button class="modal-close" type="button" aria-label="Close" data-modal-close>
+					✕
+				</button>
 			<img src="/images/wepub.webp" alt="WePub image" loading="lazy" decoding="async" width="1024" height="592" />
 		</div>
 	</div>
@@ -147,9 +147,9 @@ const featuredBooks = [
 	<div class="modal" id="booktree-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
 		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree image">
-			<button class="modal-close" type="button" aria-label="Close" data-modal-close>
-				×
-			</button>
+				<button class="modal-close" type="button" aria-label="Close" data-modal-close>
+					✕
+				</button>
 			<img src="/images/booktree.webp" alt="BookTree image" loading="lazy" decoding="async" width="976" height="1219" />
 		</div>
 	</div>
@@ -251,12 +251,12 @@ const featuredBooks = [
 			}
 		}
 
-		@media (max-width: 560px) {
-			.home-two-up {
-				grid-template-columns: 1fr;
-				gap: 36px;
+			@media (max-width: 720px) {
+				.home-two-up {
+					grid-template-columns: 1fr !important;
+					gap: 36px;
+				}
 			}
-		}
 
 		@media (max-width: 640px) {
 			.use-case-grid {
