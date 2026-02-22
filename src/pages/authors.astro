@@ -40,12 +40,15 @@ import SectionIcon from "../components/SectionIcon.astro";
 					<li>Community: fan clubs for each book vs no direct fan club layer.</li>
 					<li>Access control: web-only reading through verified reader accounts — no file downloads, no heavy DRM, no friction for your audience.</li>
 				</ul>
-				<p class="author-contrast-note">
-					Unlike Amazon, you build a direct relationship with registered readers on ReaderPub — keep your audience and your data.
-					<br />
-					ReaderPub is built for controlled, direct publishing. Your books are accessed through secure accounts in our in-browser reader — not distributed as downloadable files.
-				</p>
-		</div>
+					<p class="author-contrast-note">
+						Unlike Amazon, you build a direct relationship with registered readers on ReaderPub — keep your audience and your data.
+						<br />
+						ReaderPub is built for controlled, direct publishing. Your books are accessed through secure accounts in our in-browser reader — not distributed as downloadable files.
+					</p>
+					<p class="author-contrast-note-plain">
+						You retain full flexibility: we can also provide a production-ready EPUB for external distribution, additional marketplaces, or archival use — without locking you into our platform.
+					</p>
+			</div>
 		<div class="card-grid author-commerce-grid">
 			<div class="card icon-grid-card author-icon-card">
 				<SectionIcon type="dollars" title="Monetize your catalog" />
@@ -58,11 +61,11 @@ import SectionIcon from "../components/SectionIcon.astro";
 						<li>Bundles and promotions (optional)</li>
 						<li>Fan clubs and memberships</li>
 						<li>Web edition plus optional production-ready EPUB delivery.</li>
-					</ul>
-					<p class="lede author-epub-note">
-						Save one 5% commission versus Amazon's 35%. Use your freed-up resources to promote your
-						books on ReaderPub.
-					</p>
+						</ul>
+						<p class="lede author-epub-note">
+							Save on <strong class="author-save-highlight">5%</strong> commission versus Amazon's 35%. Use your freed-up resources to promote your
+							books on ReaderPub.
+						</p>
 				</div>
 			</div>
 			<div class="card icon-grid-card author-icon-card">
@@ -197,13 +200,30 @@ import SectionIcon from "../components/SectionIcon.astro";
 			color: var(--text);
 		}
 
-		.author-contrast-note {
-			color: var(--accent);
-		}
+			.author-contrast-note {
+				color: var(--accent);
+			}
 
-		.author-epub-note {
-			color: var(--accent);
-		}
+			.author-contrast-note-plain {
+				display: block;
+				color: var(--text) !important;
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 1.35;
+				margin-top: 8px;
+			}
+
+			.author-epub-note {
+				color: var(--accent);
+			}
+
+			.author-save-highlight {
+				display: inline-block;
+				font-weight: 900;
+				font-size: 1.35em;
+				line-height: 1;
+				vertical-align: baseline;
+			}
 
 		.author-icon-card {
 			align-items: flex-start;
