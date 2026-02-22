@@ -18,7 +18,7 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 			</p>
 			<p style="margin-bottom: 16px;">We reply with an onboarding plan and a proposed timeline.</p>
 			<div class="cta-row">
-				<a class="button" href="#request-onboarding">Start onboarding</a>
+				<button class="button" type="button" data-modal-open="#request-onboarding-modal">Start onboarding</button>
 				<a class="button secondary" href="/pricing">See pricing</a>
 			</div>
 		</div>
@@ -37,7 +37,7 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 		<h2>How onboarding works</h2>
 		<div class="card-grid icon-grid">
 			<div class="card icon-grid-card">
-				<SectionIcon type="public" title="Independent authors & small publishers" />
+				<SectionIcon type="author" title="Independent authors & small publishers" />
 				<div class="icon-grid-card-copy">
 					<h3>Independent authors & small publishers</h3>
 					<ul class="bullets">
