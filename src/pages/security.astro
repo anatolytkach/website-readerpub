@@ -1,0 +1,308 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE_NAME } from "../consts";
+import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+---
+
+<Base
+	title={`Security | ${SITE_NAME}`}
+	description="ReaderPub reduces large-scale ebook leakage risk by keeping primary reading access on the web instead of distributing a standard downloadable book file, while giving full control over access and distribution."
+>
+	<section class="hero security-hero">
+		<div>
+			<h1>Protect the book. Control the access.</h1>
+			<p class="lede">
+				Most large-scale ebook piracy does not begin by breaking platforms. It begins when a complete book file reaches a user’s device, is extracted, converted, and redistributed.
+			</p>
+			<p class="security-hero-followup">
+				ReaderPub reduces that risk by keeping reading access on the web instead of delivering a downloadable file — while giving you full control over who can access your content and how it is distributed.
+			</p>
+			<div class="cta-row">
+				<a class="button" href="/contact">Talk to us</a>
+				<a class="button secondary" href="/authors">See publishing options</a>
+			</div>
+		</div>
+		<img
+			class="image-block security-image"
+			src="/images/security.webp"
+			alt="ReaderPub security and controlled access"
+			loading="lazy"
+			decoding="async"
+			width="897"
+			height="791"
+		/>
+	</section>
+
+	<SpecCardsSection class="section-continue-next">
+		<h2>How file-based piracy scales</h2>
+		<p>
+			In traditional ebook distribution, a complete file is delivered to the end user. Once that file exists on a device, it becomes the starting point for extraction, conversion, and redistribution.
+		</p>
+		<div class="card-grid security-steps-grid">
+			<div class="card">
+				<h3>File delivered</h3>
+				<p>A complete ebook file reaches the reader’s device.</p>
+			</div>
+			<div class="card">
+				<h3>File extracted</h3>
+				<p>The file becomes available for copying outside the original platform.</p>
+			</div>
+			<div class="card">
+				<h3>File converted</h3>
+				<p>It can be turned into standard ebook formats for reuse.</p>
+			</div>
+			<div class="card">
+				<h3>File redistributed</h3>
+				<p>Once a reusable file circulates, redistribution can scale quickly.</p>
+			</div>
+		</div>
+		<p>This pattern is repeatable, automatable, and widely used across the industry.</p>
+	</SpecCardsSection>
+
+	<SpecCardsSection class="section-continuation section-continue-next">
+		<h2>ReaderPub uses a different model</h2>
+		<p>
+			ReaderPub does not rely on post-delivery file control as its primary protection model. Instead, it minimizes risk before delivery by avoiding standard downloadable-file distribution for the primary reading edition.
+		</p>
+		<ul class="bullets">
+			<li>No downloadable primary EPUB delivered by default</li>
+			<li>No standard full-book file handoff to the reader</li>
+			<li>Web-native access through controlled accounts</li>
+			<li>Lower risk of scalable extraction and mass redistribution</li>
+		</ul>
+	</SpecCardsSection>
+
+	<SpecCardsSection id="control-who-reads" class="section-continuation section-continue-next">
+		<h2>Control who reads — and how your content is used</h2>
+		<div class="security-access-layout">
+			<div>
+				<p>
+					ReaderPub gives institutions full control over access to their publications. You decide who can read, under what conditions, and at what level of visibility — from fully public access to restricted, account-based distribution.
+				</p>
+				<p>
+					Access is not only protected at the content level, but also managed at the platform level through administrative controls and structured user access.
+				</p>
+				<ul class="bullets">
+					<li>Define who can access each publication or collection</li>
+					<li>Use account-based access for controlled distribution</li>
+					<li>Manage teams, roles, and permissions centrally</li>
+					<li>Maintain full visibility across all your published content</li>
+				</ul>
+				<p>Protection is not just about preventing extraction — it is about controlling distribution end-to-end.</p>
+			</div>
+			<div class="footer-cta security-inline-cta">
+				<h3>Need controlled access for your publications?</h3>
+				<p class="security-green-copy">
+					Set up ReaderPub for your organization with full control over access, teams, and distribution.
+				</p>
+				<div class="cta-row">
+					<a class="button" href="/contact">Talk to us</a>
+				</div>
+			</div>
+		</div>
+	</SpecCardsSection>
+
+	<SpecCardsSection class="section-continuation section-continue-next">
+		<h2>Why this matters to authors and publishers</h2>
+		<p>
+			When a book is distributed as a file, protection depends on controlling what happens after delivery. In the real world, that model has repeatedly led to commercial ebooks circulating outside their original platforms.
+		</p>
+		<p class="security-black-copy">
+			ReaderPub addresses the problem earlier in the chain: by not delivering the primary reading file in the first place, it removes the standard entry point used in large-scale redistribution workflows.
+		</p>
+		<div class="card-grid security-compare-grid">
+			<div class="card">
+				<h3>File-based distribution</h3>
+				<ul class="bullets">
+					<li>A complete file reaches the device</li>
+					<li>Protection begins after delivery</li>
+					<li>Extraction risk remains part of the model</li>
+					<li>Redistribution can scale once a file circulates</li>
+				</ul>
+			</div>
+			<div class="card">
+				<h3>ReaderPub</h3>
+				<ul class="bullets">
+					<li>Primary access stays on the web</li>
+					<li>No standard downloadable primary file</li>
+					<li>Risk is reduced at the architectural level</li>
+					<li>No routine file handoff to each reader</li>
+				</ul>
+			</div>
+		</div>
+	</SpecCardsSection>
+
+	<SpecCardsSection class="section-continuation section-continue-next">
+		<h2>A practical, honest security position</h2>
+		<div class="security-publish-layout">
+			<div class="security-publish-copy">
+				<p class="security-green-copy">
+					No digital system can prevent every form of copying. Screenshots, manual capture, and other low-efficiency methods can still exist.
+				</p>
+				<p class="security-black-copy">
+					But ReaderPub removes the most scalable starting point used in large-scale ebook redistribution: delivery of a complete, reusable ebook file to the end user.
+				</p>
+				<p class="security-black-copy">
+					ReaderPub’s primary distribution model is web-native. When needed, we can also produce a production-ready EPUB for archival use, external distribution, or additional publishing workflows — without making routine end-user file delivery the default model.
+				</p>
+			</div>
+			<div class="footer-cta security-inline-cta security-publish-cta">
+				<h3>Want to publish with lower leakage risk?</h3>
+				<p class="security-green-copy">
+					Talk to ReaderPub about web-first publishing for authors, publishers, libraries, and institutions.
+				</p>
+				<div class="cta-row">
+					<a class="button" href="/contact">Get started</a>
+				</div>
+			</div>
+		</div>
+	</SpecCardsSection>
+
+	<style>
+		.security-image {
+			max-width: 460px;
+			align-self: flex-start;
+		}
+
+		.security-hero {
+			align-items: flex-start;
+		}
+
+		.security-hero-followup {
+			margin-bottom: 16px;
+		}
+
+		.security-steps-grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			justify-content: stretch;
+		}
+
+		.security-compare-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			justify-content: stretch;
+		}
+
+		.security-inline-cta,
+		.security-footer-cta {
+			width: 100%;
+			max-width: none;
+		}
+
+		.security-inline-cta {
+			text-align: center;
+			justify-items: center;
+			padding-top: 36px;
+			padding-bottom: 36px;
+			max-width: 360px;
+			margin-left: auto;
+			align-self: center;
+		}
+
+		.security-inline-cta .cta-row {
+			justify-content: center;
+		}
+
+		.security-access-layout {
+			display: grid;
+			grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+			gap: 24px;
+			align-items: center;
+		}
+
+		.security-access-layout > :first-child {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+		}
+
+		.security-access-layout > :first-child > p {
+			color: var(--link);
+			font-size: 18px;
+			line-height: 1.25;
+			max-width: 680px;
+			margin: 0;
+		}
+
+		.security-access-layout > :first-child > .bullets {
+			margin: 0;
+		}
+
+		.security-footer-actions {
+			justify-content: center;
+		}
+
+		.security-black-copy {
+			color: var(--text) !important;
+			font-size: 16px !important;
+			line-height: 1.25 !important;
+		}
+
+		.security-green-copy {
+			color: var(--link) !important;
+			font-size: 18px !important;
+			line-height: 1.25 !important;
+		}
+
+		.security-publish-layout {
+			display: grid;
+			grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+			gap: 24px;
+			align-items: start;
+		}
+
+		.security-publish-copy {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+		}
+
+		.security-publish-copy > p {
+			font-size: 18px;
+			line-height: 1.25;
+			max-width: 680px;
+			margin: 0;
+		}
+
+		.security-publish-copy > .security-black-copy,
+		.section > .security-black-copy {
+			font-size: 16px !important;
+			line-height: 1.25 !important;
+		}
+
+		.security-inline-cta p {
+			font-size: 16px !important;
+			line-height: 1.25 !important;
+		}
+
+		.security-publish-cta {
+			max-width: 360px;
+			margin-left: auto;
+			align-self: start;
+			min-height: 190px;
+		}
+
+		@media (max-width: 980px) {
+			.security-steps-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.security-compare-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.security-access-layout {
+				grid-template-columns: 1fr;
+			}
+
+			.security-publish-layout {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media (max-width: 720px) {
+			.security-steps-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</Base>

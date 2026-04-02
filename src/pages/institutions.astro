@@ -32,7 +32,8 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 
 	<section class="section institutions-publisher-intro institutions-tight-section section-continue-next">
 			<h2>Publish on the web without losing control. Keep your audience.</h2>
-			<p>Launch catalogs, excerpts, and programs on a public platform built for discovery — with secure, account-based access.</p>
+			<p>Launch catalogs, excerpts, and controlled reading programs on a public platform built for discovery — with secure, account-based access and a delivery model designed to reduce file leakage risk.</p>
+			<p>Access is fully configurable: institutions define who can read, which content is restricted, and how access is granted across users and teams.</p>
 			<ul class="bullets">
 				<li>Control access by channel, cohort, or program.</li>
 				<li>Deliver web-only reading through verified user accounts — no downloadable files, no heavy DRM.</li>
@@ -41,6 +42,7 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 				<li>Offer public excerpts or restricted access by segment.</li>
 				<li>Measure engagement and demand by title.</li>
 				<li>Build direct relationships with readers and partner institutions.</li>
+				<li>Run collaborative reading programs with shared, pass-forward annotations across cohorts.</li>
 			</ul>
 			<p class="institutions-publisher-note">
 				In addition to web publishing, ReaderPub delivers a production-ready EPUB that you can
@@ -90,6 +92,7 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 						<li>Support community reading initiatives and cohorts.</li>
 						<li>Extend collections with modern web access.</li>
 						<li>Track engagement to guide programming.</li>
+						<li>Enable inclusive access with built-in device TTS for patrons who prefer listening.</li>
 					</ul>
 					<p class="institutions-outcome-note">Turn community collections into a public reading library online.</p>
 				</div>
@@ -113,7 +116,7 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		</div>
 	</IconGridSection>
 
-	<IconGridSection class="institutions-tight-section section-continuation">
+	<IconGridSection class="institutions-tight-section section-continuation section-continue-next">
 		<div class="card-grid icon-grid institutions-pair-grid">
 			<div class="card icon-grid-card">
 				<SectionIcon type="government" title="Government" />
@@ -150,6 +153,40 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		</div>
 	</IconGridSection>
 
+	<IconGridSection class="institutions-tight-section section-continuation">
+		<div class="card-grid icon-grid institutions-pair-grid">
+			<div class="card icon-grid-card">
+				<SectionIcon type="access" title="Control access at every level" />
+				<div class="icon-grid-card-copy">
+					<h2>Control access at every level</h2>
+					<p>
+						ReaderPub gives institutions administrative control over publications, users, and teams — allowing you to manage access, roles, and distribution policies from a single platform.
+					</p>
+					<ul class="bullets">
+						<li>Assign access by user, group, or role</li>
+						<li>Control visibility of individual publications</li>
+						<li>Manage internal teams and external audiences</li>
+						<li>Maintain oversight across your entire catalog</li>
+					</ul>
+					<a class="button secondary" href="/security#control-who-reads">Learn how access control works</a>
+				</div>
+			</div>
+			<div class="card icon-grid-card">
+				<SectionIcon type="security" title="Built to reduce file leakage" />
+				<div class="icon-grid-card-copy">
+					<h2>Built to reduce file leakage</h2>
+					<p>
+						In file-based systems, content can circulate beyond the platform after delivery. ReaderPub minimizes that risk by keeping primary reading access on the web instead of routinely distributing a complete downloadable book file.
+					</p>
+					<p class="institutions-leakage-note">
+						Traditional DRM tries to control a file after delivery. ReaderPub reduces risk earlier by avoiding routine end-user delivery of the primary reading file.
+					</p>
+					<a class="button secondary" href="/security">Read about our protection model</a>
+				</div>
+			</div>
+		</div>
+	</IconGridSection>
+
 	<section class="footer-cta institutions-onboarding-cta section-continuation">
 		<h2>Onboard your organization on ReaderPub</h2>
 		<p class="lede">Tell us what you need: We’ll set up your onboarding.</p>
@@ -179,6 +216,10 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 
 		.institutions-publisher-note {
 			color: var(--accent);
+		}
+
+		.institutions-leakage-note {
+			color: var(--text) !important;
 		}
 
 		.institutions-outcome-note {

@@ -39,6 +39,7 @@ import SectionIcon from "../components/SectionIcon.astro";
 					<li>Analytics: first-party sales + rentals + engagement vs limited reporting.</li>
 					<li>Community: fan clubs for each book vs no direct fan club layer.</li>
 					<li>Access control: web-only reading through verified reader accounts — no file downloads, no heavy DRM, no friction for your audience.</li>
+					<li>Security model: no downloadable primary book file is routinely delivered to the reader’s device.</li>
 				</ul>
 					<p class="author-contrast-note">
 						Unlike Amazon, you build a direct relationship with registered readers on ReaderPub — keep your audience and your data.
@@ -46,7 +47,20 @@ import SectionIcon from "../components/SectionIcon.astro";
 						ReaderPub is built for controlled, direct publishing. Your books are accessed through secure accounts in our in-browser reader — not distributed as downloadable files.
 					</p>
 					<p class="author-contrast-note-plain">
+						Most ebook piracy starts after a complete file reaches the user’s device and is extracted, converted, and redistributed. ReaderPub reduces that risk by removing the standard file-delivery step.
+					</p>
+					<p class="author-contrast-note-plain">
+						You also control who can access your work — from open publishing to restricted, account-based access.
+					</p>
+					<p class="author-contrast-note-plain">
+						<a href="/security">See how ReaderPub protects your book →</a>
+					</p>
+					<p class="author-contrast-note-plain">
 						You retain full flexibility: we can also provide a production-ready EPUB for external distribution, additional marketplaces, or archival use — without locking you into our platform.
+					</p>
+					<p class="author-contrast-note-plain">
+						Turn every title into a feedback loop: readers can share annotated copies with you, and
+						communities can iterate on context across reading circles.
 					</p>
 			</div>
 		<div class="card-grid author-commerce-grid">
@@ -78,6 +92,7 @@ import SectionIcon from "../components/SectionIcon.astro";
 						<li>Offer rentals for courses, cohorts, and short-term access.</li>
 						<li>Low commission: 5% on sales, 5% on rentals, far below Amazon’s take.</li>
 						<li>See sales, rentals, and reader engagement analytics in one place.</li>
+						<li>Receive context-rich reader notes attached to exact passages — not generic comments.</li>
 					</ul>
 				</div>
 			</div>
@@ -95,6 +110,19 @@ import SectionIcon from "../components/SectionIcon.astro";
 						<li>Direct announcements to your registered audience.</li>
 						<li>Fan insights tied to sales and rentals — what converts and retains.</li>
 					</ul>
+				</div>
+			</div>
+			<div class="card icon-grid-card author-icon-card">
+				<SectionIcon type="security" title="Protect the book by not distributing the file" />
+				<div class="icon-grid-card-copy">
+					<h2>Protect the book by not distributing the file</h2>
+					<p>
+						ReaderPub’s web-based model avoids the standard file-delivery workflow used by most platforms.
+					</p>
+					<p class="author-security-note">
+						This is the way we reduce the risk of extraction and redistribution at scale. You also retain control over who can access your content and how it is distributed.
+					</p>
+					<a href="/security">Learn more about our protection model →</a>
 				</div>
 			</div>
 		</div>
@@ -190,8 +218,15 @@ import SectionIcon from "../components/SectionIcon.astro";
 		}
 
 		:global(.author-commerce-grid) {
-			grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+			grid-template-columns: repeat(2, minmax(320px, 1fr)) !important;
 			justify-content: stretch !important;
+			width: 100% !important;
+			max-width: 980px !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+
+		:global(.author-commerce-grid > .card) {
 			width: 100% !important;
 			max-width: none !important;
 		}
@@ -215,6 +250,10 @@ import SectionIcon from "../components/SectionIcon.astro";
 
 			.author-epub-note {
 				color: var(--accent);
+			}
+
+			.author-security-note {
+				color: var(--text) !important;
 			}
 
 			.author-save-highlight {
