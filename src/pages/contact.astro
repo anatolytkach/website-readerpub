@@ -89,6 +89,10 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 					If you already have files (Word/PDF/EPUB) or maintain in-house catalogs, please mention this in your
 					message. We reply with an onboarding plan and a proposed timeline.
 				</p>
+				<p class="onboarding-modal-note">
+					Need collaborative annotations or read-aloud enabled for your rollout? Mention it in your
+					onboarding request.
+				</p>
 				{topic && <p class="contact-topic">Topic: {topic}</p>}
 				<form class="onboarding-form" method="POST" action="https://formspree.io/f/REPLACE_ME">
 					<label for="role">I am</label>
