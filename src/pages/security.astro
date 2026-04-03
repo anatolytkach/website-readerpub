@@ -33,7 +33,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		/>
 	</section>
 
-	<SpecCardsSection class="section-continue-next">
+	<SpecCardsSection class="section-continue-next security-first-section">
 		<h2>How file-based piracy scales</h2>
 		<p>
 			In traditional ebook distribution, a complete file is delivered to the end user. Once that file exists on a device, it becomes the starting point for extraction, conversion, and redistribution.
@@ -160,12 +160,16 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 
 	<style>
 		.security-image {
-			max-width: 460px;
+			width: min(100%, 420px);
+			max-width: 420px;
+			max-height: 360px;
+			object-fit: contain;
 			align-self: flex-start;
 		}
 
 		.security-hero {
 			align-items: flex-start;
+			padding-bottom: 24px !important;
 		}
 
 		.security-hero-followup {
@@ -175,6 +179,10 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		.security-steps-grid {
 			grid-template-columns: repeat(4, minmax(0, 1fr));
 			justify-content: stretch;
+		}
+
+		.security-first-section {
+			padding-top: 0 !important;
 		}
 
 		.security-compare-grid {
