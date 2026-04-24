@@ -8,72 +8,71 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 
 const featuredBooks = [
 	{
-		title: "Abducted to Oz",
-		author: "Evans, Robert J.",
-		readUrl: "https://reader.pub/books/reader/?id=10127",
-		coverUrl: "https://reader.pub/books/content/10127/OEBPS/5520401511868121211_10127-cover.png",
-		buyUrl: "/contact",
+		title: "The Adventures of Tom Sawyer, Complete",
+		author: "Mark Twain",
+		readUrl: "https://reader.pub/books/protected/?id=90000074",
+		coverUrl: "https://reader.pub/books/content/74/OEBPS/5490705198151656392_cover.jpg",
 	},
 	{
-		title: "Absurd Ditties",
-		author: "Farrow, G. E.",
-		readUrl: "https://reader.pub/books/reader/?id=53190",
-		coverUrl: "https://reader.pub/books/content/53190/OEBPS/2634218585178233573_cover.jpg",
-		buyUrl: "/contact",
+		title: "Treasure Island",
+		author: "Robert Louis Stevenson",
+		readUrl: "https://reader.pub/books/protected/?id=90000120",
+		coverUrl: "https://reader.pub/books/content/120/OEBPS/4692925496734829213_cover.jpg",
 	},
 	{
-		title: "A Black Adonis",
-		author: "Porter, Linn Boyd",
-		readUrl: "https://reader.pub/books/reader/?id=26599",
-		coverUrl: "https://reader.pub/books/content/26599/OEBPS/4328419331932462176_fcover.jpg",
-		buyUrl: "/contact",
+		title: "The Divine Comedy",
+		author: "Dante Alighieri",
+		readUrl: "https://reader.pub/books/protected/?id=90008800",
+		coverUrl: "https://reader.pub/books/content/8800/OEBPS/2447739984665842663_cover.jpg",
 	},
 	{
-		title: "ABC's of Science",
-		author: "Oliver, Charles A.",
-		readUrl: "https://reader.pub/books/reader/?id=1331",
-		coverUrl: "https://reader.pub/books/content/1331/OEBPS/5971494174478934257_1331-cover.png",
-		buyUrl: "/contact",
+		title: "The Tale of Peter Rabbit",
+		author: "Beatrix Potter",
+		readUrl: "https://reader.pub/books/protected/?id=90014838",
+		coverUrl: "/images/Peter_Rabbit.webp",
 	},
 	{
-		title: "Abijah's Bubble",
-		author: "Smith, Francis Hopkinson",
-		readUrl: "https://reader.pub/books/reader/?id=23699",
-		coverUrl: "https://reader.pub/books/content/23699/OEBPS/5956686520237392739_23699-cover.png",
-		buyUrl: "/contact",
+		title: 'The Nursery "Alice"',
+		author: "Lewis Carroll",
+		readUrl: "https://reader.pub/books/protected/?id=90055040",
+		coverUrl: "https://reader.pub/books/content/55040/OEBPS/9181153211494798952_cover.jpg",
 	},
 	{
-		title: "A Boy Knight",
-		author: "Scott, Martin J.",
-		readUrl: "https://reader.pub/books/reader/?id=32365",
-		coverUrl: "https://reader.pub/books/content/32365/OEBPS/6260335208709197217_32365-cover.png",
-		buyUrl: "/contact",
+		title: "Pinocchio: The Tale of a Puppet",
+		author: "Carlo Collodi",
+		readUrl: "https://reader.pub/books/protected/?id=90016865",
+		coverUrl: "https://reader.pub/books/content/16865/OEBPS/5166451335491288599_illus-cover.jpg",
 	},
 ];
 ---
 
 <Base title={`${SITE_NAME} — Public Reading and Publishing Platform`}>
+	<section class="home-hero-title">
+		<h1>ReaderPub—the web-native publishing platform.</h1>
+	</section>
 	<ProofSection variant="hero">
 		<div>
-			<h1>ReaderPub is the web-native publishing platform.</h1>
 			<p class="lede">
-				Read 80,000+ public-domain classics in a modern web reader.
-				<br />
-				Independent authors sell and rent direct with 5% fees.
-				<br />
-				Institutions publish collections at web scale.
-			</p>
-			<p>
-				ReaderPub hosts a large collection of public-domain titles originally made available by
-				Project Gutenberg — redesigned for seamless in-browser reading.
+				Feels like an app. Works on the web. Fully protected.
+				<img
+					class="hero-inline-icon"
+					src="/images/protected-shield.svg"
+					alt=""
+					aria-hidden="true"
+				/>
 				<br />
 				No downloads. No PDFs. Just fast, clean web-native access on any device.
 			</p>
-			<p>
-				Read, annotate, and share books as living editions. Send a book with notes to an author or
-				another reader, then keep building context together.
-				<br />
-				Now with built-in read-aloud using device TTS voices.
+			<ul class="bullets">
+				<li>Authors sell and rent directly, with a 5% fee.</li>
+				<li>Readers gain instant access to the book on any device, without downloading files or installing reading apps.</li>
+				<li>Publishers maintain collections at web scale, fully protected from copying or downloading.</li>
+				<li>Researchers share their work and receive immediate responses from the academic and investment communities.</li>
+				<li>Instructors publish courses, and students master them interactively.</li>
+				<li>Government, municipalities and charities make their publications instantly available to the public, with immediate response.</li>
+			</ul>
+			<p class="lede">
+				Read, annotate, and share books and publications as living editions. Send a book with notes to an author or another reader, then keep building context together. Now with built-in read-aloud using device TTS voices.
 			</p>
 			<div class="cta-row">
 				<a class="button secondary" href="/readers">For Readers</a>
@@ -166,12 +165,13 @@ const featuredBooks = [
 		</div>
 	</div>
 
-	<SpecCardsSection>
+	<SpecCardsSection class="home-indie-section">
 		<h2 id="indie-releases">Independent publishing is live on ReaderPub.</h2>
-		<p>
-			WeRead Catalog includes 80,000+ public-domain books (with thanks to Project Gutenberg).
-			<br />
-			These featured titles are independent releases published by authors on ReaderPub:
+		<p class="home-full-width-copy">
+			WeRead Catalog includes 80,000+ public-domain books <span class="home-thanks-note">(with thanks to Project Gutenberg)</span>.
+		</p>
+		<p class="home-full-width-copy">
+			When you publish your book with us, it is fully protected against downloading or copying. See for yourself:
 		</p>
 		<div class="card-grid">
 			{featuredBooks.map((b) => (
@@ -181,6 +181,10 @@ const featuredBooks = [
 						<div class="book-card-text">
 							<h3>{b.title}</h3>
 							<p>{b.author}</p>
+							<div class="book-card-protected">
+								<span>Protected by {WEREAD_NAME}</span>
+								<img src="/images/protected-shield.svg" alt="" aria-hidden="true" />
+							</div>
 						</div>
 					</div>
 				</a>
@@ -211,29 +215,60 @@ const featuredBooks = [
 		.book-card {
 			display: flex;
 			flex-direction: row;
-			gap: 16px;
+			gap: 18px;
 			align-items: center;
+			padding: 18px 20px;
+			min-height: 0;
 		}
 
 		.book-cover-placeholder {
-			width: 72px;
-			height: 96px;
-			border-radius: 6px;
+			width: 84px;
+			height: 126px;
+			border-radius: 2px;
 			background: linear-gradient(135deg, #e9eef3, #d8e1ea);
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
 			flex-shrink: 0;
+			box-shadow: 0 3px 10px rgba(13, 28, 45, 0.12);
 		}
 
 		.book-card-text {
 			display: grid;
 			gap: 6px;
+			min-width: 0;
 		}
 
 		.book-card h3 {
 			color: var(--link);
-			font-size: clamp(15px, 1.3vw, 21px);
+			font-size: clamp(16px, 1.25vw, 20px);
+			line-height: 1.12;
+			font-family: var(--font-display);
+			letter-spacing: -0.02em;
+		}
+
+		.book-card-text > p {
+			margin: 0;
+			font-size: clamp(13px, 1.05vw, 16px);
+			line-height: 1.3;
+			color: var(--text);
+		}
+
+		.book-card-protected {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			margin-top: 8px;
+			color: color-mix(in srgb, var(--text) 72%, white 28%);
+			font-size: 14px;
+			line-height: 1.25;
+			white-space: nowrap;
+		}
+
+		.book-card-protected img {
+			width: 18px;
+			height: 18px;
+			flex-shrink: 0;
 		}
 
 		.use-case-grid {
@@ -273,6 +308,20 @@ const featuredBooks = [
 		@media (max-width: 640px) {
 			.use-case-grid {
 				grid-template-columns: 1fr;
+			}
+
+			.book-card {
+				gap: 14px;
+				padding: 16px;
+			}
+
+			.book-cover-placeholder {
+				width: 72px;
+				height: 108px;
+			}
+
+			.book-card h3 {
+				font-size: clamp(16px, 6vw, 20px);
 			}
 		}
 	</style>
@@ -358,6 +407,41 @@ const featuredBooks = [
 	</IconGridSection>
 
 	<style>
+		.home-hero-title {
+			padding-top: 36px;
+			padding-bottom: 0;
+		}
+
+		.home-hero-title h1 {
+			margin: 0;
+			font-size: clamp(36px, 5vw, 56px);
+			line-height: 1.1;
+		}
+
+		.home-thanks-note {
+			color: var(--text) !important;
+		}
+
+		.home-full-width-copy {
+			max-width: none !important;
+		}
+
+		:global(.home-indie-section p) {
+			max-width: none !important;
+		}
+
+		:global(.proof-section.hero) {
+			padding-top: 16px;
+		}
+
+		.hero-inline-icon {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			margin-left: 8px;
+			vertical-align: baseline;
+		}
+
 		.onboarding-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			width: 100%;
