@@ -6,44 +6,6 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 import ProofSection from "../components/sections/ProofSection.astro";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 
-const featuredBooks = [
-	{
-		title: "The Adventures of Tom Sawyer, Complete",
-		author: "Mark Twain",
-		readUrl: "https://reader.pub/books/protected/?id=90000074",
-		coverUrl: "https://reader.pub/books/content/74/OEBPS/5490705198151656392_cover.jpg",
-	},
-	{
-		title: "Treasure Island",
-		author: "Robert Louis Stevenson",
-		readUrl: "https://reader.pub/books/protected/?id=90000120",
-		coverUrl: "https://reader.pub/books/content/120/OEBPS/4692925496734829213_cover.jpg",
-	},
-	{
-		title: "The Divine Comedy",
-		author: "Dante Alighieri",
-		readUrl: "https://reader.pub/books/protected/?id=90008800",
-		coverUrl: "https://reader.pub/books/content/8800/OEBPS/2447739984665842663_cover.jpg",
-	},
-	{
-		title: "The Tale of Peter Rabbit",
-		author: "Beatrix Potter",
-		readUrl: "https://reader.pub/books/protected/?id=90014838",
-		coverUrl: "/images/Peter_Rabbit.webp",
-	},
-	{
-		title: 'The Nursery "Alice"',
-		author: "Lewis Carroll",
-		readUrl: "https://reader.pub/books/protected/?id=90055040",
-		coverUrl: "https://reader.pub/books/content/55040/OEBPS/9181153211494798952_cover.jpg",
-	},
-	{
-		title: "Pinocchio: The Tale of a Puppet",
-		author: "Carlo Collodi",
-		readUrl: "https://reader.pub/books/protected/?id=90016865",
-		coverUrl: "https://reader.pub/books/content/16865/OEBPS/5166451335491288599_illus-cover.jpg",
-	},
-];
 ---
 
 <Base title={`${SITE_NAME} — Public Reading and Publishing Platform`}>
@@ -165,112 +127,7 @@ const featuredBooks = [
 		</div>
 	</div>
 
-	<SpecCardsSection class="home-indie-section">
-		<h2 id="indie-releases">Independent publishing is live on ReaderPub.</h2>
-		<p class="home-full-width-copy">
-			WeRead Catalog includes 80,000+ public-domain books <span class="home-thanks-note">(with thanks to Project Gutenberg)</span>.
-		</p>
-		<p class="home-full-width-copy">
-			When you publish your book with us, it is fully protected against downloading or copying. See for yourself:
-		</p>
-		<div class="card-grid">
-			{featuredBooks.map((b) => (
-				<a class="book-card-link" href={b.readUrl} target="_blank" rel="noreferrer">
-					<div class="card book-card">
-						<div class="book-cover-placeholder" style={`background-image: url('${b.coverUrl}');`}></div>
-						<div class="book-card-text">
-							<h3>{b.title}</h3>
-							<p>{b.author}</p>
-							<div class="book-card-protected">
-								<span>Protected by {WEREAD_NAME}</span>
-								<img src="/images/protected-shield.svg" alt="" aria-hidden="true" />
-							</div>
-						</div>
-					</div>
-				</a>
-			))}
-		</div>
-		<p>Live today: web reading, direct sales, rentals, analytics.</p>
-		<div class="cta-row">
-			<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
-				Browse 80,000+ books
-			</a>
-			<a class="button secondary" href="/authors">Start publishing</a>
-		</div>
-	</SpecCardsSection>
-
 	<style>
-		.book-card-link {
-			display: block;
-			text-decoration: none;
-			color: inherit;
-			transition: transform 0.15s ease;
-		}
-
-		.book-card-link:hover,
-		.book-card-link:focus-visible {
-			transform: translateY(-2px);
-		}
-
-		.book-card {
-			display: flex;
-			flex-direction: row;
-			gap: 18px;
-			align-items: center;
-			padding: 18px 20px;
-			min-height: 0;
-		}
-
-		.book-cover-placeholder {
-			width: 84px;
-			height: 126px;
-			border-radius: 2px;
-			background: linear-gradient(135deg, #e9eef3, #d8e1ea);
-			background-size: cover;
-			background-position: center;
-			background-repeat: no-repeat;
-			flex-shrink: 0;
-			box-shadow: 0 3px 10px rgba(13, 28, 45, 0.12);
-		}
-
-		.book-card-text {
-			display: grid;
-			gap: 6px;
-			min-width: 0;
-		}
-
-		.book-card h3 {
-			color: var(--link);
-			font-size: clamp(16px, 1.25vw, 20px);
-			line-height: 1.12;
-			font-family: var(--font-display);
-			letter-spacing: -0.02em;
-		}
-
-		.book-card-text > p {
-			margin: 0;
-			font-size: clamp(13px, 1.05vw, 16px);
-			line-height: 1.3;
-			color: var(--text);
-		}
-
-		.book-card-protected {
-			display: inline-flex;
-			align-items: center;
-			gap: 10px;
-			margin-top: 8px;
-			color: color-mix(in srgb, var(--text) 72%, white 28%);
-			font-size: 14px;
-			line-height: 1.25;
-			white-space: nowrap;
-		}
-
-		.book-card-protected img {
-			width: 18px;
-			height: 18px;
-			flex-shrink: 0;
-		}
-
 		.use-case-grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			justify-content: stretch;
@@ -308,20 +165,6 @@ const featuredBooks = [
 		@media (max-width: 640px) {
 			.use-case-grid {
 				grid-template-columns: 1fr;
-			}
-
-			.book-card {
-				gap: 14px;
-				padding: 16px;
-			}
-
-			.book-cover-placeholder {
-				width: 72px;
-				height: 108px;
-			}
-
-			.book-card h3 {
-				font-size: clamp(16px, 6vw, 20px);
 			}
 		}
 	</style>
@@ -408,7 +251,7 @@ const featuredBooks = [
 
 	<style>
 		.home-hero-title {
-			padding-top: 36px;
+			padding-top: 54px;
 			padding-bottom: 0;
 		}
 

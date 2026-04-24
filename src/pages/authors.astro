@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 import SectionIcon from "../components/SectionIcon.astro";
+import IndieProtectedBooksSection from "../components/sections/IndieProtectedBooksSection.astro";
 ---
 
 <Base title={`${SITE_NAME} for Authors`}>
@@ -15,7 +16,10 @@ import SectionIcon from "../components/SectionIcon.astro";
 			</p>
 			<p>Low commission: 5% on sales, 5% on rentals.</p>
 			<div class="cta-row">
-				<a class="button secondary" href="/#indie-releases">See featured indie releases</a>
+				<a class="button secondary author-protection-button" href="#indie-releases">
+					<span>See how your books are protected</span>
+					<img src="/images/protected-shield.svg" alt="" aria-hidden="true" />
+				</a>
 				<a class="button" href="/publish">Start publishing</a>
 			</div>
 		</div>
@@ -184,6 +188,8 @@ import SectionIcon from "../components/SectionIcon.astro";
 		</div>
 	</SpecCardsSection>
 
+	<IndieProtectedBooksSection />
+
 	<section class="footer-cta author-publish-cta">
 		<h2>Publish your book on ReaderPub</h2>
 		<p class="lede">Sell and rent directly to readers — keep your audience.</p>
@@ -194,6 +200,14 @@ import SectionIcon from "../components/SectionIcon.astro";
 	</section>
 
 	<style>
+		.hero {
+			padding-bottom: 28px;
+		}
+
+		.author-amazon-commerce-section {
+			padding-top: 28px !important;
+		}
+
 		.sale-rent-grid {
 			grid-template-columns: repeat(2, minmax(360px, 480px));
 			justify-content: center;
@@ -275,6 +289,24 @@ import SectionIcon from "../components/SectionIcon.astro";
 			width: 100%;
 		}
 
+		.author-protection-button {
+			display: inline-flex !important;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+		}
+
+		.author-protection-button span {
+			display: inline-block;
+		}
+
+		.author-protection-button img {
+			width: 18px;
+			height: 18px;
+			display: block;
+			flex-shrink: 0;
+		}
+
 		@media (max-width: 1200px) {
 			:global(.author-commerce-grid) {
 				grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -294,5 +326,6 @@ import SectionIcon from "../components/SectionIcon.astro";
 					grid-template-columns: 1fr !important;
 				}
 		}
+
 	</style>
 </Base>
