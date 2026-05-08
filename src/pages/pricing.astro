@@ -246,32 +246,35 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				</ul>
 			</div>
 		</div>
-		<h3>What’s included</h3>
-		<ul class="bullets">
-			<li>Two deployment options: a reader.pub subdomain OR your own subdomain mapped to ReaderPub hosting.</li>
-			<li>Bulk ingest and catalog import (metadata + covers).</li>
-			<li>Collections, shelves, and public reading rooms.</li>
-			<li>Institution-wide analytics and engagement reporting.</li>
-			<li>Optional EPUB delivery package for archiving or external distribution.</li>
-		</ul>
-		<h3>Add-ons</h3>
-		<ul class="bullets">
-			<li>Additional storage and bandwidth (metered over included limits).</li>
-			<li>Custom integrations (catalog, authentication, reporting).</li>
-			<li>Migration support for legacy collections.</li>
-		</ul>
-	</TextFirstSection>
-
-	<SpecCardsSection>
-		<h2>Onboarding process</h2>
-		<p class="lede">From files or catalogs to a public web library — fast.</p>
-		<p class="onboarding-note" style="color: var(--text); font-size: 16px; font-weight: 400;">
-			During the onboarding process, you specify your needs and requirements, and your pricing model will adjust accordingly.
-		</p>
-		<div class="cta-row">
-			<a class="button" href="/contact">Request onboarding</a>
+		<div class="institution-details-layout">
+			<div class="institution-details-copy">
+				<h3>What’s included</h3>
+				<ul class="bullets">
+					<li>Two deployment options: a reader.pub subdomain OR your own subdomain mapped to ReaderPub hosting.</li>
+					<li>Bulk ingest and catalog import (metadata + covers).</li>
+					<li>Collections, shelves, and public reading rooms.</li>
+					<li>Institution-wide analytics and engagement reporting.</li>
+					<li>Optional EPUB delivery package for archiving or external distribution.</li>
+				</ul>
+				<h3>Add-ons</h3>
+				<ul class="bullets">
+					<li>Additional storage and bandwidth (metered over included limits).</li>
+					<li>Custom integrations (catalog, authentication, reporting).</li>
+					<li>Migration support for legacy collections.</li>
+				</ul>
+			</div>
+			<div class="card onboarding-process-card">
+				<h2>Onboarding process</h2>
+				<p class="lede">From files or catalogs to a public web library — fast.</p>
+				<p class="onboarding-note">
+					During the onboarding process, you specify your needs and requirements, and your pricing model will adjust accordingly.
+				</p>
+				<div class="cta-row">
+					<a class="button" href="/contact">Request onboarding</a>
+				</div>
+			</div>
 		</div>
-	</SpecCardsSection>
+	</TextFirstSection>
 
 	<style>
 		.pricing-hero-image {
@@ -283,6 +286,43 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			width: min(100%, 1100px);
 			margin-inline: auto;
 			text-align: left;
+		}
+
+		.institution-details-layout {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+			gap: 32px;
+			align-items: start;
+			margin-top: var(--section-block-gap-adjust) !important;
+		}
+
+		.institution-details-copy {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+		}
+
+		.institution-details-copy > * {
+			margin: 0 !important;
+		}
+
+		.institution-details-copy > ul + h3 {
+			margin-top: var(--section-block-gap-adjust) !important;
+		}
+
+		.onboarding-process-card {
+			min-height: 0;
+			align-self: start;
+		}
+
+		.onboarding-process-card .lede {
+			color: var(--link);
+		}
+
+		.onboarding-note {
+			color: var(--text) !important;
+			font-size: 16px;
+			font-weight: 400;
 		}
 
 		.sale-rent-grid {
@@ -438,6 +478,10 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			}
 
 			:global(.sale-rental-layout) {
+				grid-template-columns: 1fr;
+			}
+
+			.institution-details-layout {
 				grid-template-columns: 1fr;
 			}
 		}
