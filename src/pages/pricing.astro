@@ -31,75 +31,168 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 		/>
 	</section>
 
-	<SpecCardsSection>
-		<h2>Sell and rent directly to your readers.</h2>
-		<p class="lede">Keep your audience, keep your data, and keep more of each sale.</p>
-		<div class="card-grid">
-			<div class="card">
-				<h3>5% fee on sales</h3>
-				<p>Low marketplace fee for direct sales.</p>
+	<SpecCardsSection class="marketplace-pricing-section">
+		<div class="marketplace-pricing-layout">
+			<div class="marketplace-pricing-copy">
+				<h2>Sell and rent directly to your readers.</h2>
+				<p class="lede">Keep your audience, keep your data, and keep more of each sale.</p>
+				<ul class="bullets">
+					<li>Sell web editions and EPUBs directly on ReaderPub.</li>
+					<li>Offer rentals for courses, cohorts, and short-term access.</li>
+					<li>First-party analytics: sales, rentals, cohorts, engagement.</li>
+					<li>Fan clubs: memberships, drops, early access, and campaigns.</li>
+					<li>Optional EPUB delivery for external distribution and archiving.</li>
+				</ul>
+				<div class="cta-row">
+					<a class="button" href="/publish">Publish a book</a>
+					<a class="button secondary protected-pricing-button" href="/authors/#indie-releases">
+						<img src="/images/protected-shield.svg" alt="" aria-hidden="true" />
+						<span>Protected against piracy</span>
+					</a>
+				</div>
 			</div>
-			<div class="card">
-				<h3>5% fee on rentals</h3>
-				<p>Time-limited access with the same low fee.</p>
+			<div class="marketplace-card-stack">
+				<div class="card">
+					<h3>5% fee on sales</h3>
+					<p>Low marketplace fee for direct sales.</p>
+				</div>
+				<div class="card">
+					<h3>5% fee on rentals</h3>
+					<p>Time-limited access with the same low fee.</p>
+				</div>
+				<div class="card">
+					<h3>Direct reader access</h3>
+					<p>No platform lock-in. Own your reader relationship.</p>
+				</div>
 			</div>
-			<div class="card">
-				<h3>Direct reader access</h3>
-				<p>No platform lock-in. Own your reader relationship.</p>
-			</div>
-		</div>
-		<ul class="bullets">
-			<li>Sell web editions and EPUBs directly on ReaderPub.</li>
-			<li>Offer rentals for courses, cohorts, and short-term access.</li>
-			<li>First-party analytics: sales, rentals, cohorts, engagement.</li>
-			<li>Fan clubs: memberships, drops, early access, and campaigns.</li>
-			<li>Optional EPUB delivery for external distribution and archiving.</li>
-		</ul>
-		<div class="cta-row">
-			<a class="button" href="/publish">Publish a book</a>
-			<a class="button secondary" href="/#indie-releases">See recent releases</a>
 		</div>
 	</SpecCardsSection>
 
-	<SpecCardsSection>
-		<h2>Sale vs Rental</h2>
+	<SpecCardsSection class="sale-rental-section">
+		<div class="sale-rental-layout">
+			<div class="sale-rental-copy">
+				<h2>Sale vs Rental</h2>
+				<p class="lede">
+					Amazon-style retail is purchase-only. ReaderPub supports both purchase and
+					time-limited access — you choose what fits each audience.
+				</p>
+				<p class="sale-rental-note">
+					Sales are permanent access: the reader buys the title and keeps it in their library. They
+					can open it anytime, on any device, and access the full WeRead experience.
+				</p>
+				<p class="sale-rental-note">
+					Rentals are time-limited access: you set a duration and a price, and readers get instant
+					access for a course, cohort, or limited window. Rentals convert hesitant readers and unlock
+					institutional-style programs—without discounting the sale.
+				</p>
+				<p class="lede">
+					You set both prices. Rentals are typically priced lower than purchase to support
+					short-term use (often 20–40% of the sale price for shorter windows).
+				</p>
+			</div>
+			<div class="sale-rental-card-stack">
+				<div class="card">
+					<h3>Sale (Buy)</h3>
+					<ul class="bullets">
+						<li>Permanent access in the reader’s library.</li>
+						<li>Optional downloadable EPUB (when enabled).</li>
+						<li>Best for long-term readers and collectors.</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Rental (Time-limited)</h3>
+					<ul class="bullets">
+						<li>Web-only access for a defined window (7/14/30/90 days).</li>
+						<li>Access expires at the end of the rental period.</li>
+						<li>Best for courses, cohorts, training, and short-term reading.</li>
+					</ul>
+				</div>
+				<p class="sale-rental-note">
+					Example: Sale $9.99 → 30-day rental $2.99; 90-day rental $4.99.
+				</p>
+			</div>
+		</div>
+	</SpecCardsSection>
+
+	<SpecCardsSection class="creator-catalog-pricing">
+		<h2>Sustainable publishing model</h2>
 		<p class="lede">
-			Amazon-style retail is purchase-only. ReaderPub supports both purchase and
-			time-limited access — you choose what fits each audience.
+			ReaderPub is designed for active publishing catalogs with real readership, long-term
+			discovery, and sustainable hosting economics.
 		</p>
-		<p class="sale-rental-note">
-			Sales are permanent access: the reader buys the title and keeps it in their library. They
-			can open it anytime, on any device, and access the full WeRead experience.
-		</p>
-		<p class="sale-rental-note">
-			Rentals are time-limited access: you set a duration and a price, and readers get instant
-			access for a course, cohort, or limited window. Rentals convert hesitant readers and unlock
-			institutional-style programs—without discounting the sale.
-		</p>
-		<div class="card-grid sale-rent-grid">
-			<div class="card">
-				<h3>Sale (Buy)</h3>
+		<div class="card-grid creator-plan-grid">
+			<div class="card creator-plan-card">
+				<h3>Free Indie</h3>
+				<p class="plan-price">$0 <span>/ month</span></p>
+				<p>Best for independent authors and small launches.</p>
 				<ul class="bullets">
-					<li>Permanent access in the reader’s library.</li>
-					<li>Optional downloadable EPUB (when enabled).</li>
-					<li>Best for long-term readers and collectors.</li>
+					<li>Up to 5 active titles</li>
+					<li>5% sales fee</li>
+					<li>5% rental fee</li>
+					<li>Direct sales and rentals</li>
+					<li>Basic analytics</li>
+					<li>Reader access and discovery</li>
 				</ul>
 			</div>
-			<div class="card">
-				<h3>Rental (Time-limited)</h3>
+			<div class="card creator-plan-card">
+				<h3>Creator</h3>
+				<p class="plan-price">$9 <span>/ month</span></p>
+				<p>Best for growing author catalogs.</p>
 				<ul class="bullets">
-					<li>Web-only access for a defined window (7/14/30/90 days).</li>
-					<li>Access expires at the end of the rental period.</li>
-					<li>Best for courses, cohorts, training, and short-term reading.</li>
+					<li>Up to 50 active titles</li>
+					<li>Expanded analytics</li>
+					<li>Campaign and launch tools</li>
+					<li>Enhanced discovery controls</li>
+					<li>Everything in Free Indie</li>
+				</ul>
+			</div>
+			<div class="card creator-plan-card">
+				<h3>Publisher</h3>
+				<p class="plan-price">$49 <span>/ month</span></p>
+				<p>Best for publishers and larger catalogs.</p>
+				<ul class="bullets">
+					<li>Up to 500 active titles</li>
+					<li>Bulk ingest</li>
+					<li>Advanced analytics</li>
+					<li>Cohort and campaign tools</li>
+					<li>Priority onboarding</li>
+				</ul>
+			</div>
+			<div class="card creator-plan-card">
+				<h3>Studio</h3>
+				<p class="plan-price">$199 <span>/ month</span></p>
+				<p>Best for large-scale publishing operations.</p>
+				<ul class="bullets">
+					<li>Up to 5,000 active titles</li>
+					<li>API ingest support</li>
+					<li>Large-scale catalog management</li>
+					<li>Advanced reporting</li>
+					<li>Dedicated scaling support</li>
 				</ul>
 			</div>
 		</div>
-		<p class="lede">
-			You set both prices. Rentals are typically priced lower than purchase to support
-			short-term use (often 20–40% of the sale price for shorter windows).
-		</p>
-		<p class="sale-rental-note">
-			Example: Sale $9.99 → 30-day rental $2.99; 90-day rental $4.99.
+		<div class="creator-pricing-notes">
+			<div>
+				<h3>Active catalog economics</h3>
+				<p>
+					ReaderPub prioritizes books with readership, circulation, and engagement. Older or
+					inactive titles may gradually transition into archival discovery tiers optimized for
+					long-term preservation and low-cost hosting.
+				</p>
+			</div>
+			<div>
+				<h3>Promotion and analytics</h3>
+				<p>
+					Optional promotion and analytics tools are available for launches, featured
+					placements, reading campaigns, audience growth, cohorts, and community programs.
+					These tools help authors and publishers grow readership without changing the low 5%
+					marketplace fee.
+				</p>
+			</div>
+		</div>
+		<p class="creator-pricing-footnote">
+			Additional active-title capacity and enterprise-scale catalog plans are available during
+			onboarding.
 		</p>
 	</SpecCardsSection>
 
@@ -201,9 +294,157 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			color: var(--text) !important;
 		}
 
+		:global(.sale-rental-layout) {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(340px, 520px);
+			gap: 32px;
+			align-items: start;
+		}
+
+		:global(.sale-rental-copy) {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+		}
+
+		:global(.sale-rental-copy > *) {
+			margin: 0 !important;
+		}
+
+		:global(.sale-rental-copy > .lede) {
+			color: var(--link) !important;
+		}
+
+		:global(.sale-rental-card-stack) {
+			display: grid;
+			gap: var(--section-flow-gap);
+			align-self: start;
+		}
+
+		:global(.sale-rental-card-stack > .card) {
+			min-height: 0;
+			width: 100%;
+		}
+
+		:global(.sale-rental-card-stack > .sale-rental-note) {
+			margin: 0 !important;
+			max-width: none;
+		}
+
+		:global(.marketplace-pricing-layout) {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+			gap: 32px;
+			align-items: start;
+		}
+
+		:global(.marketplace-pricing-copy) {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+		}
+
+		:global(.marketplace-pricing-copy > *) {
+			margin: 0 !important;
+		}
+
+		:global(.marketplace-pricing-copy > .cta-row) {
+			margin-top: var(--section-block-gap-adjust) !important;
+		}
+
+		:global(.protected-pricing-button) {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		:global(.protected-pricing-button img) {
+			width: 20px;
+			height: 20px;
+			display: block;
+			flex-shrink: 0;
+		}
+
+		:global(.marketplace-card-stack) {
+			display: grid;
+			gap: var(--section-flow-gap);
+			align-self: start;
+		}
+
+		:global(.marketplace-card-stack > .card) {
+			min-height: 0;
+			width: 100%;
+		}
+
+		.creator-catalog-pricing {
+			width: min(100%, 1180px);
+			margin-inline: auto;
+		}
+
+		.creator-plan-grid {
+			grid-template-columns: repeat(4, minmax(220px, 1fr));
+			justify-content: stretch;
+		}
+
+		.creator-plan-card {
+			min-height: 360px;
+		}
+
+		.plan-price {
+			font-family: "Playfair Display", serif;
+			font-size: clamp(28px, 3vw, 40px) !important;
+			line-height: 1.05 !important;
+			color: var(--text) !important;
+			font-weight: 700;
+		}
+
+		.plan-price span {
+			font-family: inherit;
+			font-size: 16px;
+			color: var(--muted);
+			font-weight: 400;
+		}
+
+		.creator-pricing-notes {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: var(--section-flow-gap);
+			margin-top: var(--section-block-gap-adjust) !important;
+		}
+
+		.creator-pricing-notes > div {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.creator-pricing-notes p,
+		.creator-pricing-footnote {
+			color: var(--text) !important;
+		}
+
 
 		@media (max-width: 1024px) {
 			.sale-rent-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.creator-plan-grid {
+				grid-template-columns: repeat(2, minmax(240px, 1fr));
+			}
+
+			:global(.marketplace-pricing-layout) {
+				grid-template-columns: 1fr;
+			}
+
+			:global(.sale-rental-layout) {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media (max-width: 720px) {
+			.creator-plan-grid,
+			.creator-pricing-notes {
 				grid-template-columns: 1fr;
 			}
 		}

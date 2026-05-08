@@ -1,5 +1,6 @@
 ---
 import { BOOKS_URL, WEREAD_NAME } from "../../consts";
+import SectionIcon from "../SectionIcon.astro";
 
 const featuredBooks = [
 	{
@@ -42,12 +43,12 @@ const featuredBooks = [
 ---
 
 <section class="section spec-cards-section home-indie-section">
-	<h2 id="indie-releases">Independent publishing is live on ReaderPub.</h2>
+	<h2 id="indie-releases" class="indie-protection-heading">
+		<SectionIcon type="security" title="Protected publication" />
+		<span>Your publications on ReaderPub are protected against piracy.</span>
+	</h2>
 	<p class="home-full-width-copy">
-		WeRead Catalog includes 80,000+ public-domain books <span class="home-thanks-note">(with thanks to Project Gutenberg)</span>.
-	</p>
-	<p class="home-full-width-copy">
-		When you publish your book with us, it is fully protected against downloading or copying. See for yourself:
+		When you publish your book with us, it is fully protected against downloading or copying by the patent-pending WeRead Theft Guard. See for yourself:
 	</p>
 	<div class="card-grid">
 		{featuredBooks.map((b) => (
@@ -58,7 +59,7 @@ const featuredBooks = [
 						<h3>{b.title}</h3>
 						<p>{b.author}</p>
 						<div class="book-card-protected">
-							<span>Protected by {WEREAD_NAME}</span>
+							<span>Protected by<br />WeRead Theft Guard</span>
 							<img src="/images/protected-shield.svg" alt="" aria-hidden="true" />
 						</div>
 					</div>
@@ -79,6 +80,19 @@ const featuredBooks = [
 	.book-card-link:hover,
 	.book-card-link:focus-visible {
 		transform: translateY(-2px);
+	}
+
+	.indie-protection-heading {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+		scroll-margin-top: 120px;
+	}
+
+	.indie-protection-heading :global(.section-icon) {
+		width: 48px;
+		height: 48px;
+		flex-shrink: 0;
 	}
 
 	.book-card {
@@ -114,6 +128,7 @@ const featuredBooks = [
 		line-height: 1.12;
 		font-family: var(--font-display);
 		letter-spacing: -0.02em;
+		overflow-wrap: anywhere;
 	}
 
 	.book-card-text > p {
@@ -131,7 +146,12 @@ const featuredBooks = [
 		color: color-mix(in srgb, var(--text) 72%, white 28%);
 		font-size: 14px;
 		line-height: 1.25;
-		white-space: nowrap;
+		max-width: 100%;
+	}
+
+	.book-card-protected span {
+		min-width: 0;
+		overflow-wrap: anywhere;
 	}
 
 	.book-card-protected img {

@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+import SectionIcon from "../components/SectionIcon.astro";
 ---
 
 <Base
@@ -61,16 +62,30 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 
 	<SpecCardsSection class="section-continuation section-continue-next">
 		<h2>ReaderPub uses a different model</h2>
-		<p>
-			ReaderPub does not rely on post-delivery file control as its primary protection model. Instead, it minimizes risk before delivery by avoiding standard downloadable-file distribution for the primary reading edition.
-		</p>
-		<ul class="bullets">
-			<li>No downloadable primary EPUB delivered by default</li>
-			<li>No standard full-book file handoff to the reader</li>
-			<li>Web-native access through controlled accounts</li>
-			<li>Fully protected web-accessible edition publications</li>
-			<li>Lower risk of scalable extraction and mass redistribution</li>
-		</ul>
+		<div class="security-model-layout">
+			<div>
+				<p class="security-green-copy">
+					ReaderPub does not rely on post-delivery file control as its primary protection model. Instead, it minimizes risk before delivery by avoiding standard downloadable-file distribution for the primary reading edition.
+				</p>
+				<ul class="bullets">
+					<li>No downloadable primary EPUB delivered by default</li>
+					<li>No standard full-book file handoff to the reader</li>
+					<li>Web-native access through controlled accounts</li>
+					<li>Fully protected web-accessible edition publications</li>
+					<li>Lower risk of scalable extraction and mass redistribution</li>
+				</ul>
+			</div>
+			<div class="footer-cta security-inline-cta security-theft-guard-card">
+				<h3>
+					<span>All your books are fully protected by the patent-pending</span>
+					<span class="security-theft-guard-highlight">WeRead Theft Guard</span>
+				</h3>
+				<div class="cta-row security-theft-guard-action">
+					<SectionIcon type="security" title="WeRead Theft Guard" />
+					<a class="button" href="/authors/#indie-releases">See for youself</a>
+				</div>
+			</div>
+		</div>
 	</SpecCardsSection>
 
 	<SpecCardsSection id="control-who-reads" class="section-continuation section-continue-next">
@@ -218,6 +233,60 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			align-items: center;
 		}
 
+		.security-model-layout {
+			display: grid;
+			grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+			gap: 24px;
+			align-items: start;
+		}
+
+		.security-model-layout > :first-child {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+		}
+
+		.security-model-layout > :first-child > p {
+			font-size: 18px;
+			line-height: 1.25;
+			max-width: 680px;
+			margin: 0;
+		}
+
+		.security-model-layout > :first-child > .bullets {
+			margin: 0;
+		}
+
+		.security-theft-guard-card {
+			align-self: start !important;
+		}
+
+		.security-theft-guard-card h3 {
+			max-width: 620px;
+		}
+
+		.security-theft-guard-card h3 > span {
+			display: block;
+		}
+
+		.security-theft-guard-card h3 > .security-theft-guard-highlight {
+			color: var(--link) !important;
+			font-size: 1.18em;
+			margin-top: 8px;
+		}
+
+		.security-theft-guard-action {
+			display: inline-flex;
+			align-items: center;
+			gap: 14px;
+			justify-content: center;
+		}
+
+		.security-theft-guard-action :global(.section-icon) {
+			width: 48px;
+			height: 48px;
+		}
+
 		.security-access-layout > :first-child {
 			display: flex;
 			flex-direction: column;
@@ -300,6 +369,10 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			}
 
 			.security-access-layout {
+				grid-template-columns: 1fr;
+			}
+
+			.security-model-layout {
 				grid-template-columns: 1fr;
 			}
 
