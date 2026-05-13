@@ -33,60 +33,63 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 		/>
 	</section>
 
-	<SpecCardsSection class="contact-spec-cards">
-		<h2>How onboarding works</h2>
-		<div class="card-grid icon-grid">
-			<div class="card icon-grid-card">
-				<SectionIcon type="author" title="Independent authors & small publishers" />
-				<div class="icon-grid-card-copy">
-					<h3>Independent authors & small publishers</h3>
-					<ul class="bullets">
-						<li>Upload one or multiple files (Word/PDF/EPUB).</li>
-						<li>WePub engine produces web publishing + optional EPUB output.</li>
-						<li>Enable Buy/Rent, analytics, and fan clubs.</li>
-						<li>See sales and billing reports.</li>
-						<li>Monitor social activity related to your listings.</li>
-						<li>Communicate with your fans and followers.</li>
-						<li>Plan events and presentations.</li>
-					</ul>
-				</div>
-			</div>
+		<SpecCardsSection class="contact-spec-cards">
+			<h2>How onboarding works</h2>
+			<div class="card-grid icon-grid">
 				<div class="card icon-grid-card">
+					<SectionIcon type="author" title="Independent authors & small publishers" />
+					<div class="icon-grid-card-copy">
+						<h3>Independent authors & small publishers</h3>
+						<ul class="bullets">
+							<li>Upload one or multiple files (Word or EPUB).</li>
+							<li>WePub engine produces web publishing + optional EPUB output.</li>
+							<li>Enable Buy, analytics, and fan clubs.</li>
+							<li>See sales and billing reports.</li>
+							<li>Monitor social activity related to your listings.</li>
+							<li>Communicate with your fans and followers.</li>
+							<li>Plan events and presentations.</li>
+						</ul>
+						<p class="direct-submit-note">
+							Formal onboarding may not be necessary for you. If you just have a few books to publish, feel free to submit them directly:
+						</p>
+						<div class="cta-row contact-card-actions">
+							<a class="button direct-submit-button" href="https://reader.pub/publish/">Submit your book</a>
+							<button class="button secondary" type="button" data-modal-open="#request-onboarding-modal">
+								Request onboarding
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="card icon-grid-card contact-institutions-card">
 					<SectionIcon type="library" title="Institutions & catalogs" />
 					<div class="icon-grid-card-copy">
 						<h3>Institutions & catalogs</h3>
 						<p class="onboarding-import-lede">We import from the way collections are commonly stored today:</p>
 						<ul class="bullets">
-							<li>Bulk file drop (ZIP of EPUB/PDF) + metadata spreadsheet</li>
+							<li>Bulk file drop (ZIP of EPUB/Word files) + metadata spreadsheet</li>
 							<li>OPDS/OPDS2 feeds (where available)</li>
 							<li>MARC/ONIX/CSV metadata exports + cover assets</li>
 							<li>S3-compatible bucket export or rsync/FTP transfer</li>
 							<li>Repository exports (institutional repositories / digital collections)</li>
 							<li>We map identifiers, preserve catalog structure, and publish as a web library.</li>
 						</ul>
+						<button class="button request-onboarding-button contact-card-request-button" type="button" data-modal-open="#request-onboarding-modal">
+							Request onboarding
+						</button>
 					</div>
 				</div>
 			</div>
 		</SpecCardsSection>
 
-	<TextFirstSection class="contact-onboarding-trigger">
-		<div id="request-onboarding" class="contact-onboarding-anchor"></div>
-		<div class="cta-row contact-onboarding-trigger-row" style="justify-content: center;">
-			<button class="button request-onboarding-button" type="button" data-modal-open="#request-onboarding-modal">
-				Request onboarding
-			</button>
-		</div>
-	</TextFirstSection>
-
-		<div class="modal onboarding-modal" id="request-onboarding-modal" aria-hidden="true">
-			<div class="modal-backdrop" data-modal-close></div>
-			<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="request-onboarding-modal-title">
+			<div class="modal onboarding-modal" id="request-onboarding-modal" aria-hidden="true">
+				<div class="modal-backdrop" data-modal-close></div>
+				<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="request-onboarding-modal-title">
 				<button class="modal-close" type="button" aria-label="Close" data-modal-close>✕</button>
 			<div class="onboarding-modal-inner">
 				<h3 id="request-onboarding-modal-title">Request onboarding</h3>
 				<p class="onboarding-modal-note">
 					We onboard independent authors, publishers, and institutions.<br />
-					If you already have files (Word/PDF/EPUB) or maintain in-house catalogs, please mention this in your
+					If you already have files (Word or EPUB) or maintain in-house catalogs, please mention this in your
 					message. We reply with an onboarding plan and a proposed timeline.
 				</p>
 				<p class="onboarding-modal-note">
@@ -144,7 +147,6 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 						<legend>What do you need?</legend>
 						<label><input type="checkbox" name="needs" value="Web publishing" /> Web publishing</label>
 						<label><input type="checkbox" name="needs" value="Sales" /> Sales</label>
-						<label><input type="checkbox" name="needs" value="Rentals" /> Rentals</label>
 						<label><input type="checkbox" name="needs" value="Fan clubs" /> Fan clubs</label>
 						<label><input type="checkbox" name="needs" value="EPUB output" /> EPUB output</label>
 						<label><input type="checkbox" name="needs" value="Migration / catalog import" /> Migration / catalog import</label>
@@ -184,8 +186,6 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 		<p>No. You can publish on ReaderPub and still distribute elsewhere.</p>
 		<h3>Do you provide EPUB output?</h3>
 		<p>Yes — optional production-ready EPUB delivery.</p>
-		<h3>How do rentals work?</h3>
-		<p>Short-term access windows; pricing set by the publisher.</p>
 		<h3>Do authors/publishers get reader data?</h3>
 		<p>Yes — first-party relationship with registered readers, plus analytics.</p>
 		<h3>Do institutions sell books here?</h3>
@@ -211,32 +211,56 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 			color: var(--muted);
 		}
 
-		:global(.contact-onboarding-trigger) {
-			padding-top: 15px !important;
-			padding-bottom: 29px !important;
-			gap: 0 !important;
+		:global(.contact-spec-cards .icon-grid-card) {
+			align-content: start;
 		}
 
-			:global(.contact-spec-cards) {
-				padding-bottom: 14px !important;
-			}
+		:global(.contact-spec-cards .icon-grid-card > .section-icon),
+		:global(.contact-spec-cards .icon-grid-card .icon-grid-card-copy > h3) {
+			align-self: center;
+		}
+
+		.direct-submit-note {
+			margin-top: 18px !important;
+			color: var(--text) !important;
+		}
+
+		.contact-card-actions {
+			align-items: center;
+			justify-content: flex-start;
+			gap: 10px;
+			margin-top: 4px;
+		}
+
+		.contact-card-actions .button {
+			margin-top: 0;
+		}
+
+		.direct-submit-button {
+			box-sizing: border-box;
+			line-height: normal;
+		}
+
+		.contact-card-request-button {
+			align-self: flex-start;
+			margin-top: auto;
+		}
+
+		:global(.contact-spec-cards .contact-institutions-card) {
+			grid-template-rows: auto auto 1fr auto;
+		}
+
+		:global(.contact-spec-cards .contact-institutions-card .bullets) {
+			align-self: start;
+		}
+
+		:global(.contact-spec-cards) {
+			padding-bottom: 14px !important;
+		}
 
 			:global(.contact-spec-cards .icon-grid) {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
-
-		.contact-onboarding-anchor {
-			display: block;
-			height: 0;
-			line-height: 0;
-			margin: 0;
-			padding: 0;
-			scroll-margin-top: 120px;
-		}
-
-		:global(.contact-onboarding-trigger .contact-onboarding-trigger-row) {
-			margin-top: 0 !important;
-		}
 
 			:global(.onboarding-modal) {
 				align-items: center;
