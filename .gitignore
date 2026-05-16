@@ -6,6 +6,8 @@ public/images_old/
 
 # dependencies
 node_modules/
+.npm-cache/
+.wrangler-logs/
 
 # logs
 npm-debug.log*

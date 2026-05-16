@@ -6,9 +6,11 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 import SectionIcon from "../components/SectionIcon.astro";
 
 const topic = Astro.url.searchParams.get("topic") ?? "";
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 ---
 
 <Base title={`${SITE_NAME} Contact`}>
+	{turnstileSiteKey && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 	<section class="hero">
 		<div>
 			<h1>Onboarding</h1>
@@ -97,7 +99,7 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 					onboarding request.
 				</p>
 				{topic && <p class="contact-topic">Topic: {topic}</p>}
-				<form class="onboarding-form" method="POST" action="https://formspree.io/f/REPLACE_ME">
+				<form class="onboarding-form" method="POST" action="/api/onboarding">
 					<label for="role">I am</label>
 						<select id="role" name="role" required>
 							<option value="">Select one</option>
@@ -158,6 +160,8 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 					<input type="hidden" name="_subject" value="ReaderPub Onboarding Request" />
 					<input type="hidden" name="topic" value={topic} />
 					<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+					{turnstileSiteKey && <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>}
+					<p class="onboarding-form-error" hidden></p>
 
 					<div class="cta-row onboarding-modal-actions">
 						<button class="button" type="submit">Send onboarding request</button>
@@ -405,6 +409,14 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 			flex: 0 0 16px;
 		}
 
+		:global(.onboarding-form-error) {
+			margin: 2px 0 0;
+			color: #b42318;
+			font-size: 15px;
+			line-height: 1.35;
+			text-align: center;
+		}
+
 			:global(.onboarding-modal-actions) {
 				justify-content: center;
 				margin-top: 6px;
@@ -456,7 +468,14 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 				const successModal = document.querySelector("#onboarding-success-modal");
 				const openButtons = Array.from(document.querySelectorAll('[data-modal-open="#request-onboarding-modal"]'));
 				const onboardingForm = document.querySelector(".onboarding-form");
+				const formError = onboardingForm?.querySelector(".onboarding-form-error");
+				const submitButton = onboardingForm?.querySelector('button[type="submit"]');
 				if (!requestModal || !successModal || !onboardingForm) return;
+				const resetTurnstile = () => {
+					if (window.turnstile && typeof window.turnstile.reset === "function") {
+						window.turnstile.reset();
+					}
+				};
 
 				const closeModal = (modalElement) => {
 					modalElement.classList.remove("is-open");
@@ -471,6 +490,10 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 				openButtons.forEach((btn) => {
 					btn.addEventListener("click", (event) => {
 						event.preventDefault();
+						if (formError) {
+							formError.textContent = "";
+							formError.hidden = true;
+						}
 						closeModal(successModal);
 						openModal(requestModal);
 					});
@@ -494,22 +517,47 @@ const topic = Astro.url.searchParams.get("topic") ?? "";
 					event.preventDefault();
 					const formData = new FormData(onboardingForm);
 					const action = onboardingForm.getAttribute("action");
-					if (action) {
-						try {
-							await fetch(action, {
-								method: "POST",
-								body: formData,
-								headers: {
-									Accept: "application/json",
-								},
-							});
-						} catch (_error) {
-							// Always show confirmation modal to keep UX deterministic.
+					const originalButtonText = submitButton?.textContent || "";
+
+					if (formError) {
+						formError.textContent = "";
+						formError.hidden = true;
+					}
+					if (submitButton) {
+						submitButton.disabled = true;
+						submitButton.textContent = "Sending…";
+					}
+
+					try {
+						if (!action) throw new Error("The onboarding endpoint is not configured.");
+						const response = await fetch(action, {
+							method: "POST",
+							body: formData,
+							headers: {
+								Accept: "application/json",
+							},
+						});
+						const payload = await response.json().catch(() => null);
+						if (!response.ok || !payload?.ok) {
+							throw new Error(payload?.error || "We could not submit your request. Please try again.");
+						}
+
+						closeModal(requestModal);
+						openModal(successModal);
+						onboardingForm.reset();
+						resetTurnstile();
+					} catch (error) {
+						if (formError) {
+							formError.textContent = error instanceof Error ? error.message : "We could not submit your request. Please try again.";
+							formError.hidden = false;
+						}
+						resetTurnstile();
+					} finally {
+						if (submitButton) {
+							submitButton.disabled = false;
+							submitButton.textContent = originalButtonText;
 						}
 					}
-					closeModal(requestModal);
-					openModal(successModal);
-					onboardingForm.reset();
 				});
 
 				document.addEventListener("keydown", (event) => {
