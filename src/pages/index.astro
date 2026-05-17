@@ -3,48 +3,103 @@ import Base from "../layouts/Base.astro";
 import { BOOKS_URL, BOOKTREE_NAME, SITE_NAME, WEREAD_NAME } from "../consts";
 import SectionIcon from "../components/SectionIcon.astro";
 import IconGridSection from "../components/sections/IconGridSection.astro";
-import ProofSection from "../components/sections/ProofSection.astro";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
+
+const CATALOG_HERO_BOOK_OPTIONS = [
+	{
+		id: "90000074",
+		title: "The Adventures of Tom Sawyer, Complete",
+		author: "Mark Twain",
+		cover: "https://reader.pub/books/protected-content/90000074/assets/OEBPS/1055025884842794877_cover.jpg",
+	},
+	{
+		id: "90000120",
+		title: "Treasure Island",
+		author: "Robert Louis Stevenson",
+		cover: "https://reader.pub/books/protected-content/90000120/assets/OEBPS/9148187011918732592_cover.jpg",
+	},
+	{
+		id: "90008800",
+		title: "The Divine Comedy",
+		author: "Dante Alighieri; illustrated by Gustave Dore",
+		cover: "https://reader.pub/books/protected-content/90008800/assets/OEBPS/975265859820879404_cover.jpg",
+	},
+	{
+		id: "90014838",
+		title: "The Tale of Peter Rabbit",
+		author: "Beatrix Potter",
+		cover: "https://reader.pub/books/protected-content/90014838/assets/OEBPS/5231809340272607769_peter02.gif.png",
+	},
+	{
+		id: "90055040",
+		title: 'The Nursery "Alice"',
+		author: "Lewis Carroll",
+		cover: "https://reader.pub/books/protected-content/90055040/assets/OEBPS/8035424117275221048_cover.jpg",
+	},
+	{
+		id: "90016865",
+		title: "Pinocchio: The Tale of a Puppet",
+		author: "Carlo Collodi",
+		cover: "https://reader.pub/books/protected-content/90016865/assets/OEBPS/5958518236637178825_illus-022.png",
+	},
+	{
+		id: "90078504",
+		title: "The Fairy Caravan",
+		author: "Beatrix Potter",
+		cover: "https://reader.pub/books/protected-content/90078504/assets/OEBPS/5784209194575853353_cover.jpg",
+	},
+	{
+		id: "90025433",
+		title: "The Baby's Own Aesop",
+		author: "Aesop; illustrated by Walter Crane",
+		cover: "https://reader.pub/books/protected-content/90025433/assets/OEBPS/2611731572878816242_front_cover.png",
+	},
+	{
+		id: "90035997",
+		title: "The Jungle Book",
+		author: "Rudyard Kipling",
+		cover: "https://reader.pub/books/protected-content/90035997/assets/OEBPS/5834958138474680943_cover.jpg",
+	},
+	{
+		id: "90052521",
+		title: "Grimm's Fairy Tales",
+		author: "Jacob Grimm and Wilhelm Grimm",
+		cover: "https://reader.pub/books/protected-content/90052521/assets/OEBPS/3371397222058935216_cover.jpg",
+	},
+	{
+		id: "90071879",
+		title: "The Tarzan Twins",
+		author: "Edgar Rice Burroughs",
+		cover: "https://reader.pub/books/protected-content/90071879/assets/OEBPS/7834129313317133214_cover.jpg",
+	},
+	{
+		id: "90025344",
+		title: "The Scarlet Letter",
+		author: "Nathaniel Hawthorne",
+		cover: "https://reader.pub/books/protected-content/90025344/assets/OEBPS/2874891055637417969_cover.jpg",
+	},
+];
 
 ---
 
 <Base title={`${SITE_NAME} — Public Reading and Publishing Platform`}>
-	<section class="home-hero-title">
-		<h1>ReaderPub—the web-native publishing platform.</h1>
-	</section>
-	<ProofSection variant="hero">
-		<div>
-			<p class="lede">
-				Feels like an app. Works on the web. Fully protected.
-				<img
-					class="hero-inline-icon"
-					src="/images/protected-shield.svg"
-					alt=""
-					aria-hidden="true"
-				/>
+	<section class="home-intro-hero">
+		<div class="home-intro-copy">
+			<h1>ReaderPub—<br />the web-native publishing platform.</h1>
+			<p class="lede home-intro-lede">
+				<span class="home-intro-lede-line">
+					Feels like an app. Works on the web.
+					<span class="home-intro-protected-inline">
+						Fully protected.
+						<img class="hero-inline-icon" src="/images/protected-shield.svg" alt="" aria-hidden="true" />
+					</span>
+				</span>
 				<br />
-				No downloads. No PDFs. Just fast, clean web-native access on any device.
+				No installs or downloads required. Just fast and clean web access to books on any device.
 			</p>
-			<ul class="bullets">
-				<li>Authors sell directly, with a low 5% fee.</li>
-				<li>Readers gain instant access to the book on any device, without downloading files or installing reading apps.</li>
-				<li>Publishers maintain collections at web scale, fully protected from copying or downloading.</li>
-				<li>Researchers share their work and receive immediate responses from the academic and investment communities.</li>
-				<li>Instructors publish courses, and students master them interactively.</li>
-				<li>Government, municipalities and charities make their publications instantly available to the public, with immediate response.</li>
-			</ul>
-			<p class="lede">
-				Read, annotate, and share books and publications as living editions. Send a book with notes to an author or another reader, then keep building context together. Now with built-in read-aloud using device TTS voices.
-			</p>
-			<div class="cta-row">
-				<a class="button secondary" href="/readers">For Readers</a>
-				<a class="button secondary" href="/authors">For Authors</a>
-				<a class="button secondary" href="/institutions">For Institutions</a>
-			</div>
 		</div>
 		<img
-			slot="media"
-			class="image-block image-large proof-media"
+			class="image-block image-large home-intro-image"
 			src="/images/home2.webp"
 			alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
 			loading="eager"
@@ -52,7 +107,87 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			width="1115"
 			height="900"
 		/>
-	</ProofSection>
+	</section>
+
+	<section class="site-catalog-hero" aria-label="Reader experience preview">
+		<div class="site-catalog-hero-top">
+			<div class="site-catalog-hero-side">
+				<div class="site-catalog-hero-copy">
+					<div class="site-catalog-hero-eyebrow">{WEREAD_NAME} – THE BROWSER E-READER</div>
+					<h2 class="site-catalog-hero-title">
+						<span class="site-catalog-hero-title-line">60,000+ famous books.</span>
+						<span class="site-catalog-hero-title-line">Genuine reading app.</span>
+						<span class="site-catalog-hero-title-line">Right in your browser.</span>
+					</h2>
+					<p class="site-catalog-hero-text">
+						<span class="site-catalog-hero-text-line">Smooth pages, instant open, preserved reading position, easy Notes, Comments and Sharing.</span>
+					</p>
+				</div>
+			</div>
+			<div class="site-catalog-hero-readers" aria-hidden="true">
+				<img src="/images/readers1.webp" alt="" loading="lazy" decoding="async" width="1024" height="1024" />
+			</div>
+			<div class="site-catalog-hero-actions">
+				<details class="site-hero-book-picker">
+					<summary class="site-catalog-hero-button site-hero-book-picker-summary">Check it out in WeRead</summary>
+					<div class="site-hero-book-picker-menu">
+						{CATALOG_HERO_BOOK_OPTIONS.map((book) => (
+							<a class="site-hero-book-option" href={`${BOOKS_URL}protected/?id=${book.id}`} target="_blank" rel="noreferrer">
+								<img class="site-hero-book-option-cover" src={book.cover} alt="" />
+								<span class="site-hero-book-option-body">
+									<span class="site-hero-book-option-title">{book.title}</span>
+									<span class="site-hero-book-option-author">{book.author}</span>
+								</span>
+							</a>
+						))}
+					</div>
+				</details>
+				<a class="site-catalog-hero-button site-catalog-hero-publish-button" href="https://reader.pub/publish/" target="_blank" rel="noreferrer">
+					Publish Your Book
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-features-hero">
+		<div class="home-features-copy">
+			<h2>ReaderPub Features</h2>
+			<ul class="bullets home-features-bullets">
+				<li>Authors sell directly, with a low 5% fee.</li>
+				<li>Readers gain instant access to the book on any device, without downloading files or installing reading apps.</li>
+				<li>Publishers maintain collections at web scale, fully protected from copying or downloading.</li>
+				<li>Researchers share their work and receive immediate responses from the academic and investment communities.</li>
+				<li>Instructors publish courses, and students master them interactively.</li>
+				<li>Government, municipalities and charities make their publications instantly available to the public, with immediate response.</li>
+			</ul>
+			<img
+				class="image-block home-features-image-mobile"
+				src="/images/chain1.webp"
+				alt="ReaderPub connects authors, publishers, libraries, and readers"
+				loading="lazy"
+				decoding="async"
+				width="1200"
+				height="1200"
+			/>
+			<p class="lede home-features-lede">
+				Read, annotate, and share books and publications as living editions. Send a book with notes to an author or another reader, then keep building context together. Now with built-in read-aloud using device TTS voices.
+			</p>
+			<div class="cta-row home-features-actions">
+				<a class="button secondary" href="/readers">For Readers</a>
+				<a class="button secondary" href="/authors">For Authors</a>
+				<a class="button secondary" href="/institutions">For Institutions</a>
+			</div>
+		</div>
+		<img
+			class="image-block home-features-image"
+			src="/images/chain1.webp"
+			alt="ReaderPub connects authors, publishers, libraries, and readers"
+			loading="lazy"
+			decoding="async"
+			width="1200"
+			height="1200"
+		/>
+	</section>
 
 	<SpecCardsSection class="section-continue-next">
 		<h2>The ReaderPub platform family</h2>
@@ -69,7 +204,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 				<h3>{WEREAD_NAME}</h3>
 				<p>A modern web reader built for long-form reading and shared libraries.</p>
 				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
-					80K+ books in Catalog
+					60K+ books in Catalog
 				</a>
 			</div>
 			<div class="card">
@@ -250,39 +385,415 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 	</IconGridSection>
 
 	<style>
-		.home-hero-title {
-			padding-top: 54px;
-			padding-bottom: 0;
+		.home-intro-hero,
+		.home-features-hero {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(420px, 48%);
+			gap: 32px;
 		}
 
-		.home-hero-title h1 {
+		.home-intro-hero {
+			align-items: center;
+		}
+
+		.home-features-hero {
+			align-items: start;
+		}
+
+		.home-intro-copy,
+		.home-features-copy {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+			min-width: 0;
+		}
+
+		.home-intro-copy {
+			align-self: center;
+		}
+
+		.home-intro-copy,
+		.home-features-copy {
+			grid-column: 1;
+		}
+
+		.home-intro-image,
+		.home-features-image {
+			grid-column: 2;
+			justify-self: end;
+		}
+
+		.home-intro-image {
+			align-self: center;
+		}
+
+		.home-features-image {
+			align-self: start;
+		}
+
+		.home-features-image-mobile {
+			display: none;
+		}
+
+		.home-intro-copy > *,
+		.home-features-copy > * {
 			margin: 0;
-			font-size: clamp(36px, 5vw, 56px);
-			line-height: 1.1;
 		}
 
-		.home-thanks-note {
-			color: var(--text) !important;
+		.home-intro-hero {
+			padding-top: 54px;
 		}
 
-		.home-full-width-copy {
-			max-width: none !important;
+		.home-intro-copy h1 {
+			margin: 0;
+			font-size: clamp(36px, 5vw, 56px) !important;
+			line-height: 1.1 !important;
 		}
 
-		:global(.home-indie-section p) {
-			max-width: none !important;
+		.home-intro-lede,
+		.home-features-lede {
+			color: var(--link) !important;
 		}
 
-		:global(.proof-section.hero) {
-			padding-top: 16px;
+		.home-features-lede,
+		.home-features-actions {
+			margin: 0;
+		}
+
+		@media (orientation: landscape) {
+			.home-features-hero {
+				grid-template-columns: minmax(0, 1fr) minmax(420px, 48%);
+				gap: 32px;
+				align-items: start;
+			}
+
+			.home-features-copy {
+				grid-column: 1;
+			}
+
+			.home-features-image-mobile {
+				display: none !important;
+			}
+
+			.home-features-image {
+				display: block;
+				grid-column: 2;
+				justify-self: end;
+				align-self: start;
+			}
+
+			.home-features-actions {
+				justify-content: flex-start;
+				width: auto;
+				max-width: none;
+				margin: 0;
+			}
+		}
+
+		.home-intro-copy > .home-intro-lede {
+			font-size: 27px !important;
+			line-height: 1.45 !important;
+		}
+
+		.home-intro-lede-line {
+			display: inline;
+		}
+
+		.home-intro-protected-inline {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			white-space: nowrap;
 		}
 
 		.hero-inline-icon {
-			display: inline-block;
-			width: 20px;
-			height: 20px;
-			margin-left: 8px;
-			vertical-align: baseline;
+			display: block;
+			width: 22px;
+			height: 22px;
+			flex: 0 0 auto;
+		}
+
+		.home-intro-image,
+		.home-features-image {
+			width: 100%;
+			margin: 0;
+		}
+
+		.home-intro-image {
+			max-width: 640px !important;
+		}
+
+		.home-features-image {
+			max-width: 560px !important;
+		}
+
+		.home-features-copy h2 {
+			font-size: clamp(24px, 3vw, 34px) !important;
+			line-height: 1.15 !important;
+		}
+
+		.site-catalog-hero {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			align-items: stretch;
+			margin-bottom: 0;
+			padding-bottom: 28px;
+			width: 100%;
+			max-width: none;
+		}
+
+		.site-catalog-hero-top {
+			display: grid;
+			grid-template-columns: minmax(420px, 48%) minmax(520px, 1fr);
+			grid-template-areas:
+				"image copy"
+				"image actions";
+			column-gap: 56px;
+			row-gap: 20px;
+			align-items: center;
+			width: 100%;
+			max-width: none;
+		}
+
+		.site-catalog-hero-side {
+			grid-area: copy;
+			grid-column: 2;
+			grid-row: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			min-width: 0;
+			max-width: none;
+			width: 100%;
+			gap: 0;
+			justify-self: start;
+			align-self: center;
+		}
+
+		.site-catalog-hero-copy {
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 16px;
+			max-width: 760px;
+			width: 100%;
+			border: none;
+			background: transparent;
+			box-shadow: none;
+			min-width: 0;
+		}
+
+		.site-catalog-hero-copy > * {
+			margin: 0;
+		}
+
+		.site-catalog-hero-readers {
+			grid-area: image;
+			grid-column: 1;
+			grid-row: 1 / span 2;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			pointer-events: none;
+			min-width: 0;
+			justify-self: start;
+			align-self: center;
+			width: 100%;
+			max-width: 760px;
+		}
+
+		.site-catalog-hero-readers img {
+			display: block;
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+			transform: none;
+		}
+
+		.site-catalog-hero-eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			font-size: clamp(13px, 1.35vw, 15px);
+			letter-spacing: 0.06em;
+			color: #008f80;
+			font-weight: 400;
+		}
+
+		.site-catalog-hero-title {
+			margin: 0;
+			font-family: "Playfair Display", "Times New Roman", serif;
+			font-size: clamp(44px, 3.85vw, 72px);
+			line-height: 0.98;
+			letter-spacing: -0.03em;
+			color: #14202f;
+			max-width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.04em;
+			width: 100%;
+		}
+
+		.site-catalog-hero-title-line {
+			display: block;
+			white-space: nowrap;
+		}
+
+		.site-catalog-hero-text-line {
+			display: block;
+			white-space: normal;
+		}
+
+		.site-catalog-hero-text {
+			margin: 0;
+			max-width: 760px;
+			font-size: clamp(16px, 1.55vw, 18px);
+			line-height: 1.42;
+			color: #586273;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.28em;
+			width: 100%;
+		}
+
+		.site-catalog-hero-actions {
+			grid-area: actions;
+			grid-column: 2;
+			grid-row: 2;
+			display: flex;
+			flex-wrap: nowrap;
+			gap: 12px;
+			align-items: center;
+			justify-content: flex-start;
+			width: auto;
+			max-width: 760px;
+			margin-top: 10px;
+			justify-self: start;
+			align-self: start;
+		}
+
+		.site-catalog-hero-button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 10px 18px;
+			border-radius: 999px;
+			border: 1px solid var(--accent);
+			color: #ffffff;
+			background: var(--accent);
+			font-weight: 600;
+			font-size: 14px;
+			line-height: 1.4;
+			box-shadow: none;
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+			cursor: pointer;
+			text-decoration: none;
+		}
+
+		.site-catalog-hero-button:hover {
+			text-decoration: none;
+			transform: translateY(-2px);
+			box-shadow: 0 8px 20px rgba(0, 143, 128, 0.2);
+		}
+
+		.site-catalog-hero-publish-button {
+			background: linear-gradient(135deg, var(--card) 0%, var(--card) 15%, #ffffff 100%);
+			color: var(--link);
+			border-color: var(--link);
+		}
+
+		.site-catalog-hero-publish-button:hover {
+			text-decoration: none;
+		}
+
+		.site-hero-book-picker {
+			position: relative;
+		}
+
+		.site-hero-book-picker-summary {
+			list-style: none;
+			cursor: pointer;
+			user-select: none;
+		}
+
+		.site-hero-book-picker-summary::-webkit-details-marker {
+			display: none;
+		}
+
+		.site-hero-book-picker-summary::after {
+			content: "▾";
+			margin-left: 10px;
+			font-size: 14px;
+			line-height: 1;
+			pointer-events: none;
+		}
+
+		.site-hero-book-picker[open] .site-hero-book-picker-summary::after {
+			content: "▴";
+		}
+
+		.site-hero-book-picker-menu {
+			position: absolute;
+			top: calc(100% + 10px);
+			left: 0;
+			z-index: 30;
+			width: min(360px, calc(100vw - 48px));
+			max-height: 344px;
+			overflow-y: auto;
+			overscroll-behavior: contain;
+			padding: 10px;
+			border: 1px solid var(--border);
+			border-radius: 18px;
+			background: #fffdfa;
+			box-shadow: 0 18px 38px rgba(20, 32, 47, 0.12);
+		}
+
+		.site-hero-book-option {
+			display: grid;
+			grid-template-columns: 34px minmax(0, 1fr);
+			align-items: center;
+			gap: 12px;
+			padding: 10px 12px;
+			border-radius: 12px;
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.site-hero-book-option:hover {
+			background: #f5fbfa;
+			text-decoration: none;
+		}
+
+		.site-hero-book-option-cover {
+			width: 34px;
+			height: 48px;
+			border-radius: 5px;
+			object-fit: cover;
+		}
+
+		.site-hero-book-option-body {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+			min-width: 0;
+		}
+
+		.site-hero-book-option-title {
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 1.2;
+			color: #14202f;
+		}
+
+		.site-hero-book-option-author {
+			font-size: 12px;
+			line-height: 1.25;
+			color: #586273;
 		}
 
 		.onboarding-grid {
@@ -295,14 +806,203 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			text-align: left;
 		}
 
-		.onboarding-grid .card h2 {
-			color: var(--text);
-		}
-
-		@media (max-width: 800px) {
-			.onboarding-grid {
-				grid-template-columns: 1fr;
+			.onboarding-grid .card h2 {
+				color: var(--text);
 			}
+
+			@media (orientation: portrait) {
+				.home-intro-hero {
+					padding-top: 29px;
+				}
+
+				.home-intro-copy > .home-intro-lede {
+					font-size: 21.6px !important;
+				}
+
+				.home-intro-hero,
+				.home-features-hero {
+					grid-template-columns: 1fr;
+					align-items: start;
+				}
+
+				.home-features-hero {
+					gap: 12px;
+				}
+
+				.home-intro-copy,
+				.home-features-copy,
+				.home-intro-image,
+				.home-features-image {
+					grid-column: auto;
+				}
+
+				.home-features-image {
+					display: none;
+				}
+
+				.home-features-image-mobile {
+					display: block;
+					justify-self: center;
+					width: 100%;
+					max-width: 560px !important;
+					margin: 2px auto 0;
+				}
+
+				.home-features-actions {
+					justify-content: center;
+					width: fit-content;
+					max-width: 100%;
+					margin-inline: auto;
+					row-gap: 10px;
+				}
+
+				.site-catalog-hero {
+					gap: 16px;
+					padding-bottom: 20px;
+					width: 100%;
+					max-width: none;
+				}
+
+				.site-catalog-hero-top {
+					display: grid;
+					grid-template-columns: 1fr;
+					grid-template-areas:
+						"copy"
+						"image"
+						"actions";
+					row-gap: 16px;
+					column-gap: 0;
+					align-items: stretch;
+					width: 100%;
+					max-width: none;
+				}
+
+				.site-catalog-hero-side {
+					grid-area: copy;
+					grid-column: 1;
+					grid-row: auto;
+					gap: 0;
+					align-items: stretch;
+					max-width: none;
+					justify-self: stretch;
+					align-self: stretch;
+					width: 100%;
+				}
+
+				.site-catalog-hero-readers {
+					grid-area: image;
+					grid-column: 1;
+					grid-row: auto;
+					justify-content: center;
+					width: 100%;
+					margin-inline: 0;
+					max-width: none;
+				}
+
+				.site-catalog-hero-readers img {
+					width: 100%;
+					max-width: 100%;
+					transform: none;
+				}
+
+				.site-catalog-hero-copy {
+					padding: 0;
+					align-items: flex-start;
+					text-align: left;
+					width: 100%;
+					max-width: none;
+					margin-inline: 0;
+					gap: 16px;
+				}
+
+				.site-catalog-hero-eyebrow {
+					font-size: clamp(13px, 2.8vw, 15px);
+					letter-spacing: 0.04em;
+					white-space: normal;
+					justify-content: flex-start;
+				}
+
+				.site-catalog-hero-title {
+					font-size: clamp(36px, 5vw, 56px);
+					line-height: 1.1;
+					align-items: flex-start;
+					width: 100%;
+				}
+
+				.site-catalog-hero-title-line {
+					white-space: normal;
+				}
+
+				.site-catalog-hero-text-line {
+					white-space: normal;
+				}
+
+				.site-catalog-hero-text {
+					font-size: 16px;
+					align-items: flex-start;
+					width: 100%;
+					text-align: left;
+					max-width: none;
+					line-height: 1.45;
+				}
+
+				.site-catalog-hero-actions {
+					grid-area: actions;
+					grid-column: 1;
+					grid-row: auto;
+					width: 100%;
+					margin-inline: 0;
+					flex-direction: column;
+					align-items: stretch;
+					justify-content: flex-start;
+					margin-top: 0;
+					justify-self: stretch;
+					align-self: stretch;
+				}
+
+				.site-catalog-hero-actions > * {
+					width: 100%;
+				}
+
+				.site-catalog-hero-button {
+					width: 100%;
+				}
+
+				.site-hero-book-picker-menu {
+					left: 50%;
+					right: auto;
+					transform: translateX(-50%);
+					width: min(360px, calc(100vw - 32px));
+					max-width: calc(100vw - 32px);
+					padding: clamp(8px, 2.5vw, 10px);
+				}
+
+				.site-hero-book-option {
+					grid-template-columns: clamp(28px, 8vw, 34px) minmax(0, 1fr);
+					gap: clamp(8px, 2.4vw, 12px);
+					padding: clamp(8px, 2.4vw, 10px) clamp(8px, 2.8vw, 12px);
+				}
+
+				.site-hero-book-option-cover {
+					width: clamp(28px, 8vw, 34px);
+					height: clamp(40px, 11vw, 48px);
+				}
+
+				.site-hero-book-option-title {
+					font-size: clamp(14px, 4.1vw, 16px);
+					line-height: 1.2;
+				}
+
+				.site-hero-book-option-author {
+					font-size: clamp(12px, 3.6vw, 14px);
+					line-height: 1.25;
+				}
+			}
+
+			@media (max-width: 800px) {
+				.onboarding-grid {
+					grid-template-columns: 1fr;
+				}
 		}
 	</style>
 
@@ -310,6 +1010,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		(() => {
 			const openButtons = Array.from(document.querySelectorAll("[data-modal-open]"));
 			const modals = Array.from(document.querySelectorAll(".modal"));
+			const heroBookPickers = Array.from(document.querySelectorAll(".site-hero-book-picker"));
 
 			const closeModal = (modal) => {
 				if (!modal) return;
@@ -339,6 +1040,14 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			document.addEventListener("keydown", (event) => {
 				if (event.key !== "Escape") return;
 				modals.forEach((modal) => closeModal(modal));
+				heroBookPickers.forEach((picker) => picker.removeAttribute("open"));
+			});
+
+			document.addEventListener("click", (event) => {
+				heroBookPickers.forEach((picker) => {
+					if (picker.contains(event.target)) return;
+					picker.removeAttribute("open");
+				});
 			});
 		})();
 	</script>

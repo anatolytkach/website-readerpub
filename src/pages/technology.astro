@@ -6,13 +6,23 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 ---
 
 <Base title={`${SITE_NAME} Technology`}>
-	<ProofSection variant="hero">
-		<div>
-			<h1>Built for web-native publishing at scale.</h1>
-			<p class="lede">
-				ReaderPub powers instant reading, structured publishing, and analytics for authors and
-				institutions.
-			</p>
+	<section class="technology-hero">
+		<div class="menu-eyebrow">TECHNOLOGY</div>
+		<h1 class="technology-hero-title">Built for web-native publishing at scale.</h1>
+		<p class="lede technology-hero-primary-lede">
+			ReaderPub powers instant reading, structured publishing, and analytics for authors and
+			institutions.
+		</p>
+		<img
+			class="image-block technology-hero-image"
+			src="/images/technology.webp"
+			alt="Technology and publishing workflows for public and institutional reading"
+			loading="lazy"
+			decoding="async"
+			width="4088"
+			height="4138"
+		/>
+		<div class="technology-hero-body">
 			<p>ReaderPub supports web publishing plus commerce: low-commission sales and connected analytics.</p>
 			<p>The same publishing pipeline can output both a web-accessible edition and a production-ready EPUB.</p>
 			<p>
@@ -21,21 +31,11 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			<p>
 				Access control is enforced at the platform level, allowing institutions to define how content is distributed across users and teams.
 			</p>
-			<div class="cta-row">
-				<a class="button secondary" href="/security">Learn more about ReaderPub security</a>
-			</div>
 		</div>
-		<img
-			slot="media"
-			class="image-block proof-media"
-			src="/images/technology.webp"
-			alt="Technology and publishing workflows for public and institutional reading"
-			loading="lazy"
-			decoding="async"
-			width="4088"
-			height="4138"
-		/>
-	</ProofSection>
+		<div class="cta-row technology-hero-actions">
+			<a class="button secondary" href="/security">Learn more about ReaderPub security</a>
+		</div>
+	</section>
 
 	<SpecCardsSection class="section-continue-next">
 		<h2>What powers ReaderPub</h2>
@@ -186,6 +186,62 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 	</script>
 
 	<style>
+		.technology-hero {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+			column-gap: 32px;
+			row-gap: 16px;
+			align-items: center;
+		}
+
+		.technology-hero > * {
+			min-width: 0;
+		}
+
+		.technology-hero-title {
+			font-size: clamp(36px, 5vw, 56px);
+			line-height: 1.1;
+			margin-bottom: 0;
+		}
+
+		.menu-eyebrow,
+		.technology-hero-title,
+		.technology-hero-primary-lede,
+		.technology-hero-body,
+		.technology-hero-actions {
+			grid-column: 1;
+		}
+
+		.menu-eyebrow {
+			grid-row: 1;
+		}
+
+		.technology-hero-title {
+			grid-row: 2;
+		}
+
+		.technology-hero-primary-lede {
+			grid-row: 3;
+		}
+
+		.technology-hero-body {
+			grid-row: 4;
+			display: grid;
+			gap: 16px;
+		}
+
+		.technology-hero-actions {
+			grid-row: 5;
+			justify-content: flex-start;
+		}
+
+		.technology-hero-image {
+			grid-column: 2;
+			grid-row: 1 / span 5;
+			margin-left: auto;
+			margin-right: 0;
+		}
+
 		.footer-cta-button {
 			width: max-content;
 			max-width: 100%;
@@ -208,6 +264,48 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 
 		.proof-section-full {
 			grid-template-columns: 1fr;
+		}
+
+		@media (orientation: portrait) {
+			.technology-hero {
+				grid-template-columns: 1fr;
+			}
+
+			.technology-hero-title,
+			.technology-hero-primary-lede,
+			.technology-hero-image,
+			.technology-hero-body,
+			.technology-hero-actions {
+				grid-column: 1;
+			}
+
+			.menu-eyebrow {
+				grid-column: 1;
+				grid-row: 1;
+			}
+
+			.technology-hero-title {
+				grid-row: 2;
+			}
+
+			.technology-hero-primary-lede {
+				grid-row: 3;
+			}
+
+			.technology-hero-image {
+				grid-row: 4;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.technology-hero-body {
+				grid-row: 5;
+			}
+
+			.technology-hero-actions {
+				grid-row: 6;
+				justify-content: center;
+			}
 		}
 
 		@media (max-width: 1100px) {

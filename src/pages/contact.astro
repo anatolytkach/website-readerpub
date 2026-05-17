@@ -13,6 +13,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 	{turnstileSiteKey && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 	<section class="hero">
 		<div>
+			<div class="menu-eyebrow">GET STARTED</div>
 			<h1>Onboarding</h1>
 			<p class="lede">
 				Tell us who you are and what you want to publish. Onboarding starts as soon as you submit
@@ -458,6 +459,12 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 			@media (max-width: 980px) {
 				:global(.contact-spec-cards .icon-grid) {
 					grid-template-columns: 1fr !important;
+				}
+			}
+
+			@media (orientation: portrait) and (max-width: 720px) {
+				.hero > div > .cta-row {
+					justify-content: center;
 				}
 			}
 		</style>

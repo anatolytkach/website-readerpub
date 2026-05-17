@@ -6,9 +6,15 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 ---
 
 <Base title={`${SITE_NAME} for Institutions`}>
-	<section class="hero">
+	<section class="institutions-hero">
+		<div class="menu-eyebrow">INSTITUTIONS</div>
+		<h1 class="institutions-hero-title">Institutional publishing, built for the web.</h1>
+		<p class="lede institutions-hero-primary-lede">
+			Libraries, universities, public organizations, and publishers—bring collections to the
+			open web with trusted reading at scale.
+		</p>
 		<img
-			class="image-block"
+			class="image-block institutions-hero-image"
 			src="/images/institutions.webp"
 			alt="Institutions sharing knowledge with the public"
 			loading="lazy"
@@ -16,17 +22,13 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 			width="1155"
 			height="895"
 		/>
-		<div>
-			<h1>Institutional publishing, built for the web.</h1>
-			<p class="lede">
-				Libraries, universities, public organizations, and publishers—bring collections to the
-				open web with trusted reading at scale.
-			</p>
-			<p>ReaderPub is the missing web layer: fast onboarding, clean discovery, and a real in-browser reading experience.</p>
-			<div class="cta-row">
-				<a class="button" href="/contact?topic=institution">Start institutional onboarding</a>
-				<a class="button secondary" href="/pricing">See pricing</a>
-			</div>
+		<p class="institutions-hero-secondary-copy">
+			ReaderPub is the missing web layer: fast onboarding, clean discovery, and a real in-browser
+			reading experience.
+		</p>
+		<div class="cta-row institutions-hero-actions">
+			<a class="button" href="/contact?topic=institution">Start institutional onboarding</a>
+			<a class="button secondary" href="/pricing">See pricing</a>
 		</div>
 	</section>
 
@@ -197,6 +199,60 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 	</section>
 
 	<style>
+		.institutions-hero {
+			display: grid;
+			grid-template-columns: minmax(280px, 1fr) minmax(0, 1fr);
+			column-gap: 32px;
+			row-gap: 16px;
+			align-items: center;
+		}
+
+		.institutions-hero > * {
+			min-width: 0;
+		}
+
+		.institutions-hero-title {
+			font-size: clamp(36px, 5vw, 56px);
+			line-height: 1.1;
+			margin-bottom: 0;
+		}
+
+		.institutions-hero-image {
+			grid-column: 1;
+			grid-row: 1 / span 4;
+			margin-right: auto;
+			margin-left: -24px;
+		}
+
+		.menu-eyebrow,
+		.institutions-hero-title,
+		.institutions-hero-primary-lede,
+		.institutions-hero-secondary-copy,
+		.institutions-hero-actions {
+			grid-column: 2;
+		}
+
+		.menu-eyebrow {
+			grid-row: 1;
+		}
+
+		.institutions-hero-title {
+			grid-row: 2;
+		}
+
+		.institutions-hero-primary-lede {
+			grid-row: 3;
+		}
+
+		.institutions-hero-secondary-copy {
+			grid-row: 4;
+		}
+
+		.institutions-hero-actions {
+			grid-row: 5;
+			justify-content: flex-start;
+		}
+
 		:global(.institutions-tight-section.section-continuation) {
 			padding-top: 0 !important;
 		}
@@ -237,6 +293,50 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		.institutions-onboarding-cta-row {
 			justify-content: center !important;
 			width: 100%;
+		}
+
+		@media (orientation: portrait) {
+			.institutions-hero {
+				grid-template-columns: 1fr;
+			}
+
+			.institutions-hero-title,
+			.institutions-hero-primary-lede,
+			.institutions-hero-image,
+			.institutions-hero-secondary-copy,
+			.institutions-hero-actions {
+				grid-column: 1;
+			}
+
+			.menu-eyebrow {
+				grid-column: 1;
+				grid-row: 1;
+			}
+
+			.institutions-hero-title {
+				grid-row: 2;
+			}
+
+			.institutions-hero-primary-lede {
+				grid-row: 3;
+			}
+
+			.institutions-hero-image {
+				grid-row: 4;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.institutions-hero-secondary-copy {
+				grid-row: 5;
+			}
+
+			.institutions-hero-actions {
+				grid-row: 6;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
 		}
 
 		@media (max-width: 980px) {

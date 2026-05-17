@@ -6,27 +6,28 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
-<Base title={`${SITE_NAME} for Readers`}>
-	<ProofSection variant="hero" class="reverse">
-		<div>
-			<h1>Read instantly on the web.</h1>
-			<p class="lede">Explore 60,000+ books in the browser—no apps, no downloads.</p>
-			<div class="cta-row">
-				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
-					Browse Catalog
-				</a>
+	<Base title={`${SITE_NAME} for Readers`}>
+		<ProofSection variant="hero" class="readers-hero">
+			<div class="readers-hero-copy">
+				<div class="menu-eyebrow">READERS</div>
+				<h1 class="readers-hero-title">Read instantly on the web.</h1>
+				<p class="lede readers-hero-lede">Explore 60,000+ books in the browser—no apps, no downloads.</p>
+				<div class="cta-row readers-hero-actions">
+					<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
+						Browse Catalog
+					</a>
 				<a class="button secondary" href="https://reader.pub/books/reader/?id=67098" target="_blank" rel="noreferrer">Read sample book on WeRead</a>
 			</div>
 		</div>
 		<img
 			slot="media"
 			class="image-block proof-media"
-			src="/images/readers1.webp"
+			src="/images/readers2.webp"
 			alt="Reader using multiple devices with access to a large digital library"
 			loading="lazy"
 			decoding="async"
 			width="950"
-			height="846"
+			height="791"
 		/>
 	</ProofSection>
 
@@ -111,7 +112,46 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				color: var(--text);
 			}
 
-	</style>
+			@media (orientation: portrait) {
+				:global(.readers-hero) {
+					display: flex;
+					flex-direction: column;
+					align-items: stretch;
+				}
+
+				:global(.readers-hero > .readers-hero-copy) {
+					display: contents;
+				}
+
+				.menu-eyebrow {
+					order: 1;
+					display: flex;
+					width: 100%;
+					justify-content: flex-start;
+					align-self: stretch;
+					text-align: left;
+				}
+
+				.readers-hero-title {
+					order: 2;
+					margin-top: -16px;
+				}
+
+				.readers-hero-lede {
+					order: 3;
+				}
+
+				:global(.readers-hero > .proof-media) {
+					order: 4;
+				}
+
+				.readers-hero-actions {
+					order: 5;
+					justify-content: center;
+				}
+			}
+
+		</style>
 
 	<script is:inline>
 		(() => {

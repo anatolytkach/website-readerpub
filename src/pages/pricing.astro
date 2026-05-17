@@ -1,27 +1,38 @@
 ---
 import Base from "../layouts/Base.astro";
-import { SITE_NAME } from "../consts";
+import { BOOKS_URL, SITE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 import TextFirstSection from "../components/sections/TextFirstSection.astro";
 ---
 
 <Base title={`${SITE_NAME} Pricing`}>
-	<section class="hero">
-		<div>
-			<h1>Pricing</h1>
-			<p class="lede">Aggressive creator economics. Serious institutional publishing.</p>
-			<p>ReaderPub supports two paths:</p>
-			<ul class="bullets">
+	<section class="pricing-hero">
+		<div class="pricing-hero-copy">
+			<div class="menu-eyebrow">PRICING</div>
+			<h1 class="pricing-hero-title">Free for readers and indies.<br />Fair for everybody else.</h1>
+			<p class="lede pricing-hero-lede">Aggressive creator economics. Serious institutional publishing.</p>
+			<img
+				class="image-block proof-media pricing-hero-image pricing-hero-image--mobile"
+				src="/images/pricing.webp"
+				alt=""
+				aria-hidden="true"
+				loading="lazy"
+				decoding="async"
+				width="667"
+				height="600"
+			/>
+			<p class="pricing-hero-copy-intro">ReaderPub supports two paths:</p>
+			<ul class="bullets pricing-hero-bullets">
 				<li>authors/publishers selling directly to readers.</li>
 				<li>institutions publishing trusted collections for the public.</li>
 			</ul>
-			<div class="cta-row">
+			<div class="cta-row pricing-hero-actions">
 				<a class="button" href="/contact">Start onboarding</a>
-				<a class="button secondary" href="/catalog">See the catalog</a>
+				<a class="button secondary" href={BOOKS_URL} target="_blank" rel="noreferrer">See the catalog</a>
 			</div>
 		</div>
 		<img
-			class="image-block proof-media pricing-hero-image"
+			class="image-block proof-media pricing-hero-image pricing-hero-image--desktop"
 			src="/images/pricing.webp"
 			alt="ReaderPub pricing for creators and institutions"
 			loading="lazy"
@@ -225,9 +236,75 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 	</TextFirstSection>
 
 	<style>
+		.pricing-hero {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(280px, 368px);
+			gap: 32px;
+			align-items: center;
+		}
+
+		.pricing-hero > * {
+			min-width: 0;
+		}
+
+		.pricing-hero-copy {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+			min-width: 0;
+		}
+
+		.pricing-hero-copy > * {
+			margin: 0;
+		}
+
+		.pricing-hero-title {
+			font-size: clamp(36px, 5vw, 56px);
+			line-height: 1.1;
+		}
+
+		.pricing-hero-actions {
+			margin-top: var(--section-block-gap-adjust);
+			justify-content: flex-start;
+		}
+
 		.pricing-hero-image {
-			flex: 0 1 368px !important;
+			width: 100%;
 			max-width: 368px !important;
+			margin: 0;
+		}
+
+		.pricing-hero-image--desktop {
+			align-self: center;
+			justify-self: end;
+		}
+
+		.pricing-hero-image--mobile {
+			display: none !important;
+		}
+
+		@media (orientation: portrait) and (max-width: 720px) {
+			.pricing-hero {
+				grid-template-columns: 1fr;
+				align-items: start;
+			}
+
+			.pricing-hero-image--desktop {
+				display: none !important;
+			}
+
+			.pricing-hero-image--mobile {
+				display: block !important;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.pricing-hero-actions {
+				margin-top: 0;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
 		}
 
 		.institution-plans-block {

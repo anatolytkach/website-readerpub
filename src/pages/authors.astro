@@ -6,32 +6,33 @@ import SectionIcon from "../components/SectionIcon.astro";
 import IndieProtectedBooksSection from "../components/sections/IndieProtectedBooksSection.astro";
 ---
 
-<Base title={`${SITE_NAME} for Authors`}>
-	<section class="hero">
-		<div>
-			<h1>Sell without Amazon’s platform tax.</h1>
-			<p class="lede">
-				5% sales commission. Direct reader relationships. First-party analytics. Fan
-				clubs built in.
-			</p>
-			<div class="cta-row">
+	<Base title={`${SITE_NAME} for Authors`}>
+		<section class="authors-hero">
+			<div class="authors-hero-copy">
+				<div class="menu-eyebrow">AUTHORS</div>
+				<h1 class="authors-hero-title">Sell without Amazon’s platform tax.</h1>
+				<p class="lede authors-hero-lede">
+					5% sales commission. Direct reader relationships. First-party analytics. Fan
+					clubs built in.
+				</p>
+			</div>
+			<img
+				class="image-block authors-hero-image"
+				src="/images/author1.webp"
+				alt="Author workflow from manuscript to published web content"
+				loading="lazy"
+				decoding="async"
+				width="1024"
+				height="841"
+			/>
+			<div class="cta-row authors-hero-actions">
 				<a class="button secondary author-protection-button" href="#indie-releases">
 					<span>See how your books are protected</span>
 					<img src="/images/protected-shield.svg" alt="" aria-hidden="true" />
 				</a>
 				<a class="button" href="/publish">Start publishing</a>
 			</div>
-		</div>
-		<img
-			class="image-block"
-			src="/images/author1.webp"
-			alt="Author workflow from manuscript to published web content"
-			loading="lazy"
-			decoding="async"
-			width="1024"
-			height="841"
-		/>
-	</section>
+		</section>
 
 	<SpecCardsSection class="author-amazon-commerce-section">
 		<div class="section">
@@ -157,9 +158,45 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 	</section>
 
 	<style>
-		.hero {
-			padding-bottom: 28px;
-		}
+			.authors-hero {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+				column-gap: 32px;
+				row-gap: 16px;
+				align-items: center;
+				padding-bottom: 28px;
+			}
+
+			.authors-hero > * {
+				min-width: 0;
+			}
+
+			.authors-hero-title {
+				font-size: clamp(36px, 5vw, 56px);
+				line-height: 1.1;
+				margin-bottom: 0;
+			}
+
+			.authors-hero-copy {
+				grid-column: 1;
+				grid-row: 1;
+				display: flex;
+				flex-direction: column;
+				gap: var(--section-flow-gap);
+			}
+
+			.authors-hero-image {
+				grid-column: 2;
+				grid-row: 1 / span 2;
+				margin-left: auto;
+				margin-right: 0;
+			}
+
+			.authors-hero-actions {
+				grid-column: 1;
+				grid-row: 2;
+				justify-content: flex-start;
+			}
 
 		.author-amazon-commerce-section {
 			padding-top: 28px !important;
@@ -245,16 +282,43 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 			display: inline-block;
 		}
 
-		.author-protection-button img {
-			width: 18px;
-			height: 18px;
-			display: block;
-			flex-shrink: 0;
-		}
+			.author-protection-button img {
+				width: 18px;
+				height: 18px;
+				display: block;
+				flex-shrink: 0;
+			}
 
-		@media (max-width: 1200px) {
-			:global(.author-commerce-grid) {
-				grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+			@media (orientation: portrait) {
+				.authors-hero {
+					grid-template-columns: 1fr;
+				}
+
+				.authors-hero-copy,
+				.authors-hero-image,
+				.authors-hero-actions {
+					grid-column: 1;
+				}
+
+				.authors-hero-copy {
+					grid-row: 1;
+				}
+
+				.authors-hero-image {
+					grid-row: 2;
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				.authors-hero-actions {
+					grid-row: 3;
+					justify-content: center;
+				}
+			}
+
+			@media (max-width: 1200px) {
+				:global(.author-commerce-grid) {
+					grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 			}
 		}
 
