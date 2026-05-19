@@ -1405,7 +1405,7 @@ section > :last-child {
 		text-align: center !important;
 	}
 
-	.page .content :is([class*="-copy"], [class*="-body"]) {
+	.page .content :is([class*="-copy"], [class*="-body"]):not(.site-hero-book-option-body) {
 		align-items: center !important;
 		text-align: center !important;
 	}
@@ -1544,6 +1544,32 @@ section > :last-child {
 	.page .content .site-catalog-hero-readers {
 		justify-self: center !important;
 		margin-inline: auto !important;
+	}
+
+	.page .content .site-hero-book-picker,
+	.page .content .site-hero-book-picker-menu,
+	.page .content .site-hero-book-picker-menu * {
+		text-align: left !important;
+		justify-items: start !important;
+	}
+
+	.page .content .site-hero-book-option {
+		justify-items: start !important;
+		width: 100%;
+	}
+
+	.page .content .site-hero-book-option-body {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		width: 100% !important;
+	}
+
+	.page .content .site-hero-book-option-title,
+	.page .content .site-hero-book-option-author {
+		display: block !important;
+		width: 100% !important;
+		text-align: left !important;
 	}
 
 	.page .content .pricing-block :is(h2, h3, h4, .lede),
