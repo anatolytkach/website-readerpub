@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { BOOKS_URL, SITE_NAME } from "../consts";
+import HomePlatformOverview from "../components/sections/HomePlatformOverview.astro";
 import ProofSection from "../components/sections/ProofSection.astro";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 ---
@@ -128,6 +129,8 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		<a class="button footer-cta-button" href="/contact">Request information</a>
 	</section>
 
+	<HomePlatformOverview />
+
 	<div class="modal" id="wepub-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
 			<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub image">
@@ -251,6 +254,10 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		.tech-footer-cta {
 			padding-top: 29px !important;
 			padding-bottom: 29px !important;
+		}
+
+		:global(.home-platform-overview .home-features-hero) {
+			padding-top: 58px;
 		}
 
 		.powers-grid {

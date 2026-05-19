@@ -1,0 +1,99 @@
+---
+const cards = [
+	{
+		href: "/readers",
+		title: "For Readers",
+		description: "The fastest way to start reading, with a full reader experience — no downloads required.",
+	},
+	{
+		href: "/authors",
+		title: "For Authors",
+		description:
+			"5% sales commission. Direct reader relationships. First-party analytics. Fan clubs built in.",
+	},
+	{
+		href: "/institutions",
+		title: "For Institutions",
+		description:
+			"Publishers, universities, libraries, and public organizations bring collections to the open web with trusted reading at scale.",
+	},
+];
+---
+
+<div class="card-grid audience-nav-grid">
+	{
+		cards.map((card) => (
+			<a class="card audience-nav-card" href={card.href}>
+				<span class="audience-nav-card-header">
+					<h3>{card.title}</h3>
+					<span class="audience-nav-card-arrow" aria-hidden="true">→</span>
+				</span>
+				<p>{card.description}</p>
+			</a>
+		))
+	}
+</div>
+
+<style>
+	.audience-nav-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		justify-content: stretch;
+		justify-items: stretch;
+		width: 100%;
+		max-width: none;
+	}
+
+	.audience-nav-card {
+		display: flex;
+		flex-direction: column;
+		gap: var(--section-flow-gap);
+		height: 100%;
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.audience-nav-card:hover {
+		text-decoration: none;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 20px rgba(0, 143, 128, 0.12);
+	}
+
+	.audience-nav-card-header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 12px;
+		width: 100%;
+	}
+
+	.audience-nav-card h3,
+	.audience-nav-card p {
+		margin: 0;
+	}
+
+	.audience-nav-card h3 {
+		min-width: 0;
+	}
+
+	.audience-nav-card-arrow {
+		flex-shrink: 0;
+		color: var(--link);
+		font-size: 1.35em;
+		line-height: 1.12;
+		font-weight: 600;
+	}
+
+	.audience-nav-card p {
+		font-size: 1.2em;
+		line-height: 1.35;
+		color: var(--link);
+	}
+
+	@media (max-width: 900px) {
+		.audience-nav-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

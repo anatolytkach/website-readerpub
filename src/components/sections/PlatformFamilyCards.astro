@@ -1,0 +1,43 @@
+---
+import { BOOKS_URL, BOOKTREE_NAME, WEREAD_NAME } from "../../consts";
+---
+
+<div class="card-grid platform-family-grid">
+	<div class="card">
+		<h3>WePub</h3>
+		<p>Publish to the web, enable sales, and build fan clubs around titles.</p>
+		<button class="button secondary" type="button" data-modal-open="#wepub-modal">
+			Explore WePub
+		</button>
+	</div>
+	<div class="card">
+		<h3>{WEREAD_NAME}</h3>
+		<p>A modern web reader built for long-form reading and shared libraries.</p>
+		<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
+			60K+ books in Catalog
+		</a>
+	</div>
+	<div class="card">
+		<h3>{BOOKTREE_NAME}</h3>
+		<p>Capture, structure, and publish research with clarity and speed.</p>
+		<button class="button secondary" type="button" data-modal-open="#booktree-modal">
+			Explore BookTree
+		</button>
+	</div>
+</div>
+
+<style>
+	.platform-family-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		justify-content: stretch;
+		justify-items: stretch;
+		width: 100%;
+		max-width: none;
+	}
+
+	@media (max-width: 900px) {
+		.platform-family-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

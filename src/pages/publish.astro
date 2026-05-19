@@ -140,5 +140,11 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					grid-template-columns: 1fr;
 				}
 			}
+
+			@media (orientation: portrait) and (max-width: 720px) {
+				.hero > div > .cta-row {
+					justify-content: center;
+				}
+			}
 		</style>
 	</Base>

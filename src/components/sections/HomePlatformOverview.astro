@@ -1,0 +1,334 @@
+---
+import SectionIcon from "../SectionIcon.astro";
+import IconGridSection from "./IconGridSection.astro";
+import PlatformFamilyCards from "./PlatformFamilyCards.astro";
+import SpecCardsSection from "./SpecCardsSection.astro";
+---
+
+<div class="home-platform-overview">
+	<section class="home-features-hero">
+		<div class="home-features-copy">
+			<h2>ReaderPub Features</h2>
+			<ul class="bullets home-features-bullets">
+				<li>Authors sell directly, with a low 5% fee.</li>
+				<li>Readers gain instant access to the book on any device, without downloading files or installing reading apps.</li>
+				<li>Publishers maintain collections at web scale, fully protected from copying or downloading.</li>
+				<li>Researchers share their work and receive immediate responses from the academic and investment communities.</li>
+				<li>Instructors publish courses, and students master them interactively.</li>
+				<li>Government, municipalities and charities make their publications instantly available to the public, with immediate response.</li>
+			</ul>
+			<img
+				class="image-block home-features-image-mobile"
+				src="/images/home2.webp"
+				alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
+				loading="lazy"
+				decoding="async"
+				width="1115"
+				height="900"
+			/>
+			<p class="lede home-features-lede">
+				Read, annotate, and share books and publications as living editions. Send a book with notes to an author or another reader, then keep building context together. Now with built-in read-aloud using device TTS voices.
+			</p>
+			<div class="cta-row home-features-actions">
+				<a class="button secondary" href="/readers">For Readers</a>
+				<a class="button secondary" href="/authors">For Authors</a>
+				<a class="button secondary" href="/institutions">For Institutions</a>
+			</div>
+		</div>
+		<img
+			class="image-block home-features-image"
+			src="/images/home2.webp"
+			alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
+			loading="lazy"
+			decoding="async"
+			width="1115"
+			height="900"
+		/>
+	</section>
+
+	<SpecCardsSection class="section-continue-next">
+		<h2>The ReaderPub platform family</h2>
+		<p>Three components, one public platform.</p>
+		<PlatformFamilyCards />
+	</SpecCardsSection>
+
+	<section class="home-two-up">
+		<div class="section home-two-up-block">
+			<h2>Read instantly on the web</h2>
+			<p>Open a book in one click. No apps, no setup, no friction.</p>
+			<ul class="bullets">
+				<li>Web-first reading with dedicated-reader comfort.</li>
+				<li>Works across devices — pick up where you left off.</li>
+				<li>Instant access from a link: no downloads, no installs.</li>
+				<li>Built for long sessions: clean UI, fast loading.</li>
+			</ul>
+		</div>
+		<div class="section home-two-up-block">
+			<h2>Who ReaderPub serves</h2>
+			<p>Three core audiences, one public platform.</p>
+			<ul class="bullets">
+				<li>Readers who want trusted discovery and lasting libraries.</li>
+				<li>Authors who publish, market, and sell directly to engaged readers.</li>
+				<li>
+					Institutions, including publishers, libraries, universities, government, and public
+					organizations.
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<IconGridSection class="section-continuation">
+		<h2>Common use cases</h2>
+		<div class="card-grid use-case-grid icon-grid">
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="author" title="Authors & Publishers" />
+				<div class="icon-grid-card-copy">
+					<h3>Authors &amp; Publishers</h3>
+					<p>Publish, promote, and sell books at a low 5% commission.</p>
+				</div>
+			</div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="reader" title="Readers" />
+				<div class="icon-grid-card-copy">
+					<h3>Readers</h3>
+					<p>Discover books, read comfortably and share your opinion in discussions.</p>
+				</div>
+			</div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="public" title="Public reading rooms" />
+				<div class="icon-grid-card-copy">
+					<h3>Public reading rooms</h3>
+					<p>Curated digital shelves for communities and partners.</p>
+				</div>
+			</div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="research" title="Researchers" />
+				<div class="icon-grid-card-copy">
+					<h3>Researchers</h3>
+					<p>Release working papers and living books, receive instant feedback.</p>
+				</div>
+			</div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="program" title="Learning programs" />
+				<div class="icon-grid-card-copy">
+					<h3>Learning programs</h3>
+					<p>Support cohort-based learning and reading challenges.</p>
+				</div>
+			</div>
+			<div class="card use-case-card icon-grid-card">
+				<SectionIcon type="library" title="Libraries" />
+				<div class="icon-grid-card-copy">
+					<h3>Libraries</h3>
+					<p>Curate collections, serve communities, and expand digital access.</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer-cta" style="background: transparent; border: 0; padding: 0; border-radius: 0;">
+			<div class="card-grid onboarding-grid">
+				<div class="card">
+					<h2>Publish your book on ReaderPub</h2>
+					<p class="lede">Sell directly to readers — keep your audience.</p>
+					<ul class="bullets">
+						<li>Upload Word or EPUB — single titles or batches.</li>
+						<li>Set prices for sales: books, courses, cohorts and limited drops.</li>
+						<li>Low 5% commission on sales.</li>
+						<li>Fan clubs, direct messaging, and first-party analytics.</li>
+					</ul>
+					<div class="cta-row">
+						<a class="button" href="/authors">Publishing features</a>
+						<a class="button secondary" href="/pricing">See pricing</a>
+					</div>
+				</div>
+				<div class="card">
+					<h2>Onboard your organization on ReaderPub</h2>
+					<p class="lede">Tell us what you need: We’ll set up your onboarding.</p>
+					<ul class="bullets">
+						<li>Import from OPDS feeds, MARC/ONIX/KBART, S3, or CSV exports.</li>
+						<li>Preserve catalog metadata across large collections.</li>
+						<li>Deploy on reader.pub subdomain or your own subdomain.</li>
+						<li>Launch fan clubs and controlled-access programs.</li>
+					</ul>
+					<div class="cta-row">
+						<a class="button" href="/contact">Institutional onboarding</a>
+						<a class="button secondary" href="/pricing">See pricing</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</IconGridSection>
+</div>
+
+<style>
+	.home-platform-overview {
+		display: block;
+		width: 100%;
+	}
+
+	.use-case-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		justify-content: stretch;
+		justify-items: stretch;
+		width: 100%;
+		max-width: none;
+	}
+
+	.home-two-up {
+		display: grid !important;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+		gap: 58px;
+		width: 100%;
+		max-width: none;
+		align-items: start;
+	}
+
+	.home-two-up-block {
+		min-width: 0;
+	}
+
+	.home-features-hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(420px, 48%);
+		gap: 32px;
+		align-items: start;
+	}
+
+	.home-features-copy {
+		display: flex;
+		flex-direction: column;
+		gap: var(--section-flow-gap);
+		min-width: 0;
+		grid-column: 1;
+	}
+
+	.home-features-image {
+		grid-column: 2;
+		justify-self: end;
+		align-self: start;
+		width: 100%;
+		margin: 0;
+		max-width: 560px !important;
+	}
+
+	.home-features-image-mobile {
+		display: none;
+	}
+
+	.home-features-copy > * {
+		margin: 0;
+	}
+
+	.home-features-lede {
+		color: var(--link) !important;
+	}
+
+	.home-features-actions {
+		margin: 0;
+	}
+
+	.home-features-copy h2 {
+		font-size: clamp(24px, 3vw, 34px) !important;
+		line-height: 1.15 !important;
+	}
+
+	.onboarding-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		width: 100%;
+		text-align: left;
+	}
+
+	.home-platform-overview .footer-cta .card {
+		text-align: left;
+	}
+
+	.onboarding-grid .card h2 {
+		color: var(--text);
+	}
+
+	@media (max-width: 900px) {
+		.use-case-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 720px) {
+		.home-two-up {
+			grid-template-columns: 1fr !important;
+			gap: 36px;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.use-case-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (orientation: landscape) {
+		.home-features-hero {
+			grid-template-columns: minmax(0, 1fr) minmax(420px, 48%);
+			gap: 32px;
+			align-items: start;
+		}
+
+		.home-features-copy {
+			grid-column: 1;
+		}
+
+		.home-features-image-mobile {
+			display: none !important;
+		}
+
+		.home-features-image {
+			display: block;
+			grid-column: 2;
+			justify-self: end;
+			align-self: start;
+		}
+
+		.home-features-actions {
+			justify-content: flex-start;
+			width: auto;
+			max-width: none;
+			margin: 0;
+		}
+	}
+
+	@media (orientation: portrait) {
+		.home-features-hero {
+			grid-template-columns: 1fr;
+			align-items: start;
+			gap: 12px;
+		}
+
+		.home-features-copy,
+		.home-features-image {
+			grid-column: auto;
+		}
+
+		.home-features-image {
+			display: none;
+		}
+
+		.home-features-image-mobile {
+			display: block;
+			justify-self: center;
+			width: 100%;
+			max-width: 560px !important;
+			margin: 2px auto 0;
+		}
+
+		.home-features-actions {
+			justify-content: center;
+			width: fit-content;
+			max-width: 100%;
+			margin-inline: auto;
+			row-gap: 10px;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.onboarding-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
