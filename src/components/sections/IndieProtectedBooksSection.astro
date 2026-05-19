@@ -72,6 +72,8 @@ const featuredBooks = [
 <style>
 	.book-card-link {
 		display: block;
+		width: 100%;
+		max-width: none;
 		text-decoration: none;
 		color: inherit;
 		transition: transform 0.15s ease;
@@ -102,6 +104,8 @@ const featuredBooks = [
 		align-items: center;
 		padding: 18px 20px;
 		min-height: 0;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.book-cover-placeholder {
@@ -120,6 +124,7 @@ const featuredBooks = [
 		display: grid;
 		gap: 6px;
 		min-width: 0;
+		text-align: left;
 	}
 
 	.book-card h3 {

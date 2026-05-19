@@ -296,15 +296,13 @@ section > :last-child {
 	font-weight: 600;
 }
 
-.nav-overlay-links .nav-overlay-cta {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: 10px 16px;
-	border-radius: 999px;
-	background: var(--accent);
-	color: #ffffff;
-	width: fit-content;
+.nav-overlay-divider {
+	height: 0;
+	margin: 4px 0;
+	padding: 0;
+	border: 0;
+	border-top: 1px solid var(--accent);
+	list-style: none;
 }
 
 .nav-overlay-links a:hover {
@@ -339,11 +337,12 @@ section > :last-child {
 }
 
 .nav--collapsed .nav-signin {
-	order: 1;
+	display: none;
 }
 
 .nav--collapsed .nav-cta {
-	display: none;
+	display: inline-flex;
+	order: 1;
 }
 
 
@@ -401,6 +400,7 @@ section > :last-child {
 	font-size: 2.25rem;
 	line-height: 1.1;
 	max-width: 100%;
+	overflow-wrap: break-word;
 }
 
 .site-catalog-hero-eyebrow {
@@ -1096,6 +1096,41 @@ section > :last-child {
 	}
 }
 
+@media (max-width: 400px) {
+	.nav {
+		gap: 6px;
+	}
+
+	.nav-brand {
+		gap: 6px;
+		min-width: 0;
+		flex-shrink: 1;
+	}
+
+	.nav-logo-link {
+		font-size: 17px;
+		letter-spacing: 0;
+	}
+
+	.site-logo {
+		height: 40px;
+	}
+
+	.nav-actions {
+		gap: 8px;
+		flex-shrink: 0;
+	}
+
+	.nav--collapsed .nav-cta {
+		font-size: 12px;
+		padding: 5px 9px;
+	}
+
+	.page {
+		padding: 20px 14px 0;
+	}
+}
+
 @media (max-width: 900px) {
 	.page {
 		padding: 24px 18px 0;
@@ -1126,6 +1161,16 @@ section > :last-child {
 
 	.card-grid {
 		grid-template-columns: 1fr !important;
+		justify-items: stretch;
+		width: 100%;
+		max-width: none;
+	}
+
+	.card-grid > *,
+	.card-grid > .book-card-link {
+		width: 100%;
+		max-width: none;
+		justify-self: stretch;
 	}
 
 	.image-placeholder.image-bleed-right {
@@ -1158,6 +1203,56 @@ section > :last-child {
 
 	.icon-grid {
 		grid-template-columns: 1fr !important;
+	}
+
+	/* icon-grid-card uses display:contents + grid-column; reset to stacked flex on narrow screens */
+	.card.icon-grid-card {
+		display: flex !important;
+		flex-direction: column;
+		align-items: stretch;
+		text-align: left;
+		gap: var(--section-flow-gap);
+	}
+
+	.icon-grid-card-copy {
+		display: flex !important;
+		flex-direction: column;
+		align-items: stretch;
+		gap: var(--section-flow-gap);
+		width: 100%;
+	}
+
+	.card.icon-grid-card > .section-icon {
+		grid-column: unset;
+		grid-row: unset;
+		align-self: center;
+	}
+
+	.icon-grid-card .icon-grid-card-copy > :is(h2, h3, h4, p, ul, ol, .bullets, .lede) {
+		grid-column: unset;
+		grid-row: unset;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.icon-grid-card .icon-grid-card-copy > :is(h2, h3, h4, .lede),
+	.icon-grid-card .icon-grid-card-copy > p:first-of-type {
+		text-align: center;
+		align-self: center;
+	}
+
+	.icon-grid-card .icon-grid-card-copy > :is(ul, ol, .bullets),
+	.icon-grid-card .icon-grid-card-copy > p:not(:first-of-type) {
+		text-align: left;
+	}
+
+	.icon-grid-card .icon-grid-card-copy > .bullets {
+		padding-left: 18px;
+		list-style-position: outside;
+	}
+
+	.card.icon-grid-card .button {
+		align-self: center;
 	}
 }
 
@@ -1222,7 +1317,12 @@ section > :last-child {
 		align-items: center;
 	}
 
-	.page .content :is(h1, h2, h3, h4, p, .lede, label, figcaption) {
+	.page .content :is(h1, h2, h3, h4, label, figcaption) {
+		text-align: center !important;
+	}
+
+	.page .content > :is(section, .section) > .lede,
+	.page .content :is([class*="-hero"], .footer-cta) .lede {
 		text-align: center !important;
 	}
 
@@ -1232,17 +1332,57 @@ section > :last-child {
 		text-align: center;
 	}
 
-	.page .content .bullets {
-		display: inline-block;
-		margin-inline: auto;
-		padding-left: 0;
-		list-style-position: inside;
-		text-align: center;
-		max-width: 100%;
+	.page .content :is(.bullets, ol) {
+		display: block;
+		width: 100%;
+		max-width: none;
+		margin-inline: 0;
+		padding-left: 18px;
+		list-style-position: outside;
+		text-align: left !important;
 	}
 
-	.page .content .bullets li {
-		text-align: center;
+	.page .content :is(.bullets, ol) li {
+		text-align: left !important;
+	}
+
+	/* Text blocks that include lists: keep body copy left-aligned */
+	.page .content .section:has(.bullets),
+	.page .content .section:has(ol),
+	.page .content :is([class*="-body"], [class*="-copy"]):has(.bullets),
+	.page .content :is([class*="-body"], [class*="-copy"]):has(ol) {
+		text-align: left !important;
+		align-items: stretch !important;
+	}
+
+	.page .content .section:has(.bullets) :is(p, ul, ol, .bullets, li),
+	.page .content .section:has(ol) :is(p, ul, ol, li),
+	.page .content :is([class*="-body"], [class*="-copy"]):has(.bullets) :is(p, ul, ol, .bullets, li),
+	.page .content :is([class*="-body"], [class*="-copy"]):has(ol) :is(p, ul, ol, li) {
+		text-align: left !important;
+	}
+
+	.page .content .section:has(.bullets) :is(h2, h3, h4),
+	.page .content .section:has(ol) :is(h2, h3, h4) {
+		text-align: left !important;
+	}
+
+	.page .content .footer-cta.security-inline-cta {
+		text-align: center !important;
+		justify-items: center !important;
+		align-items: center !important;
+	}
+
+	.page .content .footer-cta.security-inline-cta :is(h3, p, span) {
+		text-align: center !important;
+	}
+
+	.page .content .footer-cta.security-inline-cta .cta-row,
+	.page .content .security-theft-guard-action {
+		justify-content: center !important;
+		margin-inline: auto !important;
+		width: fit-content;
+		max-width: 100%;
 	}
 
 	.page .content .cta-row,
@@ -1299,13 +1439,57 @@ section > :last-child {
 			.security-steps-grid,
 			.security-compare-grid
 		) {
-		justify-items: center;
+		justify-items: stretch;
 		width: 100%;
+		max-width: none;
+	}
+
+	.page .content .card-grid > *,
+	.page .content .card-grid > .book-card-link,
+	.page .content .card-grid .card,
+	.page .content .audience-nav-card {
+		width: 100%;
+		max-width: none;
+		justify-self: stretch;
 	}
 
 	.page .content .card {
-		text-align: center;
-		align-items: center;
+		text-align: left;
+		align-items: stretch;
+		width: 100%;
+		max-width: none;
+	}
+
+	.page .content .card:not(.book-card) :is(h2, h3, h4, .lede),
+	.page .content .card:not(.book-card) > p:first-of-type,
+	.page .content .icon-grid-card-copy > p:first-of-type {
+		text-align: center !important;
+	}
+
+	.page .content .book-card,
+	.page .content .book-card :is(h3, p, span),
+	.page .content .book-card-text,
+	.page .content .book-card-protected {
+		text-align: left !important;
+		align-self: stretch !important;
+	}
+
+	.page .content .card:not(.book-card) :is(ul, ol),
+	.page .content .card:not(.book-card) p:not(:first-of-type),
+	.page .content .icon-grid-card-copy > p:not(:first-of-type) {
+		text-align: left !important;
+	}
+
+	.page .content .card .bullets {
+		display: block;
+		margin-inline: 0;
+		padding-left: 18px;
+		list-style-position: outside;
+		text-align: left !important;
+	}
+
+	.page .content .card .bullets li {
+		text-align: left !important;
 	}
 
 	.page .content .card .button,
@@ -1314,21 +1498,12 @@ section > :last-child {
 		margin-inline: auto;
 	}
 
-	.page .content .card.icon-grid-card {
-		grid-template-columns: 1fr !important;
-		justify-items: center;
-		align-content: center;
+	.page .content .audience-nav-card :is(h3) {
 		text-align: center;
 	}
 
-	.page .content .section-icon {
-		justify-self: center;
-		margin-inline: auto;
-	}
-
-	.page .content .icon-grid-card-copy,
 	.page .content .audience-nav-card p {
-		text-align: center;
+		text-align: left;
 	}
 
 	.page .content .audience-nav-card-header {
@@ -1371,9 +1546,22 @@ section > :last-child {
 		margin-inline: auto !important;
 	}
 
-	.page .content .pricing-block,
-	.page .content .onboarding-card {
+	.page .content .pricing-block :is(h2, h3, h4, .lede),
+	.page .content .platform-onboarding .card :is(h2, h3, h4, .lede) {
 		text-align: center;
+	}
+
+	.page .content .pricing-block :is(p, ul, .bullets),
+	.page .content .platform-onboarding .card :is(p, ul, .bullets) {
+		text-align: left;
+	}
+}
+
+@media (max-width: 400px) {
+	.page .content .home-intro-actions-catalog .button {
+		font-size: 15px;
+		padding: 10px 14px;
+		line-height: 1.25;
 	}
 }
 

@@ -414,6 +414,30 @@ const { standalone = false } = Astro.props;
 		.security-publish-layout {
 			grid-template-columns: 1fr;
 		}
+
+		.security-inline-cta,
+		.security-publish-cta {
+			width: 100% !important;
+			max-width: none !important;
+			margin-inline: 0 !important;
+			align-self: stretch !important;
+			justify-self: stretch !important;
+			text-align: center;
+			justify-items: center;
+			align-items: center;
+		}
+
+		.security-inline-cta :is(h3, p, span) {
+			text-align: center;
+		}
+
+		.security-inline-cta .cta-row,
+		.security-theft-guard-action {
+			justify-content: center;
+			margin-inline: auto;
+			width: fit-content;
+			max-width: 100%;
+		}
 	}
 
 	@media (max-width: 900px) {
