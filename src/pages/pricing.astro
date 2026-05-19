@@ -440,5 +440,29 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				grid-template-columns: 1fr;
 			}
 		}
+
+		@media (orientation: landscape) and (max-width: 900px) {
+			.pricing-hero {
+				grid-template-columns: minmax(0, 1fr) minmax(0, 34%);
+				gap: 20px;
+				align-items: center;
+			}
+
+			.pricing-hero-title {
+				font-size: clamp(28px, 4.5vw, 42px);
+			}
+
+			.pricing-hero-image--desktop {
+				max-width: 100% !important;
+			}
+
+			.creator-plan-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.creator-plan-card {
+				min-height: 0;
+			}
+		}
 	</style>
 </Base>

@@ -1018,6 +1018,38 @@ section > :last-child {
 	}
 }
 
+@media (orientation: landscape) and (max-width: 900px) {
+	section {
+		padding: 20px 0;
+	}
+
+	.section-continue-next {
+		padding-bottom: 20px !important;
+	}
+
+	.section-continuation {
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+	}
+
+	.nav {
+		margin-bottom: 12px;
+		padding: 8px 0 14px;
+	}
+
+	.page {
+		padding: 16px 18px 0;
+	}
+
+	.site-logo {
+		height: 42px;
+	}
+
+	.footer-cta {
+		padding: 28px 24px;
+	}
+}
+
 @media (max-width: 720px) {
 	.page {
 		padding: 24px 18px 0;
@@ -1090,6 +1122,20 @@ section > :last-child {
 		gap: 8px;
 		margin: 0 0 6px;
 		font-size: clamp(13px, 2.8vw, 15px);
+		letter-spacing: 0.06em;
+		color: #008f80;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+}
+
+@media (orientation: landscape) and (max-width: 900px) {
+	.menu-eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		margin: 0 0 4px;
+		font-size: 12px;
 		letter-spacing: 0.06em;
 		color: #008f80;
 		font-weight: 400;

@@ -1035,6 +1035,62 @@ const CATALOG_HERO_BOOK_OPTIONS = [
 					grid-template-columns: 1fr;
 				}
 		}
+
+		@media (orientation: landscape) and (max-width: 900px) {
+			.home-intro-hero {
+				padding-top: 16px;
+				grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+				gap: 20px;
+				align-items: center;
+			}
+
+			.home-intro-copy > .home-intro-lede {
+				font-size: 18px !important;
+				line-height: 1.35 !important;
+			}
+
+			.home-intro-image {
+				max-width: 100% !important;
+			}
+
+			.home-features-hero {
+				grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+				gap: 20px;
+				align-items: start;
+			}
+
+			.home-features-image {
+				display: block;
+				max-width: 100% !important;
+			}
+
+			.home-features-image-mobile {
+				display: none !important;
+			}
+
+			.home-features-actions {
+				justify-content: flex-start;
+				margin: 0;
+			}
+
+			.site-catalog-hero-top {
+				grid-template-columns: minmax(0, 50%) minmax(0, 1fr);
+				column-gap: 24px;
+			}
+
+			.site-catalog-hero-title {
+				font-size: clamp(28px, 4vw, 44px);
+			}
+
+			.site-catalog-hero-actions {
+				flex-wrap: wrap;
+				gap: 8px;
+			}
+
+			.site-hero-book-picker-menu {
+				max-height: 200px;
+			}
+		}
 	</style>
 
 	<script is:inline>

@@ -328,5 +328,21 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 			}
 		}
 
+		@media (orientation: landscape) and (max-width: 900px) {
+			.authors-hero {
+				grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+				column-gap: 20px;
+				padding-bottom: 16px;
+			}
+
+			.authors-hero-title {
+				font-size: clamp(28px, 4.5vw, 42px);
+			}
+
+			.authors-hero-image {
+				max-width: 100% !important;
+			}
+		}
+
 	</style>
 </Base>

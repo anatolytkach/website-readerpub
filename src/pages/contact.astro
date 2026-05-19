@@ -467,6 +467,45 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 					justify-content: center;
 				}
 			}
+
+			@media (orientation: landscape) and (max-width: 900px) {
+				:global(.onboarding-modal .modal-content) {
+					height: min(92dvh, 500px) !important;
+					max-height: min(92dvh, 500px) !important;
+					width: min(560px, calc(100vw - 32px)) !important;
+					max-width: min(560px, calc(100vw - 32px)) !important;
+				}
+
+				:global(.onboarding-modal-inner) {
+					inset: 44px 10px 8px 10px;
+					gap: 10px;
+				}
+
+				:global(.onboarding-modal-note) {
+					font-size: 14px !important;
+				}
+
+				:global(.onboarding-form > label),
+				:global(.onboarding-form legend) {
+					font-size: 14px !important;
+					margin-top: 2px !important;
+				}
+
+				:global(.onboarding-form input[type="text"]),
+				:global(.onboarding-form input[type="url"]),
+				:global(.onboarding-form input[type="email"]),
+				:global(.onboarding-form input[type="tel"]),
+				:global(.onboarding-form input[type="number"]),
+				:global(.onboarding-form select),
+				:global(.onboarding-form textarea) {
+					padding: 8px 10px !important;
+					font-size: 14px !important;
+				}
+
+				:global(.onboarding-success-inner p) {
+					font-size: 22px !important;
+				}
+			}
 		</style>
 
 		<script is:inline>

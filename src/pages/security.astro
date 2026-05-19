@@ -443,5 +443,32 @@ import SectionIcon from "../components/SectionIcon.astro";
 				justify-content: flex-start !important;
 			}
 		}
+
+		@media (orientation: landscape) and (max-width: 900px) {
+			.security-hero {
+				grid-template-columns: minmax(0, 1fr) minmax(0, 36%);
+				column-gap: 20px;
+				padding-bottom: 16px !important;
+			}
+
+			.security-image--desktop {
+				display: block;
+				max-width: 100% !important;
+				max-height: 280px;
+				align-self: start;
+			}
+
+			.security-image--mobile {
+				display: none;
+			}
+
+			.security-hero-title {
+				font-size: clamp(28px, 4.5vw, 42px);
+			}
+
+			.security-steps-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
 	</style>
 </Base>
