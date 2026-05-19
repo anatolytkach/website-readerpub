@@ -237,6 +237,16 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 			margin-top: 4px;
 		}
 
+		@media (orientation: portrait) {
+			.contact-card-actions {
+				justify-content: center;
+			}
+
+			:global(.contact-spec-cards .icon-grid-card) {
+				align-content: center;
+			}
+		}
+
 		.contact-card-actions .button {
 			margin-top: 0;
 		}
@@ -462,7 +472,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 				}
 			}
 
-			@media (orientation: portrait) and (max-width: 720px) {
+			@media (max-width: 900px) {
 				.hero > div > .cta-row {
 					justify-content: center;
 				}

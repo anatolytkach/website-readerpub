@@ -118,7 +118,7 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 
 	.home-features-hero {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(336px, 38.4%);
+		grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
 		gap: 32px;
 		align-items: start;
 	}
@@ -175,7 +175,7 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 
 	@media (orientation: landscape) {
 		.home-features-hero {
-			grid-template-columns: minmax(0, 1fr) minmax(336px, 38.4%);
+			grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
 			gap: 32px;
 			align-items: start;
 		}
@@ -206,8 +206,15 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 	@media (orientation: portrait) {
 		.home-features-hero {
 			grid-template-columns: 1fr;
-			align-items: start;
+			align-items: center;
+			justify-items: center;
+			text-align: center;
 			gap: 12px;
+		}
+
+		.home-features-copy {
+			align-items: center;
+			text-align: center;
 		}
 
 		.home-features-copy,

@@ -215,7 +215,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 	<style>
 		.pricing-hero {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(280px, 368px);
+			grid-template-columns: minmax(0, 1fr) minmax(0, 368px);
 			gap: 32px;
 			align-items: center;
 		}
@@ -260,10 +260,27 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			display: none !important;
 		}
 
-		@media (orientation: portrait) and (max-width: 720px) {
+		@media (max-width: 900px) and (orientation: portrait) {
 			.pricing-hero {
 				grid-template-columns: 1fr;
-				align-items: start;
+				align-items: center;
+				justify-items: center;
+				text-align: center;
+			}
+
+			.pricing-hero-copy {
+				text-align: center;
+				align-items: center;
+			}
+
+			.institution-plans-block {
+				text-align: center;
+			}
+		}
+
+		@media (max-width: 900px) {
+			.pricing-hero {
+				grid-template-columns: 1fr;
 			}
 
 			.pricing-hero-image--desktop {
@@ -292,7 +309,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 
 		.institution-details-layout {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+			grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
 			gap: 32px;
 			align-items: start;
 			margin-top: var(--section-block-gap-adjust) !important;
@@ -329,7 +346,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 
 		:global(.marketplace-pricing-layout) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+			grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
 			gap: 32px;
 			align-items: start;
 		}
@@ -378,7 +395,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 		}
 
 		.creator-plan-grid {
-			grid-template-columns: repeat(4, minmax(220px, 1fr));
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 			justify-content: stretch;
 		}
 
@@ -422,7 +439,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 
 		@media (max-width: 1024px) {
 			.creator-plan-grid {
-				grid-template-columns: repeat(2, minmax(240px, 1fr));
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 
 			:global(.marketplace-pricing-layout) {
@@ -434,7 +451,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			}
 		}
 
-		@media (max-width: 720px) {
+		@media (max-width: 900px) {
 			.creator-plan-grid,
 			.creator-pricing-notes {
 				grid-template-columns: 1fr;

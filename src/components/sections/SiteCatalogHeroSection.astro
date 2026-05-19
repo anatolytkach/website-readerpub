@@ -394,7 +394,8 @@ const CATALOG_HERO_BOOK_OPTIONS = [
 				"actions";
 			row-gap: 16px;
 			column-gap: 0;
-			align-items: stretch;
+			align-items: center;
+			justify-items: center;
 			width: 100%;
 			max-width: none;
 		}
@@ -404,10 +405,10 @@ const CATALOG_HERO_BOOK_OPTIONS = [
 			grid-column: 1;
 			grid-row: auto;
 			gap: 0;
-			align-items: stretch;
+			align-items: center;
 			max-width: none;
-			justify-self: stretch;
-			align-self: stretch;
+			justify-self: center;
+			align-self: center;
 			width: 100%;
 		}
 
@@ -429,11 +430,11 @@ const CATALOG_HERO_BOOK_OPTIONS = [
 
 		.site-catalog-hero-copy {
 			padding: 0;
-			align-items: flex-start;
-			text-align: left;
+			align-items: center;
+			text-align: center;
 			width: 100%;
 			max-width: none;
-			margin-inline: 0;
+			margin-inline: auto;
 			gap: 16px;
 		}
 
@@ -443,9 +444,9 @@ const CATALOG_HERO_BOOK_OPTIONS = [
 
 		.site-catalog-hero-text {
 			font-size: 16px;
-			align-items: flex-start;
+			align-items: center;
 			width: 100%;
-			text-align: left;
+			text-align: center;
 			max-width: none;
 			line-height: 1.45;
 		}
@@ -455,21 +456,23 @@ const CATALOG_HERO_BOOK_OPTIONS = [
 			grid-column: 1;
 			grid-row: auto;
 			width: 100%;
-			margin-inline: 0;
+			margin-inline: auto;
 			flex-direction: column;
-			align-items: stretch;
-			justify-content: flex-start;
+			align-items: center;
+			justify-content: center;
 			margin-top: 0;
-			justify-self: stretch;
-			align-self: stretch;
+			justify-self: center;
+			align-self: center;
 		}
 
 		.site-catalog-hero-actions > * {
-			width: 100%;
+			width: fit-content;
+			max-width: 100%;
 		}
 
 		.site-catalog-hero-button {
-			width: 100%;
+			width: fit-content;
+			max-width: 100%;
 		}
 
 		.site-hero-book-picker-menu {

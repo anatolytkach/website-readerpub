@@ -44,7 +44,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 	<style>
 		.home-intro-hero {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(420px, 48%);
+			grid-template-columns: minmax(0, 1fr) minmax(0, 48%);
 			gap: 32px;
 			align-items: center;
 			padding-top: 54px;
@@ -109,20 +109,23 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		}
 
 		.home-intro-protected-inline {
-			display: inline;
-			gap: 8px;
+			display: inline-flex;
+			align-items: baseline;
+			gap: 0.12em;
 			white-space: nowrap;
+			max-width: 100%;
 			color: var(--text);
+			font-size: 1em;
 		}
 
 		.hero-inline-icon {
-			display: inline-block;
-			width: 38px;
-			height: 38px;
-			margin-left: 4px;
-			vertical-align: text-bottom;
+			display: inline-flex;
+			flex-shrink: 0;
+			width: 1.35em;
+			height: 1.35em;
+			vertical-align: baseline;
 			position: relative;
-			top: -3px;
+			top: 0.08em;
 		}
 
 		.hero-inline-icon :global(.section-icon) {
@@ -135,7 +138,19 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			.home-intro-hero {
 				padding-top: 29px;
 				grid-template-columns: 1fr;
-				align-items: start;
+				align-items: center;
+				justify-items: center;
+				text-align: center;
+			}
+
+			.home-intro-copy {
+				align-items: center;
+				text-align: center;
+			}
+
+			.home-intro-image {
+				justify-self: center;
+				margin-inline: auto;
 			}
 
 			.home-intro-copy > .home-intro-lede {
@@ -204,5 +219,40 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			}
 		}
 	</style>
+
+	<script>
+		const fitHomeIntroProtectedLine = () => {
+			const line = document.querySelector('.home-intro-protected-inline');
+			const copy = document.querySelector('.home-intro-copy');
+			const lede = document.querySelector('.home-intro-lede');
+			if (!(line instanceof HTMLElement && copy instanceof HTMLElement && lede)) return;
+
+			const maxPx = Number.parseFloat(getComputedStyle(lede).fontSize);
+			if (!Number.isFinite(maxPx)) return;
+
+			const available = copy.clientWidth;
+			line.style.fontSize = `${maxPx}px`;
+			if (line.scrollWidth <= available) return;
+
+			let lo = 10;
+			let hi = maxPx;
+			while (hi - lo > 0.25) {
+				const mid = (lo + hi) / 2;
+				line.style.fontSize = `${mid}px`;
+				if (line.scrollWidth > available) hi = mid;
+				else lo = mid;
+			}
+			line.style.fontSize = `${lo}px`;
+		};
+
+		const scheduleFit = () => requestAnimationFrame(fitHomeIntroProtectedLine);
+
+		scheduleFit();
+		window.addEventListener('resize', scheduleFit, { passive: true });
+		document.fonts?.ready?.then(scheduleFit);
+
+		const copy = document.querySelector('.home-intro-copy');
+		if (copy) new ResizeObserver(scheduleFit).observe(copy);
+	</script>
 
 </Base>

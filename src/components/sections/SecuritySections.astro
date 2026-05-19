@@ -263,14 +263,14 @@ const { standalone = false } = Astro.props;
 
 	.security-access-layout {
 		display: grid;
-		grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+		grid-template-columns: minmax(0, 1.3fr) minmax(0, 360px);
 		gap: 24px;
 		align-items: center;
 	}
 
 	.security-model-layout {
 		display: grid;
-		grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+		grid-template-columns: minmax(0, 1.3fr) minmax(0, 360px);
 		gap: 24px;
 		align-items: start;
 	}
@@ -358,7 +358,7 @@ const { standalone = false } = Astro.props;
 
 	.security-publish-layout {
 		display: grid;
-		grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+		grid-template-columns: minmax(0, 1.3fr) minmax(0, 360px);
 		gap: 24px;
 		align-items: start;
 	}
@@ -416,17 +416,18 @@ const { standalone = false } = Astro.props;
 		}
 	}
 
-	@media (max-width: 720px) {
+	@media (max-width: 900px) {
 		.security-steps-grid {
 			grid-template-columns: 1fr;
 		}
 	}
 
-	@media (orientation: portrait) and (max-width: 720px) {
+	@media (orientation: portrait) and (max-width: 900px) {
 		.security-hero {
 			display: flex;
 			flex-direction: column;
-			align-items: stretch;
+			align-items: center;
+			text-align: center;
 		}
 
 		.security-image--desktop {
