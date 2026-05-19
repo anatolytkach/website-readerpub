@@ -1,5 +1,5 @@
 ---
-import { BOOKS_URL, SITE_NAME } from "../consts";
+import { SITE_NAME } from "../consts";
 ---
 
 <nav class="nav">
@@ -8,13 +8,10 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 		<a class="nav-logo-link" href="/">{SITE_NAME}</a>
 	</div>
 	<ul class="nav-links">
-		<li><a href="/readers">Readers</a></li>
-		<li><a href="/authors">Authors</a></li>
-		<li><a href="/institutions">Institutions</a></li>
-		<li><a href="/technology">Technology</a></li>
+		<li><a href="/">Home</a></li>
+		<li><a href="/platform">Platform</a></li>
 		<li><a href="/security">Security</a></li>
 		<li><a href="/pricing">Pricing</a></li>
-		<li><a href={BOOKS_URL} target="_blank" rel="noreferrer">Catalog</a></li>
 	</ul>
 	<div class="nav-actions">
 		<button class="nav-toggle" type="button" aria-label="Open navigation menu">
@@ -35,13 +32,10 @@ import { BOOKS_URL, SITE_NAME } from "../consts";
 	<ul class="nav-overlay-links">
 		<li><a href="/publish/">Sign in</a></li>
 		<li><a href="/contact" class="nav-overlay-cta">Get Started</a></li>
-		<li><a href="/readers">Readers</a></li>
-		<li><a href="/authors">Authors</a></li>
-		<li><a href="/institutions">Institutions</a></li>
-		<li><a href="/technology">Technology</a></li>
+		<li><a href="/">Home</a></li>
+		<li><a href="/platform">Platform</a></li>
 		<li><a href="/security">Security</a></li>
 		<li><a href="/pricing">Pricing</a></li>
-		<li><a href={BOOKS_URL} target="_blank" rel="noreferrer">Catalog</a></li>
 	</ul>
 </div>
 

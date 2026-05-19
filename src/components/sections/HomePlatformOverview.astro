@@ -3,10 +3,17 @@ import SectionIcon from "../SectionIcon.astro";
 import IconGridSection from "./IconGridSection.astro";
 import PlatformFamilyCards from "./PlatformFamilyCards.astro";
 import SpecCardsSection from "./SpecCardsSection.astro";
+
 ---
 
 <div class="home-platform-overview">
-	<section class="home-features-hero">
+	<SpecCardsSection class="section-continuation section-continue-next">
+		<h2>The ReaderPub platform family</h2>
+		<p>Three components, one public platform.</p>
+		<PlatformFamilyCards />
+	</SpecCardsSection>
+
+	<section class="home-features-hero section-continuation section-continue-next">
 		<div class="home-features-copy">
 			<h2>ReaderPub Features</h2>
 			<ul class="bullets home-features-bullets">
@@ -19,12 +26,12 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 			</ul>
 			<img
 				class="image-block home-features-image-mobile"
-				src="/images/home2.webp"
-				alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
+				src="/images/technology.webp"
+				alt="Technology and publishing workflows for public and institutional reading"
 				loading="lazy"
 				decoding="async"
-				width="1115"
-				height="900"
+				width="4088"
+				height="4138"
 			/>
 			<p class="lede home-features-lede">
 				Read, annotate, and share books and publications as living editions. Send a book with notes to an author or another reader, then keep building context together. Now with built-in read-aloud using device TTS voices.
@@ -37,47 +44,16 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 		</div>
 		<img
 			class="image-block home-features-image"
-			src="/images/home2.webp"
-			alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
+			src="/images/technology.webp"
+			alt="Technology and publishing workflows for public and institutional reading"
 			loading="lazy"
 			decoding="async"
-			width="1115"
-			height="900"
+			width="4088"
+			height="4138"
 		/>
 	</section>
 
-	<SpecCardsSection class="section-continue-next">
-		<h2>The ReaderPub platform family</h2>
-		<p>Three components, one public platform.</p>
-		<PlatformFamilyCards />
-	</SpecCardsSection>
-
-	<section class="home-two-up">
-		<div class="section home-two-up-block">
-			<h2>Read instantly on the web</h2>
-			<p>Open a book in one click. No apps, no setup, no friction.</p>
-			<ul class="bullets">
-				<li>Web-first reading with dedicated-reader comfort.</li>
-				<li>Works across devices — pick up where you left off.</li>
-				<li>Instant access from a link: no downloads, no installs.</li>
-				<li>Built for long sessions: clean UI, fast loading.</li>
-			</ul>
-		</div>
-		<div class="section home-two-up-block">
-			<h2>Who ReaderPub serves</h2>
-			<p>Three core audiences, one public platform.</p>
-			<ul class="bullets">
-				<li>Readers who want trusted discovery and lasting libraries.</li>
-				<li>Authors who publish, market, and sell directly to engaged readers.</li>
-				<li>
-					Institutions, including publishers, libraries, universities, government, and public
-					organizations.
-				</li>
-			</ul>
-		</div>
-	</section>
-
-	<IconGridSection class="section-continuation">
+	<IconGridSection class="section-continuation section-continue-next">
 		<h2>Common use cases</h2>
 		<div class="card-grid use-case-grid icon-grid">
 			<div class="card use-case-card icon-grid-card">
@@ -123,38 +99,6 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 				</div>
 			</div>
 		</div>
-		<div class="footer-cta" style="background: transparent; border: 0; padding: 0; border-radius: 0;">
-			<div class="card-grid onboarding-grid">
-				<div class="card">
-					<h2>Publish your book on ReaderPub</h2>
-					<p class="lede">Sell directly to readers — keep your audience.</p>
-					<ul class="bullets">
-						<li>Upload Word or EPUB — single titles or batches.</li>
-						<li>Set prices for sales: books, courses, cohorts and limited drops.</li>
-						<li>Low 5% commission on sales.</li>
-						<li>Fan clubs, direct messaging, and first-party analytics.</li>
-					</ul>
-					<div class="cta-row">
-						<a class="button" href="/authors">Publishing features</a>
-						<a class="button secondary" href="/pricing">See pricing</a>
-					</div>
-				</div>
-				<div class="card">
-					<h2>Onboard your organization on ReaderPub</h2>
-					<p class="lede">Tell us what you need: We’ll set up your onboarding.</p>
-					<ul class="bullets">
-						<li>Import from OPDS feeds, MARC/ONIX/KBART, S3, or CSV exports.</li>
-						<li>Preserve catalog metadata across large collections.</li>
-						<li>Deploy on reader.pub subdomain or your own subdomain.</li>
-						<li>Launch fan clubs and controlled-access programs.</li>
-					</ul>
-					<div class="cta-row">
-						<a class="button" href="/contact">Institutional onboarding</a>
-						<a class="button secondary" href="/pricing">See pricing</a>
-					</div>
-				</div>
-			</div>
-		</div>
 	</IconGridSection>
 </div>
 
@@ -172,22 +116,9 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 		max-width: none;
 	}
 
-	.home-two-up {
-		display: grid !important;
-		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-		gap: 58px;
-		width: 100%;
-		max-width: none;
-		align-items: start;
-	}
-
-	.home-two-up-block {
-		min-width: 0;
-	}
-
 	.home-features-hero {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(420px, 48%);
+		grid-template-columns: minmax(0, 1fr) minmax(336px, 38.4%);
 		gap: 32px;
 		align-items: start;
 	}
@@ -206,7 +137,7 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 		align-self: start;
 		width: 100%;
 		margin: 0;
-		max-width: 560px !important;
+		max-width: calc(560px * 0.8) !important;
 	}
 
 	.home-features-image-mobile {
@@ -230,30 +161,9 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 		line-height: 1.15 !important;
 	}
 
-	.onboarding-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		width: 100%;
-		text-align: left;
-	}
-
-	.home-platform-overview .footer-cta .card {
-		text-align: left;
-	}
-
-	.onboarding-grid .card h2 {
-		color: var(--text);
-	}
-
 	@media (max-width: 900px) {
 		.use-case-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
-
-	@media (max-width: 720px) {
-		.home-two-up {
-			grid-template-columns: 1fr !important;
-			gap: 36px;
 		}
 	}
 
@@ -265,7 +175,7 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 
 	@media (orientation: landscape) {
 		.home-features-hero {
-			grid-template-columns: minmax(0, 1fr) minmax(420px, 48%);
+			grid-template-columns: minmax(0, 1fr) minmax(336px, 38.4%);
 			gap: 32px;
 			align-items: start;
 		}
@@ -313,7 +223,7 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 			display: block;
 			justify-self: center;
 			width: 100%;
-			max-width: 560px !important;
+			max-width: calc(560px * 0.8) !important;
 			margin: 2px auto 0;
 		}
 
@@ -326,9 +236,4 @@ import SpecCardsSection from "./SpecCardsSection.astro";
 		}
 	}
 
-	@media (max-width: 800px) {
-		.onboarding-grid {
-			grid-template-columns: 1fr;
-		}
-	}
 </style>

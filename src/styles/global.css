@@ -172,14 +172,20 @@ section > :last-child {
 	flex-wrap: nowrap;
 	list-style: none;
 	white-space: nowrap;
-	margin-left: auto;
+	margin: 0;
+}
+
+.nav:not(.nav--collapsed) .nav-links {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .nav-actions {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	margin-left: 24px;
+	margin-left: auto;
 }
 
 .nav-signin {

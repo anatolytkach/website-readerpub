@@ -1,14 +1,14 @@
 ---
 import Base from "../layouts/Base.astro";
-import { BOOKS_URL, SITE_NAME } from "../consts";
+import { SITE_NAME } from "../consts";
 import HomePlatformOverview from "../components/sections/HomePlatformOverview.astro";
-import ProofSection from "../components/sections/ProofSection.astro";
+import PlatformOnboardingCards from "../components/sections/PlatformOnboardingCards.astro";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 ---
 
-<Base title={`${SITE_NAME} Technology`}>
-	<section class="technology-hero">
-		<div class="menu-eyebrow">TECHNOLOGY</div>
+<Base title={`${SITE_NAME} Platform`}>
+	<section class="technology-hero section-continue-next">
+		<div class="menu-eyebrow">PLATFORM</div>
 		<h1 class="technology-hero-title">Built for web-native publishing at scale.</h1>
 		<p class="lede technology-hero-primary-lede">
 			ReaderPub powers instant reading, structured publishing, and analytics for authors and
@@ -16,77 +16,34 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		</p>
 		<img
 			class="image-block technology-hero-image"
-			src="/images/technology.webp"
-			alt="Technology and publishing workflows for public and institutional reading"
+			src="/images/home2.webp"
+			alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
 			loading="lazy"
 			decoding="async"
-			width="4088"
-			height="4138"
+			width="1115"
+			height="900"
 		/>
 		<div class="technology-hero-body">
-			<p>ReaderPub supports web publishing plus commerce: low-commission sales and connected analytics.</p>
-			<p>The same publishing pipeline can output both a web-accessible edition and a production-ready EPUB.</p>
 			<p>
-				For protected distribution, ReaderPub’s primary access model is web-native rather than file-native: readers access content in the browser instead of receiving a standard downloadable book file. Web-accessible edition is fully protected from copying or downloading.
+				ReaderPub supports web publishing plus commerce: low-commission sales and connected analytics. The same publishing pipeline can output both a web-accessible edition and a production-ready EPUB.
+			</p>
+			<p>
+				For protected distribution, ReaderPub’s primary access model is web-native rather than file-native: readers access content in the browser instead of receiving a standard downloadable book file. Web-accessible edition is fully protected from copying or downloading by the patent-pending <strong class="technology-theft-guard-highlight">WeRead Theft Guard</strong>.
 			</p>
 			<p>
 				Access control is enforced at the platform level, allowing institutions to define how content is distributed across users and teams.
 			</p>
 		</div>
 		<div class="cta-row technology-hero-actions">
-			<a class="button secondary" href="/security">Learn more about ReaderPub security</a>
+			<a class="button secondary" href="/security#control-who-reads">Learn more about ReaderPub security</a>
 		</div>
 	</section>
 
-	<SpecCardsSection class="section-continue-next">
-		<h2>What powers ReaderPub</h2>
-		<div class="card-grid powers-grid">
-			<div class="card">
-				<h3>WeRead</h3>
-				<p>Instant web reading for readers and shared libraries.</p>
-				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
-					Browse Catalog
-				</a>
-			</div>
-			<div class="card">
-				<h3>WePub</h3>
-				<p>Web publishing and distribution for authors and institutions.</p>
-				<button class="button secondary" type="button" data-modal-open="#wepub-modal">
-					Explore WePub
-				</button>
-			</div>
-			<div class="card">
-				<h3>BookTree</h3>
-				<p>Sources, excerpts, and structured work across texts.</p>
-				<button class="button secondary" type="button" data-modal-open="#booktree-modal">
-					Explore BookTree
-				</button>
-			</div>
-			<div class="card">
-				<h3>Analytics</h3>
-				<p>Sales and engagement across catalogs and audiences.</p>
-				<a class="button secondary" href="/contact">Request pricing</a>
-			</div>
-		</div>
-	</SpecCardsSection>
-
-	<ProofSection class="proof-section-full section-continuation section-continue-next">
-		<picture slot="media" class="image-full">
-			<source srcset="/images/chain1.webp" media="(orientation: portrait)" />
-			<img
-				src="/images/chain.webp"
-				alt="Connected reading and publishing chain"
-				loading="lazy"
-				decoding="async"
-				width="1200"
-				height="206"
-			/>
-		</picture>
-	</ProofSection>
+	<HomePlatformOverview />
 
 	<SpecCardsSection class="section-continuation section-continue-next">
 		<h2>Reader collaboration and accessibility</h2>
-		<div class="card-grid powers-grid powers-grid-two">
+		<div class="card-grid powers-grid-two">
 			<div class="card">
 				<h3>Collaborative annotations workflow</h3>
 				<p>
@@ -124,12 +81,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		</div>
 	</SpecCardsSection>
 
-	<section class="footer-cta section-continuation tech-footer-cta">
-		<p>Interested in how this fits your organization?</p>
-		<a class="button footer-cta-button" href="/contact">Request information</a>
-	</section>
-
-	<HomePlatformOverview />
+	<PlatformOnboardingCards />
 
 	<div class="modal" id="wepub-modal" aria-hidden="true">
 		<div class="modal-backdrop" data-modal-close></div>
@@ -191,10 +143,10 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 	<style>
 		.technology-hero {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+			grid-template-columns: minmax(0, 1fr) minmax(336px, 1.2fr);
 			column-gap: 32px;
 			row-gap: 16px;
-			align-items: center;
+			align-items: start;
 		}
 
 		.technology-hero > * {
@@ -202,13 +154,14 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		}
 
 		.technology-hero-title {
+			grid-column: 1 / -1;
+			grid-row: 2;
 			font-size: clamp(36px, 5vw, 56px);
 			line-height: 1.1;
-			margin-bottom: 0;
+			margin: 0 0 32px;
 		}
 
 		.menu-eyebrow,
-		.technology-hero-title,
 		.technology-hero-primary-lede,
 		.technology-hero-body,
 		.technology-hero-actions {
@@ -219,12 +172,14 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			grid-row: 1;
 		}
 
-		.technology-hero-title {
-			grid-row: 2;
-		}
-
 		.technology-hero-primary-lede {
 			grid-row: 3;
+			margin-bottom: 0;
+		}
+
+		.technology-theft-guard-highlight {
+			color: var(--link);
+			font-weight: 700;
 		}
 
 		.technology-hero-body {
@@ -240,37 +195,16 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 
 		.technology-hero-image {
 			grid-column: 2;
-			grid-row: 1 / span 5;
+			grid-row: 3 / span 3;
 			margin-left: auto;
 			margin-right: 0;
-		}
-
-		.footer-cta-button {
-			width: max-content;
-			max-width: 100%;
-			place-self: center;
-		}
-
-		.tech-footer-cta {
-			padding-top: 29px !important;
-			padding-bottom: 29px !important;
-		}
-
-		:global(.home-platform-overview .home-features-hero) {
-			padding-top: 58px;
-		}
-
-		.powers-grid {
-			grid-template-columns: repeat(4, minmax(0, 1fr));
-			justify-content: stretch;
+			max-width: calc(460px * 1.2);
+			align-self: center;
 		}
 
 		.powers-grid-two {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		.proof-section-full {
-			grid-template-columns: 1fr;
+			justify-content: stretch;
 		}
 
 		@media (orientation: portrait) {
@@ -282,12 +216,12 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			.technology-hero-primary-lede,
 			.technology-hero-image,
 			.technology-hero-body,
-			.technology-hero-actions {
+			.technology-hero-actions,
+			.menu-eyebrow {
 				grid-column: 1;
 			}
 
 			.menu-eyebrow {
-				grid-column: 1;
 				grid-row: 1;
 			}
 
@@ -315,21 +249,10 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			}
 		}
 
-		@media (max-width: 1100px) {
-			.powers-grid {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
-		}
-
 		@media (max-width: 720px) {
-			.powers-grid {
-				grid-template-columns: 1fr;
-			}
-
 			.powers-grid-two {
 				grid-template-columns: 1fr;
 			}
-
 		}
 	</style>
 </Base>

@@ -1,0 +1,483 @@
+---
+import SectionIcon from "../SectionIcon.astro";
+import SpecCardsSection from "./SpecCardsSection.astro";
+
+interface Props {
+	standalone?: boolean;
+}
+
+const { standalone = false } = Astro.props;
+---
+
+<section
+	class:list={[
+		"hero",
+		"security-hero",
+		!standalone && "platform-security-hero section-continuation",
+	]}
+>
+	<div class="security-hero-copy">
+		<div class="menu-eyebrow">SECURITY</div>
+		<h1 class="security-hero-title">Protect the book. Control the access.</h1>
+		<p class="lede security-hero-primary-lede">
+			Most large-scale ebook piracy does not begin by breaking platforms. It begins when a complete book file reaches a user’s device, is extracted, converted, and redistributed.
+		</p>
+		<img
+			class="image-block security-image security-image--mobile"
+			src="/images/security.webp"
+			alt=""
+			aria-hidden="true"
+			loading="lazy"
+			decoding="async"
+			width="897"
+			height="791"
+		/>
+		<p class="security-hero-followup">
+			ReaderPub reduces that risk by keeping reading access on the web instead of delivering a downloadable file — while giving you full control over who can access your content and how it is distributed. Web-accessible editions are fully protected against downloading or copying.
+		</p>
+		<div class="cta-row security-hero-actions">
+			<a class="button" href="/contact">Talk to us</a>
+			<a class="button secondary" href="/authors">See publishing options</a>
+		</div>
+	</div>
+	<img
+		class="image-block security-image security-image--desktop"
+		src="/images/security.webp"
+		alt="ReaderPub security and controlled access"
+		loading="lazy"
+		decoding="async"
+		width="897"
+		height="791"
+	/>
+</section>
+
+<SpecCardsSection class="section-continue-next security-first-section">
+	<h2>How file-based piracy scales</h2>
+	<p>
+		In traditional ebook distribution, a complete file is delivered to the end user. Once that file exists on a device, it becomes the starting point for extraction, conversion, and redistribution.
+	</p>
+	<div class="card-grid security-steps-grid">
+		<div class="card">
+			<h3>File delivered</h3>
+			<p>A complete ebook file reaches the reader’s device.</p>
+		</div>
+		<div class="card">
+			<h3>File extracted</h3>
+			<p>The file becomes available for copying outside the original platform.</p>
+		</div>
+		<div class="card">
+			<h3>File converted</h3>
+			<p>It can be turned into standard ebook formats for reuse.</p>
+		</div>
+		<div class="card">
+			<h3>File redistributed</h3>
+			<p>Once a reusable file circulates, redistribution can scale quickly.</p>
+		</div>
+	</div>
+	<p>This pattern is repeatable, automatable, and widely used across the industry.</p>
+</SpecCardsSection>
+
+<SpecCardsSection class="section-continuation section-continue-next">
+	<h2>ReaderPub uses a different model</h2>
+	<div class="security-model-layout">
+		<div>
+			<p class="security-green-copy">
+				ReaderPub does not rely on post-delivery file control as its primary protection model. Instead, it minimizes risk before delivery by avoiding standard downloadable-file distribution for the primary reading edition.
+			</p>
+			<ul class="bullets">
+				<li>No downloadable primary EPUB delivered by default</li>
+				<li>No standard full-book file handoff to the reader</li>
+				<li>Web-native access through controlled accounts</li>
+				<li>Fully protected web-accessible edition publications</li>
+				<li>Lower risk of scalable extraction and mass redistribution</li>
+			</ul>
+		</div>
+		<div class="footer-cta security-inline-cta security-theft-guard-card">
+			<h3>
+				<span>All your books are fully protected by the patent-pending</span>
+				<span class="security-theft-guard-highlight">WeRead Theft Guard</span>
+			</h3>
+			<div class="cta-row security-theft-guard-action">
+				<SectionIcon type="security" title="WeRead Theft Guard" />
+				<a class="button" href="/authors/#indie-releases">See for youself</a>
+			</div>
+		</div>
+	</div>
+</SpecCardsSection>
+
+<SpecCardsSection id="control-who-reads" class="section-continuation section-continue-next">
+	<h2>Control who reads — and how your content is used</h2>
+	<div class="security-access-layout">
+		<div>
+			<p>
+				ReaderPub gives institutions full control over access to their publications. You decide who can read, under what conditions, and at what level of visibility — from fully public access to restricted, account-based distribution.
+			</p>
+			<p>
+				Access is not only protected at the content level, but also managed at the platform level through administrative controls and structured user access.
+			</p>
+			<ul class="bullets">
+				<li>Define who can access each publication or collection</li>
+				<li>Use account-based access for controlled distribution</li>
+				<li>Manage teams, roles, and permissions centrally</li>
+				<li>Maintain full visibility across all your published content</li>
+			</ul>
+			<p>Protection is not just about preventing extraction — it is about controlling distribution end-to-end.</p>
+		</div>
+		<div class="footer-cta security-inline-cta">
+			<h3>Need controlled access for your publications?</h3>
+			<p class="security-green-copy">
+				Set up ReaderPub for your organization with full control over access, teams, and distribution.
+			</p>
+			<div class="cta-row">
+				<a class="button" href="/contact">Talk to us</a>
+			</div>
+		</div>
+	</div>
+</SpecCardsSection>
+
+<SpecCardsSection class="section-continuation section-continue-next">
+	<h2>Why this matters to authors and publishers</h2>
+	<p>
+		When a book is distributed as a file, protection depends on controlling what happens after delivery. In the real world, that model has repeatedly led to commercial ebooks circulating outside their original platforms.
+	</p>
+	<p class="security-black-copy">
+		ReaderPub addresses the problem earlier in the chain: by not delivering the primary reading file in the first place, it removes the standard entry point used in large-scale redistribution workflows.
+	</p>
+	<div class="card-grid security-compare-grid">
+		<div class="card">
+			<h3>File-based distribution</h3>
+			<ul class="bullets">
+				<li>A complete file reaches the device</li>
+				<li>Protection begins after delivery</li>
+				<li>Extraction risk remains part of the model</li>
+				<li>Redistribution can scale once a file circulates</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h3>ReaderPub</h3>
+			<ul class="bullets">
+				<li>Primary access stays on the web</li>
+				<li>No standard downloadable primary file</li>
+				<li>Risk is reduced at the architectural level</li>
+				<li>No routine file handoff to each reader</li>
+			</ul>
+		</div>
+	</div>
+</SpecCardsSection>
+
+<SpecCardsSection class="section-continuation section-continue-next">
+	<div class="security-publish-layout">
+		<div class="security-publish-copy">
+			<h2>A practical, honest security position</h2>
+			<p class="security-green-copy">
+				No digital system can prevent every form of copying. Screenshots, manual capture, and other low-efficiency methods can still exist.
+			</p>
+			<p class="security-black-copy">
+				But ReaderPub removes the most scalable starting point for large-scale piracy: delivering a complete, reusable ebook file to the end user. At that, the web-accessible editions are fully protected against downloading or copying.
+			</p>
+			<p class="security-black-copy">
+				ReaderPub’s primary distribution model is web-native. When needed, we can also produce a production-ready EPUB for archival use, external distribution, or additional publishing workflows — without making routine end-user file delivery the default model.
+			</p>
+		</div>
+		<div class="footer-cta security-inline-cta security-publish-cta">
+			<h3>Want to publish with lower leakage risk?</h3>
+			<p class="security-green-copy">
+				Talk to ReaderPub about web-first publishing for authors, publishers, libraries, and institutions.
+			</p>
+			<div class="cta-row">
+				<a class="button" href="/contact">Get started</a>
+			</div>
+		</div>
+	</div>
+</SpecCardsSection>
+
+<style>
+	.platform-security-hero {
+		padding-top: 58px;
+	}
+
+	.security-image {
+		width: min(100%, 420px);
+		max-width: 420px;
+		max-height: 360px;
+		object-fit: contain;
+	}
+
+	.security-hero {
+		align-items: flex-start;
+		padding-bottom: 24px !important;
+	}
+
+	.security-hero-copy {
+		display: flex;
+		flex-direction: column;
+		gap: var(--section-flow-gap);
+		min-width: 0;
+	}
+
+	.security-hero-copy > * {
+		margin: 0;
+	}
+
+	.security-hero-actions {
+		justify-content: flex-start;
+	}
+
+	.security-image--mobile {
+		display: none;
+	}
+
+	.security-steps-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		justify-content: stretch;
+	}
+
+	.security-first-section {
+		padding-top: 0 !important;
+	}
+
+	.security-compare-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		justify-content: stretch;
+	}
+
+	.security-inline-cta,
+	.security-footer-cta {
+		width: 100%;
+		max-width: none;
+	}
+
+	.security-inline-cta {
+		text-align: center;
+		justify-items: center;
+		padding-top: 36px;
+		padding-bottom: 36px;
+		max-width: 360px;
+		margin-left: auto;
+		align-self: center;
+	}
+
+	.security-inline-cta .cta-row {
+		justify-content: center;
+	}
+
+	.security-access-layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+		gap: 24px;
+		align-items: center;
+	}
+
+	.security-model-layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+		gap: 24px;
+		align-items: start;
+	}
+
+	.security-model-layout > :first-child {
+		display: flex;
+		flex-direction: column;
+		gap: var(--section-flow-gap);
+	}
+
+	.security-model-layout > :first-child > p {
+		font-size: 18px;
+		line-height: 1.25;
+		max-width: 680px;
+		margin: 0;
+	}
+
+	.security-model-layout > :first-child > .bullets {
+		margin: 0;
+	}
+
+	.security-theft-guard-card {
+		align-self: start !important;
+	}
+
+	.security-theft-guard-card h3 {
+		max-width: 620px;
+	}
+
+	.security-theft-guard-card h3 > span {
+		display: block;
+	}
+
+	.security-theft-guard-card h3 > .security-theft-guard-highlight {
+		color: var(--link) !important;
+		font-size: 1.18em;
+		margin-top: 8px;
+	}
+
+	.security-theft-guard-action {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		justify-content: center;
+	}
+
+	.security-theft-guard-action :global(.section-icon) {
+		width: 48px;
+		height: 48px;
+	}
+
+	.security-access-layout > :first-child {
+		display: flex;
+		flex-direction: column;
+		gap: var(--section-flow-gap);
+	}
+
+	.security-access-layout > :first-child > p {
+		color: var(--link);
+		font-size: 18px;
+		line-height: 1.25;
+		max-width: 680px;
+		margin: 0;
+	}
+
+	.security-access-layout > :first-child > .bullets {
+		margin: 0;
+	}
+
+	.security-footer-actions {
+		justify-content: center;
+	}
+
+	.security-black-copy {
+		color: var(--text) !important;
+		font-size: 16px !important;
+		line-height: 1.25 !important;
+	}
+
+	.security-green-copy {
+		color: var(--link) !important;
+		font-size: 18px !important;
+		line-height: 1.25 !important;
+	}
+
+	.security-publish-layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(300px, 360px);
+		gap: 24px;
+		align-items: start;
+	}
+
+	.security-publish-copy {
+		display: flex;
+		flex-direction: column;
+		gap: var(--section-flow-gap);
+	}
+
+	.security-publish-copy > p {
+		font-size: 18px;
+		line-height: 1.25;
+		max-width: 680px;
+		margin: 0;
+	}
+
+	.security-publish-copy > .security-black-copy,
+	.section > .security-black-copy {
+		font-size: 16px !important;
+		line-height: 1.25 !important;
+	}
+
+	.security-inline-cta p {
+		font-size: 16px !important;
+		line-height: 1.25 !important;
+	}
+
+	.security-publish-cta {
+		max-width: 360px;
+		margin-left: auto;
+		align-self: start;
+		min-height: 190px;
+	}
+
+	@media (max-width: 980px) {
+		.security-steps-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.security-compare-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.security-access-layout {
+			grid-template-columns: 1fr;
+		}
+
+		.security-model-layout {
+			grid-template-columns: 1fr;
+		}
+
+		.security-publish-layout {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.security-steps-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (orientation: portrait) and (max-width: 720px) {
+		.security-hero {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.security-image--desktop {
+			display: none;
+		}
+
+		.security-image--mobile {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.security-hero-actions {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	@media (min-width: 721px) {
+		.security-hero-actions {
+			flex-direction: row !important;
+			align-items: center !important;
+			justify-content: flex-start !important;
+		}
+	}
+
+	@media (orientation: landscape) and (max-width: 900px) {
+		.security-hero {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 36%);
+			column-gap: 20px;
+			padding-bottom: 16px !important;
+		}
+
+		.security-image--desktop {
+			display: block;
+			max-width: 100% !important;
+			max-height: 280px;
+			align-self: start;
+		}
+
+		.security-image--mobile {
+			display: none;
+		}
+
+		.security-hero-title {
+			font-size: clamp(28px, 4.5vw, 42px);
+		}
+
+		.security-steps-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+</style>

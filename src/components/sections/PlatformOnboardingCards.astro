@@ -1,0 +1,58 @@
+<section class="platform-onboarding section-continuation">
+	<div class="card-grid onboarding-grid">
+		<div class="card">
+			<h2>Publish your book on ReaderPub</h2>
+			<p class="lede">Sell directly to readers — keep your audience.</p>
+			<ul class="bullets">
+				<li>Upload Word or EPUB — single titles or batches.</li>
+				<li>Set prices for sales: books, courses, cohorts and limited drops.</li>
+				<li>Low 5% commission on sales.</li>
+				<li>Fan clubs, direct messaging, and first-party analytics.</li>
+			</ul>
+			<div class="cta-row">
+				<a class="button" href="/authors">Publishing features</a>
+				<a class="button secondary" href="/pricing">See pricing</a>
+			</div>
+		</div>
+		<div class="card">
+			<h2>Onboard your organization on ReaderPub</h2>
+			<p class="lede">Tell us what you need: We’ll set up your onboarding.</p>
+			<ul class="bullets">
+				<li>Import from OPDS feeds, MARC/ONIX/KBART, S3, or CSV exports.</li>
+				<li>Preserve catalog metadata across large collections.</li>
+				<li>Deploy on reader.pub subdomain or your own subdomain.</li>
+				<li>Launch fan clubs and controlled-access programs.</li>
+			</ul>
+			<div class="cta-row">
+				<a class="button" href="/contact">Institutional onboarding</a>
+				<a class="button secondary" href="/pricing">See pricing</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.platform-onboarding {
+		width: 100%;
+	}
+
+	.onboarding-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		width: 100%;
+		text-align: left;
+	}
+
+	.platform-onboarding .card {
+		text-align: left;
+	}
+
+	.onboarding-grid .card h2 {
+		color: var(--text);
+	}
+
+	@media (max-width: 800px) {
+		.onboarding-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
