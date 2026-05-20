@@ -105,6 +105,33 @@ const { standalone = false } = Astro.props;
 	</div>
 </SpecCardsSection>
 
+<SpecCardsSection class="section-continuation section-continue-next">
+	<h2>Protected distribution without file-first delivery</h2>
+	<div class="security-distribution-layout">
+		<div>
+			<p class="security-green-copy">
+				ReaderPub offers protected web editions: readers access content in the browser through
+				WeRead instead of receiving a downloadable book file.
+			</p>
+			<ul class="bullets">
+				<li>Browser-based access instead of file delivery</li>
+				<li>User-level and group-level access control</li>
+				<li>Protected reading sessions and reduced copy exposure</li>
+				<li>Suitable for premium, private, course, and research editions</li>
+			</ul>
+		</div>
+		<div class="footer-cta security-inline-cta">
+			<h3>WeRead Theft Guard</h3>
+			<p>Designed to reduce copying, downloading, and unauthorized redistribution.</p>
+			<ul class="bullets">
+				<li>No standard file handoff</li>
+				<li>Platform-managed access</li>
+				<li>Controlled reading session</li>
+			</ul>
+		</div>
+	</div>
+</SpecCardsSection>
+
 <SpecCardsSection id="control-who-reads" class="section-continuation section-continue-next">
 	<h2>Control who reads — and how your content is used</h2>
 	<div class="security-access-layout">
@@ -268,11 +295,22 @@ const { standalone = false } = Astro.props;
 		align-items: center;
 	}
 
-	.security-model-layout {
+	.security-model-layout,
+	.security-distribution-layout {
 		display: grid;
 		grid-template-columns: minmax(0, 1.3fr) minmax(0, 360px);
 		gap: 24px;
 		align-items: start;
+	}
+
+	.security-distribution-layout > :first-child {
+		display: flex;
+		flex-direction: column;
+		gap: var(--section-flow-gap);
+	}
+
+	.security-distribution-layout > :first-child > .bullets {
+		margin: 0;
 	}
 
 	.security-model-layout > :first-child {
@@ -407,7 +445,8 @@ const { standalone = false } = Astro.props;
 			grid-template-columns: 1fr;
 		}
 
-		.security-model-layout {
+		.security-model-layout,
+		.security-distribution-layout {
 			grid-template-columns: 1fr;
 		}
 
