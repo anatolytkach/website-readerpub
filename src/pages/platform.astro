@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { SITE_NAME } from "../consts";
+import { BOOKS_URL, SITE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 ---
 
@@ -52,6 +52,9 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					<li>Prepare web-accessible editions</li>
 					<li>Generate production-ready EPUBs</li>
 				</ul>
+				<button class="button secondary" type="button" data-modal-open="#wepub-modal">
+					Explore WePub
+				</button>
 			</div>
 			<div class="card">
 				<h3>WeRead</h3>
@@ -62,6 +65,9 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					<li>Support native device text-to-speech</li>
 					<li>Reduce unauthorized copying with Theft Guard</li>
 				</ul>
+				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
+					60K+ books in Catalog
+				</a>
 			</div>
 			<div class="card">
 				<h3>BookTree</h3>
@@ -72,6 +78,9 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					<li>Preserve and connect metadata</li>
 					<li>Support complex institutional libraries</li>
 				</ul>
+				<button class="button secondary" type="button" data-modal-open="#booktree-modal">
+					Explore BookTree
+				</button>
 			</div>
 		</div>
 	</SpecCardsSection>
@@ -314,6 +323,73 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			<a class="button" href="/publish/">Get started with ReaderPub</a>
 		</div>
 	</section>
+
+	<div class="modal" id="wepub-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-modal-close></div>
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub preview">
+			<button class="modal-close" type="button" aria-label="Close" data-modal-close>✕</button>
+			<img
+				src="/images/wepub.webp"
+				alt="WePub preview: upload Word or EPUB, publish through WePub Engine to live web content in WeRead"
+				loading="lazy"
+				decoding="async"
+				width="943"
+				height="920"
+			/>
+		</div>
+	</div>
+
+	<div class="modal" id="booktree-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-modal-close></div>
+		<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree preview">
+			<button class="modal-close" type="button" aria-label="Close" data-modal-close>✕</button>
+			<img
+				src="/images/booktree.webp"
+				alt="BookTree preview"
+				loading="lazy"
+				decoding="async"
+				width="976"
+				height="1219"
+			/>
+		</div>
+	</div>
+
+	<script is:inline>
+		(() => {
+			const openButtons = Array.from(document.querySelectorAll("[data-modal-open]"));
+			const modals = Array.from(document.querySelectorAll(".modal"));
+
+			const closeModal = (modal) => {
+				if (!modal) return;
+				modal.classList.remove("is-open");
+				modal.setAttribute("aria-hidden", "true");
+			};
+
+			const openModal = (modal) => {
+				if (!modal) return;
+				modal.classList.add("is-open");
+				modal.setAttribute("aria-hidden", "false");
+			};
+
+			openButtons.forEach((btn) => {
+				btn.addEventListener("click", () => {
+					const target = btn.getAttribute("data-modal-open");
+					const modal = target ? document.querySelector(target) : null;
+					openModal(modal);
+				});
+			});
+
+			modals.forEach((modal) => {
+				const closeTargets = modal.querySelectorAll("[data-modal-close]");
+				closeTargets.forEach((el) => el.addEventListener("click", () => closeModal(modal)));
+			});
+
+			document.addEventListener("keydown", (event) => {
+				if (event.key !== "Escape") return;
+				modals.forEach((modal) => closeModal(modal));
+			});
+		})();
+	</script>
 
 	<style>
 		.platform-hero-grid {
