@@ -1349,22 +1349,42 @@ section > :last-child {
 	/* Text blocks that include lists: keep body copy left-aligned */
 	.page .content .section:has(.bullets),
 	.page .content .section:has(ol),
-	.page .content :is([class*="-body"], [class*="-copy"]):has(.bullets),
-	.page .content :is([class*="-body"], [class*="-copy"]):has(ol) {
+	.page .content :is([class*="-body"], [class*="-copy"]):has(.bullets):not(.security-distribution-copy),
+	.page .content :is([class*="-body"], [class*="-copy"]):has(ol):not(.security-distribution-copy) {
 		text-align: left !important;
 		align-items: stretch !important;
 	}
 
 	.page .content .section:has(.bullets) :is(p, ul, ol, .bullets, li),
 	.page .content .section:has(ol) :is(p, ul, ol, li),
-	.page .content :is([class*="-body"], [class*="-copy"]):has(.bullets) :is(p, ul, ol, .bullets, li),
-	.page .content :is([class*="-body"], [class*="-copy"]):has(ol) :is(p, ul, ol, li) {
+	.page .content
+		:is([class*="-body"], [class*="-copy"]):has(.bullets):not(.security-distribution-copy)
+		:is(p, ul, ol, .bullets, li),
+	.page .content
+		:is([class*="-body"], [class*="-copy"]):has(ol):not(.security-distribution-copy)
+		:is(p, ul, ol, li) {
 		text-align: left !important;
 	}
 
 	.page .content .section:has(.bullets) :is(h2, h3, h4),
 	.page .content .section:has(ol) :is(h2, h3, h4) {
 		text-align: left !important;
+	}
+
+	.page .content .section.platform-control-section:has(.bullets) .platform-control-heading,
+	.page .content .section.platform-control-section:has(.bullets) .platform-control-lede {
+		text-align: center !important;
+	}
+
+	.page .content .section:has(.bullets) .security-distribution-copy > h2,
+	.page .content .section:has(.bullets) .security-distribution-copy > .security-green-copy {
+		text-align: center !important;
+		width: 100%;
+	}
+
+	.page .content .section:has(.bullets) .security-theft-guard-card .security-theft-guard-copy {
+		text-align: center !important;
+		width: 100%;
 	}
 
 	.page .content .footer-cta.security-inline-cta {

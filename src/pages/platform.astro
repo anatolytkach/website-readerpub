@@ -1,265 +1,797 @@
 ---
 import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
-import HomePlatformOverview from "../components/sections/HomePlatformOverview.astro";
-import PlatformOnboardingCards from "../components/sections/PlatformOnboardingCards.astro";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 ---
 
 <Base title={`${SITE_NAME} Platform`}>
-	<section class="technology-hero section-continue-next">
-		<div class="menu-eyebrow">PLATFORM</div>
-		<h1 class="technology-hero-title">Built for web-native publishing at scale.</h1>
-		<p class="lede technology-hero-primary-lede">
-			ReaderPub powers instant reading, structured publishing, and analytics for authors and
-			institutions.
-		</p>
-		<img
-			class="image-block technology-hero-image"
-			src="/images/home2.webp"
-			alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
-			loading="lazy"
-			decoding="async"
-			width="1115"
-			height="900"
-		/>
-		<div class="technology-hero-body">
-			<p>
-				ReaderPub supports web publishing plus commerce: low-commission sales and connected analytics. The same publishing pipeline can output both a web-accessible edition and a production-ready EPUB.
+	<section class="platform-hero section-continue-next">
+		<div class="platform-hero-grid">
+			<h1 class="platform-hero-title">
+				Publish books to the web.<br />
+				Protect access.<br />
+				Understand readers.
+			</h1>
+			<p class="lede platform-hero-lede">
+				ReaderPub is a web-native publishing platform for authors, publishers, schools,
+				libraries, and organizations.
 			</p>
-			<p>
-				For protected distribution, ReaderPub’s primary access model is web-native rather than file-native: readers access content in the browser instead of receiving a standard downloadable book file. Web-accessible edition is fully protected from copying or downloading by the patent-pending <strong class="technology-theft-guard-highlight">WeRead Theft Guard</strong>.
+			<img
+				class="image-block platform-hero-image"
+				src="/images/home2.webp"
+				alt="ReaderPub connects readers, publishers, and authors through WeRead, WePub, and BookTree"
+				loading="lazy"
+				decoding="async"
+				width="1115"
+				height="900"
+			/>
+			<p class="platform-hero-body">
+				Create browser-based reading editions, generate EPUB files, sell directly, manage
+				access, and track engagement from one connected platform.
 			</p>
-			<p>
-				Access control is enforced at the platform level, allowing institutions to define how content is distributed across users and teams.
+			<p class="lede platform-hero-note">
+				Built for web editions, protected distribution, direct reader relationships, and
+				institutional publishing programs.
 			</p>
-		</div>
-		<div class="cta-row technology-hero-actions">
-			<a class="button secondary" href="/security#control-who-reads">Learn more about ReaderPub security</a>
+			<div class="cta-row platform-hero-actions">
+				<a class="button" href="/publish/">Start publishing</a>
+				<a class="button secondary" href="/security/">Explore security</a>
+			</div>
 		</div>
 	</section>
 
-	<HomePlatformOverview />
-
-	<SpecCardsSection class="section-continuation section-continue-next">
-		<h2>Reader collaboration and accessibility</h2>
-		<div class="card-grid powers-grid-two">
+	<SpecCardsSection class="section-continuation">
+		<h2>Three products. One connected platform.</h2>
+		<div class="card-grid platform-three-grid">
 			<div class="card">
-				<h3>Collaborative annotations workflow</h3>
-				<p>
-					ReaderPub supports chain-sharing of annotated books: reader → author/reader → next
-					participants, preserving evolving notes.
-				</p>
-			</div>
-			<div class="card">
-				<h3>Native device TTS playback</h3>
-				<p>
-					ReaderPub uses system voices installed on the user’s device for fast, low-friction
-					read-aloud.
-				</p>
-			</div>
-			<div class="card">
-				<h2>Built for scale</h2>
-				<p>A modern foundation for public and professional reading at scale.</p>
+				<h3>WePub</h3>
+				<p>Publishing workflow for authors and organizations.</p>
 				<ul class="bullets">
-					<li>Web-native reading — fast, accessible reading in the browser. No apps, no downloads.</li>
-					<li>Designed for real catalogs — works with large, structured collections.</li>
-					<li>Reader-first experience — clean typography and deep navigation for long-form reading.</li>
+					<li>Create and manage titles</li>
+					<li>Upload Word or EPUB files</li>
+					<li>Prepare web-accessible editions</li>
+					<li>Generate production-ready EPUBs</li>
 				</ul>
 			</div>
 			<div class="card">
-				<h2>Why this matters</h2>
-				<p>Flexibility and access for every audience.</p>
+				<h3>WeRead</h3>
+				<p>Instant browser-based reading for long-form content.</p>
 				<ul class="bullets">
-					<li>No proprietary apps required</li>
-					<li>No lock-in to a single deployment model</li>
-					<li>Suitable for libraries, universities, publishers, and public organizations</li>
-					<li>Scales from public catalogs to institutional programs</li>
-					<li>Built for institutions — supports public access and controlled publishing programs.</li>
+					<li>Read without downloading files</li>
+					<li>Use annotations and notes</li>
+					<li>Support native device text-to-speech</li>
+					<li>Reduce unauthorized copying with Theft Guard</li>
+				</ul>
+			</div>
+			<div class="card">
+				<h3>BookTree</h3>
+				<p>Structure for books, editions, metadata, catalogs, and collections.</p>
+				<ul class="bullets">
+					<li>Organize books and chapters</li>
+					<li>Manage editions and revisions</li>
+					<li>Preserve and connect metadata</li>
+					<li>Support complex institutional libraries</li>
 				</ul>
 			</div>
 		</div>
 	</SpecCardsSection>
 
-	<PlatformOnboardingCards />
-
-	<div class="modal" id="wepub-modal" aria-hidden="true">
-		<div class="modal-backdrop" data-modal-close></div>
-			<div class="modal-content" role="dialog" aria-modal="true" aria-label="WePub image">
-				<button class="modal-close" type="button" aria-label="Close" data-modal-close>
-					✕
-				</button>
-			<img src="/images/wepub.webp" alt="WePub image" loading="lazy" decoding="async" width="1024" height="592" />
+	<section class="section platform-highlights-section section-continuation">
+		<h2>Platform highlights & product connection</h2>
+		<div class="platform-highlights-split">
+			<div class="platform-highlights-left">
+				<div class="card-grid platform-highlights-cards">
+					<div class="card">
+						<h3>Web-first reading</h3>
+						<p>Readers open books instantly in the browser with no app install.</p>
+					</div>
+					<div class="card">
+						<h3>Structured publishing</h3>
+						<p>Manage titles, metadata, editions, chapters, pricing, and release workflow.</p>
+					</div>
+					<div class="card">
+						<h3>Protected access</h3>
+						<p>Control who can read, publish, edit, review, or distribute content.</p>
+					</div>
+					<div class="card">
+						<h3>Commerce and analytics</h3>
+						<p>Sell directly and understand how readers engage with your books.</p>
+					</div>
+				</div>
+				<div class="platform-product-lines">
+					<p><strong>WePub</strong>: publish, manage, price, review, and prepare editions.</p>
+					<p>
+						<strong>ReaderPub Platform</strong>: access control, commerce, analytics, and workflow.
+					</p>
+					<p>
+						<strong>WeRead + BookTree</strong>: instant browser reading plus structured catalogs.
+					</p>
+				</div>
+			</div>
+			<img
+				class="image-block platform-highlights-image"
+				src="/images/technology.webp"
+				alt="Technology and publishing workflows for public and institutional reading"
+				loading="lazy"
+				decoding="async"
+				width="4088"
+				height="4138"
+			/>
 		</div>
+	</section>
+
+	<SpecCardsSection class="section-continuation">
+		<h2>How it works</h2>
+		<p class="lede">
+			One publishing pipeline. Multiple ways to deliver.
+		</p>
+		<div class="card-grid platform-five-grid">
+			<div class="card">
+				<h3>1. Upload or create</h3>
+				<p>Start with Word, EPUB, structured content, or institutional materials.</p>
+			</div>
+			<div class="card">
+				<h3>2. Structure and review</h3>
+				<p>Manage metadata, chapters, editions, rights, pricing, and status.</p>
+			</div>
+			<div class="card">
+				<h3>3. Publish to web</h3>
+				<p>Deliver a browser-based reading edition across devices.</p>
+			</div>
+			<div class="card">
+				<h3>4. Sell or assign access</h3>
+				<p>Support direct purchases, institutional access, courses, and private distribution.</p>
+			</div>
+			<div class="card">
+				<h3>5. Read and analyze</h3>
+				<p>Readers use WeRead while organizations monitor engagement and response.</p>
+			</div>
+		</div>
+	</SpecCardsSection>
+
+	<SpecCardsSection class="section-continuation">
+		<h2>ReaderPub Capabilities</h2>
+		<div class="card-grid platform-three-grid">
+			<div class="card"><h3>Browser-based reading</h3><p>Instant delivery through the web.</p></div>
+			<div class="card"><h3>EPUB output</h3><p>Generate standard EPUB when file delivery is needed.</p></div>
+			<div class="card"><h3>Protected web editions</h3><p>Web-native access instead of file handoff.</p></div>
+			<div class="card"><h3>Direct sales</h3><p>Sell books, courses, cohorts, and limited releases.</p></div>
+			<div class="card"><h3>Low commission</h3><p>Direct-to-reader commerce with a low 5% platform fee.</p></div>
+			<div class="card"><h3>Reader analytics</h3><p>Track engagement, feedback, and access patterns.</p></div>
+			<div class="card"><h3>Collaboration</h3><p>Annotations, notes, and shared context for teams.</p></div>
+			<div class="card"><h3>Institutional access</h3><p>User, group, course, department, and role controls.</p></div>
+			<div class="card"><h3>Catalog support</h3><p>Import and preserve structured metadata at scale.</p></div>
+		</div>
+	</SpecCardsSection>
+
+	<section class="section platform-reading-section section-continuation">
+		<h2>Reading experience</h2>
+		<div class="card-grid platform-reading-cards">
+			<div class="card"><h3>Annotations</h3><p>Highlights, notes, and preserved context.</p></div>
+			<div class="card"><h3>Shared context</h3><p>Discussion among readers, authors, and instructors.</p></div>
+			<div class="card"><h3>Read-aloud support</h3><p>Native device text-to-speech voices.</p></div>
+			<div class="card"><h3>Long-form navigation</h3><p>Clean typography for serious reading.</p></div>
+			<div class="card"><h3>Cross-device access</h3><p>Return to assigned or purchased titles anywhere.</p></div>
+			<div class="card"><h3>Structured reading</h3><p>Chapters, editions, and metadata stay connected.</p></div>
+		</div>
+		<img
+			class="image-block platform-reading-image"
+			src="/images/readers2.webp"
+			alt="Reader experience with WeRead in the browser"
+			loading="lazy"
+			decoding="async"
+			width="1024"
+			height="1024"
+		/>
+	</section>
+
+	<section class="section platform-control-section section-continuation">
+		<div class="platform-control-split">
+			<img
+				class="image-block platform-control-image"
+				src="/images/control.webp"
+				alt="ReaderPub Access Control for teams, classes, students, departments, and partners"
+				loading="lazy"
+				decoding="async"
+				width="960"
+				height="936"
+			/>
+			<div class="platform-control-copy">
+				<h2 class="platform-control-heading">Institutional control</h2>
+				<p class="lede platform-control-lede">
+					Access can be assigned by user, group, course, department, team, program, partner
+					organization, or custom permission.
+				</p>
+				<ul class="bullets platform-control-list">
+					<li>Public and private collections</li>
+					<li>Controlled access programs</li>
+					<li>Course and cohort distribution</li>
+					<li>Team-based publishing workflows</li>
+					<li>Permission-based administration</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="section platform-audiences-section section-continuation">
+		<h2>Audiences</h2>
+		<div class="card-grid platform-audiences-cards">
+			<div class="card"><h3>Authors</h3><p>Publish and sell directly, then analyze reader engagement.</p></div>
+			<div class="card"><h3>Publishers</h3><p>Manage titles, editions, catalogs, and controlled access.</p></div>
+			<div class="card"><h3>Schools</h3><p>Distribute course materials and monitor usage.</p></div>
+			<div class="card"><h3>Libraries</h3><p>Create browser-based digital shelves for communities.</p></div>
+			<div class="card"><h3>Organizations</h3><p>Publish reports, papers, and structured knowledge online.</p></div>
+			<div class="card">
+				<h3>Manufacturers</h3>
+				<p>Publish easily accessible manuals and technical documentation.</p>
+			</div>
+		</div>
+		<img
+			class="image-block platform-audiences-image"
+			src="/images/audience.webp"
+			alt="Readers, authors, institutions, and publishers connected on ReaderPub"
+			loading="lazy"
+			decoding="async"
+			width="1024"
+			height="841"
+		/>
+	</section>
+
+	<section class="section platform-commerce-section section-continuation">
+		<h2>Commerce &amp; Analytics</h2>
+		<div class="platform-commerce-split">
+			<img
+				class="image-block platform-commerce-image"
+				src="/images/commerce.webp"
+				alt="Commerce and analytics for direct sales and reader engagement"
+				loading="lazy"
+				decoding="async"
+				width="667"
+				height="600"
+			/>
+			<div class="platform-commerce-cards">
+				<section class="card">
+					<h3>Manage sales and promotion</h3>
+					<p>Sell directly and keep the reader relationship.</p>
+					<ul class="bullets">
+						<li>Sell web editions directly with low commission</li>
+						<li>Support books, courses, cohorts, and limited releases</li>
+						<li>Build fan clubs and reader communities</li>
+						<li>Connect sales to engagement analytics</li>
+					</ul>
+				</section>
+				<section class="card">
+					<h3>Keep track on your readers' audience</h3>
+					<p>Know what happens after publication.</p>
+					<ul class="bullets">
+						<li>Reader engagement and annotation activity</li>
+						<li>Title, collection, and institutional usage insights</li>
+						<li>First-party relationship with readers</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</section>
+
+	<div class="card-grid platform-two-grid platform-onboarding-grid section-continuation">
+		<section class="card platform-onboarding-card">
+			<h3>For creators</h3>
+			<p class="lede">Publish your book on ReaderPub.</p>
+			<ul class="bullets">
+				<li>Upload Word or EPUB files</li>
+				<li>Publish browser-based editions</li>
+				<li>Generate production-ready EPUBs</li>
+				<li>Track reader engagement</li>
+			</ul>
+			<div class="cta-row">
+				<a class="button" href="/publish/">Start publishing</a>
+				<a class="button secondary" href="/pricing/">See pricing</a>
+			</div>
+		</section>
+		<section class="card platform-onboarding-card">
+			<h3>For organizations</h3>
+			<p class="lede">Bring your organization to ReaderPub.</p>
+			<ul class="bullets">
+				<li>Import from OPDS, MARC, ONIX, KBART, S3, or CSV</li>
+				<li>Manage users, groups, and permissions</li>
+				<li>Use ReaderPub or custom subdomain deployment</li>
+				<li>Track usage and engagement</li>
+			</ul>
+			<div class="cta-row">
+				<a class="button" href="/contact/">Plan onboarding</a>
+				<a class="button secondary" href="/security/">Explore security</a>
+			</div>
+		</section>
 	</div>
 
-	<div class="modal" id="booktree-modal" aria-hidden="true">
-		<div class="modal-backdrop" data-modal-close></div>
-			<div class="modal-content" role="dialog" aria-modal="true" aria-label="BookTree image">
-				<button class="modal-close" type="button" aria-label="Close" data-modal-close>
-					✕
-				</button>
-			<img src="/images/booktree.webp" alt="BookTree image" loading="lazy" decoding="async" width="976" height="1219" />
+	<section class="footer-cta platform-closing-cta section-continuation">
+		<h2>ReaderPub turns digital publishing into a connected web experience.</h2>
+		<p class="lede platform-closing-lede">
+			Publish books. Protect access. Sell directly. Read instantly. Measure engagement.<br />
+			Manage content across authors, readers, teams, and institutions.
+		</p>
+		<div class="cta-row">
+			<a class="button" href="/publish/">Get started with ReaderPub</a>
 		</div>
-	</div>
-
-	<script is:inline>
-		(() => {
-			const openButtons = Array.from(document.querySelectorAll("[data-modal-open]"));
-			const modals = Array.from(document.querySelectorAll(".modal"));
-
-			const closeModal = (modal) => {
-				if (!modal) return;
-				modal.classList.remove("is-open");
-				modal.setAttribute("aria-hidden", "true");
-			};
-
-			const openModal = (modal) => {
-				if (!modal) return;
-				modal.classList.add("is-open");
-				modal.setAttribute("aria-hidden", "false");
-			};
-
-			openButtons.forEach((btn) => {
-				btn.addEventListener("click", () => {
-					const target = btn.getAttribute("data-modal-open");
-					const modal = target ? document.querySelector(target) : null;
-					openModal(modal);
-				});
-			});
-
-			modals.forEach((modal) => {
-				const closeTargets = modal.querySelectorAll("[data-modal-close]");
-				closeTargets.forEach((el) => el.addEventListener("click", () => closeModal(modal)));
-			});
-
-			document.addEventListener("keydown", (event) => {
-				if (event.key !== "Escape") return;
-				modals.forEach((modal) => closeModal(modal));
-			});
-		})();
-	</script>
+	</section>
 
 	<style>
-		.technology-hero {
+		.platform-hero-grid {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+			grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+			grid-template-areas:
+				"title image"
+				"lede image"
+				"body image"
+				"note image"
+				"actions image";
 			column-gap: 32px;
 			row-gap: 16px;
 			align-items: start;
+			width: 100%;
 		}
 
-		.technology-hero > * {
+		.platform-hero-grid > * {
+			margin: 0;
 			min-width: 0;
 		}
 
-		.technology-hero-title {
-			grid-column: 1 / -1;
-			grid-row: 2;
+		.platform-hero-title {
+			grid-area: title;
 			font-size: clamp(36px, 5vw, 56px);
 			line-height: 1.1;
-			margin: 0 0 32px;
+			color: var(--text) !important;
+			white-space: nowrap;
 		}
 
-		.menu-eyebrow,
-		.technology-hero-primary-lede,
-		.technology-hero-body,
-		.technology-hero-actions {
-			grid-column: 1;
+		.platform-hero-lede {
+			grid-area: lede;
+			margin: 0 !important;
+			color: var(--link) !important;
 		}
 
-		.menu-eyebrow {
-			grid-row: 1;
+		.platform-hero-body {
+			grid-area: body;
+			color: var(--text);
+			font-size: 16px;
+			line-height: 1.28;
 		}
 
-		.technology-hero-primary-lede {
-			grid-row: 3;
+		.platform-hero-note {
+			grid-area: note;
+			margin: 0 !important;
+			color: var(--link) !important;
+		}
+
+		.platform-hero-actions {
+			grid-area: actions;
+			justify-content: flex-start;
+		}
+
+		.platform-hero-image {
+			grid-area: image;
+			width: 100%;
+			max-width: calc(460px * 1.2) !important;
+			margin-left: auto;
+			margin-right: 0;
+			align-self: center;
+		}
+
+		.platform-highlights-section > h2 {
 			margin-bottom: 0;
 		}
 
-		.technology-theft-guard-highlight {
+		.platform-highlights-split {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+			gap: 32px;
+			align-items: center;
+			margin-top: var(--section-flow-gap);
+		}
+
+		.platform-highlights-left {
+			display: grid;
+			gap: var(--section-flow-gap);
+			min-width: 0;
+		}
+
+		.platform-highlights-cards {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			justify-content: stretch;
+			justify-items: stretch;
+			width: 100%;
+		}
+
+		.platform-product-lines {
+			display: grid;
+			gap: 10px;
+		}
+
+		.platform-product-lines > * {
+			margin: 0;
+		}
+
+		.platform-product-lines p {
+			color: var(--muted);
+			font-size: 16px;
+			line-height: 1.28;
+		}
+
+		.platform-product-lines strong {
 			color: var(--link);
 			font-weight: 700;
 		}
 
-		.technology-hero-body {
-			grid-row: 4;
-			display: grid;
-			gap: 16px;
-		}
-
-		.technology-hero-actions {
-			grid-row: 5;
-			justify-content: flex-start;
-		}
-
-		.technology-hero-image {
-			grid-column: 2;
-			grid-row: 3 / span 3;
-			margin-left: auto;
-			margin-right: 0;
-			max-width: calc(460px * 1.2);
+		.platform-highlights-image {
+			justify-self: end;
 			align-self: center;
+			width: 100%;
+			max-width: calc(560px * 0.8 * 0.9) !important;
+			margin: 0;
 		}
 
-		.powers-grid-two {
+		.platform-reading-section {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+			grid-template-areas:
+				"title title"
+				"cards image";
+			column-gap: 32px;
+			row-gap: 16px;
+			align-items: center;
+		}
+
+		.platform-reading-section > h2 {
+			grid-area: title;
+			margin-bottom: 0;
+		}
+
+		.platform-reading-cards {
+			grid-area: cards;
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			justify-content: stretch;
+			justify-items: stretch;
+			width: 100%;
 		}
 
-		@media (orientation: portrait) {
-			.technology-hero {
-				grid-template-columns: 1fr;
-				justify-items: center;
-				align-items: center;
-				text-align: center;
-			}
+		.platform-reading-image {
+			grid-area: image;
+			justify-self: end;
+			align-self: center;
+			width: 100%;
+			max-width: 100%;
+			margin: 0;
+		}
 
-			.technology-hero-body {
-				text-align: center;
-			}
+		.platform-audiences-section {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+			grid-template-areas:
+				"title title"
+				"cards image";
+			column-gap: 32px;
+			row-gap: 16px;
+			align-items: center;
+		}
 
-			.technology-hero-title,
-			.technology-hero-primary-lede,
-			.technology-hero-image,
-			.technology-hero-body,
-			.technology-hero-actions,
-			.menu-eyebrow {
-				grid-column: 1;
-			}
+		.platform-audiences-section > h2 {
+			grid-area: title;
+			margin-bottom: 0;
+		}
 
-			.menu-eyebrow {
-				grid-row: 1;
-			}
+		.platform-audiences-cards {
+			grid-area: cards;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			justify-content: stretch;
+			justify-items: stretch;
+			width: 100%;
+		}
 
-			.technology-hero-title {
-				grid-row: 2;
-			}
+		.platform-audiences-image {
+			grid-area: image;
+			justify-self: end;
+			align-self: center;
+			width: 100%;
+			max-width: 100%;
+			margin: 0;
+		}
 
-			.technology-hero-primary-lede {
-				grid-row: 3;
-			}
+		.platform-commerce-section > h2 {
+			margin-bottom: 0;
+		}
 
-			.technology-hero-image {
-				grid-row: 4;
-				margin-left: auto;
-				margin-right: auto;
-			}
+		.platform-commerce-split {
+			display: grid;
+			grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+			grid-template-areas: "image cards";
+			column-gap: 64px;
+			align-items: center;
+			width: 100%;
+			margin-top: var(--section-block-gap-adjust) !important;
+		}
 
-			.technology-hero-body {
-				grid-row: 5;
-			}
+		.platform-commerce-image {
+			grid-area: image;
+			justify-self: start;
+			align-self: center;
+			width: 90%;
+			max-width: 90% !important;
+			margin: 0;
+		}
 
-			.technology-hero-actions {
-				grid-row: 6;
-				justify-content: center;
+		.platform-commerce-cards {
+			grid-area: cards;
+			display: grid;
+			grid-template-columns: minmax(0, 1fr);
+			gap: var(--section-flow-gap);
+			width: 100%;
+		}
+
+		.platform-control-split {
+			display: grid;
+			grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+			grid-template-areas: "image copy";
+			column-gap: 64px;
+			align-items: center;
+			width: 100%;
+		}
+
+		.platform-control-image {
+			grid-area: image;
+			justify-self: start;
+			align-self: center;
+			width: 85%;
+			max-width: 85% !important;
+			margin: 0;
+		}
+
+		.platform-control-copy {
+			grid-area: copy;
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+			min-width: 0;
+		}
+
+		.platform-control-copy > * {
+			margin: 0 !important;
+		}
+
+		.platform-onboarding-grid .platform-onboarding-card {
+			text-align: left;
+			align-items: stretch;
+		}
+
+		.platform-onboarding-grid .platform-onboarding-card .lede {
+			color: var(--link);
+		}
+
+		.platform-onboarding-grid .platform-onboarding-card :is(p, .bullets, li) {
+			text-align: left;
+		}
+
+		.platform-closing-cta .platform-closing-lede {
+			color: var(--link);
+		}
+
+		.platform-closing-cta .cta-row {
+			justify-content: center;
+			margin-inline: auto;
+			width: fit-content;
+			max-width: 100%;
+		}
+
+		.platform-onboarding-grid .platform-onboarding-card .cta-row {
+			justify-content: flex-start;
+			margin-top: auto;
+			margin-inline: 0;
+			padding-top: 24px;
+			width: fit-content;
+			max-width: 100%;
+		}
+
+		.platform-two-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: var(--section-flow-gap);
+		}
+
+		.platform-three-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.platform-five-grid {
+			grid-template-columns: repeat(5, minmax(0, 1fr));
+		}
+
+		@media (max-width: 1100px) {
+			.platform-five-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 		}
 
 		@media (max-width: 900px) {
-			.powers-grid,
-			.powers-grid-two {
+			.platform-highlights-split {
 				grid-template-columns: 1fr;
+				justify-items: center;
+			}
+
+			.platform-highlights-left {
+				width: 100%;
+			}
+
+			.platform-highlights-cards {
+				grid-template-columns: 1fr;
+			}
+
+			.platform-highlights-image {
+				justify-self: center;
+				margin-inline: auto;
+			}
+
+			.platform-product-lines strong {
+				display: block;
+			}
+
+			.platform-reading-section {
+				grid-template-columns: 1fr;
+				grid-template-areas:
+					"title"
+					"cards"
+					"image";
+				justify-items: center;
+			}
+
+			.platform-reading-cards {
+				grid-template-columns: 1fr;
+			}
+
+			.platform-reading-image {
+				justify-self: center;
+				margin-inline: auto;
+			}
+
+			.platform-audiences-section {
+				grid-template-columns: 1fr;
+				grid-template-areas:
+					"title"
+					"image"
+					"cards";
+				justify-items: center;
+			}
+
+			.platform-audiences-cards {
+				grid-template-columns: 1fr;
+			}
+
+			.platform-audiences-image {
+				justify-self: center;
+				margin-inline: auto;
+			}
+
+			.platform-commerce-split {
+				grid-template-columns: 1fr;
+				grid-template-areas:
+					"image"
+					"cards";
+				row-gap: var(--section-flow-gap);
+				justify-items: center;
+			}
+
+			.platform-commerce-image {
+				justify-self: center;
+				width: 90%;
+				max-width: min(520px, 90%) !important;
+				margin-inline: auto;
+			}
+
+			.platform-control-split {
+				grid-template-columns: 1fr;
+				grid-template-areas:
+					"heading"
+					"lede"
+					"image"
+					"list";
+				row-gap: var(--section-flow-gap);
+				justify-items: center;
+			}
+
+			.platform-control-copy {
+				display: contents;
+			}
+
+			.platform-control-heading {
+				grid-area: heading;
+			}
+
+			.platform-control-lede {
+				grid-area: lede;
+			}
+
+			.platform-control-image {
+				grid-area: image;
+				justify-self: center;
+				width: 85%;
+				max-width: min(520px, 85%) !important;
+				margin-inline: auto;
+			}
+
+			.platform-control-list {
+				grid-area: list;
+				width: 100%;
+			}
+
+			.platform-control-section .platform-control-heading,
+			.platform-control-section .platform-control-lede {
+				width: 100%;
+				text-align: center !important;
+			}
+
+			.platform-hero-grid {
+				grid-template-columns: 1fr;
+				grid-template-areas:
+					"title"
+					"lede"
+					"image"
+					"body"
+					"note"
+					"actions";
+				justify-items: center;
+			}
+
+			.platform-hero-title {
+				font-size: clamp(36px, 9vw, 56px);
+				text-align: center;
+				white-space: normal;
+			}
+
+			.platform-hero-lede,
+			.platform-hero-body,
+			.platform-hero-note {
+				text-align: center;
+				width: 100%;
+			}
+
+			.platform-hero-actions {
+				justify-content: center;
+			}
+
+			.platform-hero-image {
+				margin-inline: auto;
+			}
+
+			.platform-two-grid,
+			.platform-three-grid,
+			.platform-five-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media (max-width: 900px) and (max-aspect-ratio: 1/1),
+			(max-width: 600px) {
+			:global(.page .content .section.platform-control-section:has(.bullets))
+				.platform-control-heading,
+			:global(.page .content .section.platform-control-section:has(.bullets))
+				.platform-control-lede {
+				text-align: center !important;
+			}
+
+			:global(.page .content) .platform-onboarding-grid .platform-onboarding-card {
+				text-align: left !important;
+				align-items: stretch !important;
+			}
+
+			:global(.page .content) .platform-onboarding-grid .platform-onboarding-card :is(h3, p, .bullets, li) {
+				text-align: left !important;
+			}
+
+			:global(.page .content) .platform-onboarding-grid .platform-onboarding-card .lede {
+				color: var(--link) !important;
+			}
+
+			:global(.page .content) .platform-onboarding-grid .platform-onboarding-card .cta-row {
+				justify-content: flex-start !important;
+				margin-inline: 0 !important;
 			}
 		}
 	</style>

@@ -5,5 +5,6 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	redirects: {
 		"/technology": "/platform",
+		"/platform1": "/platform",
 	},
 });
