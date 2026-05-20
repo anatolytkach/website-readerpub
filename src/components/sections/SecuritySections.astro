@@ -175,25 +175,27 @@ const { standalone = false } = Astro.props;
 
 <SpecCardsSection class="section-continuation section-continue-next">
 	<div class="security-publish-layout">
-		<div class="security-publish-copy">
-			<h2>A practical, honest security position</h2>
-			<p class="security-green-copy">
+		<h2 class="security-publish-title">A practical, honest security position</h2>
+		<div class="security-publish-aligned">
+			<p class="security-green-copy security-publish-lead">
 				No digital system can prevent every form of copying. Screenshots, manual capture, and other low-efficiency methods can still exist.
 			</p>
-			<p class="security-black-copy">
-				But ReaderPub removes the most scalable starting point for large-scale piracy: delivering a complete, reusable ebook file to the end user. At that, the web-accessible editions are fully protected against downloading or copying.
-			</p>
-			<p class="security-black-copy">
-				ReaderPub’s primary distribution model is web-native. When needed, we can also produce a production-ready EPUB for archival use, external distribution, or additional publishing workflows — without making routine end-user file delivery the default model.
-			</p>
-		</div>
-		<div class="footer-cta security-inline-cta security-publish-cta">
-			<h3>Want to publish with lower leakage risk?</h3>
-			<p class="security-green-copy">
-				Talk to ReaderPub about web-first publishing for authors, publishers, libraries, and institutions.
-			</p>
-			<div class="cta-row">
-				<a class="button" href="/contact">Get started</a>
+			<div class="card security-publish-body-card">
+				<p class="security-black-copy">
+					But ReaderPub removes the most scalable starting point for large-scale piracy: delivering a complete, reusable ebook file to the end user. At that, the web-accessible editions are fully protected against downloading or copying.
+				</p>
+				<p class="security-black-copy">
+					ReaderPub’s primary distribution model is web-native. When needed, we can also produce a production-ready EPUB for archival use, external distribution, or additional publishing workflows — without making routine end-user file delivery the default model.
+				</p>
+			</div>
+			<div class="footer-cta security-inline-cta security-publish-cta">
+				<h3>Want to publish with lower leakage risk?</h3>
+				<p class="security-green-copy">
+					Talk to ReaderPub about web-first publishing for authors, publishers, libraries, and institutions.
+				</p>
+				<div class="cta-row">
+					<a class="button" href="/contact">Get started</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -376,26 +378,54 @@ const { standalone = false } = Astro.props;
 	}
 
 	.security-publish-layout {
-		display: grid;
-		grid-template-columns: minmax(0, 1.3fr) minmax(0, 360px);
-		gap: 24px;
-		align-items: start;
-	}
-
-	.security-publish-copy {
 		display: flex;
 		flex-direction: column;
 		gap: var(--section-flow-gap);
 	}
 
-	.security-publish-copy > p {
-		font-size: 18px;
-		line-height: 1.25;
-		max-width: 680px;
-		margin: 0;
+	.security-publish-title {
+		margin: 0 !important;
 	}
 
-	.security-publish-copy > .security-black-copy,
+	.security-publish-aligned {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(0, 360px);
+		grid-template-rows: auto minmax(0, 1fr);
+		grid-template-areas:
+			"lead cta"
+			"body cta";
+		column-gap: 24px;
+		row-gap: var(--section-flow-gap);
+		align-items: stretch;
+	}
+
+	.security-publish-lead {
+		grid-area: lead;
+		margin: 0;
+		max-width: 680px;
+	}
+
+	.security-publish-body-card {
+		grid-area: body;
+		width: 100%;
+		max-width: none;
+		min-height: 100%;
+		height: 100%;
+		text-align: left;
+		align-items: stretch;
+		align-self: stretch;
+	}
+
+	:global(.page .content .security-publish-body-card) > p {
+		text-align: left !important;
+	}
+
+	.security-publish-body-card > p {
+		margin: 0;
+		max-width: none;
+	}
+
+	.security-publish-body-card .security-black-copy,
 	.section > .security-black-copy {
 		font-size: 16px !important;
 		line-height: 1.25 !important;
@@ -407,10 +437,15 @@ const { standalone = false } = Astro.props;
 	}
 
 	.security-publish-cta {
+		grid-area: cta;
 		max-width: 360px;
+		width: 100%;
 		margin-left: auto;
-		align-self: start;
-		min-height: 190px;
+		justify-self: end;
+		align-self: stretch !important;
+		box-sizing: border-box;
+		align-content: center;
+		padding: 36px 32px !important;
 	}
 
 	@media (max-width: 980px) {
@@ -430,8 +465,20 @@ const { standalone = false } = Astro.props;
 			grid-template-columns: 1fr;
 		}
 
-		.security-publish-layout {
-			grid-template-columns: 1fr;
+		.security-publish-aligned {
+			display: flex;
+			flex-direction: column;
+			grid-template-columns: unset;
+			grid-template-rows: unset;
+			grid-template-areas: unset;
+		}
+
+		.security-publish-lead,
+		.security-publish-body-card,
+		.security-publish-cta {
+			grid-area: unset;
+			min-height: 0;
+			height: auto;
 		}
 
 		.security-inline-cta,
@@ -455,6 +502,11 @@ const { standalone = false } = Astro.props;
 		.security-inline-cta :is(h3, p, span),
 		.security-theft-guard-card .security-theft-guard-copy {
 			text-align: center;
+		}
+
+		.security-publish-lead,
+		.security-publish-body-card :is(p, .security-black-copy) {
+			text-align: left !important;
 		}
 
 		.security-inline-cta .cta-row,
@@ -543,6 +595,22 @@ const { standalone = false } = Astro.props;
 		:global(.page .content .section:has(.bullets) .security-theft-guard-card .security-theft-guard-copy) {
 			text-align: center !important;
 			width: 100%;
+		}
+
+		:global(.page .content .security-publish-layout),
+		:global(.page .content .security-publish-aligned) {
+			text-align: left;
+			align-items: stretch;
+		}
+
+		:global(.page .content .security-publish-lead),
+		:global(.page .content .security-publish-lead.security-green-copy) {
+			text-align: left !important;
+		}
+
+		:global(.page .content .card.security-publish-body-card:not(.book-card) > p),
+		:global(.page .content .card.security-publish-body-card:not(.book-card) > p:first-of-type) {
+			text-align: left !important;
 		}
 	}
 </style>
