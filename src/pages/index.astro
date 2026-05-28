@@ -9,15 +9,16 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 <Base title={`${SITE_NAME} — Public Reading and Publishing Platform`}>
 	<section class="home-intro-hero">
 		<div class="home-intro-copy">
-			<h1 class="home-hero-heading">ReaderPub makes your book instantly available in any browser.</h1>
+			<h1 class="home-hero-heading">Books Built for the Internet</h1>
 			<p class="lede home-intro-lede">
 				<span class="home-intro-lede-line">
-					Our eReader works without downloads.
-					<span class="home-intro-protected-inline">
-						Your eBooks are protected – no DRM required.
-						<span class="hero-inline-icon" aria-hidden="true">
-							<SectionIcon type="security" title="Protection icon" />
-						</span>
+					Read instantly in your browser. Publish securely. Distribute globally.<br />
+					No apps, downloads, or platform <span class="home-intro-no-break">lock-in</span>.
+				</span>
+				<span class="home-intro-protected-inline">
+					With the <span class="home-intro-brand-inline">ReaderPub</span> web-native publishing platform, your books and knowledge publications are instantly accessible and protected – no DRM required.
+					<span class="hero-inline-icon" aria-hidden="true">
+						<SectionIcon type="security" title="Protection icon" />
 					</span>
 				</span>
 			</p>
@@ -110,27 +111,38 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		}
 
 		.home-intro-lede-line {
-			display: inline;
+			display: block;
+			line-height: inherit;
 		}
 
 		.home-intro-protected-inline {
-			display: inline-flex;
-			align-items: baseline;
-			gap: 0.12em;
-			white-space: nowrap;
-			max-width: 100%;
+			display: block;
+			line-height: inherit;
+			margin-top: 0.54em;
+			white-space: normal;
 			color: var(--text);
-			font-size: 1em;
+			font-size: 0.8em;
+		}
+
+		.home-intro-brand-inline {
+			font-family: "Playfair Display", serif;
+			font-weight: 700;
+			color: var(--text);
+		}
+
+		.home-intro-no-break {
+			white-space: nowrap;
 		}
 
 		.hero-inline-icon {
-			display: inline-flex;
-			flex-shrink: 0;
-			width: 1.35em;
-			height: 1.35em;
-			vertical-align: baseline;
-			position: relative;
-			top: 0.08em;
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			line-height: 0;
+			vertical-align: -0.12em;
+			margin-left: 0.16em;
+			transform: translateY(-0.02em) scale(1.56);
+			transform-origin: left center;
 		}
 
 		.hero-inline-icon :global(.section-icon) {
@@ -239,40 +251,5 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			}
 		}
 	</style>
-
-	<script>
-		const fitHomeIntroProtectedLine = () => {
-			const line = document.querySelector('.home-intro-protected-inline');
-			const copy = document.querySelector('.home-intro-copy');
-			const lede = document.querySelector('.home-intro-lede');
-			if (!(line instanceof HTMLElement && copy instanceof HTMLElement && lede)) return;
-
-			const maxPx = Number.parseFloat(getComputedStyle(lede).fontSize);
-			if (!Number.isFinite(maxPx)) return;
-
-			const available = Math.max(0, copy.clientWidth - 2);
-			line.style.fontSize = `${maxPx}px`;
-			if (line.scrollWidth <= available) return;
-
-			let lo = 10;
-			let hi = maxPx;
-			while (hi - lo > 0.25) {
-				const mid = (lo + hi) / 2;
-				line.style.fontSize = `${mid}px`;
-				if (line.scrollWidth > available) hi = mid;
-				else lo = mid;
-			}
-			line.style.fontSize = `${lo}px`;
-		};
-
-		const scheduleFit = () => requestAnimationFrame(fitHomeIntroProtectedLine);
-
-		scheduleFit();
-		window.addEventListener('resize', scheduleFit, { passive: true });
-		document.fonts?.ready?.then(scheduleFit);
-
-		const copy = document.querySelector('.home-intro-copy');
-		if (copy) new ResizeObserver(scheduleFit).observe(copy);
-	</script>
 
 </Base>

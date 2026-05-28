@@ -407,7 +407,7 @@ section > :last-child {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	font-size: clamp(14.95px, 1.5525vw, 17.25px);
+	font-size: clamp(15.6px, 1.62vw, 18px);
 	letter-spacing: 0.06em;
 	color: #008f80;
 	font-weight: 400;
@@ -1299,7 +1299,7 @@ section > :last-child {
 	}
 
 	.site-catalog-hero-eyebrow {
-		font-size: clamp(14.95px, 3.22vw, 17.25px);
+		font-size: clamp(15.6px, 3.36vw, 18px);
 		letter-spacing: 0.04em;
 		white-space: normal;
 		justify-content: center;
