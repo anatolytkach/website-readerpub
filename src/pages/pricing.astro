@@ -9,8 +9,8 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 	<section class="pricing-hero">
 		<div class="pricing-hero-copy">
 			<div class="menu-eyebrow">PRICING</div>
-			<h1 class="pricing-hero-title">Free for readers and indies.<br />Fair for everybody else.</h1>
-			<p class="lede pricing-hero-lede">Aggressive creator economics. Serious institutional publishing.</p>
+			<h1 class="pricing-hero-title">Free for readers and indies.<br />Fair for everyone else.</h1>
+			<p class="lede pricing-hero-lede">Aggressive creator economics. Unbound institutional publishing.</p>
 			<img
 				class="image-block proof-media pricing-hero-image pricing-hero-image--mobile"
 				src="/images/pricing.webp"
@@ -23,8 +23,8 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			/>
 			<p class="pricing-hero-copy-intro">ReaderPub supports two paths:</p>
 			<ul class="bullets pricing-hero-bullets">
-				<li>authors/publishers selling directly to readers.</li>
-				<li>institutions publishing trusted collections for the public.</li>
+				<li>Authors and publishers sell directly to readers with low commission.</li>
+				<li>Institutions publish instantly accessible materials with a fixed storage fee.</li>
 			</ul>
 			<div class="cta-row pricing-hero-actions">
 				<a class="button" href="/contact">Start onboarding</a>
@@ -240,8 +240,8 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 			line-height: 1.1;
 		}
 
-		.pricing-hero-actions {
-			margin-top: var(--section-block-gap-adjust);
+		.pricing-hero-copy > .pricing-hero-actions {
+			margin-top: var(--section-block-gap-adjust) !important;
 			justify-content: flex-start;
 		}
 
@@ -293,8 +293,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				margin-right: auto;
 			}
 
-			.pricing-hero-actions {
-				margin-top: 0;
+			.pricing-hero-copy > .pricing-hero-actions {
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;

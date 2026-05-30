@@ -7,12 +7,6 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 
 <Base title={`${SITE_NAME} for Institutions`}>
 	<section class="institutions-hero">
-		<div class="menu-eyebrow">INSTITUTIONS</div>
-		<h1 class="institutions-hero-title">Institutional publishing, built for the web.</h1>
-		<p class="lede institutions-hero-primary-lede">
-			Libraries, universities, public organizations, and publishers—bring collections to the
-			open web with trusted reading at scale.
-		</p>
 		<img
 			class="image-block institutions-hero-image"
 			src="/images/institutions.webp"
@@ -22,13 +16,21 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 			width="1155"
 			height="895"
 		/>
-		<p class="institutions-hero-secondary-copy">
-			ReaderPub is the missing web layer: fast onboarding, clean discovery, and a real in-browser
-			reading experience.
-		</p>
-		<div class="cta-row institutions-hero-actions">
-			<a class="button" href="/contact?topic=institution">Start institutional onboarding</a>
-			<a class="button secondary" href="/pricing">See pricing</a>
+		<div class="institutions-hero-copy">
+			<div class="menu-eyebrow">INSTITUTIONS</div>
+			<h1 class="institutions-hero-title">Books, research and archives—built for the web.</h1>
+			<p class="lede institutions-hero-primary-lede">
+				Libraries, universities, and public organizations—bring collections to the web with trusted
+				reading at scale.
+			</p>
+			<p class="institutions-hero-secondary-copy">
+				ReaderPub is the missing web layer: fast onboarding, clean discovery, and a real in-browser
+				reading experience.
+			</p>
+			<div class="cta-row institutions-hero-actions">
+				<a class="button" href="/contact?topic=institution">Start institutional onboarding</a>
+				<a class="button secondary" href="/pricing">See pricing</a>
+			</div>
 		</div>
 	</section>
 
@@ -201,9 +203,8 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 	<style>
 		.institutions-hero {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-			column-gap: 32px;
-			row-gap: 16px;
+			grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+			column-gap: 54px;
 			align-items: center;
 		}
 
@@ -211,45 +212,50 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 			min-width: 0;
 		}
 
+		.institutions-hero-image {
+			grid-column: 1;
+			grid-row: 1;
+			justify-self: start;
+			margin-right: auto;
+			margin-left: -24px;
+			width: auto;
+			max-width: 460px;
+		}
+
+		.institutions-hero-copy {
+			grid-column: 2;
+			grid-row: 1;
+			justify-self: start;
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-flow-gap);
+			align-self: center;
+			max-width: 680px;
+		}
+
+		.institutions-hero-copy > * {
+			margin: 0;
+		}
+
 		.institutions-hero-title {
 			font-size: clamp(36px, 5vw, 56px);
 			line-height: 1.1;
-			margin-bottom: 0;
-		}
-
-		.institutions-hero-image {
-			grid-column: 1;
-			grid-row: 1 / span 4;
-			margin-right: auto;
-			margin-left: -24px;
-		}
-
-		.menu-eyebrow,
-		.institutions-hero-title,
-		.institutions-hero-primary-lede,
-		.institutions-hero-secondary-copy,
-		.institutions-hero-actions {
-			grid-column: 2;
-		}
-
-		.menu-eyebrow {
-			grid-row: 1;
-		}
-
-		.institutions-hero-title {
-			grid-row: 2;
 		}
 
 		.institutions-hero-primary-lede {
-			grid-row: 3;
+			color: var(--link) !important;
+			font-size: 22.95px !important;
+			line-height: 1.45 !important;
 		}
 
 		.institutions-hero-secondary-copy {
-			grid-row: 4;
+			color: var(--text);
+			font-size: 22.95px;
+			line-height: 1.45;
 		}
 
-		.institutions-hero-actions {
-			grid-row: 5;
+		.institutions-hero-copy > .institutions-hero-actions {
+			margin-top: var(--section-block-gap-adjust) !important;
 			justify-content: flex-start;
 		}
 
@@ -298,51 +304,49 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 		@media (orientation: portrait) {
 			.institutions-hero {
 				grid-template-columns: 1fr;
+				row-gap: var(--section-flow-gap);
 				justify-items: center;
-				align-items: center;
 				text-align: center;
-			}
-
-			.institutions-hero-secondary-copy {
-				text-align: center;
-			}
-
-			.institutions-hero-title,
-			.institutions-hero-primary-lede,
-			.institutions-hero-image,
-			.institutions-hero-secondary-copy,
-			.institutions-hero-actions {
-				grid-column: 1;
-			}
-
-			.menu-eyebrow {
-				grid-column: 1;
-				grid-row: 1;
-			}
-
-			.institutions-hero-title {
-				grid-row: 2;
-			}
-
-			.institutions-hero-primary-lede {
-				grid-row: 3;
 			}
 
 			.institutions-hero-image {
-				grid-row: 4;
-				margin-left: auto;
-				margin-right: auto;
+				grid-column: 1;
+				grid-row: 1;
+				justify-self: center;
 			}
 
+			.institutions-hero-copy {
+				grid-column: 1;
+				grid-row: 2;
+				align-items: center;
+				text-align: center;
+			}
+
+			.institutions-hero-primary-lede,
 			.institutions-hero-secondary-copy {
-				grid-row: 5;
+				font-size: 18.36px !important;
+				line-height: 1.45 !important;
 			}
 
-			.institutions-hero-actions {
-				grid-row: 6;
+			.institutions-hero-copy > .institutions-hero-actions {
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
+			}
+		}
+
+		@media (orientation: landscape) and (max-width: 900px) {
+			.institutions-hero-primary-lede,
+			.institutions-hero-secondary-copy {
+				font-size: 15.3px !important;
+				line-height: 1.35 !important;
+			}
+		}
+
+		@media (max-width: 400px) {
+			.institutions-hero-primary-lede,
+			.institutions-hero-secondary-copy {
+				font-size: 16.15px !important;
 			}
 		}
 

@@ -3,19 +3,23 @@ const cards = [
 	{
 		href: "/readers",
 		title: "For Readers",
-		description: "The fastest way to start reading, with a full reader experience — no downloads required.",
+		headline: "Read Any Book Instantly",
+		subheadline:
+			"Books open directly in your browser with fast search, annotations, and seamless reading across devices.",
 	},
 	{
 		href: "/authors",
-		title: "For Authors",
-		description:
+		title: "For Authors & Publishers",
+		headline: "Publish Without Platform Lock-In",
+		subheadline:
 			"5% sales commission. Direct reader relationships. First-party analytics. Fan clubs built in.",
 	},
 	{
 		href: "/institutions",
 		title: "For Institutions",
-		description:
-			"Publishers, universities, and libraries make their books and documents available for instant reading online.",
+		headline: "Unlock Underused Publications",
+		subheadline:
+			"Transform archives, research publications, and digital collections into searchable browser-accessible assets.",
 	},
 ];
 ---
@@ -28,7 +32,10 @@ const cards = [
 					<h3>{card.title}</h3>
 					<span class="audience-nav-card-arrow" aria-hidden="true">→</span>
 				</span>
-				<p>{card.description}</p>
+				<div class="audience-nav-card-copy">
+					<p class="audience-nav-card-headline">{card.headline}</p>
+					<p class="audience-nav-card-subheadline">{card.subheadline}</p>
+				</div>
 			</a>
 		))
 	}
@@ -85,10 +92,22 @@ const cards = [
 		font-weight: 600;
 	}
 
-	.audience-nav-card p {
-		font-size: 1.2em;
-		line-height: 1.35;
+	.audience-nav-card-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.audience-nav-card-headline {
+		font-size: 18px;
+		line-height: 1.25;
 		color: var(--link);
+	}
+
+	.audience-nav-card-subheadline {
+		font-size: 15.3px;
+		line-height: 1.35;
+		color: var(--text);
 	}
 
 	@media (max-width: 900px) {
