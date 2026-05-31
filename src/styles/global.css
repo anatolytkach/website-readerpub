@@ -465,7 +465,7 @@ section > :last-child {
 
 .button:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 8px 20px rgba(0, 143, 128, 0.2);
+	box-shadow: 0 8px 20px rgba(0, 133, 134, 0.2);
 }
 
 .button.nav-cta {
@@ -1640,14 +1640,14 @@ section > :last-child {
 	font-size: 24px;
 	font-weight: 700;
 	text-decoration: none;
-	box-shadow: 0 2px 12px rgba(0, 143, 128, 0.3);
+	box-shadow: 0 2px 12px rgba(0, 133, 134, 0.3);
 	transition: transform 0.15s ease, box-shadow 0.15s ease;
 	z-index: 100;
 }
 
 .kb-fab:hover {
 	transform: scale(1.1);
-	box-shadow: 0 4px 20px rgba(0, 143, 128, 0.45);
+	box-shadow: 0 4px 20px rgba(0, 133, 134, 0.45);
 }
 
 @media (orientation: portrait) {
