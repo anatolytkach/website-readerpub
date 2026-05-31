@@ -92,13 +92,23 @@ import { SITE_NAME } from "../consts";
 	window.addEventListener("resize", updateNavLayout);
 
 	const normalizePath = (path) => path.replace(/\/+$/, "") || "/";
-	const currentPath = normalizePath(window.location.pathname);
-	navLinks.forEach((link) => {
-		const href = link.getAttribute("href");
-		if (!href || href.startsWith("http")) return;
-		if (normalizePath(href) === currentPath) {
-			link.classList.add("is-active");
-			link.setAttribute("aria-current", "page");
-		}
-	});
+
+	const updateActiveLink = () => {
+		const currentPath = normalizePath(window.location.pathname);
+		navLinks.forEach((link) => {
+			link.classList.remove("is-active");
+			link.removeAttribute("aria-current");
+		});
+		navLinks.forEach((link) => {
+			const href = link.getAttribute("href");
+			if (!href || href.startsWith("http")) return;
+			if (normalizePath(href) === currentPath) {
+				link.classList.add("is-active");
+				link.setAttribute("aria-current", "page");
+			}
+		});
+	};
+
+	updateActiveLink();
+	document.addEventListener("astro:page-load", updateActiveLink);
 </script>
