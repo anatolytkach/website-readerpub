@@ -27,10 +27,6 @@ body {
 	font-family: "Space Grotesk", system-ui, sans-serif;
 	color: var(--text);
 	background-color: var(--bg);
-	background-image: url("/images/catalog-footer-background.png");
-	background-size: 100% auto;
-	background-position: center bottom;
-	background-repeat: no-repeat;
 	min-height: 100vh;
 	line-height: 1.4;
 	overflow-x: clip;
@@ -56,6 +52,10 @@ h3 {
 
 .content {
 	display: block;
+	background-image: url("/images/catalog-footer-background.png");
+	background-size: 100% auto;
+	background-position: center bottom;
+	background-repeat: no-repeat;
 }
 
 section {
@@ -130,7 +130,7 @@ section > :last-child {
 .site-logo {
 	height: 56px;
 	max-height: 64px;
-	width: auto;
+	width: 62px;
 	object-fit: contain;
 	display: inline-block;
 	vertical-align: middle;
