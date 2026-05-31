@@ -2,7 +2,6 @@
 import Base from "../layouts/Base.astro";
 import { SITE_NAME } from "../consts";
 import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
-import TextFirstSection from "../components/sections/TextFirstSection.astro";
 import SectionIcon from "../components/SectionIcon.astro";
 
 const topic = Astro.url.searchParams.get("topic") ?? "";
@@ -14,15 +13,15 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 	<section class="hero">
 		<div>
 			<div class="menu-eyebrow">GET STARTED</div>
-			<h1>Onboarding</h1>
+			<h1>Connect with us</h1>
 			<p class="lede">
-				Tell us who you are and what you want to publish. Onboarding starts as soon as you submit
-				the request.
+				Tell us what you plan to publish—and in what volume—and we will get back to you with a detailed plan and instructions.
 			</p>
-			<p style="margin-bottom: 16px;">We reply with an onboarding plan and a proposed timeline.</p>
+			<p style="margin-bottom: 16px;">The publishing process, as well as our approach to reading, distributing, discussing, and selling books and other materials, is detailed in our knowledge base.</p>
 			<div class="cta-row">
-				<button class="button" type="button" data-modal-open="#request-onboarding-modal">Start onboarding</button>
+				<a class="button secondary" href="/kb">Knowledge base</a>
 				<a class="button secondary" href="/pricing">See pricing</a>
+				<button class="button" type="button" data-modal-open="#request-onboarding-modal">Contact us</button>
 			</div>
 		</div>
 		<img
@@ -37,7 +36,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 	</section>
 
 		<SpecCardsSection class="contact-spec-cards">
-			<h2>How onboarding works</h2>
+			<h2>Useful tips:</h2>
 			<div class="card-grid icon-grid">
 				<div class="card icon-grid-card">
 					<SectionIcon type="author" title="Independent authors & small publishers" />
@@ -53,13 +52,10 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 							<li>Plan events and presentations.</li>
 						</ul>
 						<p class="direct-submit-note">
-							Formal onboarding may not be necessary for you. If you just have a few books to publish, feel free to submit them directly:
+							If you already have a finished Word manuscript or EPUB file, you may not even need to contact us in advance; just publish your book right now:
 						</p>
 						<div class="cta-row contact-card-actions">
 							<a class="button direct-submit-button" href="https://reader.pub/publish/">Submit your book</a>
-							<button class="button secondary" type="button" data-modal-open="#request-onboarding-modal">
-								Request onboarding
-							</button>
 						</div>
 					</div>
 				</div>
@@ -77,30 +73,29 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 							<li>We map identifiers, preserve catalog structure, and publish as a web library.</li>
 						</ul>
 						<button class="button request-onboarding-button contact-card-request-button" type="button" data-modal-open="#request-onboarding-modal">
-							Request onboarding
+Contact us for details
 						</button>
 					</div>
 				</div>
 			</div>
-		</SpecCardsSection>
+	</SpecCardsSection>
 
 			<div class="modal onboarding-modal" id="request-onboarding-modal" aria-hidden="true">
 				<div class="modal-backdrop" data-modal-close></div>
 				<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="request-onboarding-modal-title">
 				<button class="modal-close" type="button" aria-label="Close" data-modal-close>✕</button>
 			<div class="onboarding-modal-inner">
-				<h3 id="request-onboarding-modal-title">Request onboarding</h3>
+				<h3 id="request-onboarding-modal-title">Connect with us</h3>
 				<p class="onboarding-modal-note">
-					We onboard independent authors, publishers, and institutions.<br />
+					We serve independent authors, publishers, and institutions.<br />
 					If you already have files (Word or EPUB) or maintain in-house catalogs, please mention this in your
-					message. We reply with an onboarding plan and a proposed timeline.
-				</p>
-				<p class="onboarding-modal-note">
-					Need collaborative annotations or read-aloud enabled for your rollout? Mention it in your
-					onboarding request.
+					message.
 				</p>
 				{topic && <p class="contact-topic">Topic: {topic}</p>}
 				<form class="onboarding-form" method="POST" action="/api/onboarding">
+					<label for="your-name">Your name</label>
+					<input id="your-name" name="your_name" type="text" required />
+
 					<label for="role">I am</label>
 						<select id="role" name="role" required>
 							<option value="">Select one</option>
@@ -113,11 +108,15 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 								<option value="Other business entity">Other business entity</option>
 							</select>
 
-					<label for="name">Organization / Author name</label>
-					<input id="name" name="name" type="text" required />
+					<div class="onboarding-conditional" id="org-group">
+						<label for="name">Organization</label>
+						<input id="name" name="name" type="text" />
+					</div>
 
-					<label for="website">Website</label>
-					<input id="website" name="website" type="url" />
+					<div class="onboarding-conditional" id="website-group">
+						<label for="website">Website</label>
+						<input id="website" name="website" type="url" />
+					</div>
 
 					<label for="email">Email</label>
 					<input id="email" name="email" type="email" required />
@@ -125,7 +124,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 					<label for="phone">Phone</label>
 					<input id="phone" name="phone" type="tel" />
 
-					<label for="project">What are you trying to publish or launch?</label>
+					<label for="project">What do you intend to publish or launch?</label>
 					<textarea
 						id="project"
 						name="project"
@@ -147,7 +146,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 					</select>
 
 					<fieldset>
-						<legend>What do you need?</legend>
+						<legend>What features you need?</legend>
 						<label><input type="checkbox" name="needs" value="Web publishing" /> Web publishing</label>
 						<label><input type="checkbox" name="needs" value="Sales" /> Sales</label>
 						<label><input type="checkbox" name="needs" value="Fan clubs" /> Fan clubs</label>
@@ -158,14 +157,13 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 					<label for="notes">Anything else?</label>
 					<textarea id="notes" name="notes" rows="4"></textarea>
 
-					<input type="hidden" name="_subject" value="ReaderPub Onboarding Request" />
 					<input type="hidden" name="topic" value={topic} />
 					<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 					{turnstileSiteKey && <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>}
 					<p class="onboarding-form-error" hidden></p>
 
 					<div class="cta-row onboarding-modal-actions">
-						<button class="button" type="submit">Send onboarding request</button>
+						<button class="button" type="submit">Send a message</button>
 					</div>
 				</form>
 				</div>
@@ -178,28 +176,18 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 				<button class="modal-close" type="button" aria-label="Close" data-success-close>✕</button>
 				<div class="onboarding-success-inner">
 					<p id="onboarding-success-modal-title">
-						Thank you, your request has been submitted.<br />
-						We will reply with an onboarding plan and a proposed timeline soon.
+						Thank you, your message has been sent.<br />
+						We will get back to you soon.
 					</p>
 				</div>
 			</div>
 		</div>
 
-	<TextFirstSection>
-		<h2>FAQ</h2>
-		<h3>Do you take exclusivity?</h3>
-		<p>No. You can publish on ReaderPub and still distribute elsewhere.</p>
-		<h3>Do you provide EPUB output?</h3>
-		<p>Yes — optional production-ready EPUB delivery.</p>
-		<h3>Do authors/publishers get reader data?</h3>
-		<p>Yes — first-party relationship with registered readers, plus analytics.</p>
-		<h3>Do institutions sell books here?</h3>
-		<p>They can, but most use ReaderPub for public publishing, programs, and collections.</p>
-		<h3>Subdomain vs custom domain?</h3>
-		<p>Use a reader.pub subdomain or your own subdomain mapped to ReaderPub hosting.</p>
-	</TextFirstSection>
+<style>
+		.hero .image-block {
+			max-width: 391px !important;
+		}
 
-	<style>
 		.card .onboarding-import-lede {
 			color: var(--link);
 			font-size: 18px;
@@ -270,6 +258,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 		}
 
 		:global(.contact-spec-cards) {
+			padding-top: 20px !important;
 			padding-bottom: 14px !important;
 		}
 
@@ -304,14 +293,14 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
 			:global(.onboarding-modal-inner) {
 				position: absolute;
-				inset: 56px 10px 10px 10px;
+				inset: 56px 4px 10px 10px;
 				display: grid;
 				gap: 14px;
 				height: auto;
 				overflow-y: auto;
 				padding: 0 10px 14px;
 				border-radius: inherit;
-				scrollbar-gutter: stable both-edges;
+				scrollbar-gutter: stable;
 				scrollbar-width: thin;
 			}
 
@@ -366,6 +355,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 		:global(.onboarding-form input[type="number"]),
 		:global(.onboarding-form select),
 		:global(.onboarding-form textarea) {
+			box-sizing: border-box;
 			width: 100%;
 			font: inherit;
 			font-size: 16px;
@@ -527,6 +517,28 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 				const formError = onboardingForm?.querySelector(".onboarding-form-error");
 				const submitButton = onboardingForm?.querySelector('button[type="submit"]');
 				if (!requestModal || !successModal || !onboardingForm) return;
+
+				const roleSelect = document.querySelector("#role");
+				const orgGroup = document.querySelector("#org-group");
+				const websiteGroup = document.querySelector("#website-group");
+				const orgInput = document.querySelector("#name");
+				const websiteInput = document.querySelector("#website");
+
+				const updateConditionalFields = () => {
+					const isAuthor = roleSelect?.value === "Author";
+					if (orgGroup) {
+						orgGroup.style.display = isAuthor ? "none" : "";
+						if (orgInput) orgInput.required = !isAuthor;
+					}
+					if (websiteGroup) {
+						websiteGroup.style.display = isAuthor ? "none" : "";
+						if (websiteInput) websiteInput.required = !isAuthor;
+					}
+				};
+
+				roleSelect?.addEventListener("change", updateConditionalFields);
+				updateConditionalFields();
+
 				const resetTurnstile = () => {
 					if (window.turnstile && typeof window.turnstile.reset === "function") {
 						window.turnstile.reset();
@@ -601,6 +613,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 						closeModal(requestModal);
 						openModal(successModal);
 						onboardingForm.reset();
+						updateConditionalFields();
 						resetTurnstile();
 					} catch (error) {
 						if (formError) {

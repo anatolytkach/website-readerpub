@@ -1,0 +1,228 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE_NAME } from "../consts";
+
+const faqBlocks = [
+	{
+		title: "For Readers",
+		items: [
+			{ q: "How can I start reading books on ReaderPub?", a: "ReaderPub provides instant browser-based access to a growing catalog of books. Simply open the catalog, choose a title, and start reading without installing a dedicated reading application." },
+			{ q: "Do I need to download books before reading?", a: "No. ReaderPub is designed for web-based reading. Books can be opened directly in your browser, allowing you to start reading immediately." },
+			{ q: "Can I read on different devices?", a: "Yes. ReaderPub works in modern web browsers on desktop computers, tablets, and smartphones, making it easy to continue reading across devices." },
+			{ q: "What types of books are available?", a: "The catalog includes public-domain works as well as books published through the ReaderPub platform. Available collections continue to expand over time." },
+			{ q: "Is ReaderPub free for readers?", a: "Access to public-domain books is available free of charge. Access to commercial publications depends on the publisher's chosen distribution and pricing model." },
+		],
+	},
+	{
+		title: "For Authors",
+		items: [
+			{ q: "What is ReaderPub?", a: "ReaderPub is a publishing platform that helps authors make books available online through a modern browser-based reading experience." },
+			{ q: "Can ReaderPub publish my existing manuscript?", a: "Yes. ReaderPub supports publishing content that already exists in common digital formats and prepares it for online reading." },
+			{ q: "Do I keep ownership of my work?", a: "Yes. Authors retain ownership of their content. ReaderPub provides publishing and distribution services rather than acquiring ownership rights." },
+			{ q: "Can I distribute my book outside ReaderPub?", a: "Yes. In addition to web publication, ReaderPub can provide a production-ready EPUB that can be distributed through other channels." },
+			{ q: "Can I publish updates to my book?", a: "Yes. ReaderPub is designed to support ongoing management and updates of published content." },
+		],
+	},
+	{
+		title: "For Institutions",
+		items: [
+			{ q: "Who are ReaderPub's institutional customers?", a: "ReaderPub serves publishers, libraries, universities, government organizations, and other institutions that need to publish and distribute digital content." },
+			{ q: "Can ReaderPub host institutional publications?", a: "Yes. ReaderPub can host and present books, reports, manuals, research publications, and other digital materials through a web-based reading platform." },
+			{ q: "Can institutions use their own branding?", a: "Yes. ReaderPub supports institutional branding and custom presentation options for published content." },
+			{ q: "Is ReaderPub suitable for large collections?", a: "Yes. The platform is designed to support both individual publications and large institutional catalogs." },
+			{ q: "Can ReaderPub help with legacy content?", a: "Yes. Existing digital publications can be converted and prepared for modern browser-based reading." },
+		],
+	},
+	{
+		title: "About the Platform",
+		items: [
+			{ q: "What products are included in ReaderPub?", a: "ReaderPub includes WeRead for readers, WePub for publishing organizations, and BookTree for researchers, authors, and knowledge management workflows." },
+			{ q: "What is WeRead?", a: "WeRead is ReaderPub's browser-based reading environment designed for books, documents, and long-form content." },
+			{ q: "What is WePub?", a: "WePub provides publishing tools and workflows for authors, publishers, libraries, and institutions." },
+			{ q: "What is BookTree?", a: "BookTree helps users collect excerpts, organize sources, and manage research materials." },
+			{ q: "Why is ReaderPub browser-based?", a: "A browser-based platform reduces installation requirements and allows content to be accessed across multiple devices through a consistent interface." },
+		],
+	},
+	{
+		title: "ReaderPub Security",
+		items: [
+			{ q: "Does ReaderPub require readers to install software?", a: "No. ReaderPub is designed to work directly through standard web browsers." },
+			{ q: "Who owns published content?", a: "Content ownership remains with the author or institution that publishes it through the platform." },
+			{ q: "Does ReaderPub support secure web access?", a: "Yes. ReaderPub uses HTTPS connections to protect data transmitted between users and the platform." },
+			{ q: "Can institutions control access to content?", a: "Yes. Access policies can be configured according to the needs of the publishing organization." },
+			{ q: "Does ReaderPub store publications securely?", a: "Yes. Published content is managed through controlled publishing infrastructure designed for reliability and long-term availability." },
+		],
+	},
+	{
+		title: "Our Pricing",
+		items: [
+			{ q: "Is ReaderPub free for readers?", a: "Public-domain books can be read free of charge. Pricing for commercial publications depends on publisher settings." },
+			{ q: "How does ReaderPub charge authors?", a: "ReaderPub offers publishing services with pricing that depends on the publication type and selected features." },
+			{ q: "Are there separate plans for institutions?", a: "Yes. Institutional publishing services are available for organizations with larger catalogs and specialized requirements." },
+			{ q: "Does ReaderPub support paid books?", a: "Yes. Publishers and authors can choose whether publications are free or commercial." },
+			{ q: "Can I contact ReaderPub for custom pricing?", a: "Yes. Organizations with specific publishing requirements can contact ReaderPub directly to discuss custom solutions." },
+		],
+	},
+];
+---
+
+<Base title={`${SITE_NAME} Knowledge Base`}>
+	<section class="hero">
+		<div>
+			<div class="menu-eyebrow">KNOWLEDGE BASE</div>
+			<h1>ReaderPub Knowledge Base</h1>
+		</div>
+	</section>
+
+	<section class="kb-faq-section">
+		<div class="kb-faq-grid">
+			{faqBlocks.map((block) => (
+				<div class="kb-faq-block">
+					<h2>{block.title}</h2>
+					{block.items.map((item) => (
+						<details class="kb-faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))}
+				</div>
+			))}
+		</div>
+	</section>
+</Base>
+
+<style>
+	.kb-faq-section {
+		padding-top: 20px !important;
+	}
+
+	.kb-faq-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 24px;
+	}
+
+	.kb-faq-block {
+		background: linear-gradient(135deg, var(--card) 0%, var(--card) 15%, white 100%);
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		padding: 24px;
+	}
+
+	.kb-faq-block h2 {
+		margin: 0 0 16px;
+		font-size: 22px;
+		font-weight: 600;
+		color: var(--accent);
+	}
+
+	.kb-faq-item {
+		border-bottom: 1px solid var(--border);
+	}
+
+	.kb-faq-item:last-child {
+		border-bottom: none;
+	}
+
+	.kb-faq-item summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+		padding: 14px 0;
+		font-size: 17px;
+		font-weight: 500;
+		color: var(--text);
+		list-style: none;
+		outline: none;
+	}
+
+	.kb-faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.kb-faq-item summary::after {
+		content: "+";
+		flex-shrink: 0;
+		margin-left: 12px;
+		font-size: 20px;
+		font-weight: 400;
+		color: var(--muted);
+		transition: transform 0.2s ease;
+	}
+
+	.kb-faq-item[open] summary::after {
+		transform: rotate(45deg);
+	}
+
+	.kb-faq-item p {
+		margin: 0 0 16px;
+		font-size: 16px;
+		line-height: 1.5;
+		color: var(--muted);
+	}
+
+	.kb-faq-item[open] summary {
+		color: var(--accent);
+	}
+
+	.kb-faq-item[open] p {
+		background: white;
+		padding: 12px 16px;
+		border-radius: 8px;
+		margin-bottom: 12px;
+	}
+
+	@media (orientation: portrait) {
+		.kb-faq-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.kb-faq-block h2 {
+			text-align: center !important;
+		}
+
+		.hero .menu-eyebrow {
+			display: none;
+		}
+
+		.kb-faq-item,
+		.kb-faq-item summary,
+		.kb-faq-item p {
+			text-align: left !important;
+		}
+	}
+
+	@media (max-width: 700px) {
+		.kb-faq-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.kb-faq-item,
+		.kb-faq-item summary,
+		.kb-faq-item p {
+			text-align: left !important;
+		}
+	}
+</style>
+
+<script is:inline>
+	(() => {
+		document.querySelectorAll(".kb-faq-block").forEach((block) => {
+			block.addEventListener("click", (event) => {
+				const summary = event.target.closest("summary");
+				if (!summary) return;
+				const details = summary.closest(".kb-faq-item");
+				if (!details) return;
+				event.preventDefault();
+				const isOpen = details.open;
+				document.querySelectorAll(".kb-faq-item[open]").forEach((el) => {
+					el.open = false;
+				});
+				if (!isOpen) {
+					details.open = true;
+				}
+			});
+		});
+	})();
+</script>

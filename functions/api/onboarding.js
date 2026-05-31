@@ -3,18 +3,17 @@ const JSON_HEADERS = {
 };
 
 const FIELD_LIMITS = {
+	email: 254,
+	your_name: 160,
 	role: 80,
 	name: 160,
 	website: 300,
-	email: 254,
 	phone: 80,
 	project: 3000,
 	titles: 20,
 	timeline: 80,
 	notes: 3000,
 	topic: 120,
-	_subject: 160,
-	needs: 80,
 };
 
 const VALID_ROLES = new Set([
@@ -55,7 +54,7 @@ export async function onRequestPost({ request, env }) {
 			return json({ ok: false, error: "Invalid form submission." }, 400);
 		}
 
-		const gotcha = clean(formData.get("_gotcha"), FIELD_LIMITS._gotcha || 200);
+		const gotcha = clean(formData.get("_gotcha"), 200);
 		if (gotcha) {
 			return json({ ok: true });
 		}
@@ -76,19 +75,17 @@ export async function onRequestPost({ request, env }) {
 		}
 
 		try {
-			const internalEmail = buildInternalEmail(validation.submission, config);
-			const autoReplyEmail = buildAutoReplyEmail(validation.submission, config);
-			await sendPingramEmail(config, internalEmail);
-			await sendPingramEmail(config, autoReplyEmail);
+			const email = buildEmail(validation.submission, config);
+			await sendPingramEmail(config, email);
 		} catch (error) {
-			console.error(`Onboarding email delivery failed: ${error?.message || String(error)}`);
+			console.error(`Contact form email delivery failed: ${error?.message || String(error)}`);
 			return json({ ok: false, error: "Email provider failed." }, 502);
 		}
 
 		return json({ ok: true });
 	} catch (error) {
-		console.error(`Onboarding function failed: ${error?.message || String(error)}`);
-		return json({ ok: false, error: "We could not submit your request. Please try again." }, 500);
+		console.error(`Contact form function failed: ${error?.message || String(error)}`);
+		return json({ ok: false, error: "We could not submit your message. Please try again." }, 500);
 	}
 }
 
@@ -115,8 +112,9 @@ function validateSubmission(formData) {
 	};
 
 	const submission = {
+		yourName: field("your_name", "Your name"),
 		role: field("role", "Role"),
-		name: field("name", "Organization or author name"),
+		name: field("name", "Organization name"),
 		website: field("website", "Website"),
 		email: field("email", "Email").toLowerCase(),
 		phone: field("phone", "Phone"),
@@ -125,7 +123,6 @@ function validateSubmission(formData) {
 		timeline: field("timeline", "Timeline"),
 		notes: field("notes", "Notes"),
 		topic: field("topic", "Topic"),
-		subject: field("_subject", "Subject") || "ReaderPub Onboarding Request",
 		needs: formData
 			.getAll("needs")
 			.map((value) => String(value || "").trim())
@@ -137,14 +134,25 @@ function validateSubmission(formData) {
 	};
 
 	if (errors.length) return invalid(errors[0]);
+	if (!submission.yourName) return invalid("Please enter your name.");
 	if (!submission.role) return invalid("Please select who you are.");
 	if (!VALID_ROLES.has(submission.role)) return invalid("Please select a valid role.");
-	if (!submission.name) return invalid("Please enter your organization or author name.");
 	if (!submission.email) return invalid("Please enter your email.");
 	if (!EMAIL_PATTERN.test(submission.email)) return invalid("Please enter a valid email.");
-	if (!submission.project) return invalid("Please describe what you want to publish or launch.");
+	if (!submission.project) return invalid("Please describe what you intend to publish or launch.");
+
+	const isAuthor = submission.role === "Author";
+	if (!isAuthor) {
+		if (!submission.name) return invalid("Please enter your organization name.");
+		if (!submission.website) return invalid("Please enter your website.");
+	}
+
+	if (submission.website && !/^https?:\/\/.+/.test(submission.website)) {
+		return invalid("Please enter a valid website URL starting with http:// or https://.");
+	}
+
 	if (submission.needs.some((need) => !VALID_NEEDS.has(need))) {
-		return invalid("Please select valid onboarding needs.");
+		return invalid("Please select valid features.");
 	}
 
 	if (submission.titles && !/^\d{1,12}$/.test(submission.titles)) {
@@ -164,24 +172,22 @@ function getConfig(env, request) {
 	const clientSecret = clean(env.PINGRAM_CLIENT_SECRET, 500);
 	const senderName = clean(env.PINGRAM_SENDER_NAME, 120) || "ReaderPub";
 	const senderEmail = clean(env.PINGRAM_SENDER_EMAIL, 254);
-	const toEmail = clean(env.ONBOARDING_TO_EMAIL, 254);
-	const replyToEmail = clean(env.ONBOARDING_REPLY_TO_EMAIL, 254) || toEmail || senderEmail;
+	const toEmail = clean(env.ONBOARDING_TO_EMAIL, 254) || "support@reader.pub";
 	const siteName = clean(env.ONBOARDING_SITE_NAME, 120) || "ReaderPub";
 	const baseUrl = clean(
 		env.PINGRAM_API_BASE_URL || env.NOTIFICATIONAPI_BASE_URL || "https://api.notificationapi.com",
 		300
 	).replace(/\/+$/, "");
-	const siteUrl = clean(env.ONBOARDING_SITE_URL, 300) || new URL(request.url).origin;
-	const logoUrl = clean(env.ONBOARDING_LOGO_URL, 500) || `${siteUrl.replace(/\/+$/, "")}/images/small-logo.jpg`;
+	const logoUrl = clean(env.ONBOARDING_LOGO_URL, 500) || "";
 
 	if (!apiKey && !(clientId && clientSecret)) {
 		return { ok: false, error: "Email provider configuration is incomplete." };
 	}
-	if (!senderEmail || !toEmail) {
-		return { ok: false, error: "Onboarding email configuration is incomplete." };
+	if (!senderEmail) {
+		return { ok: false, error: "Sender email configuration is incomplete." };
 	}
-	if (!EMAIL_PATTERN.test(senderEmail) || !EMAIL_PATTERN.test(toEmail) || !EMAIL_PATTERN.test(replyToEmail)) {
-		return { ok: false, error: "Onboarding email configuration is invalid." };
+	if (!EMAIL_PATTERN.test(senderEmail)) {
+		return { ok: false, error: "Sender email configuration is invalid." };
 	}
 
 	return {
@@ -193,7 +199,6 @@ function getConfig(env, request) {
 		senderName,
 		senderEmail,
 		toEmail,
-		replyToEmail,
 		siteName,
 		logoUrl,
 	};
@@ -228,70 +233,52 @@ async function verifyTurnstile({ request, env, formData }) {
 	}
 }
 
-function buildInternalEmail(submission, config) {
-	const subject = `${config.siteName} onboarding request: ${submission.name}`;
+function buildEmail(submission, config) {
+	const subject = `${submission.role}: ${submission.yourName}`;
+
 	const lines = [
+		`Name: ${submission.yourName}`,
 		`Role: ${submission.role}`,
-		`Name: ${submission.name}`,
+		submission.name ? `Organization: ${submission.name}` : null,
+		submission.website ? `Website: ${submission.website}` : null,
 		`Email: ${submission.email}`,
-		`Website: ${submission.website || "-"}`,
-		`Phone: ${submission.phone || "-"}`,
-		`Titles: ${submission.titles || "-"}`,
-		`Timeline: ${submission.timeline || "-"}`,
-		`Topic: ${submission.topic || "-"}`,
-		`Needs: ${submission.needs.length ? submission.needs.join(", ") : "-"}`,
+		submission.phone ? `Phone: ${submission.phone}` : null,
+		submission.titles ? `Titles: ${submission.titles}` : null,
+		submission.timeline ? `Timeline: ${submission.timeline}` : null,
+		submission.topic ? `Topic: ${submission.topic}` : null,
+		submission.needs.length ? `Features needed: ${submission.needs.join(", ")}` : null,
+	].filter(Boolean);
+
+	const bodyLines = [
+		...lines,
 		"",
-		"Project:",
+		"What do you intend to publish:",
 		submission.project,
-		"",
-		"Notes:",
-		submission.notes || "-",
-	];
+		submission.notes ? `\nAdditional notes:\n${submission.notes}` : "",
+	].join("\n");
+
+	const htmlBody = lines
+		.map((line) => `<p>${escapeHtml(line)}</p>`)
+		.join("") +
+		`<br><p><strong>What do you intend to publish:</strong></p><p>${escapeHtml(submission.project)}</p>` +
+		(submission.notes
+			? `<br><p><strong>Additional notes:</strong></p><p>${escapeHtml(submission.notes)}</p>`
+			: "");
 
 	return {
 		to: config.toEmail,
-		toId: "readerpub-onboarding",
+		toId: "readerpub-contact",
 		subject,
-		text: lines.join("\n"),
-		html: `<h2>${escapeHtml(subject)}</h2>${lines
-			.map((line) => (line ? `<p>${escapeHtml(line)}</p>` : "<br>"))
-			.join("")}`,
-	};
-}
-
-function buildAutoReplyEmail(submission, config) {
-	const subject = `We received your ${config.siteName} onboarding request`;
-	const logoHtml = config.logoUrl
-		? `<br><img src="${escapeHtml(config.logoUrl)}" alt="${escapeHtml(
-				config.siteName
-		  )}" width="100" style="display:block;margin-top:12px;max-width:100px;height:auto;border:0;">`
-		: "";
-	const text = [
-		`Hello ${submission.name},`,
-		"",
-		`Thank you for contacting ${config.siteName}. We received your onboarding request and will reply with an onboarding plan and proposed timeline soon.`,
-		"",
-		"Best regards,",
-		"",
-		config.siteName,
-	].join("\n");
-
-	return {
-		to: submission.email,
-		toId: submission.email,
-		subject,
-		text,
-		html: `<p>Hello ${escapeHtml(submission.name)},</p><p>Thank you for contacting ${escapeHtml(
-			config.siteName
-		)}. We received your onboarding request and will reply with an onboarding plan and proposed timeline soon.</p><p>Best regards,<br>${escapeHtml(
-			config.siteName
-		)}${logoHtml}</p>`,
+		text: bodyLines,
+		html: htmlBody,
+		replyTo: submission.email,
+		replyToName: submission.yourName,
 	};
 }
 
 async function sendPingramEmail(config, message) {
 	const payload = {
-		type: "readerpub_onboarding",
+		type: "readerpub_contact",
 		to: {
 			id: message.toId || message.to,
 			email: message.to,
@@ -307,7 +294,7 @@ async function sendPingramEmail(config, message) {
 			email: {
 				fromAddress: config.senderEmail,
 				fromName: config.senderName,
-				replyToAddresses: [config.replyToEmail],
+				replyToAddresses: [message.replyTo],
 			},
 		},
 	};

@@ -7,6 +7,8 @@ const {
 	title = `${SITE_NAME} — Public Reading and Publishing Platform`,
 	description = `${SITE_NAME} is a public reading and publishing platform for readers, authors, and institutions.`,
 } = Astro.props;
+
+const isKb = Astro.url.pathname === "/kb";
 ---
 
 <html lang="en">
@@ -35,6 +37,7 @@ const {
 				<p>© 2026, ReaderPub, Inc. | Patent pending with USPTO | Credits: Project Gutenberg</p>
 			</footer>
 		</div>
+		<a href={isKb ? "/" : "/kb"} class="kb-fab" title={isKb ? "Home" : "Knowledge Base"}>{isKb ? "✕" : "?"}</a>
 		<script is:inline>
 			(() => {
 				const root = document.body;
