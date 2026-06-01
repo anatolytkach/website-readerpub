@@ -54,11 +54,6 @@ export async function onRequestPost({ request, env }) {
 			return json({ ok: false, error: "Invalid form submission." }, 400);
 		}
 
-		const gotcha = clean(formData.get("_gotcha"), 200);
-		if (gotcha) {
-			return json({ ok: true });
-		}
-
 		const turnstileResult = await verifyTurnstile({ request, env, formData });
 		if (!turnstileResult.ok) {
 			return json({ ok: false, error: turnstileResult.error }, 400);
