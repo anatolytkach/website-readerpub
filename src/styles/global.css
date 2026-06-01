@@ -450,6 +450,7 @@ section > :last-child {
 	text-decoration: none;
 	font-weight: 600;
 	font-size: 14px;
+	cursor: pointer;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
