@@ -150,7 +150,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				<h3>Starter</h3>
 				<p>for pilots and small collections</p>
 				<ul class="bullets">
-					<li>$499 / month</li>
+					<li class="no-bullet" style="font-weight: 700;">$499 / month</li>
 					<li>Up to 5,000 titles</li>
 					<li>Up to 200 GB storage</li>
 					<li>reader.pub subdomain</li>
@@ -161,7 +161,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				<h3>Standard</h3>
 				<p>for libraries and departments</p>
 				<ul class="bullets">
-					<li>$1,499 / month</li>
+					<li class="no-bullet" style="font-weight: 700;">$1,499 / month</li>
 					<li>Up to 50,000 titles</li>
 					<li>Up to 1 TB storage</li>
 					<li>Custom subdomain option</li>
@@ -173,7 +173,7 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				<h3>Enterprise</h3>
 				<p>for university systems and public agencies</p>
 				<ul class="bullets">
-					<li>Talk to us</li>
+					<li class="no-bullet" style="font-weight: 700;">Talk to us</li>
 					<li>100,000+ titles</li>
 					<li>SSO/SAML</li>
 					<li>Dedicated onboarding</li>
@@ -213,6 +213,11 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 	</TextFirstSection>
 
 	<style>
+		.no-bullet {
+			list-style: none;
+			margin-left: -15px;
+		}
+
 		.pricing-hero {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr) minmax(0, 368px);

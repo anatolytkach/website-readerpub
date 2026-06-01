@@ -37,10 +37,10 @@ const faqBlocks = [
 		title: "About the Platform",
 		items: [
 			{ q: "What products are included in ReaderPub?", a: "ReaderPub includes WeRead for readers, WePub for publishing organizations, and BookTree for researchers, authors, and knowledge management workflows." },
-			{ q: "What is WeRead?", a: "WeRead is ReaderPub's browser-based reading environment designed for books, documents, and long-form content." },
+			{ q: "What is WeRead?", a: "WeRead is ReaderPub's browser-based eReader designed for books, documents, and long-form content." },
 			{ q: "What is WePub?", a: "WePub provides publishing tools and workflows for authors, publishers, libraries, and institutions." },
 			{ q: "What is BookTree?", a: "BookTree helps users collect excerpts, organize sources, and manage research materials." },
-			{ q: "Why is ReaderPub browser-based?", a: "A browser-based platform reduces installation requirements and allows content to be accessed across multiple devices through a consistent interface." },
+			{ q: "Why is ReaderPub browser-based?", a: "A browser-based platform eliminates apps, downloads, or platform lock-in, thus allowing content to be accessed across multiple devices through a consistent interface." },
 		],
 	},
 	{
@@ -48,7 +48,7 @@ const faqBlocks = [
 		items: [
 			{ q: "Does ReaderPub require readers to install software?", a: "No. ReaderPub is designed to work directly through standard web browsers." },
 			{ q: "Who owns published content?", a: "Content ownership remains with the author or institution that publishes it through the platform." },
-			{ q: "Does ReaderPub support secure web access?", a: "Yes. ReaderPub uses HTTPS connections to protect data transmitted between users and the platform." },
+			{ q: "How does ReaderPub protect books from piracy?", a: "All your books are fully protected by the patent-pending WeRead Theft Guard that employs glyph images instead of regular characters, so the text is not accessible to crawling robots." },
 			{ q: "Can institutions control access to content?", a: "Yes. Access policies can be configured according to the needs of the publishing organization." },
 			{ q: "Does ReaderPub store publications securely?", a: "Yes. Published content is managed through controlled publishing infrastructure designed for reliability and long-term availability." },
 		],
@@ -57,9 +57,9 @@ const faqBlocks = [
 		title: "Our Pricing",
 		items: [
 			{ q: "Is ReaderPub free for readers?", a: "Public-domain books can be read free of charge. Pricing for commercial publications depends on publisher settings." },
-			{ q: "How does ReaderPub charge authors?", a: "ReaderPub offers publishing services with pricing that depends on the publication type and selected features." },
-			{ q: "Are there separate plans for institutions?", a: "Yes. Institutional publishing services are available for organizations with larger catalogs and specialized requirements." },
 			{ q: "Does ReaderPub support paid books?", a: "Yes. Publishers and authors can choose whether publications are free or commercial." },
+			{ q: "How does ReaderPub charge authors and publishers?", a: "ReaderPub charges individual creators a base 5% sales commission. Larger publishing houses pay a catalogue storage fee from $9 to $199 per month, depending on their volume." },
+			{ q: "Are there separate plans for institutions?", a: "Yes. Institutional publishing services are available for organizations with larger catalogs and specialized requirements." },
 			{ q: "Can I contact ReaderPub for custom pricing?", a: "Yes. Organizations with specific publishing requirements can contact ReaderPub directly to discuss custom solutions." },
 		],
 	},
@@ -147,7 +147,6 @@ const faqBlocks = [
 	.kb-help-button {
 		flex-shrink: 0;
 		font-weight: 400;
-		padding: 10px 18px;
 		line-height: 1;
 		margin-left: auto;
 	}
@@ -318,12 +317,6 @@ const faqBlocks = [
 	.kb-help-modal-actions {
 		justify-content: center;
 		margin-top: 6px;
-	}
-
-	.kb-help-modal-actions .button {
-		font-weight: 400;
-		padding: 6px 12px;
-		line-height: 1;
 	}
 
 	@media (orientation: portrait) {
