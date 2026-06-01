@@ -346,14 +346,41 @@ const faqBlocks = [
 		}
 
 		.kb-hero-row {
-			flex-wrap: wrap;
-			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.kb-hero-row h1 {
+			flex: none;
+			text-align: center;
+		}
+
+		.kb-help-button {
+			margin-left: 0 !important;
+			align-self: center;
 		}
 	}
 
 	@media (max-width: 700px) {
 		.kb-faq-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.kb-hero-row {
+			flex-direction: column;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.kb-hero-row h1 {
+			flex: none;
+			text-align: center;
+		}
+
+		.kb-help-button {
+			margin-left: 0 !important;
+			align-self: center;
 		}
 
 		.kb-faq-item,
