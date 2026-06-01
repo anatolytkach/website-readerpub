@@ -42,6 +42,20 @@ const isKb = Astro.url.pathname === "/kb";
 		<a href={isKb ? "/" : "/kb"} class="kb-fab" title={isKb ? "Home" : "Knowledge Base"} transition:persist>{isKb ? "✕" : "?"}</a>
 		<script is:inline>
 			(() => {
+				const fab = document.querySelector(".kb-fab");
+				const updateFab = () => {
+					if (!fab) return;
+					const isKb = window.location.pathname === "/kb" || window.location.pathname === "/kb/";
+					fab.href = isKb ? "/" : "/kb";
+					fab.title = isKb ? "Home" : "Knowledge Base";
+					fab.textContent = isKb ? "✕" : "?";
+				};
+				updateFab();
+				document.addEventListener("astro:page-load", updateFab);
+			})();
+		</script>
+		<script is:inline>
+			(() => {
 				const root = document.body;
 				root.classList.add("scroll-animate");
 				const targets = Array.from(

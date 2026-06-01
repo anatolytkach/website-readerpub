@@ -14,6 +14,7 @@ const FIELD_LIMITS = {
 	timeline: 80,
 	notes: 3000,
 	topic: 120,
+	category: 120,
 };
 
 const VALID_ROLES = new Set([
@@ -118,6 +119,7 @@ function validateSubmission(formData) {
 		timeline: field("timeline", "Timeline"),
 		notes: field("notes", "Notes"),
 		topic: field("topic", "Topic"),
+		category: field("category", "Category"),
 		needs: formData
 			.getAll("needs")
 			.map((value) => String(value || "").trim())
@@ -130,16 +132,17 @@ function validateSubmission(formData) {
 
 	if (errors.length) return invalid(errors[0]);
 	if (!submission.yourName) return invalid("Please enter your name.");
-	if (!submission.role) return invalid("Please select who you are.");
-	if (!VALID_ROLES.has(submission.role)) return invalid("Please select a valid role.");
 	if (!submission.email) return invalid("Please enter your email.");
 	if (!EMAIL_PATTERN.test(submission.email)) return invalid("Please enter a valid email.");
-	if (!submission.project) return invalid("Please describe what you intend to publish or launch.");
 
-	const isAuthor = submission.role === "Author";
-	if (!isAuthor) {
-		if (!submission.name) return invalid("Please enter your organization name.");
-		if (!submission.website) return invalid("Please enter your website.");
+	if (submission.role) {
+		if (!VALID_ROLES.has(submission.role)) return invalid("Please select a valid role.");
+		const isAuthor = submission.role === "Author";
+		if (!isAuthor) {
+			if (!submission.name) return invalid("Please enter your organization name.");
+			if (!submission.website) return invalid("Please enter your website.");
+		}
+		if (!submission.project) return invalid("Please describe what you intend to publish or launch.");
 	}
 
 	if (submission.website && !/^https?:\/\/.+/.test(submission.website)) {
@@ -229,11 +232,15 @@ async function verifyTurnstile({ request, env, formData }) {
 }
 
 function buildEmail(submission, config) {
-	const subject = `${submission.role}: ${submission.yourName}`;
+	const hasRole = !!submission.role;
+	const subject = hasRole
+		? `${submission.role}: ${submission.yourName}`
+		: `Help request: ${submission.yourName}`;
 
 	const lines = [
 		`Name: ${submission.yourName}`,
-		`Role: ${submission.role}`,
+		hasRole ? `Role: ${submission.role}` : null,
+		submission.category ? `Category: ${submission.category}` : null,
 		submission.name ? `Organization: ${submission.name}` : null,
 		submission.website ? `Website: ${submission.website}` : null,
 		`Email: ${submission.email}`,
@@ -244,21 +251,29 @@ function buildEmail(submission, config) {
 		submission.needs.length ? `Features needed: ${submission.needs.join(", ")}` : null,
 	].filter(Boolean);
 
+	const projectSection = hasRole && submission.project
+		? `What do you intend to publish:\n${submission.project}`
+		: "";
+	const notesSection = submission.notes
+		? `\nDescribe your issue:\n${submission.notes}`
+		: "";
+
 	const bodyLines = [
 		...lines,
-		"",
-		"What do you intend to publish:",
-		submission.project,
-		submission.notes ? `\nAdditional notes:\n${submission.notes}` : "",
-	].join("\n");
+		projectSection ? `\n${projectSection}` : "",
+		notesSection,
+	].filter(Boolean).join("\n");
 
 	const htmlBody = lines
 		.map((line) => `<p>${escapeHtml(line)}</p>`)
 		.join("") +
-		`<br><p><strong>What do you intend to publish:</strong></p><p>${escapeHtml(submission.project)}</p>` +
+		(projectSection
+			? `<br><p><strong>What do you intend to publish:</strong></p><p>${escapeHtml(submission.project || "")}</p>`
+			: "") +
 		(submission.notes
-			? `<br><p><strong>Additional notes:</strong></p><p>${escapeHtml(submission.notes)}</p>`
+			? `<br><p><strong>Describe your issue:</strong></p><p>${escapeHtml(submission.notes)}</p>`
 			: "");
+
 
 	return {
 		to: config.toEmail,
