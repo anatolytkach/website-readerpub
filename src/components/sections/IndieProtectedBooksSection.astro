@@ -43,29 +43,33 @@ const featuredBooks = [
 ---
 
 <section class="section spec-cards-section home-indie-section">
-	<h2 id="indie-releases" class="indie-protection-heading">
-		<SectionIcon type="security" title="Protected publication" />
-		<span>Your publications on ReaderPub are protected against piracy.</span>
-	</h2>
-	<p class="home-full-width-copy">
-		When you publish your book with us, it is fully protected against downloading or copying by the patent-pending WeRead Theft Guard. See for yourself:
-	</p>
-	<div class="card-grid">
-		{featuredBooks.map((b) => (
-			<a class="book-card-link" href={b.readUrl} target="_blank" rel="noreferrer">
-				<div class="card book-card">
-					<div class="book-cover-placeholder" style={`background-image: url('${b.coverUrl}');`}></div>
-					<div class="book-card-text">
-						<h3>{b.title}</h3>
-						<p>{b.author}</p>
-						<div class="book-card-protected">
-							<span>Protected by<br />WeRead Theft Guard</span>
-							<img src="/images/protected-shield.svg" alt="" aria-hidden="true" />
+	<div class="indie-protection-layout">
+		<div class="indie-protection-copy">
+			<h2 id="indie-releases" class="indie-protection-heading">
+				<SectionIcon type="security" title="Protected publication" />
+				<span>Your publications on ReaderPub are protected against piracy.</span>
+			</h2>
+			<p class="indie-protection-intro">
+				When you publish your book with us, it is fully protected against downloading or copying by the patent-pending <strong class="indie-theft-guard-name">WeRead Theft Guard</strong>.<br /><span class="indie-protection-intro-note">Check for yourself whether you can copy the text from these books:</span>
+			</p>
+		</div>
+		<div class="indie-protection-books">
+			{featuredBooks.map((b) => (
+				<a class="book-card-link" href={b.readUrl} target="_blank" rel="noreferrer">
+					<div class="card book-card">
+						<div class="book-cover-placeholder" style={`background-image: url('${b.coverUrl}');`}></div>
+						<div class="book-card-text">
+							<h3>{b.title}</h3>
+							<p>{b.author}</p>
+							<div class="book-card-protected">
+								<span>Protected by<br /><strong class="indie-theft-guard-name">WeRead Theft Guard</strong></span>
+								<SectionIcon type="security" title="WeRead Theft Guard" />
+							</div>
 						</div>
 					</div>
-				</div>
-			</a>
-		))}
+				</a>
+			))}
+		</div>
 	</div>
 </section>
 
@@ -84,11 +88,55 @@ const featuredBooks = [
 		transform: translateY(-2px);
 	}
 
+	.indie-protection-layout {
+		display: grid;
+		grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+		column-gap: 32px;
+		align-items: center;
+		width: 100%;
+	}
+
+	.indie-protection-copy {
+		display: flex;
+		flex-direction: column;
+		gap: var(--section-flow-gap);
+		min-width: 0;
+	}
+
+	.indie-protection-copy > * {
+		margin: 0;
+	}
+
+	.indie-protection-intro {
+		color: var(--link);
+		font-size: 18px;
+		line-height: 1.35;
+		max-width: none !important;
+	}
+
+	.indie-protection-intro-note {
+		color: var(--text);
+	}
+
+	.indie-protection-books {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(min(100%, 280px), 1fr));
+		gap: var(--section-flow-gap);
+		align-items: stretch;
+		width: 100%;
+		min-width: 0;
+		justify-content: stretch;
+	}
+
 	.indie-protection-heading {
 		display: inline-flex;
 		align-items: center;
 		gap: 12px;
 		scroll-margin-top: 120px;
+	}
+
+	.indie-protection-heading > span {
+		min-width: 0;
 	}
 
 	.indie-protection-heading :global(.section-icon) {
@@ -159,25 +207,55 @@ const featuredBooks = [
 		overflow-wrap: anywhere;
 	}
 
-	.book-card-protected img {
-		width: 18px;
-		height: 18px;
+	.book-card-protected :global(.section-icon) {
+		width: 31.2px;
+		height: 31.2px;
 		flex-shrink: 0;
 	}
 
-	.home-thanks-note {
-		color: var(--text) !important;
+	.book-card-protected .indie-theft-guard-name {
+		color: var(--link);
 	}
 
-	.home-full-width-copy {
-		max-width: none !important;
+	.indie-theft-guard-name {
+		font-family: "Playfair Display", serif;
+		font-weight: 700;
+		color: inherit;
 	}
 
-	.home-indie-section p {
-		max-width: none !important;
+	@media (orientation: portrait) {
+		.indie-protection-copy {
+			align-items: center;
+			text-align: center;
+		}
+
+		.indie-protection-heading {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			width: 100%;
+		}
+
+		.indie-protection-heading > span {
+			order: 1;
+		}
+
+		.indie-protection-heading :global(.section-icon) {
+			order: 2;
+		}
+	}
+
+	@media (max-width: 980px) {
+		.indie-protection-layout {
+			grid-template-columns: 1fr;
+			row-gap: var(--section-flow-gap);
+		}
 	}
 
 	@media (max-width: 640px) {
+		.indie-protection-books {
+			grid-template-columns: 1fr;
+		}
 		.book-card {
 			gap: 14px;
 			padding: 16px;
