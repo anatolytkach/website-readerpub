@@ -42,10 +42,10 @@ const featuredBooks = [
 ];
 ---
 
-<section class="section spec-cards-section home-indie-section">
-	<div class="indie-protection-layout">
+<section id="indie-releases" class="section spec-cards-section home-indie-section">
+		<div class="indie-protection-layout">
 		<div class="indie-protection-copy">
-			<h2 id="indie-releases" class="indie-protection-heading">
+			<h2 class="indie-protection-heading">
 				<SectionIcon type="security" title="Protected publication" />
 				<span>Your publications on ReaderPub are protected against piracy.</span>
 			</h2>
@@ -128,11 +128,14 @@ const featuredBooks = [
 		justify-content: stretch;
 	}
 
+	.home-indie-section {
+		scroll-margin-top: 100px;
+	}
+
 	.indie-protection-heading {
 		display: inline-flex;
 		align-items: center;
 		gap: 12px;
-		scroll-margin-top: 120px;
 	}
 
 	.indie-protection-heading > span {
