@@ -1047,6 +1047,33 @@ section > :last-child {
 	color: var(--link-hover);
 }
 
+.site-footer-products {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 16px;
+	align-items: center;
+}
+
+.site-footer-products h4 {
+	font-family: "Space Grotesk", system-ui, sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	color: #ffffff;
+	margin: 0;
+	text-shadow: inherit;
+}
+
+.site-footer-products a {
+	font-size: 14px;
+}
+
+@media (orientation: portrait) {
+	.site-footer-products {
+		gap: 12px;
+	}
+}
+
 @media (orientation: portrait) {
 	section {
 		padding: 29px 0;

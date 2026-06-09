@@ -3,23 +3,34 @@ const cards = [
 	{
 		href: "/readers",
 		title: "For Readers",
-		headline: "Read Any Book Instantly",
+		headlinePrefix: "Read any book instantly in ",
+		product: "WeRead",
 		subheadline:
 			"Books open directly in your browser with fast search, annotations, and seamless reading across devices.",
 	},
 	{
 		href: "/authors",
 		title: "For Authors & Publishers",
-		headline: "Publish Without Platform Lock-In",
+		headlinePrefix: "Publish on the web with ",
+		product: "WePub",
 		subheadline:
 			"5% sales commission. Direct reader relationships. First-party analytics. Fan clubs built in.",
 	},
 	{
 		href: "/institutions",
 		title: "For Institutions",
-		headline: "Unlock Underused Publications",
+		headlinePrefix: "Unlock underused publications through ",
+		product: "WePub",
 		subheadline:
 			"Transform archives, research publications, and digital collections into searchable browser-accessible assets.",
+	},
+	{
+		href: "/webuzz",
+		title: "For Discussion",
+		headlinePrefix: "Socialize around books in ",
+		product: "WeBuzz",
+		subheadline:
+			"Discuss books, authors, and passages. Connect readers, authors, publishers, and institutions through shared reading.",
 	},
 ];
 ---
@@ -33,7 +44,9 @@ const cards = [
 					<span class="audience-nav-card-arrow" aria-hidden="true">→</span>
 				</span>
 				<div class="audience-nav-card-copy">
-					<p class="audience-nav-card-headline">{card.headline}</p>
+					<p class="audience-nav-card-headline">
+						{card.headlinePrefix}<span class="audience-nav-product">{card.product}</span>.
+					</p>
 					<p class="audience-nav-card-subheadline">{card.subheadline}</p>
 				</div>
 			</a>
@@ -43,7 +56,7 @@ const cards = [
 
 <style>
 	.audience-nav-grid {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 		justify-content: stretch;
 		justify-items: stretch;
 		width: 100%;
@@ -104,10 +117,22 @@ const cards = [
 		color: var(--link);
 	}
 
+	.audience-nav-product {
+		color: var(--text);
+		font-family: "Playfair Display", serif;
+		font-weight: 700;
+	}
+
 	.audience-nav-card-subheadline {
 		font-size: 15.3px;
 		line-height: 1.35;
 		color: var(--text);
+	}
+
+	@media (max-width: 1100px) {
+		.audience-nav-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
 	}
 
 	@media (max-width: 900px) {

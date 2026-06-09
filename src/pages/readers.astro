@@ -21,9 +21,9 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 	</TextFirstSection>
 
 	<SpecCardsSection class="readers-benefits-section section-continuation">
-		<div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+		<div class="card-grid readers-feature-cards">
 			<div class="card">
-				<h2>WeRead: Reader benefits</h2>
+				<h2><span class="readers-card-product">WeRead:</span> Reader benefits</h2>
 				<p>A personal reading space built for discovery and continuity.</p>
 				<ul class="bullets">
 					<li>Curated shelves, reading plans, and discovery lists.</li>
@@ -40,12 +40,28 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				</div>
 			</div>
 			<div class="card">
-				<h2>BookTree: Built for serious reading</h2>
+				<h2><span class="readers-card-product">WeBuzz:</span> Reading is better together.</h2>
+				<p>Books become more meaningful when they are discussed.</p>
+				<p class="readers-card-body">With WeBuzz, readers can talk about books, authors, and specific passages. Follow readers whose insights you value and discover new books through conversation.</p>
+				<ul class="bullets">
+					<li>Discuss books and authors</li>
+					<li>Comment on specific passages</li>
+					<li>Follow other readers</li>
+					<li>Discover books through discussion</li>
+					<li>Join literary communities</li>
+				</ul>
+				<div class="cta-row">
+					<a class="button" href="/wetalk/" target="_blank">Join the Conversation</a>
+				</div>
+			</div>
+			<div class="card">
+				<h2><span class="readers-card-product">BookTree:</span> Built for serious reading</h2>
 				<p>Structure, focus, and long-term work with texts.</p>
 				<ul class="bullets">
 					<li>Organize books, excerpts, and references across projects.</li>
 					<li>Keep context while reading long and complex materials.</li>
 					<li>Build personal knowledge maps from what you read.</li>
+					<li>Consolidate your notes from multiple books while working on your own manuscript.</li>
 					<li>Designed for sustained attention, not endless scrolling.</li>
 				</ul>
 				<div class="cta-row">
@@ -86,8 +102,27 @@ import TextFirstSection from "../components/sections/TextFirstSection.astro";
 				margin-top: 0 !important;
 			}
 
+			.readers-feature-cards {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+
 			:global(.readers-benefits-section .card h2) {
 				color: var(--text);
+			}
+
+			:global(.readers-benefits-section .readers-card-product) {
+				color: var(--link) !important;
+			}
+
+			:global(.readers-benefits-section .readers-card-body) {
+				color: var(--text) !important;
+				font-size: 16px;
+			}
+
+			@media (max-width: 1100px) {
+				.readers-feature-cards {
+					grid-template-columns: 1fr;
+				}
 			}
 
 		</style>

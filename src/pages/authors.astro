@@ -60,7 +60,7 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 				communities can iterate on context across reading circles.
 			</p>
 		</div>
-		<div class="card-grid author-commerce-grid">
+		<div class="card-grid author-commerce-grid author-commerce-grid-intro">
 			<div class="card icon-grid-card author-icon-card">
 				<SectionIcon type="dollars" title="Monetize your catalog" />
 				<div class="icon-grid-card-copy">
@@ -92,19 +92,20 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 				</div>
 			</div>
 			<div class="card icon-grid-card author-icon-card">
-				<SectionIcon type="fan" title="Fan clubs for every book and author" />
+				<SectionIcon type="fan" title="Meet your readers where they read" />
 				<div class="icon-grid-card-copy">
-					<h2>Fan clubs for every book and author.</h2>
-					<p>
-						Build a member community around your work. Reward readers, announce releases, and
-						turn buyers into loyal fans.
-					</p>
+					<h2>Meet your readers where they read.</h2>
+					<p><strong class="author-community-highlight">WeBuzz Community</strong> gives authors a direct connection to readers. Participate in discussions, answer questions, respond to reactions, and build a community around your work. Conversations can happen around an entire book or around individual passages.</p>
 					<ul class="bullets">
-						<li>Members-only posts, updates, and behind-the-scenes notes.</li>
-						<li>Early access, bonus chapters, and limited drops.</li>
-						<li>Direct announcements to your registered audience.</li>
-						<li>Fan insights tied to sales — what converts and retains.</li>
+						<li>Participate in reader discussions</li>
+						<li>Answer questions directly</li>
+						<li>Build communities around books</li>
+						<li>See what readers discuss most</li>
+						<li>Stay connected after publication</li>
 					</ul>
+					<div class="cta-row">
+						<a class="button" href="/wetalk/" target="_blank">Explore Reader Discussions</a>
+					</div>
 				</div>
 			</div>
 			<div class="card icon-grid-card author-icon-card">
@@ -120,6 +121,13 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 					<a class="button secondary" href="/security#control-who-reads">Learn more about our protection model</a>
 				</div>
 			</div>
+		</div>
+	</SpecCardsSection>
+
+	<IndieProtectedBooksSection />
+
+	<SpecCardsSection class="section-continuation">
+		<div class="card-grid author-commerce-grid">
 			<div class="card icon-grid-card author-icon-card">
 				<SectionIcon type="author" title="Author benefits" />
 				<div class="icon-grid-card-copy">
@@ -149,8 +157,6 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 			</div>
 		</div>
 	</SpecCardsSection>
-
-	<IndieProtectedBooksSection />
 
 	<section class="footer-cta author-publish-cta">
 		<h2>Publish your book on ReaderPub</h2>
@@ -216,8 +222,22 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 				justify-content: flex-start;
 			}
 
-		.author-amazon-commerce-section {
+		:global(.author-amazon-commerce-section) {
 			padding-top: 28px !important;
+			padding-bottom: 29px !important;
+		}
+
+		:global(.home-indie-section) {
+			padding-top: 29px !important;
+			padding-bottom: 29px !important;
+		}
+
+		:global(.home-indie-section + .section-continuation) {
+			padding-top: 29px !important;
+		}
+
+		:global(.home-indie-section + .section-continuation > .author-commerce-grid) {
+			margin-top: 0 !important;
 		}
 
 		:global(.author-commerce-grid) {
@@ -234,8 +254,22 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 			max-width: none !important;
 		}
 
+		:global(.author-commerce-grid-intro) {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		}
+
+		:global(.author-commerce-grid-intro > .author-icon-card:nth-child(n + 3)) {
+			grid-template-rows: auto auto 1fr auto;
+		}
+
 		:global(.author-commerce-grid .card h2) {
 			color: var(--text);
+		}
+
+		.author-community-highlight {
+			color: var(--text);
+			font-family: "Playfair Display", serif;
+			font-weight: 700;
 		}
 
 		.author-contrast-note {
@@ -365,10 +399,18 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 			:global(.author-commerce-grid) {
 				grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 			}
+
+			:global(.author-commerce-grid-intro) {
+				grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+			}
 		}
 
 		@media (max-width: 900px) {
 			:global(.author-commerce-grid) {
+				grid-template-columns: 1fr !important;
+			}
+
+			:global(.author-commerce-grid-intro) {
 				grid-template-columns: 1fr !important;
 			}
 		}

@@ -41,7 +41,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 	</section>
 
 	<SpecCardsSection class="section-continuation">
-		<h2>Three products. One connected platform.</h2>
+		<h2>Four products. One connected platform.</h2>
 		<div class="card-grid platform-three-grid">
 			<div class="card">
 				<h3>WePub</h3>
@@ -81,6 +81,19 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 				<button class="button secondary" type="button" data-modal-open="#booktree-modal">
 					Explore BookTree
 				</button>
+			</div>
+			<div class="card">
+				<h3>WeBuzz</h3>
+				<p>Discuss books, authors, and passages with readers around the world. Build communities around literature, connect directly with authors and publishers, and turn reading into a shared experience.</p>
+				<ul class="bullets">
+					<li>Book discussions</li>
+					<li>Author discussions</li>
+					<li>Passage discussions</li>
+					<li>Reader communities</li>
+					<li>Author participation</li>
+					<li>Publisher engagement</li>
+				</ul>
+				<a class="button secondary" href="/wetalk/" target="_blank">Explore WeBuzz</a>
 			</div>
 		</div>
 	</SpecCardsSection>
@@ -673,7 +686,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		}
 
 		.platform-three-grid {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 		}
 
 		.platform-five-grid {
