@@ -19,7 +19,7 @@ const { standalone = false } = Astro.props;
 	<div class="security-hero-copy">
 		<div class="menu-eyebrow">SECURITY</div>
 		<h1 class="security-hero-title">Protect the book. Control the access.</h1>
-		<p class="lede security-hero-primary-lede">
+		<p class="lede security-hero-primary-lede security-mobile-left-text">
 			Most large-scale ebook piracy does not begin by breaking platforms. It begins when a complete book file reaches a user’s device, is extracted, converted, and redistributed.
 		</p>
 		<img
@@ -32,7 +32,7 @@ const { standalone = false } = Astro.props;
 			width="897"
 			height="791"
 		/>
-		<p class="security-hero-followup">
+		<p class="security-hero-followup security-mobile-left-text">
 			ReaderPub reduces that risk by keeping reading access on the web instead of delivering a downloadable file — while giving you full control over who can access your content and how it is distributed. Web-accessible editions are fully protected against downloading or copying.
 		</p>
 		<div class="cta-row security-hero-actions">
@@ -53,7 +53,7 @@ const { standalone = false } = Astro.props;
 
 <SpecCardsSection class="section-continue-next security-first-section">
 	<h2>How file-based piracy scales</h2>
-	<p>
+	<p class="security-mobile-left-text">
 		In traditional ebook distribution, a complete file is delivered to the end user. Once that file exists on a device, it becomes the starting point for extraction, conversion, and redistribution.
 	</p>
 	<div class="card-grid security-steps-grid">
@@ -78,14 +78,14 @@ const { standalone = false } = Astro.props;
 			<p>Once a reusable file circulates, redistribution can scale quickly.</p>
 		</div>
 	</div>
-	<p style="color: var(--text);">This pattern is repeatable, automatable, and widely used across the industry.</p>
+	<p style="color: var(--text);">This pattern is repeatable, automatable, and widely used <strong>by book pirates</strong> across the industry!</p>
 </SpecCardsSection>
 
 <SpecCardsSection class="section-continuation section-continue-next">
 	<div class="security-distribution-layout">
 		<div class="security-distribution-copy">
 			<h2>Protected distribution without file-first delivery</h2>
-			<p class="security-green-copy">
+			<p class="security-green-copy security-mobile-left-text">
 				ReaderPub offers protected web editions: readers access content in the browser through
 				WeRead instead of receiving a downloadable book file.
 			</p>
@@ -101,7 +101,7 @@ const { standalone = false } = Astro.props;
 			<h3>
 				<span class="security-theft-guard-highlight">WeRead Theft Guard</span>
 			</h3>
-			<p class="security-theft-guard-copy">
+			<p class="security-theft-guard-copy security-mobile-left-text">
 				Designed to reduce copying, downloading, and unauthorized redistribution.
 			</p>
 			<ul class="bullets security-theft-guard-list">
@@ -152,7 +152,7 @@ const { standalone = false } = Astro.props;
 	<p>
 		When a book is distributed as a file, protection depends on controlling what happens after delivery. In the real world, that model has repeatedly led to commercial ebooks circulating outside their original platforms.
 	</p>
-	<p class="security-black-copy">
+	<p class="security-black-copy security-mobile-left-text">
 		ReaderPub addresses the problem earlier in the chain: by not delivering the primary reading file in the first place, it removes the standard entry point used in large-scale redistribution workflows.
 	</p>
 	<div class="card-grid security-compare-grid">
@@ -181,20 +181,20 @@ const { standalone = false } = Astro.props;
 	<div class="security-publish-layout">
 		<h2 class="security-publish-title">A practical, honest security position</h2>
 		<div class="security-publish-aligned">
-			<p class="security-green-copy security-publish-lead">
+			<p class="security-green-copy security-publish-lead security-mobile-left-text">
 				No digital system can prevent every form of copying. Screenshots, manual capture, and other low-efficiency methods can still exist.
 			</p>
 			<div class="card security-publish-body-card">
-				<p class="security-black-copy">
+				<p class="security-black-copy security-mobile-left-text">
 					But ReaderPub removes the most scalable starting point for large-scale piracy: delivering a complete, reusable ebook file to the end user. At that, the web-accessible editions are fully protected against downloading or copying.
 				</p>
-				<p class="security-black-copy">
+				<p class="security-black-copy security-mobile-left-text">
 					ReaderPub’s primary distribution model is web-native. When needed, we can also produce a production-ready EPUB for archival use, external distribution, or additional publishing workflows — without making routine end-user file delivery the default model.
 				</p>
 			</div>
 			<div class="footer-cta security-inline-cta security-publish-cta">
 				<h3>Want to publish with lower leakage risk?</h3>
-				<p class="security-green-copy">
+				<p class="security-green-copy security-mobile-left-text">
 					Talk to ReaderPub about web-first publishing for authors, publishers, libraries, and institutions.
 				</p>
 				<div class="cta-row">
@@ -575,6 +575,12 @@ const { standalone = false } = Astro.props;
 			align-items: center;
 			justify-content: center;
 		}
+
+		.security-hero-primary-lede,
+		.security-hero-followup {
+			text-align: left !important;
+			width: 100%;
+		}
 	}
 
 	@media (min-width: 721px) {
@@ -604,7 +610,7 @@ const { standalone = false } = Astro.props;
 		}
 
 		.security-hero-title {
-			font-size: clamp(28px, 4.5vw, 42px);
+			font-size: clamp(23.8px, 3.825vw, 35.7px) !important;
 		}
 
 		.security-steps-grid {
@@ -616,13 +622,20 @@ const { standalone = false } = Astro.props;
 		(max-width: 600px) {
 		:global(.page .content .section:has(.bullets) .security-distribution-copy > h2),
 		:global(.page .content .section:has(.bullets) .security-distribution-copy > .security-green-copy) {
-			text-align: center !important;
+			text-align: left !important;
 			width: 100%;
 		}
 
 		:global(.page .content .section:has(.bullets) .security-theft-guard-card .security-theft-guard-copy) {
-			text-align: center !important;
+			text-align: left !important;
 			width: 100%;
+		}
+
+		:global(.page .content .security-first-section > p),
+		:global(.page .content .security-green-copy),
+		:global(.page .content .security-black-copy),
+		:global(.page .content .security-inline-cta p) {
+			text-align: left !important;
 		}
 
 		:global(.page .content .security-publish-layout),
@@ -639,6 +652,13 @@ const { standalone = false } = Astro.props;
 		:global(.page .content .card.security-publish-body-card:not(.book-card) > p),
 		:global(.page .content .card.security-publish-body-card:not(.book-card) > p:first-of-type) {
 			text-align: left !important;
+		}
+
+		.security-mobile-left-text,
+		:global(.page .content) .security-mobile-left-text {
+			text-align: left !important;
+			align-self: stretch !important;
+			width: 100% !important;
 		}
 	}
 </style>

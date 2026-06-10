@@ -330,6 +330,15 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 			width: 100%;
 		}
 
+		@media (orientation: landscape) {
+			.author-publish-cta {
+				width: 50%;
+				max-width: none;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
 		.author-protection-button {
 			display: inline-flex !important;
 			align-items: center;
@@ -423,7 +432,7 @@ import IndieProtectedBooksSection from "../components/sections/IndieProtectedBoo
 			}
 
 			.authors-hero-title {
-				font-size: clamp(28px, 4.5vw, 42px);
+				font-size: clamp(23.8px, 3.825vw, 35.7px) !important;
 			}
 
 			.authors-hero-lede,

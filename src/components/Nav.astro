@@ -17,7 +17,7 @@ import { SITE_NAME } from "../consts";
 		<li><a href="/pricing">Pricing</a></li>
 	</ul>
 	<div class="nav-actions">
-		<button class="nav-toggle" type="button" aria-label="Open navigation menu">
+		<button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
 			<span class="nav-toggle-bar"></span>
 			<span class="nav-toggle-bar"></span>
 			<span class="nav-toggle-bar"></span>
@@ -47,70 +47,93 @@ import { SITE_NAME } from "../consts";
 </div>
 
 <script is:inline>
-	const toggle = document.querySelector(".nav-toggle");
-	const overlay = document.querySelector(".nav-overlay");
-	const closeButton = document.querySelector(".nav-close");
-	const overlayLinks = document.querySelectorAll(".nav-overlay a");
-	const navLinks = document.querySelectorAll(".nav a");
-	const nav = document.querySelector(".nav");
-	const navBrand = document.querySelector(".nav-brand");
-	const navList = document.querySelector(".nav-links");
+	(() => {
+		if (window.__readerPubNavReady) return;
+		window.__readerPubNavReady = true;
 
-	const openMenu = () => {
-		overlay?.classList.add("nav-overlay--open");
-		overlay?.setAttribute("aria-hidden", "false");
-		document.body.classList.add("nav-open");
-	};
+		const getNav = () => document.querySelector(".nav");
+		const getToggle = () => document.querySelector(".nav-toggle");
+		const getOverlay = () => document.querySelector(".nav-overlay");
+		const normalizePath = (path) => path.replace(/\/+$/, "") || "/";
 
-	const closeMenu = () => {
-		overlay?.classList.remove("nav-overlay--open");
-		overlay?.setAttribute("aria-hidden", "true");
-		document.body.classList.remove("nav-open");
-	};
+		const openMenu = () => {
+			const overlay = getOverlay();
+			const toggle = getToggle();
+			overlay?.classList.add("nav-overlay--open");
+			overlay?.setAttribute("aria-hidden", "false");
+			toggle?.setAttribute("aria-expanded", "true");
+			document.body.classList.add("nav-open");
+		};
 
-	toggle?.addEventListener("click", openMenu);
-	closeButton?.addEventListener("click", closeMenu);
-	overlayLinks.forEach((link) => link.addEventListener("click", closeMenu));
-	document.addEventListener("pointerdown", (event) => {
-		const isOpen = overlay?.classList.contains("nav-overlay--open");
-		if (!isOpen) return;
-		const target = event.target;
-		if (!(target instanceof Node)) return;
-		if (overlay?.contains(target)) return;
-		if (toggle?.contains(target)) return;
-		closeMenu();
-	});
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape") closeMenu();
-	});
+		const closeMenu = () => {
+			const overlay = getOverlay();
+			const toggle = getToggle();
+			overlay?.classList.remove("nav-overlay--open");
+			overlay?.setAttribute("aria-hidden", "true");
+			toggle?.setAttribute("aria-expanded", "false");
+			document.body.classList.remove("nav-open");
+		};
 
-	const updateNavLayout = () => {
-		if (!nav) return;
-		const needsCollapse = window.innerWidth < 1000;
-		nav.classList.toggle("nav--collapsed", needsCollapse);
-	};
+		const updateNavLayout = () => {
+			const nav = getNav();
+			if (!nav) return;
+			const needsCollapse = window.innerWidth < 1000;
+			nav.classList.toggle("nav--collapsed", needsCollapse);
+		};
 
-	updateNavLayout();
-	window.addEventListener("resize", updateNavLayout);
+		const updateActiveLink = () => {
+			const currentPath = normalizePath(window.location.pathname);
+			document.querySelectorAll(".nav a, .nav-overlay a").forEach((link) => {
+				link.classList.remove("is-active");
+				link.removeAttribute("aria-current");
+				const href = link.getAttribute("href");
+				if (!href || href.startsWith("http")) return;
+				if (normalizePath(href) === currentPath) {
+					link.classList.add("is-active");
+					link.setAttribute("aria-current", "page");
+				}
+			});
+		};
 
-	const normalizePath = (path) => path.replace(/\/+$/, "") || "/";
+		document.addEventListener("click", (event) => {
+			const target = event.target;
+			if (!(target instanceof Element)) return;
 
-	const updateActiveLink = () => {
-		const currentPath = normalizePath(window.location.pathname);
-		navLinks.forEach((link) => {
-			link.classList.remove("is-active");
-			link.removeAttribute("aria-current");
-		});
-		navLinks.forEach((link) => {
-			const href = link.getAttribute("href");
-			if (!href || href.startsWith("http")) return;
-			if (normalizePath(href) === currentPath) {
-				link.classList.add("is-active");
-				link.setAttribute("aria-current", "page");
+			if (target.closest(".nav-toggle")) {
+				event.preventDefault();
+				openMenu();
+				return;
+			}
+
+			if (target.closest(".nav-close") || target.closest(".nav-overlay a")) {
+				closeMenu();
 			}
 		});
-	};
 
-	updateActiveLink();
-	document.addEventListener("astro:page-load", updateActiveLink);
+		document.addEventListener("pointerdown", (event) => {
+			const overlay = getOverlay();
+			const toggle = getToggle();
+			const isOpen = overlay?.classList.contains("nav-overlay--open");
+			if (!isOpen) return;
+			const target = event.target;
+			if (!(target instanceof Node)) return;
+			if (overlay?.contains(target)) return;
+			if (toggle?.contains(target)) return;
+			closeMenu();
+		});
+
+		document.addEventListener("keydown", (event) => {
+			if (event.key === "Escape") closeMenu();
+		});
+
+		window.addEventListener("resize", updateNavLayout);
+		document.addEventListener("astro:page-load", () => {
+			closeMenu();
+			updateNavLayout();
+			updateActiveLink();
+		});
+
+		updateNavLayout();
+		updateActiveLink();
+	})();
 </script>

@@ -337,29 +337,58 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 			width: 100%;
 		}
 
+		@media (orientation: landscape) {
+			.institutions-onboarding-cta {
+				width: 50%;
+				max-width: none;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
 		@media (orientation: portrait) {
 			:global(.institutions-access-section.section-continuation) {
 				padding-top: calc(29px - var(--section-flow-gap)) !important;
 			}
 
 			.institutions-hero {
-				grid-template-columns: 1fr;
+				display: flex;
+				flex-direction: column;
 				row-gap: var(--section-flow-gap);
-				justify-items: center;
+				align-items: center;
 				text-align: center;
-			}
-
-			.institutions-hero-image {
-				grid-column: 1;
-				grid-row: 1;
-				justify-self: center;
 			}
 
 			.institutions-hero-copy {
-				grid-column: 1;
-				grid-row: 2;
-				align-items: center;
-				text-align: center;
+				display: contents;
+			}
+
+			.institutions-hero-copy .menu-eyebrow {
+				order: 1;
+			}
+
+			.institutions-hero-title {
+				order: 2;
+				width: 100%;
+			}
+
+			.institutions-hero-primary-lede {
+				order: 3;
+				width: 100%;
+			}
+
+			.institutions-hero-image {
+				order: 4;
+				display: block;
+				width: min(100%, 420px);
+				max-width: 100% !important;
+				height: auto;
+				margin: 0 auto;
+			}
+
+			.institutions-hero-secondary-copy {
+				order: 5;
+				width: 100%;
 			}
 
 			.institutions-hero-primary-lede,
@@ -369,6 +398,7 @@ import IconGridSection from "../components/sections/IconGridSection.astro";
 			}
 
 			.institutions-hero-copy > .institutions-hero-actions {
+				order: 6;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;

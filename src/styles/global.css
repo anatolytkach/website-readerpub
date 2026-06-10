@@ -611,6 +611,28 @@ section > :last-child {
 	height: 100%;
 }
 
+.platform-capabilities-section .card {
+	align-items: center !important;
+	text-align: center !important;
+}
+
+.platform-capabilities-section .card :is(h3, p) {
+	width: 100%;
+	text-align: center !important;
+}
+
+.platform-capabilities-section .platform-capability-card {
+	align-items: center !important;
+	text-align: center !important;
+}
+
+.platform-capabilities-section .platform-capability-title,
+.platform-capabilities-section .platform-capability-copy {
+	align-self: center !important;
+	width: 100% !important;
+	text-align: center !important;
+}
+
 .card .button {
 	justify-self: start;
 	width: fit-content;
@@ -1165,6 +1187,23 @@ section > :last-child {
 		padding: 24px 18px 0;
 	}
 
+	.hero h1 {
+		font-size: clamp(30.6px, 4.25vw, 47.6px) !important;
+	}
+
+	.home-hero-heading {
+		font-size: 1.9125rem !important;
+	}
+
+	.authors-hero-title,
+	.pricing-hero-title,
+	.webuzz-hero-title,
+	.platform-hero-title,
+	.institutions-hero-title,
+	.security-hero-title {
+		font-size: clamp(30.6px, 4.25vw, 47.6px) !important;
+	}
+
 	.modal {
 		padding: 16px;
 	}
@@ -1331,7 +1370,7 @@ section > :last-child {
 		font-size: clamp(15.6px, 3.36vw, 18px);
 		letter-spacing: 0.04em;
 		white-space: normal;
-		justify-content: center;
+		justify-content: flex-start;
 	}
 }
 
@@ -1356,9 +1395,18 @@ section > :last-child {
 	}
 
 	.page .content .menu-eyebrow {
-		justify-content: center !important;
+		align-self: flex-start !important;
+		justify-content: flex-start !important;
 		width: 100%;
-		text-align: center;
+		text-align: left !important;
+	}
+
+	.page .content > :is(section, .section):first-child:has(.menu-eyebrow) {
+		padding-top: 3px !important;
+	}
+
+	.page:has(.content > :is(section, .section):first-child .menu-eyebrow) .nav {
+		margin-bottom: 8px;
 	}
 
 	.page .content :is(.bullets, ol) {
@@ -1459,6 +1507,26 @@ section > :last-child {
 		text-align: center !important;
 	}
 
+	.page .content .webuzz-overview-card,
+	.page .content .webuzz-overview-card .webuzz-overview-card-heading,
+	.page .content .webuzz-overview-card .webuzz-overview-card-heading h2,
+	.page .content .webuzz-overview-card .webuzz-overview-list,
+	.page .content .webuzz-overview-card .webuzz-overview-item,
+	.page .content .webuzz-overview-card .webuzz-overview-item-copy,
+	.page .content .webuzz-overview-card .webuzz-overview-item-title,
+	.page .content .webuzz-overview-card .webuzz-overview-item span {
+		text-align: left !important;
+	}
+
+	.page .content .webuzz-overview-card .webuzz-overview-card-heading {
+		justify-content: flex-start !important;
+		align-items: center !important;
+	}
+
+	.page .content .webuzz-overview-card .webuzz-overview-item-copy {
+		align-items: stretch !important;
+	}
+
 	.page .content .image-block,
 	.page .content .image-placeholder {
 		justify-self: center !important;
@@ -1513,6 +1581,17 @@ section > :last-child {
 	.page .content .card:not(.book-card) > p:first-of-type,
 	.page .content .icon-grid-card-copy > p:first-of-type {
 		text-align: center !important;
+	}
+
+	.page .content .webuzz-overview-card,
+	.page .content .webuzz-overview-card :is(h2, h3, h4, p, span),
+	.page .content .webuzz-overview-card-heading,
+	.page .content .webuzz-overview-item-copy {
+		text-align: left !important;
+	}
+
+	.page .content .webuzz-overview-card-heading {
+		justify-content: flex-start !important;
 	}
 
 	.page .content .book-card,
@@ -1630,6 +1709,35 @@ section > :last-child {
 	.page .content .platform-onboarding .card :is(p, ul, .bullets) {
 		text-align: left;
 	}
+
+	.page .content .card.webuzz-overview-card .webuzz-overview-card-heading h2,
+	.page .content .card.webuzz-overview-card .webuzz-overview-item-title,
+	.page .content .card.webuzz-overview-card .webuzz-overview-item-copy > span {
+		text-align: left !important;
+		justify-self: start !important;
+		align-self: start !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	.page .content .card.webuzz-overview-card .webuzz-overview-item-copy {
+		justify-self: stretch !important;
+		align-self: start !important;
+		text-align: left !important;
+	}
+
+	.page .content .platform-products-heading,
+	.page .content .platform-commerce-heading {
+		text-align: center !important;
+		width: 100%;
+	}
+
+	.page .content .section:has(.platform-products-heading) > .platform-products-heading,
+	.page .content .platform-commerce-section:has(.platform-commerce-heading) > .platform-commerce-heading {
+		text-align: center !important;
+		justify-self: center !important;
+		width: 100%;
+	}
 }
 
 @media (max-width: 400px) {
@@ -1686,5 +1794,40 @@ section > :last-child {
 		bottom: 16px;
 		right: 16px;
 		font-size: 18px;
+	}
+}
+
+.page .content .platform-capabilities-section .card.platform-capability-card {
+	align-items: center !important;
+	text-align: center !important;
+}
+
+.page .content .platform-capabilities-section .card.platform-capability-card > h3.platform-capability-title,
+.page .content .platform-capabilities-section .card.platform-capability-card > p.platform-capability-copy {
+	align-self: center !important;
+	width: 100% !important;
+	text-align: center !important;
+}
+
+@media (orientation: portrait) and (max-width: 900px) {
+	.page .content .section:has(.platform-products-lede):has(.bullets) > p.platform-products-lede,
+	.page .content p.platform-products-lede {
+		text-align: center !important;
+		align-self: center !important;
+		justify-self: center !important;
+		width: 100% !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	.page .content .security-hero-primary-lede,
+	.page .content .security-hero-followup,
+	.page .content .security-first-section > p,
+	.page .content .security-distribution-copy > .security-green-copy,
+	.page .content .security-theft-guard-card .security-theft-guard-copy,
+	.page .content .security-green-copy,
+	.page .content .security-black-copy,
+	.page .content .security-inline-cta p {
+		text-align: left !important;
 	}
 }

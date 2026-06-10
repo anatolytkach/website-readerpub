@@ -11,7 +11,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			<div class="menu-eyebrow">WEBUZZ</div>
 			<h1 class="webuzz-hero-title"><span class="webuzz-hero-product">WeBuzz:</span> The social layer of ReaderPub.</h1>
 			<p class="lede webuzz-hero-lede">Discuss books, authors, and passages. Connect readers, authors, publishers, and institutions through shared reading.</p>
-			<p class="webuzz-hero-body">ReaderPub already helps people publish books, read books, and discover books. WeBuzz adds the missing layer: meaningful discussion around literature. Readers can discuss books and authors, comment on specific passages, and participate in communities built around reading.</p>
+			<p class="webuzz-hero-body">WeBuzz is ReaderPub's integrated literary social network, connecting readers, authors, and publishers through discussions, reactions, and shared reading experiences around every book.</p>
 		</div>
 		<img
 			class="image-block webuzz-hero-image"
@@ -23,26 +23,45 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			height="847"
 		/>
 		<div class="cta-row webuzz-hero-actions">
-			<a class="button" href="/wetalk/" target="_blank">Open WeBuzz</a>
-			<a class="button secondary" href="/platform">Explore ReaderPub Platform</a>
+			<a class="button" href="/wetalk/" target="_blank">Join the conversation in WeBuzz</a>
 		</div>
 	</section>
 
 	<SpecCardsSection class="webuzz-why-section section-continuation section-continue-next">
-		<h2>Reading does not end on the last page.</h2>
-		<p class="lede">Most reading platforms stop at access. ReaderPub goes further. WeBuzz turns reading into an ongoing conversation. Discussions can happen around entire books, individual authors, or specific passages that readers find meaningful, surprising, or worth debating.</p>
-		<div class="card-grid webuzz-three-cards">
-			<div class="card">
-				<h3>Books</h3>
-				<p>Discuss complete works with readers from around the world.</p>
+		<div class="webuzz-overview-layout">
+			<div class="card webuzz-overview-card">
+				<div class="webuzz-overview-card-heading">
+					<SectionIcon type="fan" title="Three ways to join the conversation" />
+					<h2>Three ways to join the conversation:</h2>
+				</div>
+				<ul class="webuzz-overview-list" role="list">
+					<li class="webuzz-overview-item">
+						<span class="webuzz-overview-bullet" aria-hidden="true"></span>
+						<div class="webuzz-overview-item-copy">
+							<h2 class="webuzz-overview-item-title">Book Discussions</h2>
+							<span>Talk about complete books and reading experiences.</span>
+						</div>
+					</li>
+					<li class="webuzz-overview-item">
+						<span class="webuzz-overview-bullet" aria-hidden="true"></span>
+						<div class="webuzz-overview-item-copy">
+							<h2 class="webuzz-overview-item-title">Author Discussions</h2>
+							<span>Discuss authors, ideas, and literary influence.</span>
+						</div>
+					</li>
+					<li class="webuzz-overview-item">
+						<span class="webuzz-overview-bullet" aria-hidden="true"></span>
+						<div class="webuzz-overview-item-copy">
+							<h2 class="webuzz-overview-item-title">Passage Discussions</h2>
+							<span>Start conversations around specific excerpts and quotations.</span>
+						</div>
+					</li>
+				</ul>
 			</div>
-			<div class="card">
-				<h3>Authors</h3>
-				<p>Follow conversations around authors, ideas, and literary movements.</p>
-			</div>
-			<div class="card">
-				<h3>Passages</h3>
-				<p>Comment on specific excerpts and continue the discussion in context.</p>
+			<div class="webuzz-overview-copy">
+				<h2>Reading does not end on the last page.</h2>
+				<p class="lede">Most reading platforms stop at access. ReaderPub goes further. WeBuzz turns reading into an ongoing conversation. Discussions can happen around entire books, individual authors, or specific passages that readers find meaningful, surprising, or worth debating.</p>
+				<p class="lede webuzz-why-body">Reading becomes more meaningful when it is shared. ReaderPub combines publishing, reading, discovery, and discussion in one ecosystem. Through WeBuzz, readers can discuss books, follow thoughtful readers, engage with authors, and participate in literary communities.</p>
 			</div>
 		</div>
 	</SpecCardsSection>
@@ -71,15 +90,17 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					</div>
 				</div>
 			</div>
-			<img
-				class="image-block webuzz-split-image webuzz-readers-image"
-				src="/images/readers_webuzz.png"
-				alt="Readers discussing the same book while highlighting passages"
-				loading="lazy"
-				decoding="async"
-				width="950"
-				height="791"
-			/>
+			<div class="webuzz-split-image-frame">
+				<img
+					class="image-block webuzz-split-image webuzz-readers-image"
+					src="/images/readers_webuzz.png"
+					alt="Readers discussing the same book while highlighting passages"
+					loading="lazy"
+					decoding="async"
+					width="950"
+					height="791"
+				/>
+			</div>
 		</div>
 	</SpecCardsSection>
 
@@ -107,15 +128,17 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					</div>
 				</div>
 			</div>
-			<img
-				class="image-block webuzz-split-image webuzz-author-image"
-				src="/images/author_webuzz.webp"
-				alt="Author participating in a discussion with readers around a book"
-				loading="lazy"
-				decoding="async"
-				width="1024"
-				height="841"
-			/>
+			<div class="webuzz-split-image-frame">
+				<img
+					class="image-block webuzz-split-image webuzz-author-image"
+					src="/images/author_webuzz.webp"
+					alt="Author participating in a discussion with readers around a book"
+					loading="lazy"
+					decoding="async"
+					width="1024"
+					height="841"
+				/>
+			</div>
 		</div>
 	</SpecCardsSection>
 
@@ -127,27 +150,33 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 				<div class="card-grid webuzz-two-cards">
 					<div class="card">
 						<h3>Reader Engagement</h3>
+						<p>Build lasting relationships with readers through discussions around books, authors, and individual passages.</p>
 					</div>
 					<div class="card">
 						<h3>Book Discovery</h3>
+						<p>Help readers discover titles through conversations, recommendations, and community-driven exploration.</p>
 					</div>
 					<div class="card">
 						<h3>Community Building</h3>
+						<p>Create active communities around authors, series, genres, and publishing programs.</p>
 					</div>
 					<div class="card">
 						<h3>Long-Term Visibility</h3>
+						<p>Keep books relevant long after publication through ongoing discussion and reader participation.</p>
 					</div>
 				</div>
 			</div>
-			<img
-				class="image-block webuzz-split-image webuzz-publisher-image"
-				src="/images/publisher_webuzz.png"
-				alt="Publisher observing active discussions around multiple books"
-				loading="lazy"
-				decoding="async"
-				width="950"
-				height="791"
-			/>
+			<div class="webuzz-split-image-frame">
+				<img
+					class="image-block webuzz-split-image webuzz-publisher-image"
+					src="/images/publisher_webuzz.png"
+					alt="Publisher observing active discussions around multiple books"
+					loading="lazy"
+					decoding="async"
+					width="950"
+					height="791"
+				/>
+			</div>
 		</div>
 	</SpecCardsSection>
 
@@ -175,59 +204,16 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					</div>
 				</div>
 			</div>
-			<img
-				class="image-block webuzz-split-image webuzz-libraries-image"
-				src="/images/libraries_webuzz.png"
-				alt="University students discussing books in a collaborative reading environment"
-				loading="lazy"
-				decoding="async"
-				width="950"
-				height="769"
-			/>
-		</div>
-	</SpecCardsSection>
-
-	<SpecCardsSection class="section-continuation section-continue-next">
-		<h2>Four products. One connected platform.</h2>
-		<p class="lede">ReaderPub combines publishing, reading, discovery, and discussion into a single ecosystem.</p>
-		<div class="card-grid webuzz-four-cards">
-			<div class="card">
-				<h3>WePub</h3>
-				<p>Publish books.</p>
-				<a class="button secondary" href="/authors">Explore WePub</a>
-			</div>
-			<div class="card">
-				<h3>WeRead</h3>
-				<p>Read books.</p>
-				<a class="button secondary" href="/readers">Explore WeRead</a>
-			</div>
-			<div class="card">
-				<h3>BookTree</h3>
-				<p>Discover books.</p>
-				<a class="button secondary" href="/platform">Explore BookTree</a>
-			</div>
-			<div class="card">
-				<h3>WeBuzz</h3>
-				<p>Discuss books.</p>
-				<a class="button" href="/wetalk/" target="_blank">Open WeBuzz</a>
-			</div>
-		</div>
-	</SpecCardsSection>
-
-	<SpecCardsSection class="section-continuation section-continue-next">
-		<h2>Three ways to join the conversation.</h2>
-		<div class="card-grid webuzz-three-cards">
-			<div class="card">
-				<h3>Book Discussions</h3>
-				<p>Talk about complete books and reading experiences.</p>
-			</div>
-			<div class="card">
-				<h3>Author Discussions</h3>
-				<p>Discuss authors, ideas, and literary influence.</p>
-			</div>
-			<div class="card">
-				<h3>Passage Discussions</h3>
-				<p>Start conversations around specific excerpts and quotations.</p>
+			<div class="webuzz-split-image-frame">
+				<img
+					class="image-block webuzz-split-image webuzz-libraries-image"
+					src="/images/libraries_webuzz.png"
+					alt="University students discussing books in a collaborative reading environment"
+					loading="lazy"
+					decoding="async"
+					width="950"
+					height="769"
+				/>
 			</div>
 		</div>
 	</SpecCardsSection>
@@ -237,46 +223,26 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		<p class="lede">Whether you are a reader, author, publisher, librarian, or educator, WeBuzz gives you a place to connect through literature.</p>
 		<div class="cta-row webuzz-footer-cta-row">
 			<a class="button" href="/wetalk/" target="_blank">Open WeBuzz</a>
-			<a class="button secondary" href="/">Explore ReaderPub</a>
 		</div>
 	</section>
-
-	<section class="section webuzz-shared-section section-continuation">
-		<h2>Reading becomes more meaningful when it is shared.</h2>
-		<p class="lede">ReaderPub combines publishing, reading, discovery, and discussion in one ecosystem. Through WeBuzz, readers can discuss books, follow thoughtful readers, engage with authors, and participate in literary communities.</p>
-		<ul class="bullets">
-			<li>Discuss books and authors</li>
-			<li>Comment on specific passages</li>
-			<li>Follow readers and literary experts</li>
-			<li>Engage directly with authors</li>
-			<li>Discover books through conversation</li>
-		</ul>
-		<div class="cta-row">
-			<a class="button" href="/wetalk/" target="_blank">Explore WeBuzz</a>
-		</div>
-	</section>
-
-	<SpecCardsSection class="section-continuation webuzz-community-section">
-		<div class="card-grid webuzz-community-grid">
-			<div class="card icon-grid-card">
-				<SectionIcon type="fan" title="WeBuzz communities for every book and author" />
-				<div class="icon-grid-card-copy">
-					<h2>WeBuzz communities for every book and author.</h2>
-					<p>
-						WeBuzz is ReaderPub's integrated literary social network, connecting readers, authors, and publishers through discussions, reactions, and shared reading experiences around every book.
-					</p>
-					<ul class="bullets">
-						<li>Members-only posts, updates, and behind-the-scenes notes.</li>
-						<li>Early access, bonus chapters, and limited drops.</li>
-						<li>Direct announcements to your registered audience.</li>
-						<li>Fan insights tied to sales — what converts and retains.</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</SpecCardsSection>
 
 	<style>
+		:global(section.webuzz-hero),
+		:global(section.webuzz-footer-cta),
+		:global(section.spec-cards-section) {
+			padding-top: 55px;
+			padding-bottom: 28px;
+		}
+
+		:global(section.spec-cards-section.section-continue-next) {
+			padding-bottom: 28px !important;
+		}
+
+		:global(section.spec-cards-section.section-continuation) {
+			padding-top: 55px !important;
+			padding-bottom: 28px !important;
+		}
+
 		.webuzz-hero {
 			display: grid;
 			grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -314,6 +280,17 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			margin: 0;
 		}
 
+		.webuzz-why-body {
+			color: var(--text);
+			margin: 0;
+		}
+
+		.webuzz-overview-copy > .lede,
+		.webuzz-overview-copy > .webuzz-why-body {
+			font-size: 18px !important;
+			line-height: 1.45 !important;
+		}
+
 		.webuzz-hero-copy {
 			grid-column: 1;
 			grid-row: 1;
@@ -333,30 +310,124 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			grid-column: 1;
 			grid-row: 2;
 			justify-content: flex-start;
+			margin-top: -8px;
 		}
 
 		.webuzz-why-section {
 			padding-top: 28px !important;
 		}
 
+		.webuzz-overview-layout {
+			display: grid;
+			grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+			gap: 32px;
+			align-items: center;
+		}
+
+		.webuzz-overview-copy,
+		.webuzz-overview-card {
+			min-width: 0;
+		}
+
+		.webuzz-overview-copy {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--section-flow-gap);
+			align-self: center;
+		}
+
+		.webuzz-overview-copy > h2,
+		.webuzz-overview-copy > p,
+		.webuzz-overview-copy > ul {
+			margin: 0;
+		}
+
+		.webuzz-overview-copy .bullets {
+			padding-left: 1.4rem;
+		}
+
+		.webuzz-overview-card {
+			--webuzz-card-heading-size: clamp(19px, 1.62vw, 26px);
+			--webuzz-discussion-heading-size: calc(var(--webuzz-card-heading-size) * 0.9);
+		}
+
+		.webuzz-overview-card h2 {
+			margin-top: 0;
+		}
+
+		.webuzz-overview-card-heading {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			width: 100%;
+		}
+
+		.webuzz-overview-card-heading h2 {
+			margin: 0;
+			font-size: var(--webuzz-card-heading-size);
+			line-height: 1.12;
+			flex: 1;
+			min-width: 0;
+		}
+
+		.webuzz-overview-card {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+
+		.webuzz-overview-list {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+		}
+
+		.webuzz-overview-item-title,
+		.webuzz-overview-item span {
+			display: block;
+		}
+
+		.webuzz-overview-item-title {
+			color: var(--accent);
+			margin: 0 0 10px 0;
+			font-size: var(--webuzz-discussion-heading-size);
+			line-height: 1.12;
+		}
+
+		.webuzz-overview-item span {
+			font-size: 16px;
+			line-height: 1.28;
+			color: var(--muted);
+		}
+
+		.webuzz-overview-item {
+			display: grid;
+			grid-template-columns: 56px minmax(0, 1fr);
+			column-gap: 16px;
+			align-items: start;
+			margin-bottom: 20px;
+		}
+
+		.webuzz-overview-bullet {
+			width: 8.5px;
+			height: 8.5px;
+			border-radius: 50%;
+			background: var(--accent);
+			justify-self: center;
+			margin-top: 10px;
+		}
+
+		.webuzz-overview-item-copy {
+			min-width: 0;
+		}
+
+		.webuzz-overview-item:last-child {
+			margin-bottom: 0;
+		}
+
 		.webuzz-three-cards {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
-			justify-content: stretch;
-			justify-items: stretch;
-			width: 100%;
-			max-width: none;
-		}
-
-		.webuzz-four-cards {
-			grid-template-columns: repeat(4, minmax(0, 1fr));
-			justify-content: stretch;
-			justify-items: stretch;
-			width: 100%;
-			max-width: none;
-		}
-
-		.webuzz-community-grid {
-			grid-template-columns: 1fr;
 			justify-content: stretch;
 			justify-items: stretch;
 			width: 100%;
@@ -375,47 +446,64 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			display: grid;
 			grid-template-columns: minmax(0, 1fr) minmax(0, 368px);
 			gap: 32px;
-			align-items: start;
+			align-items: stretch;
+		}
+
+		.webuzz-split-image-frame {
+			position: relative;
+			align-self: stretch;
+			justify-self: end;
+			width: 100%;
+			max-width: 368px;
+			min-height: 0;
 		}
 
 		.webuzz-split-image {
-			align-self: center;
-			justify-self: end;
+			position: absolute;
+			inset: 0;
+			height: 100%;
+			width: 100%;
 			max-width: 368px !important;
+			object-position: center bottom;
 		}
 
 		.webuzz-readers-image {
 			width: 100%;
-			height: auto;
+			height: 100%;
 			aspect-ratio: auto;
 			object-fit: contain;
+			object-position: center bottom;
 		}
 
 		.webuzz-author-image {
 			width: 100%;
-			height: auto;
+			height: 100%;
 			aspect-ratio: auto;
 			object-fit: contain;
+			object-position: center bottom;
 		}
 
 		.webuzz-publisher-image {
 			width: 100%;
-			height: auto;
+			height: 100%;
 			aspect-ratio: auto;
 			object-fit: contain;
+			object-position: center bottom;
 		}
 
 		.webuzz-libraries-image {
 			width: 100%;
-			height: auto;
+			height: 100%;
 			aspect-ratio: auto;
 			object-fit: contain;
+			object-position: center bottom;
 		}
 
 		.webuzz-footer-cta {
 			width: 100%;
 			max-width: none;
-			padding: 29px 32px !important;
+			margin-top: 28px;
+			padding: 28px 32px !important;
 		}
 
 		.webuzz-footer-cta-row {
@@ -423,10 +511,22 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			width: 100%;
 		}
 
+		@media (orientation: landscape) {
+			.webuzz-footer-cta {
+				width: 50%;
+				max-width: none;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
 		@media (max-width: 1024px) {
-			.webuzz-three-cards,
-			.webuzz-four-cards {
+			.webuzz-three-cards {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.webuzz-overview-layout {
+				grid-template-columns: 1fr;
 			}
 		}
 
@@ -438,40 +538,145 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			}
 
 			.webuzz-hero {
-				grid-template-columns: 1fr;
+				display: flex;
+				flex-direction: column;
 				align-items: center;
-				justify-items: center;
 				text-align: center;
 			}
 
 			.webuzz-hero-copy {
+				display: contents;
+			}
+
+			.webuzz-hero-copy .menu-eyebrow {
+				order: 1;
+			}
+
+			.webuzz-hero-title {
+				order: 2;
+				width: 100%;
 				text-align: center;
-				align-items: center;
 			}
 
-			.webuzz-hero-copy,
-			.webuzz-hero-image,
-			.webuzz-hero-actions {
-				grid-column: 1;
+			.webuzz-hero-lede {
+				order: 3;
+				width: 100%;
+				text-align: center;
 			}
 
-			.webuzz-hero-copy {
-				grid-row: 1;
+			.webuzz-hero-body {
+				order: 5;
+				width: 100%;
+				text-align: left !important;
 			}
 
 			.webuzz-hero-image {
-				grid-row: 2;
+				order: 4;
+				width: min(100%, 540px);
+				max-width: 100% !important;
 				margin-left: auto;
 				margin-right: auto;
 			}
 
 			.webuzz-hero-actions {
-				grid-row: 3;
+				order: 6;
 				justify-content: center;
+				margin-top: 0;
+			}
+
+			.webuzz-overview-card {
+				align-items: stretch;
+				text-align: left !important;
+			}
+
+			.webuzz-overview-card-heading {
+				justify-content: flex-start;
+				text-align: left !important;
+				width: 100%;
+			}
+
+			.webuzz-overview-card-heading h2,
+			.webuzz-overview-item-title,
+			.webuzz-overview-item span {
+				text-align: left !important;
+			}
+
+			.webuzz-overview-copy {
+				text-align: left !important;
+			}
+
+			.webuzz-overview-copy > .lede,
+			.webuzz-overview-copy > .webuzz-why-body,
+			:global(section.spec-cards-section > .lede) {
+				text-align: left !important;
+			}
+
+			:global(.page .content .webuzz-hero p.webuzz-hero-body),
+			:global(.page .content .webuzz-overview-copy > p.lede),
+			:global(.page .content section.spec-cards-section > p.lede) {
+				text-align: left !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card),
+			:global(.page .content .card.webuzz-overview-card *) {
+				text-align: left !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card) {
+				align-items: stretch !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-card-heading) {
+				justify-content: flex-start !important;
+				align-items: center !important;
+				width: 100% !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-card-heading h2),
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-item-copy),
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-item-title),
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-item-copy > span) {
+				width: 100% !important;
+				max-width: none !important;
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-list) {
+				width: 100% !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-card-heading),
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-item) {
+				display: grid !important;
+				grid-template-columns: 56px minmax(0, 1fr) !important;
+				column-gap: 16px !important;
+				width: 100% !important;
+				align-items: start !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-card-heading) {
+				align-items: center !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-card-heading .section-icon),
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-bullet) {
+				justify-self: center !important;
+			}
+
+			:global(.page .content .card.webuzz-overview-card .webuzz-overview-bullet) {
+				display: block !important;
+				width: 8.5px !important;
+				min-width: 8.5px !important;
+				max-width: 8.5px !important;
+				height: 8.5px !important;
+				min-height: 8.5px !important;
+				max-height: 8.5px !important;
+				border-radius: 50% !important;
+				margin-top: 10px !important;
 			}
 
 			.webuzz-three-cards,
-			.webuzz-four-cards,
 			.webuzz-two-cards {
 				grid-template-columns: 1fr;
 			}
@@ -480,7 +685,26 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 				grid-template-columns: 1fr;
 			}
 
+			.webuzz-split > :first-child {
+				order: 2;
+			}
+
+			.webuzz-split-image-frame {
+				order: 1;
+				position: static;
+				align-self: auto;
+				justify-self: center;
+				width: min(100%, 368px);
+				max-width: 100%;
+				min-height: auto;
+			}
+
 			.webuzz-split-image {
+				position: static;
+				inset: auto;
+				display: block;
+				width: 100%;
+				height: auto;
 				max-width: 100% !important;
 				justify-self: center;
 			}
@@ -488,7 +712,6 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 
 		@media (max-width: 900px) {
 			.webuzz-three-cards,
-			.webuzz-four-cards,
 			.webuzz-two-cards {
 				grid-template-columns: 1fr;
 			}
@@ -506,7 +729,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			}
 
 			.webuzz-hero-title {
-				font-size: clamp(28px, 4.5vw, 42px);
+				font-size: clamp(23.8px, 3.825vw, 35.7px) !important;
 			}
 
 			.webuzz-hero-lede,

@@ -7,6 +7,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 <Base title={`${SITE_NAME} Platform`}>
 	<section class="platform-hero section-continue-next">
 		<div class="platform-hero-grid">
+			<div class="menu-eyebrow platform-hero-eyebrow">PLATFORM</div>
 			<h1 class="platform-hero-title">
 				Publish books to the web.<br />
 				Protect access.<br />
@@ -41,16 +42,19 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 	</section>
 
 	<SpecCardsSection class="section-continuation">
-		<h2>Four products. One connected platform.</h2>
+		<h2 class="platform-products-heading">Four products. One connected platform.</h2>
+		<p class="lede platform-products-lede" style="text-align: center !important;">ReaderPub combines publishing, reading, discovery, and discussion into a single ecosystem.</p>
 		<div class="card-grid platform-three-grid">
 			<div class="card">
 				<h3>WePub</h3>
 				<p>Publishing workflow for authors and organizations.</p>
 				<ul class="bullets">
-					<li>Create and manage titles</li>
-					<li>Upload Word or EPUB files</li>
-					<li>Prepare web-accessible editions</li>
-					<li>Generate production-ready EPUBs</li>
+					<li>Upload Word or EPUB file for a single web edition production</li>
+					<li>Upload the entire catalogue through API for bulk publishing</li>
+					<li>Preview web-accessible editions before publishing</li>
+					<li>Define pricing</li>
+					<li>Manage published titles</li>
+					<li>Generate optional EPUBs</li>
 				</ul>
 				<button class="button secondary" type="button" data-modal-open="#wepub-modal">
 					Explore WePub
@@ -64,6 +68,8 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 					<li>Use annotations and notes</li>
 					<li>Support native device text-to-speech</li>
 					<li>Reduce unauthorized copying with Theft Guard</li>
+					<li>Share the book or it's content</li>
+					<li>Discuss the book or an author with the community</li>
 				</ul>
 				<a class="button" href={BOOKS_URL} target="_blank" rel="noreferrer">
 					60K+ books in Catalog
@@ -73,10 +79,10 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 				<h3>BookTree</h3>
 				<p>Structure for books, editions, metadata, catalogs, and collections.</p>
 				<ul class="bullets">
-					<li>Organize books and chapters</li>
-					<li>Manage editions and revisions</li>
-					<li>Preserve and connect metadata</li>
-					<li>Support complex institutional libraries</li>
+					<li>Organize books, excerpts, and references across projects</li>
+					<li>Keep context while reading long and complex materials</li>
+					<li>Build personal knowledge maps from what you read</li>
+					<li>Consolidate your notes from multiple books while working on your own manuscript</li>
 				</ul>
 				<button class="button secondary" type="button" data-modal-open="#booktree-modal">
 					Explore BookTree
@@ -171,23 +177,23 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		</div>
 	</SpecCardsSection>
 
-	<SpecCardsSection class="section-continuation">
+	<SpecCardsSection class="section-continuation platform-capabilities-section">
 		<h2>ReaderPub Capabilities</h2>
 		<div class="card-grid platform-three-grid">
-			<div class="card"><h3>Browser-based reading</h3><p>Instant delivery through the web.</p></div>
-			<div class="card"><h3>EPUB output</h3><p>Generate standard EPUB when file delivery is needed.</p></div>
-			<div class="card"><h3>Protected web editions</h3><p>Web-native access instead of file handoff.</p></div>
-			<div class="card"><h3>Direct sales</h3><p>Sell books, courses, cohorts, and limited releases.</p></div>
-			<div class="card"><h3>Low commission</h3><p>Direct-to-reader commerce with a low 5% platform fee.</p></div>
-			<div class="card"><h3>Reader analytics</h3><p>Track engagement, feedback, and access patterns.</p></div>
-			<div class="card"><h3>Collaboration</h3><p>Annotations, notes, and shared context for teams.</p></div>
-			<div class="card"><h3>Institutional access</h3><p>User, group, course, department, and role controls.</p></div>
-			<div class="card"><h3>Catalog support</h3><p>Import and preserve structured metadata at scale.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">Browser-based reading</h3><p class="platform-capability-copy">Instant delivery through the web.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">EPUB output</h3><p class="platform-capability-copy">Generate standard EPUB when file delivery is needed.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">Protected web editions</h3><p class="platform-capability-copy">Web-native access instead of file handoff.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">Direct sales</h3><p class="platform-capability-copy">Sell books, courses, cohorts, and limited releases.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">Low commission</h3><p class="platform-capability-copy">Direct-to-reader commerce with a low 5% platform fee.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">Reader analytics</h3><p class="platform-capability-copy">Track engagement, feedback, and access patterns.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">Collaboration</h3><p class="platform-capability-copy">Annotations, notes, and shared context for teams.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">Institutional access</h3><p class="platform-capability-copy">User, group, course, department, and role controls.</p></div>
+			<div class="card platform-capability-card"><h3 class="platform-capability-title">Catalog support</h3><p class="platform-capability-copy">Import and preserve structured metadata at scale.</p></div>
 		</div>
 	</SpecCardsSection>
 
 	<section class="section platform-reading-section section-continuation">
-		<h2>Reading experience</h2>
+		<h2>Reading Experience</h2>
 		<div class="card-grid platform-reading-cards">
 			<div class="card"><h3>Annotations</h3><p>Highlights, notes, and preserved context.</p></div>
 			<div class="card"><h3>Shared context</h3><p>Discussion among readers, authors, and instructors.</p></div>
@@ -260,7 +266,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 	</section>
 
 	<section class="section platform-commerce-section section-continuation">
-		<h2>Commerce &amp; Analytics</h2>
+		<h2 class="platform-commerce-heading">Commerce &amp; Analytics</h2>
 		<div class="platform-commerce-split">
 			<img
 				class="image-block platform-commerce-image"
@@ -409,6 +415,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			display: grid;
 			grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
 			grid-template-areas:
+				"eyebrow image"
 				"title image"
 				"lede image"
 				"body image"
@@ -423,6 +430,10 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 		.platform-hero-grid > * {
 			margin: 0;
 			min-width: 0;
+		}
+
+		.platform-hero-eyebrow {
+			grid-area: eyebrow;
 		}
 
 		.platform-hero-title {
@@ -693,6 +704,16 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			grid-template-columns: repeat(5, minmax(0, 1fr));
 		}
 
+		.platform-capabilities-section .card {
+			text-align: center !important;
+			align-items: center !important;
+		}
+
+		.platform-capabilities-section .card :is(h3, p) {
+			text-align: center !important;
+			width: 100%;
+		}
+
 		@media (max-width: 1100px) {
 			.platform-five-grid {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -719,15 +740,15 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			}
 
 			.platform-product-lines strong {
-				display: block;
+				display: inline;
 			}
 
 			.platform-reading-section {
 				grid-template-columns: 1fr;
 				grid-template-areas:
 					"title"
-					"cards"
-					"image";
+					"image"
+					"cards";
 				justify-items: center;
 			}
 
@@ -819,6 +840,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			.platform-hero-grid {
 				grid-template-columns: 1fr;
 				grid-template-areas:
+					"eyebrow"
 					"title"
 					"lede"
 					"image"
@@ -829,7 +851,7 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			}
 
 			.platform-hero-title {
-				font-size: clamp(36px, 9vw, 56px);
+				font-size: clamp(30.6px, 7.65vw, 47.6px);
 				text-align: center;
 				white-space: normal;
 			}
@@ -853,6 +875,30 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 			.platform-three-grid,
 			.platform-five-grid {
 				grid-template-columns: 1fr;
+			}
+
+			.platform-three-grid .card > p,
+			.platform-product-lines,
+			.platform-product-lines p {
+				text-align: left !important;
+			}
+
+			.platform-capabilities-section .platform-three-grid .card > p,
+			.platform-capabilities-section .platform-three-grid .card > h3,
+			.platform-capabilities-section .platform-capability-title,
+			.platform-capabilities-section .platform-capability-copy {
+				text-align: center !important;
+			}
+
+			.platform-products-heading,
+			.platform-commerce-heading {
+				text-align: center !important;
+				width: 100%;
+			}
+
+			.platform-products-lede {
+				text-align: center !important;
+				width: 100%;
 			}
 		}
 
@@ -882,6 +928,18 @@ import SpecCardsSection from "../components/sections/SpecCardsSection.astro";
 				justify-content: flex-start !important;
 				margin-inline: 0 !important;
 			}
+		}
+
+		:global(.page .content .platform-capabilities-section .card.platform-capability-card) {
+			align-items: center !important;
+			text-align: center !important;
+		}
+
+		:global(.page .content .platform-capabilities-section .card.platform-capability-card > h3.platform-capability-title),
+		:global(.page .content .platform-capabilities-section .card.platform-capability-card > p.platform-capability-copy) {
+			align-self: center !important;
+			width: 100% !important;
+			text-align: center !important;
 		}
 	</style>
 </Base>
