@@ -1631,7 +1631,7 @@ section > :last-child {
 	}
 
 	.page .content .audience-nav-card p {
-		text-align: left;
+		text-align: center !important;
 	}
 
 	.page .content .audience-nav-card-header {
