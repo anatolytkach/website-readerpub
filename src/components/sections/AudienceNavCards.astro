@@ -47,7 +47,7 @@ const cards = [
 					<p class="audience-nav-card-headline">
 						{card.headlinePrefix}<span class="audience-nav-product">{card.product}</span>.
 					</p>
-					<p class="audience-nav-card-subheadline" style="text-align: center !important;">{card.subheadline}</p>
+					<p class="audience-nav-card-subheadline">{card.subheadline}</p>
 				</div>
 			</a>
 		))
@@ -69,6 +69,7 @@ const cards = [
 		flex-direction: column;
 		gap: var(--section-flow-gap);
 		height: 100%;
+		text-align: left;
 		text-decoration: none;
 		color: inherit;
 		cursor: pointer;
@@ -116,6 +117,7 @@ const cards = [
 		font-size: 18px;
 		line-height: 1.25;
 		color: var(--link);
+		text-align: left;
 	}
 
 	.audience-nav-product {
@@ -128,6 +130,7 @@ const cards = [
 		font-size: 15.3px;
 		line-height: 1.35;
 		color: var(--text);
+		text-align: left;
 	}
 
 	@media (max-width: 1100px) {
@@ -136,7 +139,7 @@ const cards = [
 		}
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 900px) and (orientation: portrait) {
 		.audience-nav-grid {
 			grid-template-columns: 1fr;
 		}

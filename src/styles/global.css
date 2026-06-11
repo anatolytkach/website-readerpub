@@ -1831,3 +1831,10 @@ section > :last-child {
 		text-align: left !important;
 	}
 }
+
+@media (orientation: portrait) and (max-width: 900px) {
+	.page .content a.card.audience-nav-card > .audience-nav-card-copy > p.audience-nav-card-headline,
+	.page .content a.card.audience-nav-card > .audience-nav-card-copy > p.audience-nav-card-subheadline {
+		text-align: center !important;
+	}
+}
